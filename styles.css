@@ -346,11 +346,14 @@ img {
 
 .about__headshot {
   width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  object-position: center top;
-  border: 1px solid rgba(183, 201, 195, 0.1);
-  border-radius: 8px;
+  max-width: 380px;
+  object-fit: contain;
+  object-position: center;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  margin: 0 auto;
+  display: block;
 }
 
 /* ===========================

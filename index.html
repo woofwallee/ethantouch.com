@@ -12,6 +12,7 @@
     gtag('js', new Date());
     gtag('config', 'G-3FWR3RM6KP');
   </script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -91,138 +92,34 @@
       <div class="work__grid">
         <div class="work__card fade-in" data-case-study="upstream" style="cursor:pointer;">
           <div class="work__card-image">
-            <svg viewBox="0 0 400 250" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <pattern id="gridDots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <circle cx="10" cy="10" r="0.5" fill="#B7C9C3" opacity="0.08"/>
-                </pattern>
-                <style>
-                  @keyframes nodePulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
-                  @keyframes flowDash { to { stroke-dashoffset: -20; } }
-                  .node-pulse { animation: nodePulse 3s ease-in-out infinite; }
-                  .node-pulse-d1 { animation-delay: 0.5s; }
-                  .node-pulse-d2 { animation-delay: 1s; }
-                  .node-pulse-d3 { animation-delay: 1.5s; }
-                  .node-pulse-d4 { animation-delay: 2s; }
-                  .flow-line { stroke-dasharray: 6 4; animation: flowDash 1.5s linear infinite; }
-                </style>
-              </defs>
-              <rect width="400" height="250" fill="url(#gridDots)"/>
-              <!-- Source to Hub -->
-              <path class="flow-line" d="M60 70 Q120 70 160 125" stroke="#B7C9C3" stroke-width="1" opacity="0.45"/>
-              <path class="flow-line" d="M60 125 L160 125" stroke="#B7C9C3" stroke-width="1" opacity="0.5"/>
-              <path class="flow-line" d="M60 180 Q120 180 160 125" stroke="#B7C9C3" stroke-width="1" opacity="0.45"/>
-              <!-- Hub to Outputs -->
-              <path class="flow-line" d="M220 125 Q260 100 300 90" stroke="#B7C9C3" stroke-width="1" opacity="0.45"/>
-              <path class="flow-line" d="M220 125 Q260 150 300 160" stroke="#B7C9C3" stroke-width="1" opacity="0.5"/>
-              <!-- Output to endpoint -->
-              <path class="flow-line" d="M330 90 L355 90" stroke="#FAE1C5" stroke-width="1" opacity="0.35"/>
-              <path class="flow-line" d="M330 160 L355 160" stroke="#FAE1C5" stroke-width="1" opacity="0.35"/>
-              <!-- Source nodes -->
-              <circle cx="60" cy="70" r="6" fill="#1a1a1a" stroke="#B7C9C3" stroke-width="1" opacity="0.7" class="node-pulse"/>
-              <circle cx="60" cy="125" r="6" fill="#1a1a1a" stroke="#B7C9C3" stroke-width="1" opacity="0.8" class="node-pulse node-pulse-d1"/>
-              <circle cx="60" cy="180" r="6" fill="#1a1a1a" stroke="#B7C9C3" stroke-width="1" opacity="0.7" class="node-pulse node-pulse-d2"/>
-              <!-- Source labels -->
-              <text x="60" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#B7C9C3" opacity="0.6" font-weight="500" letter-spacing="0.5">CONF</text>
-              <text x="60" y="105" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#B7C9C3" opacity="0.6" font-weight="500" letter-spacing="0.5">PAID</text>
-              <text x="60" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#B7C9C3" opacity="0.6" font-weight="500" letter-spacing="0.5">WEB</text>
-              <!-- Hub node -->
-              <rect x="160" y="105" width="60" height="40" rx="6" fill="#1a1a1a" stroke="#B7C9C3" stroke-width="1.5" opacity="0.85" class="node-pulse node-pulse-d1"/>
-              <text x="190" y="121" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#B7C9C3" opacity="0.8" font-weight="600" letter-spacing="1">LEAD</text>
-              <text x="190" y="132" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#B7C9C3" opacity="0.8" font-weight="600" letter-spacing="1">ROUTER</text>
-              <!-- SQL -->
-              <rect x="300" y="75" width="30" height="30" rx="4" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.7" class="node-pulse node-pulse-d3"/>
-              <text x="315" y="94" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#FAE1C5" opacity="0.8" font-weight="600">SQL</text>
-              <!-- MQL -->
-              <rect x="300" y="145" width="30" height="30" rx="4" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.7" class="node-pulse node-pulse-d4"/>
-              <text x="315" y="164" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#FAE1C5" opacity="0.8" font-weight="600">MQL</text>
-              <!-- Endpoints -->
-              <circle cx="355" cy="90" r="3" fill="#FAE1C5" opacity="0.5" class="node-pulse node-pulse-d4"/>
-              <circle cx="355" cy="160" r="3" fill="#FAE1C5" opacity="0.45" class="node-pulse node-pulse-d3"/>
-              <text x="355" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="5.5" fill="#FAE1C5" opacity="0.45" font-weight="500">DRIP</text>
-              <text x="355" y="148" text-anchor="middle" font-family="Inter, sans-serif" font-size="5.5" fill="#FAE1C5" opacity="0.45" font-weight="500">SF</text>
-            </svg>
+            <lottie-player src="images/lottie-upstream.json" background="transparent" speed="1" loop autoplay></lottie-player>
           </div>
           <div class="work__card-content">
             <span class="work__card-tag">Lead Routing &bull; Marketing Automation</span>
-            <h3>Upstream USA</h3>
-            <p>Built a multi-channel lead routing engine in HubSpot that replaced days of manual work with near-instant automated classification, synced to Salesforce for a 20+ person team.</p>
+            <h3>From Days to Instant.</h3>
+            <p>Built a multi-channel lead routing engine in HubSpot that replaced days of manual sorting with near-instant automated classification for a 20+ person team.</p>
           </div>
         </div>
 
         <div class="work__card fade-in" data-case-study="mediacause" style="cursor:pointer;">
           <div class="work__card-image">
-            <svg viewBox="0 0 400 250" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <pattern id="gridDots2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <circle cx="10" cy="10" r="0.5" fill="#B7C9C3" opacity="0.08"/>
-                </pattern>
-                <style>
-                  @keyframes auditScan { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.8; } }
-                  @keyframes connectorFlow { to { stroke-dashoffset: -16; } }
-                  .audit-pulse { animation: auditScan 2.5s ease-in-out infinite; }
-                  .audit-d1 { animation-delay: 0.3s; }
-                  .audit-d2 { animation-delay: 0.6s; }
-                  .audit-d3 { animation-delay: 0.9s; }
-                  .audit-d4 { animation-delay: 1.2s; }
-                  .audit-d5 { animation-delay: 1.5s; }
-                  .connector-line { stroke-dasharray: 4 4; animation: connectorFlow 2s linear infinite; }
-                </style>
-              </defs>
-              <rect width="400" height="250" fill="url(#gridDots2)"/>
-              <!-- Central hub: HubSpot -->
-              <circle cx="200" cy="125" r="24" fill="#1a1a1a" stroke="#B7C9C3" stroke-width="1.5" opacity="0.85" class="audit-pulse"/>
-              <text x="200" y="128" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#B7C9C3" opacity="0.9" font-weight="700" letter-spacing="0.5">HubSpot</text>
-              <!-- Orbiting platform nodes -->
-              <!-- Top: Squarespace -->
-              <path class="connector-line" d="M200 101 L200 60" stroke="#B7C9C3" stroke-width="1" opacity="0.4"/>
-              <rect x="175" y="35" width="50" height="22" rx="5" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.6" class="audit-pulse audit-d1"/>
-              <text x="200" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#FAE1C5" opacity="0.8" font-weight="600">SQSP</text>
-              <!-- Top-Right: Shopify -->
-              <path class="connector-line" d="M220 107 L280 72" stroke="#B7C9C3" stroke-width="1" opacity="0.4"/>
-              <rect x="265" y="50" width="50" height="22" rx="5" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.6" class="audit-pulse audit-d2"/>
-              <text x="290" y="65" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#FAE1C5" opacity="0.8" font-weight="600">SHOP</text>
-              <!-- Right: Zapier -->
-              <path class="connector-line" d="M224 125 L290 125" stroke="#B7C9C3" stroke-width="1" opacity="0.5"/>
-              <rect x="290" y="114" width="50" height="22" rx="5" fill="#1a1a1a" stroke="#B7C9C3" stroke-width="1" opacity="0.7" class="audit-pulse audit-d3"/>
-              <text x="315" y="129" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#B7C9C3" opacity="0.8" font-weight="600">ZAP</text>
-              <!-- Bottom-Right: Zoom -->
-              <path class="connector-line" d="M220 143 L280 178" stroke="#B7C9C3" stroke-width="1" opacity="0.4"/>
-              <rect x="265" y="170" width="50" height="22" rx="5" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.6" class="audit-pulse audit-d4"/>
-              <text x="290" y="185" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#FAE1C5" opacity="0.8" font-weight="600">ZOOM</text>
-              <!-- Bottom: Gmail -->
-              <path class="connector-line" d="M200 149 L200 190" stroke="#B7C9C3" stroke-width="1" opacity="0.4"/>
-              <rect x="175" y="192" width="50" height="22" rx="5" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.6" class="audit-pulse audit-d5"/>
-              <text x="200" y="207" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#FAE1C5" opacity="0.8" font-weight="600">GMAIL</text>
-              <!-- Bottom-Left: Hivebrite -->
-              <path class="connector-line" d="M180 143 L120 178" stroke="#B7C9C3" stroke-width="1" opacity="0.4"/>
-              <rect x="85" y="170" width="50" height="22" rx="5" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.6" class="audit-pulse audit-d1"/>
-              <text x="110" y="185" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#FAE1C5" opacity="0.8" font-weight="600">HIVE</text>
-              <!-- Left: Circles -->
-              <path class="connector-line" d="M176 125 L110 125" stroke="#B7C9C3" stroke-width="1" opacity="0.5"/>
-              <rect x="60" y="114" width="50" height="22" rx="5" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.6" class="audit-pulse audit-d2"/>
-              <text x="85" y="129" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#FAE1C5" opacity="0.8" font-weight="600">CIRCLES</text>
-              <!-- Top-Left: ReCharge -->
-              <path class="connector-line" d="M180 107 L120 72" stroke="#B7C9C3" stroke-width="1" opacity="0.4"/>
-              <rect x="78" y="50" width="56" height="22" rx="5" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.6" class="audit-pulse audit-d3"/>
-              <text x="106" y="65" text-anchor="middle" font-family="Inter, sans-serif" font-size="5.5" fill="#FAE1C5" opacity="0.8" font-weight="600">RECHARGE</text>
-            </svg>
+            <lottie-player src="images/lottie-mediacause.json" background="transparent" speed="1" loop autoplay style="transform: translateX(-10%);"></lottie-player>
           </div>
           <div class="work__card-content">
             <span class="work__card-tag">MarTech Strategy &bull; CRM</span>
-            <h3>Media Cause</h3>
+            <h3>Nine Platforms, One Hub.</h3>
             <p>Overhauled a nonprofit's tech infrastructure — implementing HubSpot as the central CRM, integrating nine platforms, and automating the full member lifecycle.</p>
           </div>
         </div>
 
         <div class="work__card fade-in">
           <div class="work__card-image">
-            <span>Project Thumbnail</span>
+            <lottie-player src="images/lottie-emailops.json" background="transparent" speed="1" loop autoplay style="transform: translateX(-8%);"></lottie-player>
           </div>
           <div class="work__card-content">
-            <span class="work__card-tag">Email Marketing</span>
-            <h3>Custom HTML Email System</h3>
-            <p>Designed and coded a library of responsive HTML/CSS email templates with dynamic personalization tokens and A/B testing frameworks.</p>
+            <span class="work__card-tag">Email Ops &bull; HubSpot Admin</span>
+            <h3>Ops That Scale.</h3>
+            <p>Built the email operations infrastructure inside HubSpot — reusable templates, standardized QA, and data hygiene workflows across 82K contacts.</p>
           </div>
         </div>
       </div>

@@ -1022,12 +1022,9 @@ body.modal-open {
   align-items: center;
 }
 
-.testimonial-card:nth-child(6n+1) { transform: translateY(20px); }
-.testimonial-card:nth-child(6n+2) { transform: translateY(-25px); }
-.testimonial-card:nth-child(6n+3) { transform: translateY(10px); }
-.testimonial-card:nth-child(6n+4) { transform: translateY(25px); }
-.testimonial-card:nth-child(6n+5) { transform: translateY(20px); }
-.testimonial-card:nth-child(6n+6) { transform: translateY(-10px); }
+/* Alternating stagger: odd (long cards) down, even (short cards) up */
+.testimonial-card:nth-child(odd)  { transform: translateY(20px); }
+.testimonial-card:nth-child(even) { transform: translateY(-20px); }
 
 .testimonial-card {
   flex-shrink: 0;

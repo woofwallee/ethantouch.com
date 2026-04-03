@@ -9,15 +9,26 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// Mobile menu toggle
+// Mobile menu toggle with backdrop
+const navBackdrop = document.createElement('div');
+navBackdrop.className = 'nav__backdrop';
+document.body.appendChild(navBackdrop);
+
 navToggle.addEventListener('click', () => {
   navLinks.classList.toggle('open');
+  navBackdrop.classList.toggle('open');
+});
+
+navBackdrop.addEventListener('click', () => {
+  navLinks.classList.remove('open');
+  navBackdrop.classList.remove('open');
 });
 
 // Close mobile menu on link click
 navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     navLinks.classList.remove('open');
+    navBackdrop.classList.remove('open');
   });
 });
 
@@ -72,8 +83,14 @@ const submitBtn = document.getElementById('submitBtn');
 // CASE STUDY MODALS
 // ===========================
 function initCaseStudyModals() {
-  // Open modal when clicking a work card with data-case-study
+  // Open modal when clicking or pressing Enter/Space on a work card
   document.querySelectorAll('[data-case-study]').forEach(card => {
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
     card.addEventListener('click', () => {
       const id = card.dataset.caseStudy;
       const modal = document.getElementById('csModal-' + id);
@@ -197,10 +214,17 @@ initCaseStudyModals();
 
   let autoScrollSpeed = 0.5;
   let isUserInteracting = false;
+  let isVisible = true;
   let resumeTimeout = null;
 
+  // Pause when off-screen
+  const visObserver = new IntersectionObserver((entries) => {
+    isVisible = entries[0].isIntersecting;
+  }, { threshold: 0 });
+  visObserver.observe(carousel);
+
   function autoScroll() {
-    if (!isUserInteracting) {
+    if (!isUserInteracting && isVisible) {
       carousel.scrollLeft += autoScrollSpeed;
       const halfWidth = track.scrollWidth / 2;
       if (carousel.scrollLeft >= halfWidth) {
@@ -265,6 +289,7 @@ initCaseStudyModals();
     if (carousel.scrollLeft >= halfWidth) carousel.scrollLeft -= halfWidth;
     else if (carousel.scrollLeft <= 0) carousel.scrollLeft += halfWidth;
   });
+
 })();
 
 // ===========================

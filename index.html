@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethan Touch — HubSpot Specialist</title>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FWR3RM6KP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3FWR3RM6KP');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=6">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#home" class="nav__logo">Ethan Touch</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Section 1: Hero -->
+  <section class="hero" id="home">
+    <div class="hero__content">
+      <p class="hero__label">HubSpot Specialist &bull; Marketing Operations</p>
+      <h1 class="hero__title">Building systems<br>that scale.</h1>
+      <p class="hero__subtitle">I architect, optimize, and manage HubSpot ecosystems so marketing teams can focus on what matters — growth.</p>
+      <div class="hero__cta">
+        <a href="#work" class="btn btn--primary">See My Work</a>
+        <a href="#contact" class="btn btn--outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Section 2: About -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__text fade-in">
+          <p class="section__label">About</p>
+          <h2 class="section__title">The person behind<br>the platform.</h2>
+          <p>With over seven years in marketing operations, I've built my career around one principle: technology should make teams better, not busier. I specialize in HubSpot — from initial implementation to full ecosystem management — helping organizations turn complex martech stacks into streamlined engines for growth.</p>
+          <p>My background in psychology gives me an edge most technologists don't have: I understand the people using the systems, not just the systems themselves. Whether it's designing workflows, cleaning data, or training teams, I bring empathy and precision in equal measure.</p>
+          <div class="about__stats">
+            <div class="stat">
+              <span class="stat__number">7+</span>
+              <span class="stat__label">Years in MarTech</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number">50+</span>
+              <span class="stat__label">SOPs Authored</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number">MA</span>
+              <span class="stat__label">Psychology</span>
+            </div>
+          </div>
+        </div>
+        <div class="about__image fade-in">
+          <img src="images/headshot.JPG" alt="Ethan Touch headshot" class="about__headshot">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Work -->
+  <section class="section work" id="work">
+    <div class="container">
+      <p class="section__label">Work</p>
+      <h2 class="section__title">Selected projects.</h2>
+      <p class="section__intro">A look at the systems I've built, the audits I've led, and the platforms I've transformed.</p>
+
+      <div class="work__grid">
+        <div class="work__card fade-in" data-case-study="upstream" style="cursor:pointer;">
+          <div class="work__card-image">
+            <svg viewBox="0 0 400 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="gridDots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <circle cx="10" cy="10" r="0.5" fill="#B7C9C3" opacity="0.08"/>
+                </pattern>
+                <style>
+                  @keyframes nodePulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+                  @keyframes flowDash { to { stroke-dashoffset: -20; } }
+                  .node-pulse { animation: nodePulse 3s ease-in-out infinite; }
+                  .node-pulse-d1 { animation-delay: 0.5s; }
+                  .node-pulse-d2 { animation-delay: 1s; }
+                  .node-pulse-d3 { animation-delay: 1.5s; }
+                  .node-pulse-d4 { animation-delay: 2s; }
+                  .flow-line { stroke-dasharray: 6 4; animation: flowDash 1.5s linear infinite; }
+                </style>
+              </defs>
+              <rect width="400" height="250" fill="url(#gridDots)"/>
+              <!-- Source to Hub -->
+              <path class="flow-line" d="M60 70 Q120 70 160 125" stroke="#B7C9C3" stroke-width="1" opacity="0.45"/>
+              <path class="flow-line" d="M60 125 L160 125" stroke="#B7C9C3" stroke-width="1" opacity="0.5"/>
+              <path class="flow-line" d="M60 180 Q120 180 160 125" stroke="#B7C9C3" stroke-width="1" opacity="0.45"/>
+              <!-- Hub to Outputs -->
+              <path class="flow-line" d="M220 125 Q260 100 300 90" stroke="#B7C9C3" stroke-width="1" opacity="0.45"/>
+              <path class="flow-line" d="M220 125 Q260 150 300 160" stroke="#B7C9C3" stroke-width="1" opacity="0.5"/>
+              <!-- Output to endpoint -->
+              <path class="flow-line" d="M330 90 L355 90" stroke="#FAE1C5" stroke-width="1" opacity="0.35"/>
+              <path class="flow-line" d="M330 160 L355 160" stroke="#FAE1C5" stroke-width="1" opacity="0.35"/>
+              <!-- Source nodes -->
+              <circle cx="60" cy="70" r="6" fill="#1a1a1a" stroke="#B7C9C3" stroke-width="1" opacity="0.7" class="node-pulse"/>
+              <circle cx="60" cy="125" r="6" fill="#1a1a1a" stroke="#B7C9C3" stroke-width="1" opacity="0.8" class="node-pulse node-pulse-d1"/>
+              <circle cx="60" cy="180" r="6" fill="#1a1a1a" stroke="#B7C9C3" stroke-width="1" opacity="0.7" class="node-pulse node-pulse-d2"/>
+              <!-- Source labels -->
+              <text x="60" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#B7C9C3" opacity="0.6" font-weight="500" letter-spacing="0.5">CONF</text>
+              <text x="60" y="105" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#B7C9C3" opacity="0.6" font-weight="500" letter-spacing="0.5">PAID</text>
+              <text x="60" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#B7C9C3" opacity="0.6" font-weight="500" letter-spacing="0.5">WEB</text>
+              <!-- Hub node -->
+              <rect x="160" y="105" width="60" height="40" rx="6" fill="#1a1a1a" stroke="#B7C9C3" stroke-width="1.5" opacity="0.85" class="node-pulse node-pulse-d1"/>
+              <text x="190" y="121" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#B7C9C3" opacity="0.8" font-weight="600" letter-spacing="1">LEAD</text>
+              <text x="190" y="132" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#B7C9C3" opacity="0.8" font-weight="600" letter-spacing="1">ROUTER</text>
+              <!-- SQL -->
+              <rect x="300" y="75" width="30" height="30" rx="4" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.7" class="node-pulse node-pulse-d3"/>
+              <text x="315" y="94" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#FAE1C5" opacity="0.8" font-weight="600">SQL</text>
+              <!-- MQL -->
+              <rect x="300" y="145" width="30" height="30" rx="4" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.7" class="node-pulse node-pulse-d4"/>
+              <text x="315" y="164" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#FAE1C5" opacity="0.8" font-weight="600">MQL</text>
+              <!-- Endpoints -->
+              <circle cx="355" cy="90" r="3" fill="#FAE1C5" opacity="0.5" class="node-pulse node-pulse-d4"/>
+              <circle cx="355" cy="160" r="3" fill="#FAE1C5" opacity="0.45" class="node-pulse node-pulse-d3"/>
+              <text x="355" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="5.5" fill="#FAE1C5" opacity="0.45" font-weight="500">DRIP</text>
+              <text x="355" y="148" text-anchor="middle" font-family="Inter, sans-serif" font-size="5.5" fill="#FAE1C5" opacity="0.45" font-weight="500">SF</text>
+            </svg>
+          </div>
+          <div class="work__card-content">
+            <span class="work__card-tag">Lead Routing &bull; Marketing Automation</span>
+            <h3>Upstream USA</h3>
+            <p>Built a multi-channel lead routing engine in HubSpot that replaced days of manual work with near-instant automated classification, synced to Salesforce for a 20+ person team.</p>
+          </div>
+        </div>
+
+        <div class="work__card fade-in" data-case-study="mediacause" style="cursor:pointer;">
+          <div class="work__card-image">
+            <svg viewBox="0 0 400 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="gridDots2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <circle cx="10" cy="10" r="0.5" fill="#B7C9C3" opacity="0.08"/>
+                </pattern>
+                <style>
+                  @keyframes auditScan { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.8; } }
+                  @keyframes connectorFlow { to { stroke-dashoffset: -16; } }
+                  .audit-pulse { animation: auditScan 2.5s ease-in-out infinite; }
+                  .audit-d1 { animation-delay: 0.3s; }
+                  .audit-d2 { animation-delay: 0.6s; }
+                  .audit-d3 { animation-delay: 0.9s; }
+                  .audit-d4 { animation-delay: 1.2s; }
+                  .audit-d5 { animation-delay: 1.5s; }
+                  .connector-line { stroke-dasharray: 4 4; animation: connectorFlow 2s linear infinite; }
+                </style>
+              </defs>
+              <rect width="400" height="250" fill="url(#gridDots2)"/>
+              <!-- Central hub: HubSpot -->
+              <circle cx="200" cy="125" r="24" fill="#1a1a1a" stroke="#B7C9C3" stroke-width="1.5" opacity="0.85" class="audit-pulse"/>
+              <text x="200" y="128" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#B7C9C3" opacity="0.9" font-weight="700" letter-spacing="0.5">HubSpot</text>
+              <!-- Orbiting platform nodes -->
+              <!-- Top: Squarespace -->
+              <path class="connector-line" d="M200 101 L200 60" stroke="#B7C9C3" stroke-width="1" opacity="0.4"/>
+              <rect x="175" y="35" width="50" height="22" rx="5" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.6" class="audit-pulse audit-d1"/>
+              <text x="200" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#FAE1C5" opacity="0.8" font-weight="600">SQSP</text>
+              <!-- Top-Right: Shopify -->
+              <path class="connector-line" d="M220 107 L280 72" stroke="#B7C9C3" stroke-width="1" opacity="0.4"/>
+              <rect x="265" y="50" width="50" height="22" rx="5" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.6" class="audit-pulse audit-d2"/>
+              <text x="290" y="65" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#FAE1C5" opacity="0.8" font-weight="600">SHOP</text>
+              <!-- Right: Zapier -->
+              <path class="connector-line" d="M224 125 L290 125" stroke="#B7C9C3" stroke-width="1" opacity="0.5"/>
+              <rect x="290" y="114" width="50" height="22" rx="5" fill="#1a1a1a" stroke="#B7C9C3" stroke-width="1" opacity="0.7" class="audit-pulse audit-d3"/>
+              <text x="315" y="129" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#B7C9C3" opacity="0.8" font-weight="600">ZAP</text>
+              <!-- Bottom-Right: Zoom -->
+              <path class="connector-line" d="M220 143 L280 178" stroke="#B7C9C3" stroke-width="1" opacity="0.4"/>
+              <rect x="265" y="170" width="50" height="22" rx="5" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.6" class="audit-pulse audit-d4"/>
+              <text x="290" y="185" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#FAE1C5" opacity="0.8" font-weight="600">ZOOM</text>
+              <!-- Bottom: Gmail -->
+              <path class="connector-line" d="M200 149 L200 190" stroke="#B7C9C3" stroke-width="1" opacity="0.4"/>
+              <rect x="175" y="192" width="50" height="22" rx="5" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.6" class="audit-pulse audit-d5"/>
+              <text x="200" y="207" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#FAE1C5" opacity="0.8" font-weight="600">GMAIL</text>
+              <!-- Bottom-Left: Hivebrite -->
+              <path class="connector-line" d="M180 143 L120 178" stroke="#B7C9C3" stroke-width="1" opacity="0.4"/>
+              <rect x="85" y="170" width="50" height="22" rx="5" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.6" class="audit-pulse audit-d1"/>
+              <text x="110" y="185" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#FAE1C5" opacity="0.8" font-weight="600">HIVE</text>
+              <!-- Left: Circles -->
+              <path class="connector-line" d="M176 125 L110 125" stroke="#B7C9C3" stroke-width="1" opacity="0.5"/>
+              <rect x="60" y="114" width="50" height="22" rx="5" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.6" class="audit-pulse audit-d2"/>
+              <text x="85" y="129" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#FAE1C5" opacity="0.8" font-weight="600">CIRCLES</text>
+              <!-- Top-Left: ReCharge -->
+              <path class="connector-line" d="M180 107 L120 72" stroke="#B7C9C3" stroke-width="1" opacity="0.4"/>
+              <rect x="78" y="50" width="56" height="22" rx="5" fill="#1a1a1a" stroke="#FAE1C5" stroke-width="1" opacity="0.6" class="audit-pulse audit-d3"/>
+              <text x="106" y="65" text-anchor="middle" font-family="Inter, sans-serif" font-size="5.5" fill="#FAE1C5" opacity="0.8" font-weight="600">RECHARGE</text>
+            </svg>
+          </div>
+          <div class="work__card-content">
+            <span class="work__card-tag">MarTech Strategy &bull; CRM</span>
+            <h3>Media Cause</h3>
+            <p>Overhauled a nonprofit's tech infrastructure — implementing HubSpot as the central CRM, integrating nine platforms, and automating the full member lifecycle.</p>
+          </div>
+        </div>
+
+        <div class="work__card fade-in">
+          <div class="work__card-image">
+            <span>Project Thumbnail</span>
+          </div>
+          <div class="work__card-content">
+            <span class="work__card-tag">Email Marketing</span>
+            <h3>Custom HTML Email System</h3>
+            <p>Designed and coded a library of responsive HTML/CSS email templates with dynamic personalization tokens and A/B testing frameworks.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 4: Testimonials -->
+  <section class="section testimonials">
+    <div class="container">
+      <p class="section__label">Testimonials</p>
+      <h2 class="section__title">Words from colleagues.</h2>
+    </div>
+
+    <div class="testimonials-wrapper">
+    <div class="testimonials-carousel" id="testimonialCarousel">
+      <div class="testimonials-track" id="testimonialTrack">
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"I enjoyed working with Ethan in the same department at Upstream USA. Ethan really knows his technology, like HubSpot, but he's a wiz at quickly learning any platform. He's sharp in analysis, workflow design, and problem solving. Ethan's creative and possesses a fun wit. He's able to converse on all levels to discern business needs, ensure understanding, and share solutions. Any team will be fortunate to benefit from Ethan's many talents."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"><img src="images/kathy.jpeg" alt="Kathy Pifferetti"></div>
+            <div>
+              <span class="testimonial-card__name">Kathy Pifferetti</span>
+              <span class="testimonial-card__role">Senior Communications Specialist, Upstream USA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"I worked with Ethan at Upstream USA, where he served as a vital partner in the administration of the HubSpot email marketing platform. I was consistently impressed by Ethan's technical curiosity and eagerness to learn — he is a quick study who actively asks questions to understand the 'why' behind a project. During his time at Upstream, he built complex workflows to automate lead sorting, ensuring new marketing leads were categorized correctly and funneled into the right nurture campaigns. He was also proactive in improving our email list hygiene and streamlining the design of our newsletter templates to better serve our healthcare recruitment goals. I am sure that Ethan would be an asset to any marketing team."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"><img src="images/sara.jpeg" alt="Sara Terpeny"></div>
+            <div>
+              <span class="testimonial-card__name">Sara Terpeny</span>
+              <span class="testimonial-card__role">Director of Marketing Operations, Upstream USA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"Ethan brings a unique perspective to any team. I first met Ethan as a student in the CNP program at The University of Memphis. He was a standout for his bright energy, bold curiosity and clever problem solving. We connected again when I tracked him down and recruited him to move to Kansas City and join my team at the Nonprofit Leadership Alliance. Ethan grew tremendously in this role, finding his own POV on social media, communications and all things technology. I highly recommend Ethan for roles that allow him to make a project his own and drive it to completion."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"><img src="images/susan.jpeg" alt="Susan Tomlinson Schmidt"></div>
+            <div>
+              <span class="testimonial-card__name">Susan Tomlinson Schmidt</span>
+              <span class="testimonial-card__role">President, Nonprofit Leadership Alliance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"Ethan is an out-of-the-box thinker who knows how to build strong brands. His tech and people skills are exceptional!"</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"><img src="images/christa.jpeg" alt="Christa Beall Diefenbach"></div>
+            <div>
+              <span class="testimonial-card__name">Christa Beall Diefenbach</span>
+              <span class="testimonial-card__role">Vice President of Mission Engagement, Nonprofit Leadership Alliance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"As an employee of a small nonprofit without many resources, Ethan has done a great job helping create digital fliers and improving our organization's efficiency and professionalism."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"><img src="images/amy.jpeg" alt="Amy Kass"></div>
+            <div>
+              <span class="testimonial-card__name">Amy Kass</span>
+              <span class="testimonial-card__role">Volunteer Coordinator, Court Watch Montgomery</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"HIGHLY recommend Ethan — he does terrific work!"</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"><img src="images/leslie.jpeg" alt="Leslie Hawes"></div>
+            <div>
+              <span class="testimonial-card__name">Leslie Hawes</span>
+              <span class="testimonial-card__role">Executive Director, Court Watch Montgomery</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicate set for seamless loop -->
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"I enjoyed working with Ethan in the same department at Upstream USA. Ethan really knows his technology, like HubSpot, but he's a wiz at quickly learning any platform. He's sharp in analysis, workflow design, and problem solving. Ethan's creative and possesses a fun wit. He's able to converse on all levels to discern business needs, ensure understanding, and share solutions. Any team will be fortunate to benefit from Ethan's many talents."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"><img src="images/kathy.jpeg" alt="Kathy Pifferetti"></div>
+            <div>
+              <span class="testimonial-card__name">Kathy Pifferetti</span>
+              <span class="testimonial-card__role">Senior Communications Specialist, Upstream USA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"I worked with Ethan at Upstream USA, where he served as a vital partner in the administration of the HubSpot email marketing platform. I was consistently impressed by Ethan's technical curiosity and eagerness to learn — he is a quick study who actively asks questions to understand the 'why' behind a project. During his time at Upstream, he built complex workflows to automate lead sorting, ensuring new marketing leads were categorized correctly and funneled into the right nurture campaigns. He was also proactive in improving our email list hygiene and streamlining the design of our newsletter templates to better serve our healthcare recruitment goals. I am sure that Ethan would be an asset to any marketing team."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"><img src="images/sara.jpeg" alt="Sara Terpeny"></div>
+            <div>
+              <span class="testimonial-card__name">Sara Terpeny</span>
+              <span class="testimonial-card__role">Director of Marketing Operations, Upstream USA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"Ethan brings a unique perspective to any team. I first met Ethan as a student in the CNP program at The University of Memphis. He was a standout for his bright energy, bold curiosity and clever problem solving. We connected again when I tracked him down and recruited him to move to Kansas City and join my team at the Nonprofit Leadership Alliance. Ethan grew tremendously in this role, finding his own POV on social media, communications and all things technology. I highly recommend Ethan for roles that allow him to make a project his own and drive it to completion."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"><img src="images/susan.jpeg" alt="Susan Tomlinson Schmidt"></div>
+            <div>
+              <span class="testimonial-card__name">Susan Tomlinson Schmidt</span>
+              <span class="testimonial-card__role">President, Nonprofit Leadership Alliance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"Ethan is an out-of-the-box thinker who knows how to build strong brands. His tech and people skills are exceptional!"</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"><img src="images/christa.jpeg" alt="Christa Beall Diefenbach"></div>
+            <div>
+              <span class="testimonial-card__name">Christa Beall Diefenbach</span>
+              <span class="testimonial-card__role">Vice President of Mission Engagement, Nonprofit Leadership Alliance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"As an employee of a small nonprofit without many resources, Ethan has done a great job helping create digital fliers and improving our organization's efficiency and professionalism."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"><img src="images/amy.jpeg" alt="Amy Kass"></div>
+            <div>
+              <span class="testimonial-card__name">Amy Kass</span>
+              <span class="testimonial-card__role">Volunteer Coordinator, Court Watch Montgomery</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-card__quote">"HIGHLY recommend Ethan — he does terrific work!"</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"><img src="images/leslie.jpeg" alt="Leslie Hawes"></div>
+            <div>
+              <span class="testimonial-card__name">Leslie Hawes</span>
+              <span class="testimonial-card__role">Executive Director, Court Watch Montgomery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Contact -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact__grid">
+        <div class="contact__info fade-in">
+          <p class="section__label">Contact</p>
+          <h2 class="section__title">Let's connect.</h2>
+          <p>Whether you're looking for a HubSpot specialist, want to collaborate on a project, or just want to say hello — I'd love to hear from you.</p>
+          <div class="contact__links">
+            <a href="https://www.linkedin.com/in/ethantouch" target="_blank" class="contact__social">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a href="mailto:hello@ethantouch.com" class="contact__social">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              hello@ethantouch.com
+            </a>
+          </div>
+        </div>
+        <div class="contact__form-wrapper fade-in">
+          <form class="contact__form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact">
+            <p class="hidden" style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+            <div class="form__group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form__group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form__group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="How can I help?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full" id="submitBtn">Send Message</button>
+          </form>
+          <div class="contact__success" id="formSuccess" style="display:none;">
+            <h3>Message sent!</h3>
+            <p>Thanks for reaching out. I'll get back to you soon.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; 2026 Ethan Touch. All rights reserved.</p>
+      <a href="https://www.linkedin.com/in/ethantouch" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+  <!-- Case Study Modal: Upstream USA -->
+  <div class="cs-modal" id="csModal-upstream">
+    <div class="cs-modal__overlay"></div>
+    <button class="cs-modal__close" aria-label="Close case study">&times;</button>
+    <div class="cs-modal__content">
+      <div class="case-study">
+
+        <!-- HEADER -->
+        <div class="cs-header">
+          <div class="cs-header__top">
+            <span class="cs-header__label">Case Study</span>
+            <span class="cs-header__role">Email Marketing Specialist</span>
+          </div>
+          <h2 class="cs-header__title">Upstream USA</h2>
+          <p class="cs-header__subtitle">Built a multi-channel lead routing engine in HubSpot that replaced days of manual work with near-instant automated classification, synced to Salesforce for a 20+ person team.</p>
+        </div>
+
+        <!-- SKILL TAGS -->
+        <div class="cs-tags" id="csTags-upstream">
+          <span class="cs-tag cs-tag--highlight" data-tag="automation">Marketing Automation Architecture</span>
+          <span class="cs-tag cs-tag--highlight" data-tag="integration">Cross-Platform Integration</span>
+          <span class="cs-tag cs-tag--highlight" data-tag="optimization">Process Optimization</span>
+          <span class="cs-tag" data-tag="multichannel">Multi-Channel Lead Management</span>
+          <span class="cs-tag" data-tag="email">Email Lifecycle Management</span>
+          <span class="cs-tag" data-tag="crm">CRM Data Architecture</span>
+          <span class="cs-tag" data-tag="enablement">Cross-Functional Enablement</span>
+        </div>
+
+        <!-- FILTER HINT -->
+        <div class="cs-filter-hint" id="filterHint-upstream">Click a tag to highlight related work — click any highlighted area to reset</div>
+
+        <!-- METRICS -->
+        <div class="cs-metrics">
+          <div class="cs-metric">
+            <div class="cs-metric__number">~99%</div>
+            <div class="cs-metric__label">Manual Work Reduced</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric__number">50+</div>
+            <div class="cs-metric__label">Workflows Built</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric__number">60+</div>
+            <div class="cs-metric__label">Custom Properties</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric__number">&lt;24h</div>
+            <div class="cs-metric__label">Lead Response Time</div>
+          </div>
+        </div>
+
+        <!-- BODY -->
+        <div class="cs-body" id="csBody-upstream">
+
+          <!-- CHALLENGE -->
+          <div class="cs-section">
+            <div class="cs-section__label">Challenge</div>
+            <p data-tags="multichannel">Upstream USA provides free contraceptive care services, training, and resources to hospitals and clinics across the country. The organization generated leads from multiple channels — 5–10 healthcare conferences per year (each producing 100 to 1,000+ contacts), quarterly webinars, paid media campaigns, form submissions, and white paper downloads. Across all channels, the team was processing thousands of leads annually.</p>
+            <p data-tags="optimization">But there was no system to sort them. When a lead list came in, a team member had to manually vet hundreds, sometimes thousands of contacts on a spreadsheet — cross-referencing whether they were new leads, existing partners, or disqualified contacts. The process took hours to days, creating friction and delays in outreach. By the time leads heard from Upstream, the momentum from the initial interaction had faded, and conversion numbers suffered.</p>
+            <p data-tags="integration">HubSpot had just been launched, but it wasn't yet connected to the Salesforce instance that the 10+ person recruitment team relied on daily.</p>
+          </div>
+
+          <!-- APPROACH -->
+          <div class="cs-section">
+            <div class="cs-section__label">Approach</div>
+            <p data-tags="automation multichannel crm">Built five dedicated lead routing workflows in HubSpot — one for each inbound channel: conferences, webinars, paid media, form submissions, and content downloads. Each workflow followed the same core logic but tagged and sorted leads based on how they first engaged with Upstream, then routed them into channel-specific drip campaigns with messaging tailored to that interaction. Created 60+ custom HubSpot properties mapped to Salesforce fields to ensure accurate data sync across both platforms.</p>
+            <p data-tags="crm automation">Each workflow automatically classified contacts as MQL or SQL based on defined criteria, assigned lifecycle stages, tagged the source event or campaign, and scored leads accordingly. Custom properties auto-populated the source of each contact's interaction, adding personalization to outreach and reminding leads how they first connected with Upstream.</p>
+            <p data-tags="automation crm">When a new lead came in from a company that already had an existing relationship with Upstream, the workflow detected the match and updated the contact record accordingly — tagging them as an existing prospect or partner rather than a new lead. This prevented overlapping communications and ensured no one received messaging that contradicted what their colleague had already been told.</p>
+            <p data-tags="integration email">All MQL and SQL activity synced automatically to Salesforce, where the recruitment team managed their pipeline. SQLs entered automated drip campaigns — 3 to 6 emails per series — introducing Upstream's services and resources with a Calendly CTA for scheduling a meeting. MQLs were routed to Salesforce as a separate lead set for manual discovery by the recruitment team. Appointment bookings through Calendly triggered internal notifications and logged all details to the contact record — replacing the old process of manually forwarding emails asking for follow-ups.</p>
+            <p data-tags="email">Designed a standardized email template system — branding, graphics, and layout — using Beefree for email design, then deployed through HubSpot. Managed the full email lifecycle: subject line strategy, list targeting, suppression lists, A/B testing on send times and subject lines, and post-send reporting. Each department's drip campaign was built, then handed off to a trained point person to monitor, with escalation back for updates, fixes, or improvements.</p>
+            <p data-tags="optimization enablement">Partnered directly with the team member responsible for collecting lead lists to define exactly what data was required before import. Built a shared email workflow so all stakeholders had visibility into incoming lists, and established a clear handoff: the list was formatted, sent to a shared inbox for review, then forwarded for HubSpot import — eliminating the confusion of who had the list and who to contact when issues came up.</p>
+            <p data-tags="enablement">Built a custom spreadsheet with formulas that calculated open rates, engagement, bounce rates, readability, unsubscribes, and list size against historical data — because the HubSpot subscription tier didn't support the reporting depth the team needed. This became the go-to resource for team meetings and end-of-year reporting. An annual email performance report generated attention from senior leadership, including the CEO.</p>
+          </div>
+
+          <!-- RESULTS -->
+          <div class="cs-section">
+            <div class="cs-section__label">Results</div>
+            <div class="cs-results-grid">
+              <div class="cs-result" data-tags="optimization">
+                <div class="cs-result__icon"></div>
+                <div class="cs-result__text"><strong>99% reduction</strong> in manual lead vetting — hours/days to near-instant sorting</div>
+              </div>
+              <div class="cs-result" data-tags="optimization email">
+                <div class="cs-result__icon"></div>
+                <div class="cs-result__text"><strong>24-hour lead response</strong> — replacing significant delays in first outreach</div>
+              </div>
+              <div class="cs-result" data-tags="automation">
+                <div class="cs-result__icon"></div>
+                <div class="cs-result__text"><strong>50+ workflows</strong> built across lead routing, drip campaigns, data hygiene, and operations</div>
+              </div>
+              <div class="cs-result" data-tags="crm integration">
+                <div class="cs-result__icon"></div>
+                <div class="cs-result__text"><strong>Full pipeline visibility</strong> across MQL/SQL stages for all teams</div>
+              </div>
+              <div class="cs-result" data-tags="integration automation">
+                <div class="cs-result__icon"></div>
+                <div class="cs-result__text"><strong>Automated scheduling</strong> replaced manual email forwarding via Calendly integration</div>
+              </div>
+              <div class="cs-result" data-tags="email multichannel">
+                <div class="cs-result__icon"></div>
+                <div class="cs-result__text"><strong>Improved open rates</strong> through timely, channel-specific messaging</div>
+              </div>
+              <div class="cs-result" data-tags="multichannel crm">
+                <div class="cs-result__icon"></div>
+                <div class="cs-result__text"><strong>Better segmentation</strong> — automated tagging by source, lifecycle, and company</div>
+              </div>
+              <div class="cs-result" data-tags="enablement integration">
+                <div class="cs-result__icon"></div>
+                <div class="cs-result__text"><strong>Cross-team alignment</strong> — all activity visible across marketing, recruitment, and ops</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- TESTIMONIAL -->
+        <div class="cs-testimonial">
+          <blockquote class="cs-testimonial__quote">"I worked with Ethan at Upstream USA, where he served as a vital partner in the administration of the HubSpot email marketing platform. I was consistently impressed by Ethan's technical curiosity and eagerness to learn — he is a quick study who actively asks questions to understand the 'why' behind a project. During his time at Upstream, he built complex workflows to automate lead sorting, ensuring new marketing leads were categorized correctly and funneled into the right nurture campaigns. He was also proactive in improving our email list hygiene and streamlining the design of our newsletter templates to better serve our healthcare recruitment goals. I am sure that Ethan would be an asset to any marketing team."</blockquote>
+          <div class="cs-testimonial__author">
+            <div class="cs-testimonial__avatar"><img src="images/sara.jpeg" alt="Sara Terpeny"></div>
+            <div class="cs-testimonial__info">
+              <span class="cs-testimonial__name">Sara Terpeny</span>
+              <span class="cs-testimonial__role">Director of Marketing Operations — Upstream USA</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOOLS BAR -->
+        <div class="cs-tools">
+          <span class="cs-tools__label">Tools</span>
+          <div class="cs-tools__list">
+            <span class="cs-tools__item">HubSpot</span>
+            <span class="cs-tools__item">Salesforce</span>
+            <span class="cs-tools__item">Calendly</span>
+            <span class="cs-tools__item">Beefree</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Study Modal: Media Cause -->
+  <div class="cs-modal" id="csModal-mediacause">
+    <div class="cs-modal__overlay"></div>
+    <button class="cs-modal__close" aria-label="Close case study">&times;</button>
+    <div class="cs-modal__content">
+      <div class="case-study">
+
+        <!-- HEADER -->
+        <div class="cs-header">
+          <div class="cs-header__top">
+            <span class="cs-header__label">Case Study</span>
+            <span class="cs-header__role">Senior MarTech Strategist</span>
+          </div>
+          <h2 class="cs-header__title">Media Cause</h2>
+          <p class="cs-header__subtitle">Overhauled the technology infrastructure for a nonprofit educator well-being program — implementing HubSpot as the central CRM, integrating nine platforms, and building automated workflows that replaced manual operations across the entire member lifecycle.</p>
+        </div>
+
+        <!-- SKILL TAGS -->
+        <div class="cs-tags" id="csTags-mediacause">
+          <span class="cs-tag cs-tag--highlight" data-tag="strategy">MarTech Strategy & Architecture</span>
+          <span class="cs-tag cs-tag--highlight" data-tag="integration">Cross-Platform Integration</span>
+          <span class="cs-tag cs-tag--highlight" data-tag="crm">CRM Implementation</span>
+          <span class="cs-tag" data-tag="automation">Workflow Automation</span>
+          <span class="cs-tag" data-tag="email">Email Lifecycle Management</span>
+          <span class="cs-tag" data-tag="ecommerce">eCommerce Platform Migration</span>
+          <span class="cs-tag" data-tag="enablement">Training & Enablement</span>
+        </div>
+
+        <!-- FILTER HINT -->
+        <div class="cs-filter-hint" id="filterHint-mediacause">Click a tag to highlight related work — click any highlighted area to reset</div>
+
+        <!-- METRICS -->
+        <div class="cs-metrics">
+          <div class="cs-metric">
+            <div class="cs-metric__number">400+</div>
+            <div class="cs-metric__label">Members Processed</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric__number">9</div>
+            <div class="cs-metric__label">Platforms Integrated</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric__number">65%</div>
+            <div class="cs-metric__label">Email Open Rate</div>
+          </div>
+          <div class="cs-metric">
+            <div class="cs-metric__number">3</div>
+            <div class="cs-metric__label">Core Workflows</div>
+          </div>
+        </div>
+
+        <!-- BODY -->
+        <div class="cs-body" id="csBody-mediacause">
+
+          <!-- CHALLENGE -->
+          <div class="cs-section">
+            <div class="cs-section__label">Challenge</div>
+            <p data-tags="strategy crm">Millennium Forum — a nonprofit dedicated to educator well-being — relied on a fragmented collection of disconnected tools to manage its membership program. No central database existed. Every time a new member enrolled, staff had to manually track registration, assign meeting groups, send onboarding emails, and coordinate across spreadsheets and disconnected platforms.</p>
+            <p data-tags="integration">The lack of integration between platforms resulted in significant manual work at every stage — from signup to scheduling to member communication. The system couldn't scale, and with ambitious membership growth goals, the manual approach was becoming unsustainable.</p>
+          </div>
+
+          <!-- APPROACH -->
+          <div class="cs-section">
+            <div class="cs-section__label">Approach</div>
+            <p data-tags="strategy">Started with a full tech stack audit — interviewing staff, mapping existing workflows, and evaluating every platform in the ecosystem. Identified HubSpot as the right foundation: a central CRM that could unify member data and power automation across the organization.</p>
+            <p data-tags="integration crm">Connected nine platforms into a single integrated stack: Squarespace (website), Hivebrite (member community), Circles (online meetings), Zoom (webinars), Google Sheets (existing data), Gmail (staff communication), Shopify and ReCharge Payments (eCommerce/subscriptions), and SurveyMonkey (feedback) — all linked through native integrations and Zapier.</p>
+
+            <!-- Tech stack image -->
+            <div class="cs-image">
+              <img src="images/11e7bbc5-1eec-4576-8b03-c1d64d8a8c2a.jpg" alt="Integrated tech stack: Hivebrite, Squarespace, Shopify, ReCharge, HubSpot, Zoom, SurveyMonkey, Zapier, Circles">
+            </div>
+
+            <p data-tags="crm">Migrated all existing member data from legacy systems and spreadsheets into HubSpot, restructuring the contact model with custom properties to capture the unique information the program required.</p>
+            <p data-tags="ecommerce integration">Discovered a vulnerability in the existing eCommerce setup and led the migration to Shopify with ReCharge Payments — building a subscription-based membership system that synced back to the CRM through proprietary plugins and Zapier.</p>
+            <p data-tags="automation email">Built three core automated workflows in HubSpot: a registration and welcome series for new members, automated meeting reminders with personalized time slots, group numbers, and meeting links, and lifecycle communications that guided members through the full program experience.</p>
+
+            <!-- Workflow diagrams image -->
+            <div class="cs-image">
+              <img src="images/c965d691-de1f-4743-a204-1c942796dcf1.jpg" alt="HubSpot workflow mappings: Registration + Welcome, Group/Circles Paid, Group/Circles Partners">
+            </div>
+
+            <p data-tags="email automation">Designed the email system end-to-end — templates, branding, automation sequences — so members received timely, relevant communications at every stage without staff intervention.</p>
+
+            <!-- Email + workflow image -->
+            <div class="cs-image">
+              <img src="images/46e02fe0-3cca-48b1-9984-1fee25cf8a63.jpg" alt="Branded email template and HubSpot workflow automation">
+            </div>
+
+            <p data-tags="enablement">Conducted hands-on training sessions for the Millennium Forum team and created detailed documentation so staff could manage the system independently. Provided ongoing MarTech support for troubleshooting and optimization.</p>
+            <p data-tags="strategy enablement">Built a custom reporting spreadsheet to track open rates, engagement, bounces, readability, and list performance against historical data — filling a gap the HubSpot subscription tier couldn't cover. This became the team's go-to resource for meetings and annual reporting.</p>
+          </div>
+
+          <!-- RESULTS -->
+          <div class="cs-section">
+            <div class="cs-section__label">Results</div>
+            <div class="cs-results-grid">
+              <div class="cs-result" data-tags="crm automation">
+                <div class="cs-result__icon"></div>
+                <div class="cs-result__text"><strong>400+ members</strong> enrolled and processed through automated workflows</div>
+              </div>
+              <div class="cs-result" data-tags="email">
+                <div class="cs-result__icon"></div>
+                <div class="cs-result__text"><strong>65% email open rate</strong> across member communications</div>
+              </div>
+              <div class="cs-result" data-tags="integration">
+                <div class="cs-result__icon"></div>
+                <div class="cs-result__text"><strong>9 platforms integrated</strong> into a unified stack with HubSpot as the hub</div>
+              </div>
+              <div class="cs-result" data-tags="automation">
+                <div class="cs-result__icon"></div>
+                <div class="cs-result__text"><strong>Full automation</strong> of registration, onboarding, and member communications</div>
+              </div>
+              <div class="cs-result" data-tags="ecommerce">
+                <div class="cs-result__icon"></div>
+                <div class="cs-result__text"><strong>Subscription commerce</strong> built from scratch on Shopify + ReCharge</div>
+              </div>
+              <div class="cs-result" data-tags="enablement">
+                <div class="cs-result__icon"></div>
+                <div class="cs-result__text"><strong>Staff independence</strong> — team trained and managing day-to-day operations</div>
+              </div>
+              <div class="cs-result" data-tags="strategy">
+                <div class="cs-result__icon"></div>
+                <div class="cs-result__text"><strong>Custom reporting</strong> that surfaced insights the CRM tier couldn't provide</div>
+              </div>
+              <div class="cs-result" data-tags="crm strategy">
+                <div class="cs-result__icon"></div>
+                <div class="cs-result__text"><strong>Scalable foundation</strong> — system designed to grow with membership goals</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- TESTIMONIAL -->
+        <div class="cs-testimonial">
+          <blockquote class="cs-testimonial__quote">"His responsiveness to our needs has been outstanding, guiding us in selecting the most suitable solutions and providing ongoing support as we manage things independently. As a result of his efforts, our entire enterprise has significantly improved its efficiency and accuracy."</blockquote>
+          <div class="cs-testimonial__author">
+            <div class="cs-testimonial__avatar"><img src="images/margaret.jpeg" alt="Margaret Golden"></div>
+            <div class="cs-testimonial__info">
+              <span class="cs-testimonial__name">Margaret Golden</span>
+              <span class="cs-testimonial__role">Director, Forum Program — Millennium Forum</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOOLS BAR -->
+        <div class="cs-tools">
+          <span class="cs-tools__label">Tools</span>
+          <div class="cs-tools__list">
+            <span class="cs-tools__item">HubSpot</span>
+            <span class="cs-tools__item">Shopify</span>
+            <span class="cs-tools__item">ReCharge</span>
+            <span class="cs-tools__item">Squarespace</span>
+            <span class="cs-tools__item">Hivebrite</span>
+            <span class="cs-tools__item">Circles</span>
+            <span class="cs-tools__item">Zoom</span>
+            <span class="cs-tools__item">Zapier</span>
+            <span class="cs-tools__item">SurveyMonkey</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js?v=6"></script>
+</body>
+</html>

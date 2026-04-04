@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Performance Audit: 2024–2025 — Case Study</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --bg-primary: #FFF7E7;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f5f0e6;
+            --bg-header: #ffffff;
+            --text-primary: #4F411D;
+            --text-secondary: #6b5f3e;
+            --text-muted: #9a8e72;
+            --accent-1: #C0D2D9;
+            --accent-2: #4F411D;
+            --accent-3: #E4E2C9;
+            --accent-4: #8a6d4b;
+            --accent-5: #C0D2D9;
+            --positive: #5a7a52;
+            --negative: #a85a3a;
+            --neutral: #9a8e72;
+            --border: rgba(79,65,29,0.1);
+            --gap: 16px;
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .report-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Header */
+        .report-header {
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .report-header .badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            color: var(--accent-4);
+            background: rgba(192,210,217,0.25);
+            border: 1px solid rgba(192,210,217,0.4);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .report-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .report-header .lead {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 680px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .report-meta {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .report-meta strong { color: var(--text-secondary); }
+
+        /* Executive Summary */
+        .exec-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: var(--gap);
+            margin-bottom: 48px;
+        }
+
+        .finding-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            border-top: 3px solid var(--accent-1);
+        }
+
+        .finding-card:nth-child(2) { border-top-color: var(--negative); }
+        .finding-card:nth-child(3) { border-top-color: var(--positive); }
+
+        .finding-card .finding-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .finding-card .finding-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Section styling */
+        .report-section {
+            margin-bottom: 48px;
+        }
+
+        .section-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            color: var(--accent-1);
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .section-narrative {
+            font-size: 14px;
+            color: var(--text-secondary);
+            max-width: 720px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        /* Recommendation cards */
+        .rec-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .rec-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px 24px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 16px;
+            align-items: start;
+        }
+
+        .rec-card:hover { background: var(--bg-card-hover); border-color: rgba(79,65,29,0.15); }
+
+        .rec-priority-badge {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            white-space: nowrap;
+            margin-top: 2px;
+        }
+
+        .rec-priority-badge.high {
+            background: rgba(168,90,58,0.12);
+            color: var(--negative);
+        }
+
+        .rec-priority-badge.medium {
+            background: rgba(192,210,217,0.3);
+            color: var(--accent-4);
+        }
+
+        .rec-content h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .rec-content p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Chart containers */
+        .chart-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gap);
+            margin-bottom: 24px;
+        }
+
+        .chart-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 22px 24px;
+        }
+
+        .chart-container h3 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .chart-container .chart-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .chart-wrap {
+            position: relative;
+            height: 280px;
+            width: 100%;
+        }
+
+        .chart-wrap canvas {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .chart-container.full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Annotation callout */
+        .chart-callout {
+            display: inline-block;
+            background: rgba(168,90,58,0.1);
+            color: var(--negative);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .chart-callout.positive {
+            background: rgba(90,122,82,0.1);
+            color: var(--positive);
+        }
+
+        /* Scorecard table */
+        .scorecard-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            overflow-x: auto;
+        }
+
+        .scorecard-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .scorecard-table thead th {
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            white-space: nowrap;
+        }
+
+        .scorecard-table tbody td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-primary);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .scorecard-table tbody tr:hover { background: var(--bg-card-hover); }
+        .scorecard-table tbody tr:last-child td { border-bottom: none; }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .status-badge.above { background: rgba(90,122,82,0.12); color: var(--positive); }
+        .status-badge.at { background: rgba(192,210,217,0.3); color: var(--accent-4); }
+        .status-badge.below { background: rgba(168,90,58,0.12); color: var(--negative); }
+
+        /* Top Performers */
+        .top-performers {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: var(--gap);
+        }
+
+        .performer-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 22px 24px;
+        }
+
+        .performer-card .segment-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .segment-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .performer-card .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 12px;
+        }
+
+        .performer-card .stat-row:last-child { border-bottom: none; }
+        .performer-card .stat-label { color: var(--text-muted); }
+        .performer-card .stat-value { font-weight: 600; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+
+        /* Methodology */
+        .methodology {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .methodology h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .methodology ul {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .methodology li {
+            margin-bottom: 4px;
+        }
+
+        /* Footer */
+        .report-footer {
+            text-align: center;
+            padding: 32px 20px;
+            color: var(--text-muted);
+            font-size: 12px;
+            border-top: 1px solid var(--border);
+            margin-top: 16px;
+        }
+
+        .report-footer a {
+            color: var(--accent-4);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .report-container { padding: 24px 16px; }
+            .report-header h1 { font-size: 24px; }
+            .exec-summary { grid-template-columns: 1fr; }
+            .chart-row { grid-template-columns: 1fr; }
+            .top-performers { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            body { background: white; color: #212529; }
+            .report-container { max-width: none; }
+            .chart-container, .scorecard-section, .methodology, .performer-card, .rec-card, .finding-card {
+                background: white; border: 1px solid #dee2e6; box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="report-container">
+
+    <!-- Header -->
+    <header class="report-header">
+        <div class="badge">Case Study</div>
+        <h1>Email Performance Audit: 2024-2025</h1>
+        <p class="lead">A national nonprofit had a year of email data across three audience segments with no way to know what was working. I pulled the metrics, benchmarked against industry averages, and turned the gaps into six clear next steps.</p>
+        <div class="report-meta">
+            <span><strong>Period:</strong> Jan 2024 - Dec 2025</span>
+            <span><strong>Segments:</strong> 3 audience lists</span>
+            <span><strong>Benchmarks:</strong> Neon One, MailerLite, M+R</span>
+        </div>
+    </header>
+
+    <!-- Executive Summary: 3 Key Findings -->
+    <section class="exec-summary">
+        <div class="finding-card">
+            <div class="finding-number">83%</div>
+            <div class="finding-label">of the SQL segment never opened an email. Subject lines needed a complete rethink.</div>
+        </div>
+        <div class="finding-card">
+            <div class="finding-number">3.3x</div>
+            <div class="finding-label">Customer bounce rate exceeded the industry ceiling, risking deliverability across all segments.</div>
+        </div>
+        <div class="finding-card">
+            <div class="finding-number">+107%</div>
+            <div class="finding-label">Click rate growth year over year. The content strategy was working, but list hygiene wasn't keeping up.</div>
+        </div>
+    </section>
+
+    <!-- Recommendations (moved up: action items before evidence) -->
+    <section class="report-section">
+        <div class="section-label">What to do about it</div>
+        <h2 class="section-title">Recommendations</h2>
+        <p class="section-narrative">Six actions ranked by impact. The top three address problems that will get worse if left alone. The bottom three are optimizations that build on what's already working.</p>
+
+        <div class="rec-grid">
+            <div class="rec-card">
+                <div class="rec-priority-badge high">High</div>
+                <div class="rec-content">
+                    <h4>Clean the Customer list</h4>
+                    <p>3.30% bounce rate is 3.3x the acceptable ceiling. Run a re-engagement campaign for inactive contacts before it damages deliverability across all segments.</p>
+                </div>
+            </div>
+            <div class="rec-card">
+                <div class="rec-priority-badge high">High</div>
+                <div class="rec-content">
+                    <h4>Shorten email body copy</h4>
+                    <p>Read rates dropped 20-43% while glance rates spiked up to 1,095%. Move to scannable formats: bullets, bold stats, single clear CTA above the fold.</p>
+                </div>
+            </div>
+            <div class="rec-card">
+                <div class="rec-priority-badge high">High</div>
+                <div class="rec-content">
+                    <h4>Rewrite SQL subject lines</h4>
+                    <p>16.75% open rate means 83% never see the content. Test personalization, urgency framing, and question-based subjects. Specificity outperforms generic framing.</p>
+                </div>
+            </div>
+            <div class="rec-card">
+                <div class="rec-priority-badge medium">Medium</div>
+                <div class="rec-content">
+                    <h4>Optimize MQL CTA design</h4>
+                    <p>2.10% click rate with 26.42% opens means content gets seen but doesn't drive action. Test button-style CTAs and reduce links per email.</p>
+                </div>
+            </div>
+            <div class="rec-card">
+                <div class="rec-priority-badge medium">Medium</div>
+                <div class="rec-content">
+                    <h4>Audit MQL send cadence</h4>
+                    <p>0.65% unsubscribe rate (1.6-3.4x benchmark) suggests cadence fatigue. Consider lighter-touch frequency for low-engagement contacts.</p>
+                </div>
+            </div>
+            <div class="rec-card">
+                <div class="rec-priority-badge medium">Medium</div>
+                <div class="rec-content">
+                    <h4>Replicate high-performing patterns</h4>
+                    <p>Gamified subjects and resource-based content drove 14.97% CTOR (1.5x benchmark). Apply these patterns across underperforming segments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benchmark Comparison Charts -->
+    <section class="report-section">
+        <div class="section-label">The evidence</div>
+        <h2 class="section-title">Benchmark Comparison</h2>
+        <p class="section-narrative">Every metric compared against national nonprofit averages. The shaded bands show the benchmark range. Bars to the left of the band are underperforming; bars that reach into or past it are on track.</p>
+
+        <div class="chart-row">
+            <div class="chart-container">
+                <h3>Open Rate by Segment</h3>
+                <p class="chart-desc">2024 vs 2025 vs benchmark (25-29%)</p>
+                <div class="chart-wrap"><canvas id="chart-open-rate"></canvas></div>
+                <div class="chart-callout">SQL still 38% below benchmark floor</div>
+            </div>
+            <div class="chart-container">
+                <h3>Click Rate by Segment</h3>
+                <p class="chart-desc">2024 vs 2025 vs benchmark (2.9-3.3%)</p>
+                <div class="chart-wrap"><canvas id="chart-click-rate"></canvas></div>
+                <div class="chart-callout positive">Customers +197% YoY, now above benchmark</div>
+            </div>
+        </div>
+
+        <div class="chart-row">
+            <div class="chart-container">
+                <h3>Click-to-Open Rate (CTOR)</h3>
+                <p class="chart-desc">Of those who open, how many click?</p>
+                <div class="chart-wrap"><canvas id="chart-ctor"></canvas></div>
+                <div class="chart-callout positive">Customer CTOR at 14.97%, 1.5x benchmark</div>
+            </div>
+            <div class="chart-container">
+                <h3>List Health: Bounce & Unsub</h3>
+                <p class="chart-desc">Lower is better. Ceiling: bounce &lt;1%, unsub &lt;0.4%</p>
+                <div class="chart-wrap"><canvas id="chart-health"></canvas></div>
+                <div class="chart-callout">Customer bounce at 3.30%, needs immediate cleanup</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reading Behavior -->
+    <section class="report-section">
+        <div class="section-label">The shift</div>
+        <h2 class="section-title">Reading Behavior</h2>
+        <p class="section-narrative">Open rates climbed, but people stopped reading. Read rates collapsed 20-43% across every segment while glance rates spiked as high as 1,095%. People open emails but skim them. Long-form content isn't landing.</p>
+
+        <div class="chart-row">
+            <div class="chart-container full-width">
+                <h3>Read Rate vs. Glance Rate</h3>
+                <p class="chart-desc">2024 vs 2025 across all segments</p>
+                <div class="chart-wrap"><canvas id="chart-read-glance"></canvas></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YoY Growth -->
+    <section class="report-section">
+        <div class="section-label">Year over year</div>
+        <h2 class="section-title">Growth by Metric</h2>
+        <p class="section-narrative">Green bars are improvements. Red bars are declines. For bounce and unsub rates, a decrease is an improvement.</p>
+
+        <div class="chart-row">
+            <div class="chart-container full-width">
+                <h3>YoY Change by Metric</h3>
+                <p class="chart-desc">Percentage change from 2024 to 2025</p>
+                <div class="chart-wrap" style="height:320px"><canvas id="chart-yoy"></canvas></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Performers -->
+    <section class="report-section">
+        <div class="section-label">What worked</div>
+        <h2 class="section-title">Top Performing Emails</h2>
+        <p class="section-narrative">The best-performing send for each segment. These patterns are worth replicating.</p>
+
+        <div class="top-performers">
+            <div class="performer-card">
+                <div class="segment-label"><span class="segment-dot" style="background:#8a6d4b"></span> SQL</div>
+                <div class="stat-row"><span class="stat-label">Best Open Rate</span><span class="stat-value">20.91%</span></div>
+                <div class="stat-row"><span class="stat-label">Subject Type</span><span class="stat-value" style="font-size:11px;max-width:180px;text-align:right">Thought leadership</span></div>
+                <div class="stat-row"><span class="stat-label">Best Send Time</span><span class="stat-value">10:00 AM</span></div>
+                <div class="stat-row"><span class="stat-label">Top Link Clicks</span><span class="stat-value">27</span></div>
+                <div class="stat-row"><span class="stat-label">Top Link Type</span><span class="stat-value" style="font-size:11px">Educational resource</span></div>
+            </div>
+            <div class="performer-card">
+                <div class="segment-label"><span class="segment-dot" style="background:#5a7a52"></span> Customers</div>
+                <div class="stat-row"><span class="stat-label">Best Open Rate</span><span class="stat-value">32.43%</span></div>
+                <div class="stat-row"><span class="stat-label">Subject Type</span><span class="stat-value" style="font-size:11px;max-width:180px;text-align:right">Industry newsletter</span></div>
+                <div class="stat-row"><span class="stat-label">Best Send Time</span><span class="stat-value">6:45 AM</span></div>
+                <div class="stat-row"><span class="stat-label">Top Link Clicks</span><span class="stat-value">111</span></div>
+                <div class="stat-row"><span class="stat-label">Top Link Type</span><span class="stat-value" style="font-size:11px">Branded storefront</span></div>
+            </div>
+            <div class="performer-card">
+                <div class="segment-label"><span class="segment-dot" style="background:#5a7a8a"></span> MQL</div>
+                <div class="stat-row"><span class="stat-label">Best Open Rate</span><span class="stat-value">43.65%</span></div>
+                <div class="stat-row"><span class="stat-label">Subject Type</span><span class="stat-value" style="font-size:11px;max-width:180px;text-align:right">Mission-driven update</span></div>
+                <div class="stat-row"><span class="stat-label">Best Send Time</span><span class="stat-value">10:00 AM</span></div>
+                <div class="stat-row"><span class="stat-label">Top Link Clicks</span><span class="stat-value">56</span></div>
+                <div class="stat-row"><span class="stat-label">Top Link Type</span><span class="stat-value" style="font-size:11px">Research & insights</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scorecard -->
+    <section class="report-section">
+        <div class="section-label">Full scorecard</div>
+        <h2 class="section-title">Segment Performance</h2>
+        <p class="section-narrative">Each metric rated against national nonprofit benchmarks. Above, Near, or Below.</p>
+
+        <div class="scorecard-section">
+            <table class="scorecard-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Benchmark</th>
+                        <th>SQL</th>
+                        <th>Status</th>
+                        <th>Customers</th>
+                        <th>Status</th>
+                        <th>MQL</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="scorecard-body"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="report-section">
+        <div class="methodology">
+            <h4>Methodology</h4>
+            <p>This analysis covers email sends from January 2024 through December 2025 across three audience segments. All metrics are weighted by send volume. Benchmarks are sourced from:</p>
+            <ul>
+                <li>Neon One - Nonprofit Email Report</li>
+                <li>MailerLite - Email Marketing Benchmarks</li>
+                <li>M+R Benchmarks - Nonprofit Digital Performance</li>
+            </ul>
+            <p style="margin-top:12px">Client name and identifying details have been redacted for confidentiality. Segment labels (SQL, Customers, MQL) are generic substitutes.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="report-footer">
+        <a href="https://ethantouch.com" target="_blank" rel="noopener">ethantouch.com</a>
+    </footer>
+
+</div>
+
+<script>
+    // ============ DATA ============
+    const DATA = {
+        segments: ['SQL', 'Customers', 'MQL'],
+        metrics2024: {
+            openRate:   [12.08, 15.05, 20.18],
+            clickRate:  [0.75,  1.23,  1.40],
+            ctor:       [6.11,  8.54,  7.15],
+            bounceRate: [1.51,  0.70,  0.62],
+            unsubRate:  [0.25,  0.66,  0.55],
+            readRate:   [60.57, 70.14, 64.96],
+            glanceRate: [4.87,  2.60,  5.66]
+        },
+        metrics2025: {
+            openRate:   [16.75, 22.61, 26.42],
+            clickRate:  [1.23,  3.66,  2.10],
+            ctor:       [6.74,  14.97, 7.68],
+            bounceRate: [0.75,  3.30,  0.41],
+            unsubRate:  [0.44,  0.00,  0.65],
+            readRate:   [48.80, 49.00, 36.53],
+            glanceRate: [21.69, 31.07, 36.69]
+        },
+        benchmarks: {
+            openRate:   { low: 25, high: 29, label: '25-29%' },
+            clickRate:  { low: 2.9, high: 3.3, label: '2.9-3.3%' },
+            ctor:       { low: 8.2, high: 10.2, label: '8.2-10.2%' },
+            bounceRate: { low: 0, high: 1.0, label: '<1.0%' },
+            unsubRate:  { low: 0, high: 0.40, label: '<0.40%' }
+        }
+    };
+
+    const COLORS = {
+        sql: '#8a6d4b',
+        customers: '#5a7a52',
+        mql: '#5a7a8a',
+        benchmark: '#a85a3a',
+        y2024: 'rgba(79,65,29,0.15)',
+        positive: '#5a7a52',
+        negative: '#a85a3a'
+    };
+
+    // ============ CHART DEFAULTS ============
+    function getChartDefaults() {
+        return {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: { color: '#6b5f3e', usePointStyle: true, padding: 16, font: { size: 11 } }
+                },
+                tooltip: {
+                    backgroundColor: '#4F411D',
+                    titleColor: '#FFF7E7',
+                    bodyColor: '#E4E2C9',
+                    borderColor: 'rgba(79,65,29,0.2)',
+                    borderWidth: 1,
+                    padding: 12,
+                    cornerRadius: 8
+                }
+            },
+            scales: {
+                x: {
+                    ticks: { color: '#9a8e72', font: { size: 11 } },
+                    grid: { color: 'rgba(79,65,29,0.08)' }
+                },
+                y: {
+                    ticks: { color: '#9a8e72', font: { size: 11 }, callback: v => v + '%' },
+                    grid: { color: 'rgba(79,65,29,0.08)' },
+                    beginAtZero: true
+                }
+            }
+        };
+    }
+
+    function createBenchmarkPlugin(low, high) {
+        return {
+            id: 'benchmarkBand',
+            beforeDraw(chart) {
+                const { ctx, chartArea, scales } = chart;
+                if (!chartArea) return;
+                const yLow = scales.y.getPixelForValue(high);
+                const yHigh = scales.y.getPixelForValue(low);
+                ctx.save();
+                ctx.fillStyle = 'rgba(192,210,217,0.25)';
+                ctx.fillRect(chartArea.left, yLow, chartArea.right - chartArea.left, yHigh - yLow);
+                ctx.restore();
+            }
+        };
+    }
+
+    // ============ BUILD CHARTS ============
+    function buildCharts() {
+        const labels = DATA.segments;
+        const m24 = DATA.metrics2024;
+        const m25 = DATA.metrics2025;
+        const bm = DATA.benchmarks;
+        const segColors = [COLORS.sql, COLORS.customers, COLORS.mql];
+
+        // Open Rate - horizontal
+        new Chart(document.getElementById('chart-open-rate'), {
+            type: 'bar',
+            data: {
+                labels,
+                datasets: [
+                    { label: '2024', data: m24.openRate, backgroundColor: COLORS.y2024, borderColor: 'rgba(79,65,29,0.2)', borderWidth: 1, borderRadius: 4 },
+                    { label: '2025', data: m25.openRate, backgroundColor: segColors.map(c => c + 'cc'), borderRadius: 4 },
+                    { label: 'Benchmark (27%)', data: [27, 27, 27], type: 'line', borderColor: COLORS.benchmark, borderWidth: 2, borderDash: [6,4], pointRadius: 0, fill: false }
+                ]
+            },
+            options: getChartDefaults(),
+            plugins: [createBenchmarkPlugin(25, 29)]
+        });
+
+        // Click Rate
+        new Chart(document.getElementById('chart-click-rate'), {
+            type: 'bar',
+            data: {
+                labels,
+                datasets: [
+                    { label: '2024', data: m24.clickRate, backgroundColor: COLORS.y2024, borderColor: 'rgba(79,65,29,0.2)', borderWidth: 1, borderRadius: 4 },
+                    { label: '2025', data: m25.clickRate, backgroundColor: segColors.map(c => c + 'cc'), borderRadius: 4 },
+                    { label: 'Benchmark (3.1%)', data: [3.1, 3.1, 3.1], type: 'line', borderColor: COLORS.benchmark, borderWidth: 2, borderDash: [6,4], pointRadius: 0, fill: false }
+                ]
+            },
+            options: getChartDefaults(),
+            plugins: [createBenchmarkPlugin(2.9, 3.3)]
+        });
+
+        // CTOR
+        new Chart(document.getElementById('chart-ctor'), {
+            type: 'bar',
+            data: {
+                labels,
+                datasets: [
+                    { label: '2024', data: m24.ctor, backgroundColor: COLORS.y2024, borderColor: 'rgba(79,65,29,0.2)', borderWidth: 1, borderRadius: 4 },
+                    { label: '2025', data: m25.ctor, backgroundColor: segColors.map(c => c + 'cc'), borderRadius: 4 },
+                    { label: 'Benchmark (9.2%)', data: [9.2, 9.2, 9.2], type: 'line', borderColor: COLORS.benchmark, borderWidth: 2, borderDash: [6,4], pointRadius: 0, fill: false }
+                ]
+            },
+            options: getChartDefaults(),
+            plugins: [createBenchmarkPlugin(8.2, 10.2)]
+        });
+
+        // Health
+        new Chart(document.getElementById('chart-health'), {
+            type: 'bar',
+            data: {
+                labels,
+                datasets: [
+                    { label: 'Bounce Rate', data: m25.bounceRate, backgroundColor: segColors.map(c => c + '99'), borderRadius: 4 },
+                    { label: 'Unsub Rate', data: m25.unsubRate, backgroundColor: segColors.map(c => c + '44'), borderRadius: 4 },
+                    { label: 'Bounce Ceiling (1%)', data: [1, 1, 1], type: 'line', borderColor: COLORS.negative, borderWidth: 2, borderDash: [6,4], pointRadius: 0, fill: false },
+                    { label: 'Unsub Ceiling (0.4%)', data: [0.4, 0.4, 0.4], type: 'line', borderColor: COLORS.benchmark, borderWidth: 2, borderDash: [4,4], pointRadius: 0, fill: false }
+                ]
+            },
+            options: getChartDefaults()
+        });
+
+        // Read vs Glance
+        new Chart(document.getElementById('chart-read-glance'), {
+            type: 'bar',
+            data: {
+                labels: ['SQL 2024','SQL 2025','Customers 2024','Customers 2025','MQL 2024','MQL 2025'],
+                datasets: [
+                    {
+                        label: 'Read Rate',
+                        data: [m24.readRate[0], m25.readRate[0], m24.readRate[1], m25.readRate[1], m24.readRate[2], m25.readRate[2]],
+                        backgroundColor: '#5a7a8a' + 'aa',
+                        borderRadius: 4
+                    },
+                    {
+                        label: 'Glance Rate',
+                        data: [m24.glanceRate[0], m25.glanceRate[0], m24.glanceRate[1], m25.glanceRate[1], m24.glanceRate[2], m25.glanceRate[2]],
+                        backgroundColor: '#a85a3a' + 'aa',
+                        borderRadius: 4
+                    }
+                ]
+            },
+            options: getChartDefaults()
+        });
+
+        // YoY Change - horizontal bar
+        const yoyMetrics = ['Open Rate', 'Click Rate', 'CTOR', 'Bounce Rate', 'Unsub Rate', 'Read Rate', 'Glance Rate'];
+        const yoyKeys = ['openRate', 'clickRate', 'ctor', 'bounceRate', 'unsubRate', 'readRate', 'glanceRate'];
+
+        function yoyForSegment(segIdx) {
+            return yoyKeys.map(k => {
+                const prev = m24[k][segIdx];
+                const curr = m25[k][segIdx];
+                if (prev === 0) return curr === 0 ? 0 : 100;
+                return ((curr - prev) / prev * 100);
+            });
+        }
+
+        new Chart(document.getElementById('chart-yoy'), {
+            type: 'bar',
+            data: {
+                labels: yoyMetrics,
+                datasets: [
+                    { label: 'SQL', data: yoyForSegment(0), backgroundColor: COLORS.sql + 'cc', borderRadius: 4 },
+                    { label: 'Customers', data: yoyForSegment(1), backgroundColor: COLORS.customers + 'cc', borderRadius: 4 },
+                    { label: 'MQL', data: yoyForSegment(2), backgroundColor: COLORS.mql + 'cc', borderRadius: 4 }
+                ]
+            },
+            options: {
+                ...getChartDefaults(),
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        ticks: { color: '#5e6158', font: { size: 11 }, callback: v => v + '%' },
+                        grid: { color: 'rgba(255,255,255,0.04)' }
+                    },
+                    y: {
+                        ticks: { color: '#6b5f3e', font: { size: 11 } },
+                        grid: { display: false }
+                    }
+                },
+                plugins: {
+                    ...getChartDefaults().plugins,
+                    tooltip: {
+                        ...getChartDefaults().plugins.tooltip,
+                        callbacks: {
+                            label: ctx => `${ctx.dataset.label}: ${ctx.parsed.x >= 0 ? '+' : ''}${ctx.parsed.x.toFixed(0)}%`
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // ============ SCORECARD TABLE ============
+    function renderScorecard() {
+        const m25 = DATA.metrics2025;
+        const bm = DATA.benchmarks;
+
+        function getStatus(val, bmKey, invertedBetter) {
+            const b = bm[bmKey];
+            if (invertedBetter) {
+                if (val <= b.high) return 'above';
+                if (val <= b.high * 1.5) return 'at';
+                return 'below';
+            }
+            if (val >= b.low) return 'above';
+            if (val >= b.low * 0.75) return 'at';
+            return 'below';
+        }
+
+        function statusLabel(s) {
+            const map = { above: 'Above', at: 'Near', below: 'Below' };
+            return `<span class="status-badge ${s}">${map[s]}</span>`;
+        }
+
+        const rows = [
+            { label: 'Open Rate', key: 'openRate', bmKey: 'openRate', bm: bm.openRate.label },
+            { label: 'Click Rate', key: 'clickRate', bmKey: 'clickRate', bm: bm.clickRate.label },
+            { label: 'CTOR', key: 'ctor', bmKey: 'ctor', bm: bm.ctor.label },
+            { label: 'Bounce Rate', key: 'bounceRate', bmKey: 'bounceRate', bm: bm.bounceRate.label, inverted: true },
+            { label: 'Unsub Rate', key: 'unsubRate', bmKey: 'unsubRate', bm: bm.unsubRate.label, inverted: true }
+        ];
+
+        document.getElementById('scorecard-body').innerHTML = rows.map(r => {
+            const vals = m25[r.key];
+            const statuses = vals.map((v, i) => getStatus(v, r.bmKey, r.inverted));
+            return `<tr>
+                <td style="font-weight:600">${r.label}</td>
+                <td style="color:var(--accent-4)">${r.bm}</td>
+                <td>${vals[0].toFixed(2)}%</td>
+                <td>${statusLabel(statuses[0])}</td>
+                <td>${vals[1].toFixed(2)}%</td>
+                <td>${statusLabel(statuses[1])}</td>
+                <td>${vals[2].toFixed(2)}%</td>
+                <td>${statusLabel(statuses[2])}</td>
+            </tr>`;
+        }).join('');
+    }
+
+    // ============ INIT ============
+    buildCharts();
+    renderScorecard();
+</script>
+
+</body>
+</html>

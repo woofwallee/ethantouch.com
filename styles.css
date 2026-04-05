@@ -177,6 +177,7 @@ img {
 .nav,
 .hero__bg-name,
 .hero__portrait,
+.annotation__icon,
 .annotation__title,
 .annotation__text,
 .hero__corner,
@@ -188,6 +189,7 @@ img {
 .is-ready .nav,
 .is-ready .hero__bg-name,
 .is-ready .hero__portrait,
+.is-ready .annotation__icon,
 .is-ready .annotation__title,
 .is-ready .annotation__text,
 .is-ready .hero__corner,
@@ -281,17 +283,56 @@ img {
   z-index: 4;
   max-width: 240px;
 }
+.annotation__icon {
+  width: 36px;
+  height: 36px;
+  color: rgba(183, 201, 195, 0.55);
+  margin-bottom: 0.6rem;
+  display: block;
+}
 .annotation__title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
+  font-family: 'Fraunces', 'Playfair Display', serif;
+  font-optical-sizing: auto;
+  font-size: 1.35rem;
   font-weight: 700;
+  font-style: italic;
   color: #B7C9C3;
   margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 .annotation__text {
   font-size: 0.78rem;
   color: #a8aba9;
   line-height: 1.65;
+}
+
+/* Boho icon draw-on animation */
+.icon-draw {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+}
+.icon-fade {
+  opacity: 0;
+}
+.is-ready .icon-draw {
+  animation: iconDraw 1.8s ease-out forwards;
+}
+.is-ready .icon-draw--delay1 { animation-delay: 0.3s; }
+.is-ready .icon-draw--delay2 { animation-delay: 0.6s; }
+.is-ready .icon-draw--delay3 { animation-delay: 0.9s; }
+.is-ready .icon-fade {
+  animation: iconFade 1s ease-out forwards;
+  animation-delay: 1.2s;
+}
+.is-ready .icon-fade--delay1 { animation-delay: 1.5s; }
+.is-ready .icon-fade--delay2 { animation-delay: 1.8s; }
+
+@keyframes iconDraw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes iconFade {
+  to { opacity: 1; }
 }
 #ann-tl { left: 5%; top: 18%; text-align: left; }
 #ann-bl { left: 5%; top: 62%; text-align: left; }
@@ -1422,6 +1463,10 @@ body.modal-open {
     text-align: center !important;
     margin: 1rem auto;
   }
+  .annotation__icon {
+    margin-left: auto;
+    margin-right: auto;
+  }
   #ann-tl { order: 2; }
   #ann-tr { order: 3; }
   #ann-br { order: 4; }
@@ -1516,7 +1561,7 @@ body.modal-open {
 /* Hero reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .nav, .hero__bg-name, .hero__portrait,
-  .annotation__title, .annotation__text,
+  .annotation__icon, .annotation__title, .annotation__text,
   .hero__corner, .hero__connectors {
     opacity: 1 !important;
     visibility: visible !important;

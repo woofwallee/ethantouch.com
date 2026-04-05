@@ -32,7 +32,7 @@
   <script defer src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400;1,9..144,700&family=Noto+Serif+Display:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <link rel="stylesheet" href="styles.css?v=10">
 </head>
@@ -76,21 +76,76 @@
 
     <!-- Descriptor blocks -->
     <div class="annotation" id="ann-tl">
+      <svg class="annotation__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Boho half-sun with rays (broadcast/campaigns) -->
+        <path class="icon-draw" d="M10 34 C10 20 24 8 38 14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <path class="icon-draw icon-draw--delay1" d="M24 6 L24 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <path class="icon-draw icon-draw--delay2" d="M16 8 L13 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <path class="icon-draw icon-draw--delay3" d="M32 8 L35 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <path class="icon-draw icon-draw--delay1" d="M9 15 L5 13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <path class="icon-draw icon-draw--delay2" d="M39 15 L43 13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <!-- Envelope -->
+        <rect class="icon-draw icon-draw--delay3" x="14" y="24" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.2"/>
+        <path class="icon-draw icon-draw--delay3" d="M14 26 L24 32 L34 26" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Small dots -->
+        <circle class="icon-fade" cx="24" cy="10" r="1.2" fill="currentColor"/>
+        <circle class="icon-fade icon-fade--delay1" cx="7" cy="22" r="1" fill="currentColor"/>
+        <circle class="icon-fade icon-fade--delay2" cx="41" cy="22" r="1" fill="currentColor"/>
+      </svg>
       <h3 class="annotation__title">Marketing Hub Software</h3>
       <p class="annotation__text">Built and managed email campaigns, landing pages, automated workflows, and lead nurture sequences across segmented multi-audience databases.</p>
     </div>
 
     <div class="annotation" id="ann-bl">
+      <svg class="annotation__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Boho geometric diamond compass (direction/pipeline) -->
+        <path class="icon-draw" d="M24 4 L38 24 L24 44 L10 24 Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+        <path class="icon-draw icon-draw--delay1" d="M24 12 L32 24 L24 36 L16 24 Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+        <!-- Compass arrow -->
+        <path class="icon-draw icon-draw--delay2" d="M24 4 L24 0" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <path class="icon-draw icon-draw--delay2" d="M24 44 L24 48" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <path class="icon-draw icon-draw--delay3" d="M10 24 L6 24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <path class="icon-draw icon-draw--delay3" d="M38 24 L42 24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <!-- Center dot -->
+        <circle class="icon-fade icon-fade--delay2" cx="24" cy="24" r="1.5" fill="currentColor"/>
+      </svg>
       <h3 class="annotation__title">Sales Hub Software</h3>
       <p class="annotation__text">Configured pipelines, deal stages, and automated lead routing so marketing-qualified contacts moved directly into the right sales workflows.</p>
     </div>
 
     <div class="annotation" id="ann-tr">
+      <svg class="annotation__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Boho crescent moon pulling in stars (organic attraction) -->
+        <path class="icon-draw" d="M30 8 C18 8 10 18 10 28 C10 38 18 46 28 46 C20 42 16 34 16 28 C16 18 22 10 30 8Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <!-- Stars being pulled in -->
+        <path class="icon-draw icon-draw--delay1" d="M36 14 L37 12 L38 14 L40 15 L38 16 L37 18 L36 16 L34 15 Z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/>
+        <path class="icon-draw icon-draw--delay2" d="M40 26 L40.5 25 L41 26 L42 26.5 L41 27 L40.5 28 L40 27 L39 26.5 Z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/>
+        <path class="icon-draw icon-draw--delay3" d="M34 34 L34.5 33 L35 34 L36 34.5 L35 35 L34.5 36 L34 35 L33 34.5 Z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/>
+        <!-- Orbital dots -->
+        <circle class="icon-fade" cx="38" cy="20" r="1" fill="currentColor"/>
+        <circle class="icon-fade icon-fade--delay1" cx="42" cy="32" r="0.8" fill="currentColor"/>
+        <circle class="icon-fade icon-fade--delay2" cx="32" cy="40" r="0.8" fill="currentColor"/>
+      </svg>
       <h3 class="annotation__title">Inbound Marketing</h3>
       <p class="annotation__text">Designed content and lifecycle stage strategies that pulled audiences in organically, then segmented and nurtured them through the funnel.</p>
     </div>
 
     <div class="annotation" id="ann-br">
+      <svg class="annotation__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Boho mystical eye with data-line pupil (insight/visibility) -->
+        <path class="icon-draw" d="M4 24 C10 14 17 10 24 10 C31 10 38 14 44 24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <path class="icon-draw icon-draw--delay1" d="M4 24 C10 34 17 38 24 38 C31 38 38 34 44 24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <!-- Iris circle -->
+        <circle class="icon-draw icon-draw--delay2" cx="24" cy="24" r="7" stroke="currentColor" stroke-width="1.2"/>
+        <!-- Data-line pupil (mini chart inside eye) -->
+        <path class="icon-draw icon-draw--delay3" d="M19 26 L22 22 L25 25 L29 20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Radiating lashes -->
+        <path class="icon-fade" d="M24 10 L24 6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+        <path class="icon-fade icon-fade--delay1" d="M16 12 L14 9" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+        <path class="icon-fade icon-fade--delay1" d="M32 12 L34 9" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+        <path class="icon-fade icon-fade--delay2" d="M10 17 L7 15" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+        <path class="icon-fade icon-fade--delay2" d="M38 17 L41 15" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+      </svg>
       <h3 class="annotation__title">HubSpot Reporting</h3>
       <p class="annotation__text">Built custom dashboards and attribution reports that gave teams clear visibility into what was working and where to focus next.</p>
     </div>

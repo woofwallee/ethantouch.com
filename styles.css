@@ -284,16 +284,16 @@ img {
   max-width: 240px;
 }
 .annotation__icon {
-  width: 36px;
-  height: 36px;
+  width: 20px;
+  height: 20px;
   color: rgba(183, 201, 195, 0.55);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
   display: block;
 }
 .annotation__title {
   font-family: 'Fraunces', 'Playfair Display', serif;
   font-optical-sizing: auto;
-  font-size: 1.35rem;
+  font-size: 1.65rem;
   font-weight: 700;
   font-style: italic;
   color: #B7C9C3;

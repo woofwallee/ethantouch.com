@@ -106,7 +106,8 @@
       var descStart = 0.70, descGap = 0.09, bodyDelay = 0.08;
       descOrder.forEach(function(sel, i) {
         var t = descStart + i * descGap;
-        tl.fromTo(sel + ' .annotation__title', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.24 }, t);
+        tl.fromTo(sel + ' .annotation__icon', { opacity: 0, y: 8 }, { opacity: 1, visibility: 'visible', y: 0, duration: 0.2 }, t);
+        tl.fromTo(sel + ' .annotation__title', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.24 }, t + 0.05);
         tl.fromTo(sel + ' .annotation__text', { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.28 }, t + bodyDelay);
       });
 

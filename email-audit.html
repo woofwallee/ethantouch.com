@@ -7,22 +7,22 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
     <style>
         :root {
-            --bg-primary: #FFF7E7;
+            --bg-primary: #F0EDF5;
             --bg-card: #ffffff;
-            --bg-card-hover: #f5f0e6;
+            --bg-card-hover: #EAE6F0;
             --bg-header: #ffffff;
-            --text-primary: #4F411D;
-            --text-secondary: #6b5f3e;
-            --text-muted: #9a8e72;
-            --accent-1: #C0D2D9;
-            --accent-2: #4F411D;
-            --accent-3: #E4E2C9;
-            --accent-4: #8a6d4b;
-            --accent-5: #C0D2D9;
-            --positive: #5a7a52;
-            --negative: #a85a3a;
-            --neutral: #9a8e72;
-            --border: rgba(79,65,29,0.1);
+            --text-primary: #1a1a1f;
+            --text-secondary: #3d3d4a;
+            --text-muted: #6b6b7a;
+            --accent-1: #2D5BFF;
+            --accent-2: #1a1a1f;
+            --accent-3: #6ECAA0;
+            --accent-4: #2D5BFF;
+            --accent-5: #1BA8A0;
+            --positive: #3BAA7A;
+            --negative: #E86833;
+            --neutral: #6b6b7a;
+            --border: rgba(26,26,31,0.1);
             --gap: 16px;
             --radius: 12px;
         }
@@ -56,9 +56,9 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.4px;
-            color: var(--accent-4);
-            background: rgba(192,210,217,0.25);
-            border: 1px solid rgba(192,210,217,0.4);
+            color: var(--accent-1);
+            background: rgba(45,91,255,0.08);
+            border: 1px solid rgba(45,91,255,0.2);
             padding: 4px 12px;
             border-radius: 20px;
             margin-bottom: 16px;
@@ -185,13 +185,13 @@
         }
 
         .rec-priority-badge.high {
-            background: rgba(168,90,58,0.12);
+            background: rgba(232,104,51,0.12);
             color: var(--negative);
         }
 
         .rec-priority-badge.medium {
-            background: rgba(192,210,217,0.3);
-            color: var(--accent-4);
+            background: rgba(45,91,255,0.1);
+            color: var(--accent-1);
         }
 
         .rec-content h4 {
@@ -255,7 +255,7 @@
         /* Annotation callout */
         .chart-callout {
             display: inline-block;
-            background: rgba(168,90,58,0.1);
+            background: rgba(232,104,51,0.1);
             color: var(--negative);
             font-size: 11px;
             font-weight: 600;
@@ -265,7 +265,7 @@
         }
 
         .chart-callout.positive {
-            background: rgba(90,122,82,0.1);
+            background: rgba(59,170,122,0.1);
             color: var(--positive);
         }
 
@@ -316,9 +316,9 @@
             font-weight: 600;
         }
 
-        .status-badge.above { background: rgba(90,122,82,0.12); color: var(--positive); }
-        .status-badge.at { background: rgba(192,210,217,0.3); color: var(--accent-4); }
-        .status-badge.below { background: rgba(168,90,58,0.12); color: var(--negative); }
+        .status-badge.above { background: rgba(59,170,122,0.12); color: var(--positive); }
+        .status-badge.at { background: rgba(45,91,255,0.1); color: var(--accent-1); }
+        .status-badge.below { background: rgba(232,104,51,0.12); color: var(--negative); }
 
         /* Top Performers */
         .top-performers {
@@ -416,9 +416,24 @@
             .top-performers { grid-template-columns: 1fr; }
         }
 
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 32px;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover { color: var(--accent-1); }
+
         @media print {
             body { background: white; color: #212529; }
             .report-container { max-width: none; }
+            .back-link { display: none; }
             .chart-container, .scorecard-section, .methodology, .performer-card, .rec-card, .finding-card {
                 background: white; border: 1px solid #dee2e6; box-shadow: none;
             }
@@ -428,6 +443,8 @@
 <body>
 
 <div class="report-container">
+
+    <a href="https://ethantouch.com" class="back-link">&larr; ethantouch.com</a>
 
     <!-- Header -->
     <header class="report-header">
@@ -584,7 +601,7 @@
 
         <div class="top-performers">
             <div class="performer-card">
-                <div class="segment-label"><span class="segment-dot" style="background:#8a6d4b"></span> SQL</div>
+                <div class="segment-label"><span class="segment-dot" style="background:#2D5BFF"></span> SQL</div>
                 <div class="stat-row"><span class="stat-label">Best Open Rate</span><span class="stat-value">20.91%</span></div>
                 <div class="stat-row"><span class="stat-label">Subject Type</span><span class="stat-value" style="font-size:11px;max-width:180px;text-align:right">Thought leadership</span></div>
                 <div class="stat-row"><span class="stat-label">Best Send Time</span><span class="stat-value">10:00 AM</span></div>
@@ -592,7 +609,7 @@
                 <div class="stat-row"><span class="stat-label">Top Link Type</span><span class="stat-value" style="font-size:11px">Educational resource</span></div>
             </div>
             <div class="performer-card">
-                <div class="segment-label"><span class="segment-dot" style="background:#5a7a52"></span> Customers</div>
+                <div class="segment-label"><span class="segment-dot" style="background:#3BAA7A"></span> Customers</div>
                 <div class="stat-row"><span class="stat-label">Best Open Rate</span><span class="stat-value">32.43%</span></div>
                 <div class="stat-row"><span class="stat-label">Subject Type</span><span class="stat-value" style="font-size:11px;max-width:180px;text-align:right">Industry newsletter</span></div>
                 <div class="stat-row"><span class="stat-label">Best Send Time</span><span class="stat-value">6:45 AM</span></div>
@@ -600,7 +617,7 @@
                 <div class="stat-row"><span class="stat-label">Top Link Type</span><span class="stat-value" style="font-size:11px">Branded storefront</span></div>
             </div>
             <div class="performer-card">
-                <div class="segment-label"><span class="segment-dot" style="background:#5a7a8a"></span> MQL</div>
+                <div class="segment-label"><span class="segment-dot" style="background:#1BA8A0"></span> MQL</div>
                 <div class="stat-row"><span class="stat-label">Best Open Rate</span><span class="stat-value">43.65%</span></div>
                 <div class="stat-row"><span class="stat-label">Subject Type</span><span class="stat-value" style="font-size:11px;max-width:180px;text-align:right">Mission-driven update</span></div>
                 <div class="stat-row"><span class="stat-label">Best Send Time</span><span class="stat-value">10:00 AM</span></div>
@@ -688,13 +705,13 @@
     };
 
     const COLORS = {
-        sql: '#8a6d4b',
-        customers: '#5a7a52',
-        mql: '#5a7a8a',
-        benchmark: '#a85a3a',
-        y2024: 'rgba(79,65,29,0.15)',
-        positive: '#5a7a52',
-        negative: '#a85a3a'
+        sql: '#2D5BFF',
+        customers: '#3BAA7A',
+        mql: '#1BA8A0',
+        benchmark: '#E86833',
+        y2024: 'rgba(26,26,31,0.12)',
+        positive: '#3BAA7A',
+        negative: '#E86833'
     };
 
     // ============ CHART DEFAULTS ============
@@ -704,13 +721,13 @@
             maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    labels: { color: '#6b5f3e', usePointStyle: true, padding: 16, font: { size: 11 } }
+                    labels: { color: '#3d3d4a', usePointStyle: true, padding: 16, font: { size: 11 } }
                 },
                 tooltip: {
-                    backgroundColor: '#4F411D',
-                    titleColor: '#FFF7E7',
-                    bodyColor: '#E4E2C9',
-                    borderColor: 'rgba(79,65,29,0.2)',
+                    backgroundColor: '#1a1a1f',
+                    titleColor: '#ffffff',
+                    bodyColor: '#d0d0d8',
+                    borderColor: 'rgba(26,26,31,0.2)',
                     borderWidth: 1,
                     padding: 12,
                     cornerRadius: 8
@@ -718,12 +735,12 @@
             },
             scales: {
                 x: {
-                    ticks: { color: '#9a8e72', font: { size: 11 } },
-                    grid: { color: 'rgba(79,65,29,0.08)' }
+                    ticks: { color: '#6b6b7a', font: { size: 11 } },
+                    grid: { color: 'rgba(26,26,31,0.08)' }
                 },
                 y: {
-                    ticks: { color: '#9a8e72', font: { size: 11 }, callback: v => v + '%' },
-                    grid: { color: 'rgba(79,65,29,0.08)' },
+                    ticks: { color: '#6b6b7a', font: { size: 11 }, callback: v => v + '%' },
+                    grid: { color: 'rgba(26,26,31,0.08)' },
                     beginAtZero: true
                 }
             }
@@ -823,13 +840,13 @@
                     {
                         label: 'Read Rate',
                         data: [m24.readRate[0], m25.readRate[0], m24.readRate[1], m25.readRate[1], m24.readRate[2], m25.readRate[2]],
-                        backgroundColor: '#5a7a8a' + 'aa',
+                        backgroundColor: '#2D5BFF' + 'aa',
                         borderRadius: 4
                     },
                     {
                         label: 'Glance Rate',
                         data: [m24.glanceRate[0], m25.glanceRate[0], m24.glanceRate[1], m25.glanceRate[1], m24.glanceRate[2], m25.glanceRate[2]],
-                        backgroundColor: '#a85a3a' + 'aa',
+                        backgroundColor: '#E86833' + 'aa',
                         borderRadius: 4
                     }
                 ]

@@ -7,22 +7,22 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
     <style>
         :root {
-            --bg-primary: #F0EDF5;
-            --bg-card: #ffffff;
-            --bg-card-hover: #EAE6F0;
-            --bg-header: #ffffff;
-            --text-primary: #1a1a1f;
-            --text-secondary: #3d3d4a;
-            --text-muted: #6b6b7a;
+            --bg-primary: #1a1a2e;
+            --bg-card: #24243a;
+            --bg-card-hover: #2e2e48;
+            --bg-header: #24243a;
+            --text-primary: #e8e6f0;
+            --text-secondary: #b0adc0;
+            --text-muted: #7a7890;
             --accent-1: #2D5BFF;
-            --accent-2: #1a1a1f;
+            --accent-2: #e8e6f0;
             --accent-3: #6ECAA0;
             --accent-4: #2D5BFF;
             --accent-5: #1BA8A0;
             --positive: #3BAA7A;
             --negative: #E86833;
-            --neutral: #6b6b7a;
-            --border: rgba(26,26,31,0.1);
+            --neutral: #7a7890;
+            --border: rgba(255,255,255,0.08);
             --gap: 16px;
             --radius: 12px;
         }
@@ -57,8 +57,8 @@
             text-transform: uppercase;
             letter-spacing: 1.4px;
             color: var(--accent-1);
-            background: rgba(45,91,255,0.08);
-            border: 1px solid rgba(45,91,255,0.2);
+            background: rgba(45,91,255,0.15);
+            border: 1px solid rgba(45,91,255,0.3);
             padding: 4px 12px;
             border-radius: 20px;
             margin-bottom: 16px;
@@ -171,7 +171,7 @@
             align-items: start;
         }
 
-        .rec-card:hover { background: var(--bg-card-hover); border-color: rgba(79,65,29,0.15); }
+        .rec-card:hover { background: var(--bg-card-hover); border-color: rgba(255,255,255,0.12); }
 
         .rec-priority-badge {
             font-size: 10px;
@@ -185,13 +185,13 @@
         }
 
         .rec-priority-badge.high {
-            background: rgba(232,104,51,0.12);
-            color: var(--negative);
+            background: rgba(232,104,51,0.2);
+            color: #f0885e;
         }
 
         .rec-priority-badge.medium {
-            background: rgba(45,91,255,0.1);
-            color: var(--accent-1);
+            background: rgba(45,91,255,0.18);
+            color: #6b8fff;
         }
 
         .rec-content h4 {
@@ -255,8 +255,8 @@
         /* Annotation callout */
         .chart-callout {
             display: inline-block;
-            background: rgba(232,104,51,0.1);
-            color: var(--negative);
+            background: rgba(232,104,51,0.18);
+            color: #f0885e;
             font-size: 11px;
             font-weight: 600;
             padding: 3px 10px;
@@ -265,8 +265,8 @@
         }
 
         .chart-callout.positive {
-            background: rgba(59,170,122,0.1);
-            color: var(--positive);
+            background: rgba(59,170,122,0.18);
+            color: #6ecaa0;
         }
 
         /* Scorecard table */
@@ -316,9 +316,9 @@
             font-weight: 600;
         }
 
-        .status-badge.above { background: rgba(59,170,122,0.12); color: var(--positive); }
-        .status-badge.at { background: rgba(45,91,255,0.1); color: var(--accent-1); }
-        .status-badge.below { background: rgba(232,104,51,0.12); color: var(--negative); }
+        .status-badge.above { background: rgba(59,170,122,0.2); color: #6ecaa0; }
+        .status-badge.at { background: rgba(45,91,255,0.18); color: #6b8fff; }
+        .status-badge.below { background: rgba(232,104,51,0.2); color: #f0885e; }
 
         /* Top Performers */
         .top-performers {
@@ -709,7 +709,7 @@
         customers: '#3BAA7A',
         mql: '#1BA8A0',
         benchmark: '#E86833',
-        y2024: 'rgba(26,26,31,0.12)',
+        y2024: 'rgba(255,255,255,0.1)',
         positive: '#3BAA7A',
         negative: '#E86833'
     };
@@ -721,13 +721,13 @@
             maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    labels: { color: '#3d3d4a', usePointStyle: true, padding: 16, font: { size: 11 } }
+                    labels: { color: '#b0adc0', usePointStyle: true, padding: 16, font: { size: 11 } }
                 },
                 tooltip: {
-                    backgroundColor: '#1a1a1f',
-                    titleColor: '#ffffff',
-                    bodyColor: '#d0d0d8',
-                    borderColor: 'rgba(26,26,31,0.2)',
+                    backgroundColor: '#2e2e48',
+                    titleColor: '#e8e6f0',
+                    bodyColor: '#b0adc0',
+                    borderColor: 'rgba(255,255,255,0.12)',
                     borderWidth: 1,
                     padding: 12,
                     cornerRadius: 8
@@ -735,12 +735,12 @@
             },
             scales: {
                 x: {
-                    ticks: { color: '#6b6b7a', font: { size: 11 } },
-                    grid: { color: 'rgba(26,26,31,0.08)' }
+                    ticks: { color: '#7a7890', font: { size: 11 } },
+                    grid: { color: 'rgba(255,255,255,0.06)' }
                 },
                 y: {
-                    ticks: { color: '#6b6b7a', font: { size: 11 }, callback: v => v + '%' },
-                    grid: { color: 'rgba(26,26,31,0.08)' },
+                    ticks: { color: '#7a7890', font: { size: 11 }, callback: v => v + '%' },
+                    grid: { color: 'rgba(255,255,255,0.06)' },
                     beginAtZero: true
                 }
             }
@@ -756,7 +756,7 @@
                 const yLow = scales.y.getPixelForValue(high);
                 const yHigh = scales.y.getPixelForValue(low);
                 ctx.save();
-                ctx.fillStyle = 'rgba(192,210,217,0.25)';
+                ctx.fillStyle = 'rgba(45,91,255,0.08)';
                 ctx.fillRect(chartArea.left, yLow, chartArea.right - chartArea.left, yHigh - yLow);
                 ctx.restore();
             }
@@ -777,7 +777,7 @@
             data: {
                 labels,
                 datasets: [
-                    { label: '2024', data: m24.openRate, backgroundColor: COLORS.y2024, borderColor: 'rgba(79,65,29,0.2)', borderWidth: 1, borderRadius: 4 },
+                    { label: '2024', data: m24.openRate, backgroundColor: COLORS.y2024, borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1, borderRadius: 4 },
                     { label: '2025', data: m25.openRate, backgroundColor: segColors.map(c => c + 'cc'), borderRadius: 4 },
                     { label: 'Benchmark (27%)', data: [27, 27, 27], type: 'line', borderColor: COLORS.benchmark, borderWidth: 2, borderDash: [6,4], pointRadius: 0, fill: false }
                 ]
@@ -792,7 +792,7 @@
             data: {
                 labels,
                 datasets: [
-                    { label: '2024', data: m24.clickRate, backgroundColor: COLORS.y2024, borderColor: 'rgba(79,65,29,0.2)', borderWidth: 1, borderRadius: 4 },
+                    { label: '2024', data: m24.clickRate, backgroundColor: COLORS.y2024, borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1, borderRadius: 4 },
                     { label: '2025', data: m25.clickRate, backgroundColor: segColors.map(c => c + 'cc'), borderRadius: 4 },
                     { label: 'Benchmark (3.1%)', data: [3.1, 3.1, 3.1], type: 'line', borderColor: COLORS.benchmark, borderWidth: 2, borderDash: [6,4], pointRadius: 0, fill: false }
                 ]
@@ -807,7 +807,7 @@
             data: {
                 labels,
                 datasets: [
-                    { label: '2024', data: m24.ctor, backgroundColor: COLORS.y2024, borderColor: 'rgba(79,65,29,0.2)', borderWidth: 1, borderRadius: 4 },
+                    { label: '2024', data: m24.ctor, backgroundColor: COLORS.y2024, borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1, borderRadius: 4 },
                     { label: '2025', data: m25.ctor, backgroundColor: segColors.map(c => c + 'cc'), borderRadius: 4 },
                     { label: 'Benchmark (9.2%)', data: [9.2, 9.2, 9.2], type: 'line', borderColor: COLORS.benchmark, borderWidth: 2, borderDash: [6,4], pointRadius: 0, fill: false }
                 ]

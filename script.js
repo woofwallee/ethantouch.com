@@ -4,93 +4,14 @@
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  function buildConnectors() {
-    const svg = document.getElementById('connectorSvg');
-    const portrait = document.getElementById('portrait');
-    if (!svg || !portrait || window.innerWidth < 968) { svg.innerHTML = ''; return []; }
-
-    const hero = document.querySelector('.hero');
-    const hRect = hero.getBoundingClientRect();
-    const pRect = portrait.getBoundingClientRect();
-    const pCx = pRect.left + pRect.width / 2 - hRect.left;
-    const pCy = pRect.top + pRect.height / 2 - hRect.top;
-    const pW = pRect.width / 2;
-    const pH = pRect.height / 2;
-
-    const dots = {
-      tl: { x: pCx - pW - 4, y: pCy - pH * 0.3 },
-      bl: { x: pCx - pW - 4, y: pCy + pH * 0.35 },
-      tr: { x: pCx + pW + 4, y: pCy - pH * 0.25 },
-      br: { x: pCx + pW + 4, y: pCy + pH * 0.2 },
-    };
-    const anns = {
-      tl: document.getElementById('ann-tl'),
-      bl: document.getElementById('ann-bl'),
-      tr: document.getElementById('ann-tr'),
-      br: document.getElementById('ann-br'),
-    };
-
-    let svgContent = '';
-    // Top-left: horizontal then vertical zigzag
-    {
-      const r = anns.tl.getBoundingClientRect();
-      const sx = r.right - hRect.left + 15, sy = r.top + r.height * 0.5 - hRect.top;
-      const d = dots.tl;
-      svgContent += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + d.x + ',' + sy + ' ' + d.x + ',' + d.y + '" />';
-      svgContent += '<circle class="connector-dot" cx="' + d.x + '" cy="' + d.y + '" r="3.5" />';
-    }
-    // Bottom-left: vertical then horizontal zigzag
-    {
-      const r = anns.bl.getBoundingClientRect();
-      const sx = r.right - hRect.left + 15, sy = r.top + r.height * 0.5 - hRect.top;
-      const d = dots.bl;
-      svgContent += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + sx + ',' + d.y + ' ' + d.x + ',' + d.y + '" />';
-      svgContent += '<circle class="connector-dot" cx="' + d.x + '" cy="' + d.y + '" r="3.5" />';
-    }
-    // Top-right: horizontal then vertical zigzag
-    {
-      const r = anns.tr.getBoundingClientRect();
-      const sx = r.left - hRect.left - 15, sy = r.top + r.height * 0.5 - hRect.top;
-      const d = dots.tr;
-      svgContent += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + d.x + ',' + sy + ' ' + d.x + ',' + d.y + '" />';
-      svgContent += '<circle class="connector-dot" cx="' + d.x + '" cy="' + d.y + '" r="3.5" />';
-    }
-    // Bottom-right: vertical then horizontal zigzag
-    {
-      const r = anns.br.getBoundingClientRect();
-      const sx = r.left - hRect.left - 15, sy = r.top + r.height * 0.5 - hRect.top;
-      const d = dots.br;
-      svgContent += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + sx + ',' + d.y + ' ' + d.x + ',' + d.y + '" />';
-      svgContent += '<circle class="connector-dot" cx="' + d.x + '" cy="' + d.y + '" r="3.5" />';
-    }
-
-    svg.innerHTML = svgContent;
-    const lines = svg.querySelectorAll('.connector-line');
-    lines.forEach(function(line) {
-      var len = line.getTotalLength();
-      line.style.strokeDasharray = '5 5';
-      line.style.strokeDashoffset = len;
-    });
-    svg.querySelectorAll('.connector-dot').forEach(function(dot) { dot.style.opacity = '0'; });
-    return { lines: lines, dots: svg.querySelectorAll('.connector-dot') };
-  }
-
   requestAnimationFrame(function() {
     requestAnimationFrame(function() {
       document.body.classList.add('is-ready');
-      var connectorEls = buildConnectors();
 
       var tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
       tl.fromTo('#nav', { opacity: 0, y: -8 }, { opacity: 1, y: 0, duration: 0.26 }, 0);
       tl.fromTo('#heroParticles', { opacity: 0 }, { opacity: 1, duration: 1.2 }, 0);
-      if (connectorEls.lines && connectorEls.lines.length) {
-        tl.to('#connectors', { opacity: 1, duration: 0.01 }, 0.34);
-        connectorEls.lines.forEach(function(line, i) {
-          tl.to(line, { strokeDashoffset: 0, duration: 0.42, ease: 'power2.out' }, 0.34 + i * 0.04);
-        });
-        tl.to(connectorEls.dots, { opacity: 1, stagger: 0.05, duration: 0.18, ease: 'power2.out' }, 0.68);
-      }
 
       tl.fromTo('#portrait', { opacity: 0, scale: 0.94 }, {
         opacity: 1, scale: 1, duration: 0.5,
@@ -100,54 +21,16 @@
       }, 0.50);
 
       var descOrder = ['#ann-tl', '#ann-tr', '#ann-br', '#ann-bl'];
-      var descStart = 0.70, descGap = 0.09, bodyDelay = 0.08;
+      var descStart = 0.70, descGap = 0.12, bodyDelay = 0.10;
       descOrder.forEach(function(sel, i) {
         var t = descStart + i * descGap;
-        tl.fromTo(sel + ' .annotation__title', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.24 }, t);
+        tl.fromTo(sel, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.35 }, t);
         tl.fromTo(sel + ' .annotation__text', { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.28 }, t + bodyDelay);
       });
 
-      tl.fromTo('#heroCorner', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.26 }, 1.10);
+      tl.fromTo('#heroCorner', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.26 }, 1.20);
 
     });
-  });
-
-  // Rebuild connectors on resize (static, no re-animation)
-  window.addEventListener('resize', function() {
-    var svg = document.getElementById('connectorSvg');
-    var portrait = document.getElementById('portrait');
-    if (!svg || !portrait || window.innerWidth < 968) { svg.innerHTML = ''; return; }
-    var hero = document.querySelector('.hero');
-    var hRect = hero.getBoundingClientRect();
-    var pRect = portrait.getBoundingClientRect();
-    var pCx = pRect.left + pRect.width / 2 - hRect.left;
-    var pCy = pRect.top + pRect.height / 2 - hRect.top;
-    var pW = pRect.width / 2, pH = pRect.height / 2;
-    var dots = {
-      tl: { x: pCx - pW - 4, y: pCy - pH * 0.3 },
-      bl: { x: pCx - pW - 4, y: pCy + pH * 0.35 },
-      tr: { x: pCx + pW + 4, y: pCy - pH * 0.25 },
-      br: { x: pCx + pW + 4, y: pCy + pH * 0.2 },
-    };
-    var anns = { tl: document.getElementById('ann-tl'), bl: document.getElementById('ann-bl'), tr: document.getElementById('ann-tr'), br: document.getElementById('ann-br') };
-    var s = '';
-    [['tl','right'], ['bl','right'], ['tr','left'], ['br','left']].forEach(function(pair) {
-      var key = pair[0], side = pair[1];
-      var el = anns[key], r = el.getBoundingClientRect(), d = dots[key];
-      var sx = side === 'right' ? r.right - hRect.left + 15 : r.left - hRect.left - 15;
-      var sy = r.top + r.height * 0.5 - hRect.top;
-      if (key === 'tl' || key === 'tr') {
-        // Horizontal then vertical
-        s += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + d.x + ',' + sy + ' ' + d.x + ',' + d.y + '" style="stroke-dashoffset:0"/>';
-      } else {
-        // Vertical then horizontal
-        s += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + sx + ',' + d.y + ' ' + d.x + ',' + d.y + '" style="stroke-dashoffset:0"/>';
-      }
-      s += '<circle class="connector-dot" cx="' + d.x + '" cy="' + d.y + '" r="3.5"/>';
-    });
-    svg.innerHTML = s;
-    svg.querySelectorAll('.connector-line').forEach(function(l) { l.style.strokeDasharray = '5 5'; });
-    document.getElementById('connectors').style.opacity = '1';
   });
 })();
 

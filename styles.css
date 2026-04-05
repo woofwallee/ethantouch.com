@@ -1,4 +1,15 @@
 /* ===========================
+   CUSTOM FONTS
+   =========================== */
+@font-face {
+  font-family: 'Picasso';
+  src: url('fonts/Picasso.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal italic;
+  font-display: swap;
+}
+
+/* ===========================
    RESET & BASE
    =========================== */
 *, *::before, *::after {
@@ -55,17 +66,19 @@ img {
    =========================== */
 .section__label {
   font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #FAE1C5;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem !important;
+  opacity: 1 !important;
+  line-height: 1;
 }
 
 .section__title {
-  font-family: 'Fraunces', 'Playfair Display', serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-family: 'Picasso', 'Fraunces', 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 6vw, 4rem);
   font-weight: 700;
   font-style: italic;
   color: #B7C9C3;
@@ -181,21 +194,19 @@ img {
    =========================== */
 .nav,
 .hero__portrait,
-.annotation__title,
+.annotation,
 .annotation__text,
 .hero__corner,
-.hero__particles,
-.hero__connectors {
+.hero__particles {
   opacity: 0;
   visibility: hidden;
 }
 .is-ready .nav,
 .is-ready .hero__portrait,
-.is-ready .annotation__title,
+.is-ready .annotation,
 .is-ready .annotation__text,
 .is-ready .hero__corner,
-.is-ready .hero__particles,
-.is-ready .hero__connectors {
+.is-ready .hero__particles {
   visibility: visible;
 }
 
@@ -237,6 +248,7 @@ img {
   height: auto;
   filter: brightness(0) invert(1);
   opacity: 0.95;
+  transition: filter 0.4s ease;
 }
 .hero__portrait::before {
   content: '';
@@ -249,29 +261,38 @@ img {
   background: radial-gradient(ellipse, rgba(183,201,195,0.05) 0%, transparent 60%);
   filter: blur(50px);
   z-index: -1;
+  transition: background 0.4s ease, filter 0.4s ease;
+}
+.hero__portrait:hover::before {
+  background: radial-gradient(ellipse, rgba(183,201,195,0.18) 0%, rgba(183,201,195,0.04) 50%, transparent 70%);
+  filter: blur(40px);
+}
+.hero__portrait:hover img {
+  filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(183,201,195,0.3)) drop-shadow(0 0 40px rgba(183,201,195,0.12));
 }
 
-/* Descriptor blocks */
+/* Descriptor blocks — icon-centered, floating */
 .annotation {
   position: absolute;
   z-index: 4;
-  max-width: 240px;
+  text-align: center;
+  max-width: 260px;
 }
 .annotation__icon {
-  width: 38px;
-  height: 38px;
-  color: rgba(183, 201, 195, 0.85);
-  margin-bottom: 0.5rem;
+  width: 42px;
+  height: 42px;
+  color: rgba(183, 201, 195, 0.9);
+  margin: 0 auto 0.6rem;
   display: block;
+  filter: drop-shadow(0 0 8px rgba(183, 201, 195, 0.4)) drop-shadow(0 0 24px rgba(183, 201, 195, 0.15));
 }
 .annotation__title {
-  font-family: 'Fraunces', 'Playfair Display', serif;
+  font-family: 'Picasso', 'Fraunces', 'Playfair Display', serif;
   font-optical-sizing: auto;
-  font-size: 1.65rem;
+  font-size: 2.2rem;
   font-weight: 700;
   font-style: italic;
   color: #B7C9C3;
-  margin-bottom: 0.5rem;
   letter-spacing: -0.01em;
   line-height: 1.2;
   white-space: nowrap;
@@ -282,25 +303,21 @@ img {
   line-height: 1.65;
 }
 
-/* Boho icons are static — no draw animation */
-#ann-tl { left: 5%; top: 18%; text-align: left; }
-#ann-bl { left: 5%; top: 62%; text-align: left; }
-#ann-tr { right: 5%; top: 24%; text-align: left; }
-#ann-br { right: 5%; top: 72%; text-align: left; }
-
-/* Connector SVG */
-.hero__connectors {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
+/* Floating keyframes */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
-.hero__connectors svg { width: 100%; height: 100%; }
-.connector-line {
-  stroke: rgba(255, 255, 255, 0.45);
-  stroke-width: 1;
-  fill: none;
-  stroke-dasharray: 5 5;
+
+/* Positions — tucked close to portrait */
+#ann-tl { left: 18%; top: 22%; animation: float-gentle 5s ease-in-out infinite; }
+#ann-bl { left: 16%; top: 62%; animation: float-gentle 6s ease-in-out 1.5s infinite; }
+#ann-tr { right: 18%; top: 24%; animation: float-gentle 5.5s ease-in-out 0.8s infinite; }
+#ann-br { right: 16%; top: 64%; animation: float-gentle 6.5s ease-in-out 2s infinite; }
+
+/* Connectors hidden — replaced by floating layout */
+.hero__connectors {
+  display: none;
 }
 .connector-dot { fill: rgba(255, 255, 255, 0.7); }
 
@@ -415,7 +432,7 @@ img {
   align-items: center;
 }
 
-.about__text p {
+.about__text p:not(.section__label) {
   color: #E6E8E7;
   opacity: 0.65;
   margin-bottom: 1.25rem;
@@ -425,7 +442,7 @@ img {
 
 .about__stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   margin-top: 2.5rem;
   padding-top: 2.5rem;
@@ -1092,7 +1109,9 @@ body.modal-open {
 .testimonials-grid {
   columns: 3;
   column-gap: 1.5rem;
-  padding: 3rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
 }
 
 .testimonial-card {
@@ -1109,7 +1128,8 @@ body.modal-open {
 }
 
 .testimonial-card:hover {
-  border-color: rgba(183, 201, 195, 0.2);
+  border-color: rgba(183, 201, 195, 0.25);
+  box-shadow: 0 0 20px rgba(183, 201, 195, 0.06), 0 0 60px rgba(183, 201, 195, 0.03);
 }
 
 .testimonial-card__quote {
@@ -1170,7 +1190,7 @@ body.modal-open {
   align-items: start;
 }
 
-.contact__info p {
+.contact__info p:not(.section__label) {
   color: #E6E8E7;
   opacity: 0.65;
   font-size: 1.05rem;
@@ -1373,6 +1393,7 @@ body.modal-open {
     right: auto !important;
     top: auto !important;
     transform: none !important;
+    animation: none !important;
     max-width: 85%;
     text-align: center !important;
     margin: 1rem auto;

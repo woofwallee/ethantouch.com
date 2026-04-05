@@ -1042,6 +1042,14 @@ body.modal-open {
   border-top: 1px solid rgba(183,201,195,0.06);
 }
 
+.cs-disclaimer {
+  font-size: 0.7rem;
+  color: rgba(183, 201, 195, 0.35);
+  font-style: italic;
+  text-align: center;
+  padding: 0.75rem 3.5rem 0;
+}
+
 .cs-tools__label {
   font-size: 0.6rem;
   font-weight: 600;

@@ -500,9 +500,12 @@ img {
   overflow: hidden;
 }
 
-.work__card-image lottie-player {
+.work__card-image img {
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
 }
 
 .work__card-content {

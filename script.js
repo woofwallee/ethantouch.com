@@ -18,10 +18,10 @@
     const pH = pRect.height / 2;
 
     const dots = {
-      tl: { x: pCx - pW - 12, y: pCy - pH * 0.3 },
-      bl: { x: pCx - pW - 10, y: pCy + pH * 0.35 },
-      tr: { x: pCx + pW + 12, y: pCy - pH * 0.25 },
-      br: { x: pCx + pW + 10, y: pCy + pH * 0.2 },
+      tl: { x: pCx - pW - 4, y: pCy - pH * 0.3 },
+      bl: { x: pCx - pW - 4, y: pCy + pH * 0.35 },
+      tr: { x: pCx + pW + 4, y: pCy - pH * 0.25 },
+      br: { x: pCx + pW + 4, y: pCy + pH * 0.2 },
     };
     const anns = {
       tl: document.getElementById('ann-tl'),
@@ -31,36 +31,36 @@
     };
 
     let svgContent = '';
-    // Top-left
+    // Top-left: horizontal then vertical zigzag
     {
       const r = anns.tl.getBoundingClientRect();
       const sx = r.right - hRect.left + 15, sy = r.top + r.height * 0.5 - hRect.top;
-      const d = dots.tl, mx = sx + (d.x - sx) * 0.4, my = d.y;
-      svgContent += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + mx + ',' + my + ' ' + d.x + ',' + d.y + '" />';
+      const d = dots.tl;
+      svgContent += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + d.x + ',' + sy + ' ' + d.x + ',' + d.y + '" />';
       svgContent += '<circle class="connector-dot" cx="' + d.x + '" cy="' + d.y + '" r="3.5" />';
     }
-    // Bottom-left
+    // Bottom-left: vertical then horizontal zigzag
     {
       const r = anns.bl.getBoundingClientRect();
       const sx = r.right - hRect.left + 15, sy = r.top + r.height * 0.5 - hRect.top;
-      const d = dots.bl, mx = sx + (d.x - sx) * 0.5, my = sy;
-      svgContent += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + mx + ',' + my + ' ' + d.x + ',' + d.y + '" />';
+      const d = dots.bl;
+      svgContent += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + sx + ',' + d.y + ' ' + d.x + ',' + d.y + '" />';
       svgContent += '<circle class="connector-dot" cx="' + d.x + '" cy="' + d.y + '" r="3.5" />';
     }
-    // Top-right
+    // Top-right: horizontal then vertical zigzag
     {
       const r = anns.tr.getBoundingClientRect();
       const sx = r.left - hRect.left - 15, sy = r.top + r.height * 0.5 - hRect.top;
-      const d = dots.tr, mx = sx - (sx - d.x) * 0.4, my = d.y;
-      svgContent += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + mx + ',' + my + ' ' + d.x + ',' + d.y + '" />';
+      const d = dots.tr;
+      svgContent += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + d.x + ',' + sy + ' ' + d.x + ',' + d.y + '" />';
       svgContent += '<circle class="connector-dot" cx="' + d.x + '" cy="' + d.y + '" r="3.5" />';
     }
-    // Bottom-right
+    // Bottom-right: vertical then horizontal zigzag
     {
       const r = anns.br.getBoundingClientRect();
       const sx = r.left - hRect.left - 15, sy = r.top + r.height * 0.5 - hRect.top;
       const d = dots.br;
-      svgContent += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + d.x + ',' + d.y + '" />';
+      svgContent += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + sx + ',' + d.y + ' ' + d.x + ',' + d.y + '" />';
       svgContent += '<circle class="connector-dot" cx="' + d.x + '" cy="' + d.y + '" r="3.5" />';
     }
 
@@ -129,10 +129,10 @@
     var pCy = pRect.top + pRect.height / 2 - hRect.top;
     var pW = pRect.width / 2, pH = pRect.height / 2;
     var dots = {
-      tl: { x: pCx - pW - 12, y: pCy - pH * 0.3 },
-      bl: { x: pCx - pW - 10, y: pCy + pH * 0.35 },
-      tr: { x: pCx + pW + 12, y: pCy - pH * 0.25 },
-      br: { x: pCx + pW + 10, y: pCy + pH * 0.2 },
+      tl: { x: pCx - pW - 4, y: pCy - pH * 0.3 },
+      bl: { x: pCx - pW - 4, y: pCy + pH * 0.35 },
+      tr: { x: pCx + pW + 4, y: pCy - pH * 0.25 },
+      br: { x: pCx + pW + 4, y: pCy + pH * 0.2 },
     };
     var anns = { tl: document.getElementById('ann-tl'), bl: document.getElementById('ann-bl'), tr: document.getElementById('ann-tr'), br: document.getElementById('ann-br') };
     var s = '';
@@ -141,12 +141,12 @@
       var el = anns[key], r = el.getBoundingClientRect(), d = dots[key];
       var sx = side === 'right' ? r.right - hRect.left + 15 : r.left - hRect.left - 15;
       var sy = r.top + r.height * 0.5 - hRect.top;
-      if (key === 'br') {
-        s += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + d.x + ',' + d.y + '" style="stroke-dashoffset:0"/>';
+      if (key === 'tl' || key === 'tr') {
+        // Horizontal then vertical
+        s += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + d.x + ',' + sy + ' ' + d.x + ',' + d.y + '" style="stroke-dashoffset:0"/>';
       } else {
-        var mx = side === 'right' ? sx + (d.x - sx) * 0.4 : sx - (sx - d.x) * 0.4;
-        var my = key.startsWith('b') ? sy : d.y;
-        s += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + mx + ',' + my + ' ' + d.x + ',' + d.y + '" style="stroke-dashoffset:0"/>';
+        // Vertical then horizontal
+        s += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + sx + ',' + d.y + ' ' + d.x + ',' + d.y + '" style="stroke-dashoffset:0"/>';
       }
       s += '<circle class="connector-dot" cx="' + d.x + '" cy="' + d.y + '" r="3.5"/>';
     });

@@ -236,13 +236,13 @@ img {
   color: rgba(183, 201, 195, 0.20);
 }
 #bgEthan {
-  font-size: clamp(7rem, 20vw, 22rem);
-  top: 30%;
+  font-size: clamp(5.5rem, 16vw, 18rem);
+  top: 28%;
   transform: translateX(-50%) translateY(-50%);
 }
 #bgTouch {
-  font-size: clamp(8rem, 23vw, 26rem);
-  top: 72%;
+  font-size: clamp(6.5rem, 19vw, 22rem);
+  top: 74%;
   transform: translateX(-50%) translateY(-50%);
   letter-spacing: 0.06em;
 }
@@ -293,10 +293,10 @@ img {
   color: #a8aba9;
   line-height: 1.65;
 }
-#ann-tl { left: 5%; top: 22%; text-align: left; }
-#ann-bl { left: 5%; top: 58%; text-align: left; }
-#ann-tr { right: 5%; top: 20%; text-align: left; }
-#ann-br { right: 5%; top: 55%; text-align: left; }
+#ann-tl { left: 5%; top: 18%; text-align: left; }
+#ann-bl { left: 5%; top: 62%; text-align: left; }
+#ann-tr { right: 5%; top: 32%; text-align: left; }
+#ann-br { right: 5%; top: 72%; text-align: left; }
 
 /* Connector SVG */
 .hero__connectors {
@@ -1396,7 +1396,7 @@ body.modal-open {
     position: absolute !important;
     left: 50% !important;
     right: auto !important;
-    font-size: clamp(4rem, 22vw, 8rem) !important;
+    font-size: clamp(3.5rem, 18vw, 7rem) !important;
     color: rgba(183, 201, 195, 0.12);
   }
   #bgEthan { top: 22% !important; transform: translateX(-50%) translateY(-50%) !important; }

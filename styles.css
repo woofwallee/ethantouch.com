@@ -177,7 +177,6 @@ img {
 .nav,
 .hero__bg-name,
 .hero__portrait,
-.annotation__icon,
 .annotation__title,
 .annotation__text,
 .hero__corner,
@@ -189,7 +188,6 @@ img {
 .is-ready .nav,
 .is-ready .hero__bg-name,
 .is-ready .hero__portrait,
-.is-ready .annotation__icon,
 .is-ready .annotation__title,
 .is-ready .annotation__text,
 .is-ready .hero__corner,
@@ -307,33 +305,7 @@ img {
   line-height: 1.65;
 }
 
-/* Boho icon draw-on animation */
-.icon-draw {
-  stroke-dasharray: 200;
-  stroke-dashoffset: 200;
-}
-.icon-fade {
-  opacity: 0;
-}
-.is-ready .icon-draw {
-  animation: iconDraw 1.8s ease-out forwards;
-}
-.is-ready .icon-draw--delay1 { animation-delay: 0.3s; }
-.is-ready .icon-draw--delay2 { animation-delay: 0.6s; }
-.is-ready .icon-draw--delay3 { animation-delay: 0.9s; }
-.is-ready .icon-fade {
-  animation: iconFade 1s ease-out forwards;
-  animation-delay: 1.2s;
-}
-.is-ready .icon-fade--delay1 { animation-delay: 1.5s; }
-.is-ready .icon-fade--delay2 { animation-delay: 1.8s; }
-
-@keyframes iconDraw {
-  to { stroke-dashoffset: 0; }
-}
-@keyframes iconFade {
-  to { opacity: 1; }
-}
+/* Boho icons are static — no draw animation */
 #ann-tl { left: 5%; top: 18%; text-align: left; }
 #ann-bl { left: 5%; top: 62%; text-align: left; }
 #ann-tr { right: 5%; top: 32%; text-align: left; }
@@ -1561,7 +1533,7 @@ body.modal-open {
 /* Hero reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .nav, .hero__bg-name, .hero__portrait,
-  .annotation__icon, .annotation__title, .annotation__text,
+  .annotation__title, .annotation__text,
   .hero__corner, .hero__connectors {
     opacity: 1 !important;
     visibility: visible !important;

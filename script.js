@@ -1,4 +1,216 @@
 // ===========================
+// HERO ANIMATION — COORDINATED GSAP TIMELINE
+// ===========================
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function buildConnectors() {
+    const svg = document.getElementById('connectorSvg');
+    const portrait = document.getElementById('portrait');
+    if (!svg || !portrait || window.innerWidth < 968) { svg.innerHTML = ''; return []; }
+
+    const hero = document.querySelector('.hero');
+    const hRect = hero.getBoundingClientRect();
+    const pRect = portrait.getBoundingClientRect();
+    const pCx = pRect.left + pRect.width / 2 - hRect.left;
+    const pCy = pRect.top + pRect.height / 2 - hRect.top;
+    const pW = pRect.width / 2;
+    const pH = pRect.height / 2;
+
+    const dots = {
+      tl: { x: pCx - pW - 12, y: pCy - pH * 0.3 },
+      bl: { x: pCx - pW - 10, y: pCy + pH * 0.35 },
+      tr: { x: pCx + pW + 12, y: pCy - pH * 0.25 },
+      br: { x: pCx + pW + 10, y: pCy + pH * 0.2 },
+    };
+    const anns = {
+      tl: document.getElementById('ann-tl'),
+      bl: document.getElementById('ann-bl'),
+      tr: document.getElementById('ann-tr'),
+      br: document.getElementById('ann-br'),
+    };
+
+    let svgContent = '';
+    // Top-left
+    {
+      const r = anns.tl.getBoundingClientRect();
+      const sx = r.right - hRect.left + 15, sy = r.top + r.height * 0.5 - hRect.top;
+      const d = dots.tl, mx = sx + (d.x - sx) * 0.4, my = d.y;
+      svgContent += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + mx + ',' + my + ' ' + d.x + ',' + d.y + '" />';
+      svgContent += '<circle class="connector-dot" cx="' + d.x + '" cy="' + d.y + '" r="3.5" />';
+    }
+    // Bottom-left
+    {
+      const r = anns.bl.getBoundingClientRect();
+      const sx = r.right - hRect.left + 15, sy = r.top + r.height * 0.5 - hRect.top;
+      const d = dots.bl, mx = sx + (d.x - sx) * 0.5, my = sy;
+      svgContent += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + mx + ',' + my + ' ' + d.x + ',' + d.y + '" />';
+      svgContent += '<circle class="connector-dot" cx="' + d.x + '" cy="' + d.y + '" r="3.5" />';
+    }
+    // Top-right
+    {
+      const r = anns.tr.getBoundingClientRect();
+      const sx = r.left - hRect.left - 15, sy = r.top + r.height * 0.5 - hRect.top;
+      const d = dots.tr, mx = sx - (sx - d.x) * 0.4, my = d.y;
+      svgContent += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + mx + ',' + my + ' ' + d.x + ',' + d.y + '" />';
+      svgContent += '<circle class="connector-dot" cx="' + d.x + '" cy="' + d.y + '" r="3.5" />';
+    }
+    // Bottom-right
+    {
+      const r = anns.br.getBoundingClientRect();
+      const sx = r.left - hRect.left - 15, sy = r.top + r.height * 0.5 - hRect.top;
+      const d = dots.br;
+      svgContent += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + d.x + ',' + d.y + '" />';
+      svgContent += '<circle class="connector-dot" cx="' + d.x + '" cy="' + d.y + '" r="3.5" />';
+    }
+
+    svg.innerHTML = svgContent;
+    const lines = svg.querySelectorAll('.connector-line');
+    lines.forEach(function(line) {
+      var len = line.getTotalLength();
+      line.style.strokeDasharray = '5 5';
+      line.style.strokeDashoffset = len;
+    });
+    svg.querySelectorAll('.connector-dot').forEach(function(dot) { dot.style.opacity = '0'; });
+    return { lines: lines, dots: svg.querySelectorAll('.connector-dot') };
+  }
+
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      document.body.classList.add('is-ready');
+      var connectorEls = buildConnectors();
+
+      var tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+
+      tl.fromTo('#nav', { opacity: 0, y: -8 }, { opacity: 1, y: 0, duration: 0.26 }, 0);
+      tl.fromTo('#heroParticles', { opacity: 0 }, { opacity: 1, duration: 1.2 }, 0);
+      tl.fromTo('#bgEthan', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.48 }, 0.14);
+      tl.fromTo('#bgTouch', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.48 }, 0.28);
+
+      if (connectorEls.lines && connectorEls.lines.length) {
+        tl.to('#connectors', { opacity: 1, duration: 0.01 }, 0.34);
+        connectorEls.lines.forEach(function(line, i) {
+          tl.to(line, { strokeDashoffset: 0, duration: 0.42, ease: 'power2.out' }, 0.34 + i * 0.04);
+        });
+        tl.to(connectorEls.dots, { opacity: 1, stagger: 0.05, duration: 0.18, ease: 'power2.out' }, 0.68);
+      }
+
+      tl.fromTo('#portrait', { opacity: 0, scale: 0.94 }, {
+        opacity: 1, scale: 1, duration: 0.5,
+        onComplete: function() {
+          document.getElementById('portrait').classList.add('float-active', 'glow-active');
+        }
+      }, 0.50);
+
+      var descOrder = ['#ann-tl', '#ann-tr', '#ann-br', '#ann-bl'];
+      var descStart = 0.70, descGap = 0.09, bodyDelay = 0.08;
+      descOrder.forEach(function(sel, i) {
+        var t = descStart + i * descGap;
+        tl.fromTo(sel + ' .annotation__title', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.24 }, t);
+        tl.fromTo(sel + ' .annotation__text', { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.28 }, t + bodyDelay);
+      });
+
+      tl.fromTo('#heroCorner', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.26 }, 1.10);
+
+      gsap.to('#bgEthan', { y: -4, duration: 5, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 2 });
+      gsap.to('#bgTouch', { y: 4, duration: 6, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 2.5 });
+    });
+  });
+
+  // Rebuild connectors on resize (static, no re-animation)
+  window.addEventListener('resize', function() {
+    var svg = document.getElementById('connectorSvg');
+    var portrait = document.getElementById('portrait');
+    if (!svg || !portrait || window.innerWidth < 968) { svg.innerHTML = ''; return; }
+    var hero = document.querySelector('.hero');
+    var hRect = hero.getBoundingClientRect();
+    var pRect = portrait.getBoundingClientRect();
+    var pCx = pRect.left + pRect.width / 2 - hRect.left;
+    var pCy = pRect.top + pRect.height / 2 - hRect.top;
+    var pW = pRect.width / 2, pH = pRect.height / 2;
+    var dots = {
+      tl: { x: pCx - pW - 12, y: pCy - pH * 0.3 },
+      bl: { x: pCx - pW - 10, y: pCy + pH * 0.35 },
+      tr: { x: pCx + pW + 12, y: pCy - pH * 0.25 },
+      br: { x: pCx + pW + 10, y: pCy + pH * 0.2 },
+    };
+    var anns = { tl: document.getElementById('ann-tl'), bl: document.getElementById('ann-bl'), tr: document.getElementById('ann-tr'), br: document.getElementById('ann-br') };
+    var s = '';
+    [['tl','right'], ['bl','right'], ['tr','left'], ['br','left']].forEach(function(pair) {
+      var key = pair[0], side = pair[1];
+      var el = anns[key], r = el.getBoundingClientRect(), d = dots[key];
+      var sx = side === 'right' ? r.right - hRect.left + 15 : r.left - hRect.left - 15;
+      var sy = r.top + r.height * 0.5 - hRect.top;
+      if (key === 'br') {
+        s += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + d.x + ',' + d.y + '" style="stroke-dashoffset:0"/>';
+      } else {
+        var mx = side === 'right' ? sx + (d.x - sx) * 0.4 : sx - (sx - d.x) * 0.4;
+        var my = key.startsWith('b') ? sy : d.y;
+        s += '<polyline class="connector-line" points="' + sx + ',' + sy + ' ' + mx + ',' + my + ' ' + d.x + ',' + d.y + '" style="stroke-dashoffset:0"/>';
+      }
+      s += '<circle class="connector-dot" cx="' + d.x + '" cy="' + d.y + '" r="3.5"/>';
+    });
+    svg.innerHTML = s;
+    svg.querySelectorAll('.connector-line').forEach(function(l) { l.style.strokeDasharray = '5 5'; });
+    document.getElementById('connectors').style.opacity = '1';
+  });
+})();
+
+// ===========================
+// HERO PARTICLE SYSTEM
+// ===========================
+(function() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var canvas = document.getElementById('heroParticles');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var hero = document.querySelector('.hero');
+  var COLORS = [
+    { r: 183, g: 201, b: 195 }, { r: 220, g: 202, b: 190 },
+    { r: 215, g: 221, b: 201 }, { r: 220, g: 210, b: 228 },
+    { r: 245, g: 228, b: 210 },
+  ];
+  var particles = [], isVisible = true;
+  function resize() { canvas.width = hero.offsetWidth; canvas.height = hero.offsetHeight; }
+  function create() {
+    var n = window.innerWidth < 768 ? 20 : 40;
+    particles = [];
+    for (var i = 0; i < n; i++) {
+      var c = COLORS[Math.floor(Math.random() * COLORS.length)];
+      particles.push({
+        x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+        r: Math.random() * 1.8 + 0.4,
+        vx: (Math.random() - 0.5) * 0.2, vy: (Math.random() - 0.5) * 0.15,
+        o: Math.random() * 0.2 + 0.03, od: Math.random() > 0.5 ? 1 : -1, c: c,
+      });
+    }
+  }
+  function loop() {
+    if (!isVisible) { requestAnimationFrame(loop); return; }
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      p.o += p.od * 0.0008;
+      if (p.o > 0.25) p.od = -1;
+      if (p.o < 0.02) p.od = 1;
+      if (p.x < -5) p.x = canvas.width + 5;
+      if (p.x > canvas.width + 5) p.x = -5;
+      if (p.y < -5) p.y = canvas.height + 5;
+      if (p.y > canvas.height + 5) p.y = -5;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + p.c.r + ',' + p.c.g + ',' + p.c.b + ',' + p.o + ')';
+      ctx.fill();
+    }
+    requestAnimationFrame(loop);
+  }
+  new IntersectionObserver(function(e) { isVisible = e[0].isIntersecting; }, { threshold: 0.1 }).observe(hero);
+  resize(); create(); loop();
+  window.addEventListener('resize', function() { resize(); create(); });
+})();
+
+// ===========================
 // NAV SCROLL EFFECT
 // ===========================
 const nav = document.getElementById('nav');

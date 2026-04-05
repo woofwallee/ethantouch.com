@@ -32,8 +32,9 @@
   <script defer src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
 
@@ -55,20 +56,47 @@
 
   <main>
 
-  <!-- Section 1: Hero -->
+  <!-- Section 1: Hero — Editorial Diagram -->
   <section class="hero" id="home">
-    <div class="hero__content">
-      <p class="hero__label">HubSpot Specialist &bull; Marketing Operations</p>
-      <h1 class="hero__title">Building systems<br>that scale.</h1>
-      <p class="hero__subtitle">Marketing teams shouldn't spend their time managing the platform. I build the systems so they don't have to.</p>
-      <div class="hero__cta">
-        <a href="#work" class="btn btn--primary">See My Work</a>
-        <a href="#contact" class="btn btn--outline">Get in Touch</a>
-      </div>
+    <canvas class="hero__particles" id="heroParticles"></canvas>
+
+    <!-- Structural background name -->
+    <div class="hero__bg-name" id="bgEthan" aria-hidden="true">ETHAN</div>
+    <div class="hero__bg-name" id="bgTouch" aria-hidden="true">TOUCH</div>
+
+    <!-- Central portrait anchor -->
+    <div class="hero__portrait" id="portrait">
+      <img src="images/portrait-hero.png?v=3" alt="Ethan Touch — line art portrait">
     </div>
-    <div class="hero__scroll">
-      <span>Scroll</span>
-      <div class="hero__scroll-line"></div>
+
+    <!-- Connector lines SVG -->
+    <div class="hero__connectors" id="connectors">
+      <svg xmlns="http://www.w3.org/2000/svg" id="connectorSvg"></svg>
+    </div>
+
+    <!-- Descriptor blocks -->
+    <div class="annotation" id="ann-tl">
+      <h3 class="annotation__title">Marketing Hub Software</h3>
+      <p class="annotation__text">Built and managed email campaigns, landing pages, automated workflows, and lead nurture sequences across segmented multi-audience databases.</p>
+    </div>
+
+    <div class="annotation" id="ann-bl">
+      <h3 class="annotation__title">Sales Hub Software</h3>
+      <p class="annotation__text">Configured pipelines, deal stages, and automated lead routing so marketing-qualified contacts moved directly into the right sales workflows.</p>
+    </div>
+
+    <div class="annotation" id="ann-tr">
+      <h3 class="annotation__title">Inbound Marketing</h3>
+      <p class="annotation__text">Designed content and lifecycle stage strategies that pulled audiences in organically, then segmented and nurtured them through the funnel.</p>
+    </div>
+
+    <div class="annotation" id="ann-br">
+      <h3 class="annotation__title">HubSpot Reporting</h3>
+      <p class="annotation__text">Built custom dashboards and attribution reports that gave teams clear visibility into what was working and where to focus next.</p>
+    </div>
+
+    <div class="hero__corner" id="heroCorner">
+      <a href="#work" aria-label="See my work">&#8595;</a>
     </div>
   </section>
 

@@ -172,14 +172,37 @@ img {
 }
 
 /* ===========================
+   HERO — INITIAL HIDDEN STATES
+   =========================== */
+.nav,
+.hero__bg-name,
+.hero__portrait,
+.annotation__title,
+.annotation__text,
+.hero__corner,
+.hero__particles,
+.hero__connectors {
+  opacity: 0;
+  visibility: hidden;
+}
+.is-ready .nav,
+.is-ready .hero__bg-name,
+.is-ready .hero__portrait,
+.is-ready .annotation__title,
+.is-ready .annotation__text,
+.is-ready .hero__corner,
+.is-ready .hero__particles,
+.is-ready .hero__connectors {
+  visibility: visible;
+}
+
+/* ===========================
    HERO
    =========================== */
 .hero {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
   background: #0a0a0a;
 }
@@ -190,88 +213,152 @@ img {
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.04;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
 }
 
-.hero__content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 800px;
-  padding: 0 2rem;
-}
-
-.hero__label {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #FAE1C5;
-  margin-bottom: 1.5rem;
-  opacity: 0;
-  animation: fadeUp 1s ease 0.3s forwards;
-}
-
-.hero__title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 900;
-  color: #B7C9C3;
-  line-height: 1.05;
-  margin-bottom: 1.5rem;
-  opacity: 0;
-  animation: fadeUp 1s ease 0.5s forwards;
-}
-
-.hero__subtitle {
-  font-size: 1.15rem;
-  color: #E6E8E7;
-  max-width: 550px;
-  margin: 0 auto 2.5rem;
-  line-height: 1.7;
-  opacity: 0;
-  animation: fadeUp 1s ease 0.7s forwards;
-}
-
-.hero__cta {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  opacity: 0;
-  animation: fadeUp 1s ease 0.9s forwards;
-}
-
-.hero__scroll {
+/* Background name (structural layer) */
+.hero__bg-name {
   position: absolute;
-  bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  opacity: 0;
-  animation: fadeIn 1s ease 1.5s forwards;
-}
-
-.hero__scroll span {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  z-index: 1;
+  pointer-events: none;
+  text-align: center;
+  user-select: none;
+  white-space: nowrap;
+  font-family: 'Bodoni Moda', 'Playfair Display', serif;
+  font-weight: 900;
   text-transform: uppercase;
-  color: #E6E8E7;
-  opacity: 0.35;
+  letter-spacing: -0.03em;
+  color: rgba(183, 201, 195, 0.13);
+}
+#bgEthan {
+  font-size: clamp(7rem, 20vw, 22rem);
+  top: 18%;
+  transform: translateX(-50%) translateY(-50%);
+}
+#bgTouch {
+  font-size: clamp(8rem, 23vw, 26rem);
+  top: 80%;
+  transform: translateX(-50%) translateY(-50%);
+  letter-spacing: 0.06em;
 }
 
-.hero__scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, #B7C9C3, transparent);
-  animation: scrollPulse 2s ease-in-out infinite;
+/* Portrait (central anchor) */
+.hero__portrait {
+  position: absolute;
+  left: 50%;
+  top: 53%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: clamp(340px, 36vw, 520px);
 }
+.hero__portrait img {
+  width: 100%;
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+.hero__portrait::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(ellipse, rgba(183,201,195,0.05) 0%, transparent 60%);
+  filter: blur(50px);
+  z-index: -1;
+}
+
+/* Descriptor blocks */
+.annotation {
+  position: absolute;
+  z-index: 4;
+  max-width: 240px;
+}
+.annotation__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #B7C9C3;
+  margin-bottom: 0.5rem;
+}
+.annotation__text {
+  font-size: 0.78rem;
+  color: #8a8d8c;
+  line-height: 1.65;
+}
+#ann-tl { left: 5%; top: 22%; text-align: left; }
+#ann-bl { left: 5%; top: 58%; text-align: left; }
+#ann-tr { right: 5%; top: 20%; text-align: left; }
+#ann-br { right: 5%; top: 55%; text-align: left; }
+
+/* Connector SVG */
+.hero__connectors {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+.hero__connectors svg { width: 100%; height: 100%; }
+.connector-line {
+  stroke: rgba(183, 201, 195, 0.18);
+  stroke-width: 1;
+  fill: none;
+  stroke-dasharray: 5 5;
+}
+.connector-dot { fill: rgba(183, 201, 195, 0.45); }
+
+/* Corner CTA */
+.hero__corner {
+  position: absolute;
+  bottom: 2rem;
+  right: 3rem;
+  z-index: 5;
+}
+.hero__corner a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(183,201,195,0.2);
+  border-radius: 8px;
+  color: #B7C9C3;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+.hero__corner a:hover {
+  border-color: #B7C9C3;
+  background: rgba(183,201,195,0.05);
+  transform: translateY(-2px);
+}
+
+/* Particles canvas */
+.hero__particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Continuous animations */
+@keyframes portraitFloat {
+  0%, 100% { transform: translate(-50%, -50%); }
+  50% { transform: translate(-50%, calc(-50% - 6px)); }
+}
+.float-active { animation: portraitFloat 5s ease-in-out infinite; }
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; transform: translate(-50%,-50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%,-50%) scale(1.05); }
+}
+.glow-active::before { animation: glowPulse 6s ease-in-out infinite; }
 
 /* ===========================
    BUTTONS
@@ -1276,7 +1363,61 @@ body.modal-open {
 /* ===========================
    RESPONSIVE
    =========================== */
+/* Hero responsive */
 @media (max-width: 968px) {
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 6rem 1.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+  }
+  .hero__bg-name {
+    position: absolute !important;
+    left: 50% !important;
+    right: auto !important;
+    font-size: clamp(4rem, 22vw, 8rem) !important;
+    color: rgba(183, 201, 195, 0.08);
+  }
+  #bgEthan { top: 18% !important; transform: translateX(-50%) translateY(-50%) !important; }
+  #bgTouch { top: 34% !important; transform: translateX(-50%) translateY(-50%) !important; letter-spacing: 0.04em !important; }
+  .hero__portrait {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 60vw !important;
+    max-width: 300px;
+    margin: 3rem auto 2rem;
+    z-index: 2;
+    order: 1;
+  }
+  .annotation {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    max-width: 85%;
+    text-align: center !important;
+    margin: 1rem auto;
+  }
+  #ann-tl { order: 2; }
+  #ann-tr { order: 3; }
+  #ann-br { order: 4; }
+  #ann-bl { order: 5; }
+  .hero__connectors { display: none; }
+  .hero__corner {
+    position: relative !important;
+    bottom: auto !important;
+    right: auto !important;
+    margin-top: 2rem;
+    order: 6;
+  }
+
   .about__grid {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -1349,14 +1490,21 @@ body.modal-open {
     grid-template-columns: 1fr;
   }
 
-
   .about__stats {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
+}
 
-  .hero__cta {
-    flex-direction: column;
-    align-items: center;
+/* Hero reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .nav, .hero__bg-name, .hero__portrait,
+  .annotation__title, .annotation__text,
+  .hero__corner, .hero__connectors {
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: none !important;
   }
+  .hero__portrait img { opacity: 0.9; }
+  .hero__particles { display: none; }
 }

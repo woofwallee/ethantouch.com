@@ -84,9 +84,6 @@
 
       tl.fromTo('#nav', { opacity: 0, y: -8 }, { opacity: 1, y: 0, duration: 0.26 }, 0);
       tl.fromTo('#heroParticles', { opacity: 0 }, { opacity: 1, duration: 1.2 }, 0);
-      tl.fromTo('#bgEthan', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.48 }, 0.14);
-      tl.fromTo('#bgTouch', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.48 }, 0.28);
-
       if (connectorEls.lines && connectorEls.lines.length) {
         tl.to('#connectors', { opacity: 1, duration: 0.01 }, 0.34);
         connectorEls.lines.forEach(function(line, i) {
@@ -112,8 +109,6 @@
 
       tl.fromTo('#heroCorner', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.26 }, 1.10);
 
-      gsap.to('#bgEthan', { y: -4, duration: 5, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 2 });
-      gsap.to('#bgTouch', { y: 4, duration: 6, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 2.5 });
     });
   });
 
@@ -173,15 +168,15 @@
   var particles = [], isVisible = true;
   function resize() { canvas.width = hero.offsetWidth; canvas.height = hero.offsetHeight; }
   function create() {
-    var n = window.innerWidth < 768 ? 20 : 40;
+    var n = window.innerWidth < 768 ? 30 : 60;
     particles = [];
     for (var i = 0; i < n; i++) {
       var c = COLORS[Math.floor(Math.random() * COLORS.length)];
       particles.push({
         x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-        r: Math.random() * 1.8 + 0.4,
-        vx: (Math.random() - 0.5) * 0.2, vy: (Math.random() - 0.5) * 0.15,
-        o: Math.random() * 0.2 + 0.03, od: Math.random() > 0.5 ? 1 : -1, c: c,
+        r: Math.random() * 2.2 + 0.5,
+        vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.2,
+        o: Math.random() * 0.3 + 0.05, od: Math.random() > 0.5 ? 1 : -1, c: c,
       });
     }
   }
@@ -192,8 +187,8 @@
       var p = particles[i];
       p.x += p.vx; p.y += p.vy;
       p.o += p.od * 0.0008;
-      if (p.o > 0.25) p.od = -1;
-      if (p.o < 0.02) p.od = 1;
+      if (p.o > 0.35) p.od = -1;
+      if (p.o < 0.03) p.od = 1;
       if (p.x < -5) p.x = canvas.width + 5;
       if (p.x > canvas.width + 5) p.x = -5;
       if (p.y < -5) p.y = canvas.height + 5;
@@ -416,93 +411,7 @@ function resetTagFilter(modal) {
 
 initCaseStudyModals();
 
-// ===========================
-// TESTIMONIALS CAROUSEL
-// ===========================
-(function() {
-  const carousel = document.getElementById('testimonialCarousel');
-  const track = document.getElementById('testimonialTrack');
-  if (!carousel || !track) return;
-
-  let autoScrollSpeed = 0.5;
-  let isUserInteracting = false;
-  let isVisible = true;
-  let resumeTimeout = null;
-
-  // Pause when off-screen
-  const visObserver = new IntersectionObserver((entries) => {
-    isVisible = entries[0].isIntersecting;
-  }, { threshold: 0 });
-  visObserver.observe(carousel);
-
-  function autoScroll() {
-    if (!isUserInteracting && isVisible) {
-      carousel.scrollLeft += autoScrollSpeed;
-      const halfWidth = track.scrollWidth / 2;
-      if (carousel.scrollLeft >= halfWidth) {
-        carousel.scrollLeft -= halfWidth;
-      }
-    }
-    requestAnimationFrame(autoScroll);
-  }
-  requestAnimationFrame(autoScroll);
-
-  function pauseAutoScroll() {
-    isUserInteracting = true;
-    clearTimeout(resumeTimeout);
-  }
-
-  function scheduleResume() {
-    clearTimeout(resumeTimeout);
-    resumeTimeout = setTimeout(() => { isUserInteracting = false; }, 3000);
-  }
-
-  // Mouse drag
-  let isDragging = false, startX = 0, scrollStart = 0;
-  carousel.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    startX = e.pageX;
-    scrollStart = carousel.scrollLeft;
-    pauseAutoScroll();
-    e.preventDefault();
-  });
-  window.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    carousel.scrollLeft = scrollStart - (e.pageX - startX);
-  });
-  window.addEventListener('mouseup', () => {
-    if (isDragging) { isDragging = false; scheduleResume(); }
-  });
-
-  // Touch
-  carousel.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].pageX;
-    scrollStart = carousel.scrollLeft;
-    pauseAutoScroll();
-  }, { passive: true });
-  carousel.addEventListener('touchmove', (e) => {
-    carousel.scrollLeft = scrollStart - (e.touches[0].pageX - startX);
-  }, { passive: true });
-  carousel.addEventListener('touchend', () => { scheduleResume(); });
-
-  // Wheel
-  carousel.addEventListener('wheel', (e) => {
-    if (Math.abs(e.deltaX) > 0 || Math.abs(e.deltaY) > 0) {
-      e.preventDefault();
-      carousel.scrollLeft += e.deltaY || e.deltaX;
-      pauseAutoScroll();
-      scheduleResume();
-    }
-  }, { passive: false });
-
-  // Seamless loop on manual scroll
-  carousel.addEventListener('scroll', () => {
-    const halfWidth = track.scrollWidth / 2;
-    if (carousel.scrollLeft >= halfWidth) carousel.scrollLeft -= halfWidth;
-    else if (carousel.scrollLeft <= 0) carousel.scrollLeft += halfWidth;
-  });
-
-})();
+// Testimonials: static staggered grid — no JS needed
 
 // ===========================
 // CONTACT FORM (Netlify Forms)

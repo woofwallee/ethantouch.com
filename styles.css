@@ -232,16 +232,16 @@ img {
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.03em;
-  color: rgba(183, 201, 195, 0.13);
+  color: rgba(183, 201, 195, 0.20);
 }
 #bgEthan {
   font-size: clamp(7rem, 20vw, 22rem);
-  top: 18%;
+  top: 30%;
   transform: translateX(-50%) translateY(-50%);
 }
 #bgTouch {
   font-size: clamp(8rem, 23vw, 26rem);
-  top: 80%;
+  top: 72%;
   transform: translateX(-50%) translateY(-50%);
   letter-spacing: 0.06em;
 }
@@ -1380,10 +1380,10 @@ body.modal-open {
     left: 50% !important;
     right: auto !important;
     font-size: clamp(4rem, 22vw, 8rem) !important;
-    color: rgba(183, 201, 195, 0.08);
+    color: rgba(183, 201, 195, 0.12);
   }
-  #bgEthan { top: 18% !important; transform: translateX(-50%) translateY(-50%) !important; }
-  #bgTouch { top: 34% !important; transform: translateX(-50%) translateY(-50%) !important; letter-spacing: 0.04em !important; }
+  #bgEthan { top: 22% !important; transform: translateX(-50%) translateY(-50%) !important; }
+  #bgTouch { top: 38% !important; transform: translateX(-50%) translateY(-50%) !important; letter-spacing: 0.04em !important; }
   .hero__portrait {
     position: relative !important;
     left: auto !important;

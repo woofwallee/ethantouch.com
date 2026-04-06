@@ -500,7 +500,7 @@ img {
 
 .work__card-image {
   width: 100%;
-  aspect-ratio: 16/10;
+  aspect-ratio: 4/3;
   background: #1a1a1a;
   display: flex;
   align-items: center;
@@ -508,7 +508,7 @@ img {
   color: #E6E8E7;
   opacity: 1;
   font-size: 0.85rem;
-  padding: 2rem;
+  padding: 1rem;
   overflow: hidden;
 }
 
@@ -1128,11 +1128,11 @@ body.modal-open {
 }
 
 .testimonial-card__quote {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.85rem;
-  font-style: italic;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-style: normal;
   color: #E6E8E7;
-  line-height: 1.7;
+  line-height: 1.8;
   margin-bottom: 1.5rem;
 }
 

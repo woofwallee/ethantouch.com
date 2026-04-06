@@ -20,15 +20,14 @@
         }
       }, 0.50);
 
-      var descOrder = ['#ann-tl', '#ann-tr', '#ann-br', '#ann-bl'];
-      var descStart = 0.70, descGap = 0.12, bodyDelay = 0.10;
-      descOrder.forEach(function(sel, i) {
-        var t = descStart + i * descGap;
-        tl.fromTo(sel, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.35 }, t);
-        tl.fromTo(sel + ' .annotation__text', { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.28 }, t + bodyDelay);
+      tl.fromTo('#heroHeadline', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 }, 0.70);
+
+      var skillOrder = ['#skill-tl', '#skill-tr', '#skill-ml', '#skill-mr', '#skill-bl', '#skill-br'];
+      skillOrder.forEach(function(sel, i) {
+        tl.fromTo(sel, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, 0.90 + i * 0.08);
       });
 
-      tl.fromTo('#heroCorner', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.26 }, 1.20);
+      tl.fromTo('#heroCorner', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 }, 1.4);
 
     });
   });
@@ -293,6 +292,88 @@ function resetTagFilter(modal) {
 }
 
 initCaseStudyModals();
+
+// ===========================
+// CREDENTIAL VIEWER MODAL
+// ===========================
+(function() {
+  var modal = document.getElementById('credModal');
+  var overlay = modal.querySelector('.cred-modal__overlay');
+  var closeBtn = modal.querySelector('.cred-modal__close');
+  var img = document.getElementById('credModalImg');
+  var title = document.getElementById('credModalTitle');
+
+  function openCredModal(imgSrc, name) {
+    title.textContent = name;
+    img.src = imgSrc;
+    img.alt = name + ' certificate';
+    modal.classList.add('open');
+    document.body.classList.add('modal-open');
+  }
+
+  function closeCredModal() {
+    modal.classList.remove('open');
+    document.body.classList.remove('modal-open');
+    img.src = '';
+  }
+
+  document.querySelectorAll('[data-cred-img]').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      openCredModal(btn.getAttribute('data-cred-img'), btn.getAttribute('data-cred-title'));
+    });
+  });
+
+  closeBtn.addEventListener('click', closeCredModal);
+  overlay.addEventListener('click', closeCredModal);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeCredModal();
+    }
+  });
+})();
+
+// ===========================
+// LIQUID GLASS v2 — INTERNAL ILLUMINATION TRACKING
+// Smoothed cursor-following glow with edge-aware specular
+// ===========================
+(function() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.querySelectorAll('.work__card, .testimonial-card').forEach(function(card) {
+    var currentX = 50, currentY = 50;
+    var targetX = 50, targetY = 50;
+    var rafId = null;
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+
+    function animate() {
+      currentX = lerp(currentX, targetX, 0.12);
+      currentY = lerp(currentY, targetY, 0.12);
+      card.style.setProperty('--glow-x', currentX + '%');
+      card.style.setProperty('--glow-y', currentY + '%');
+
+      if (Math.abs(currentX - targetX) > 0.1 || Math.abs(currentY - targetY) > 0.1) {
+        rafId = requestAnimationFrame(animate);
+      } else {
+        rafId = null;
+      }
+    }
+
+    card.addEventListener('mousemove', function(e) {
+      var rect = card.getBoundingClientRect();
+      targetX = ((e.clientX - rect.left) / rect.width) * 100;
+      targetY = ((e.clientY - rect.top) / rect.height) * 100;
+      if (!rafId) rafId = requestAnimationFrame(animate);
+    });
+
+    card.addEventListener('mouseleave', function() {
+      targetX = 50;
+      targetY = 50;
+      if (!rafId) rafId = requestAnimationFrame(animate);
+    });
+  });
+})();
 
 // Testimonials: static staggered grid — no JS needed
 

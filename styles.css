@@ -316,11 +316,6 @@ img {
 #ann-br { right: 16%; top: 64%; animation: float-gentle 6.5s ease-in-out 2s infinite; }
 
 /* Connectors hidden — replaced by floating layout */
-.hero__connectors {
-  display: none;
-}
-.connector-dot { fill: rgba(255, 255, 255, 0.7); }
-
 /* Corner CTA */
 .hero__corner {
   position: absolute;
@@ -434,7 +429,7 @@ img {
 
 .about__text p:not(.section__label) {
   color: #E6E8E7;
-  opacity: 0.65;
+  opacity: 0.75;
   margin-bottom: 1.25rem;
   font-size: 1.05rem;
   line-height: 1.75;
@@ -551,7 +546,7 @@ img {
 .work__card-content p {
   font-size: 0.9rem;
   color: #E6E8E7;
-  opacity: 0.55;
+  opacity: 0.7;
   line-height: 1.6;
 }
 
@@ -563,7 +558,7 @@ img {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #FAE1C5;
-  opacity: 0.6;
+  opacity: 0.7;
   transition: opacity 0.3s ease;
 }
 
@@ -1192,7 +1187,7 @@ body.modal-open {
 
 .contact__info p:not(.section__label) {
   color: #E6E8E7;
-  opacity: 0.65;
+  opacity: 0.75;
   font-size: 1.05rem;
   line-height: 1.75;
   margin-bottom: 2rem;
@@ -1209,7 +1204,7 @@ body.modal-open {
   align-items: center;
   gap: 0.75rem;
   color: #E6E8E7;
-  opacity: 0.5;
+  opacity: 0.7;
   font-size: 0.9rem;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -1406,7 +1401,6 @@ body.modal-open {
   #ann-tr { order: 3; }
   #ann-br { order: 4; }
   #ann-bl { order: 5; }
-  .hero__connectors { display: none; }
   .hero__corner {
     position: relative !important;
     bottom: auto !important;
@@ -1498,7 +1492,7 @@ body.modal-open {
 @media (prefers-reduced-motion: reduce) {
   .nav, .hero__portrait,
   .annotation__title, .annotation__text,
-  .hero__corner, .hero__connectors {
+  .hero__corner {
     opacity: 1 !important;
     visibility: visible !important;
     animation: none !important;

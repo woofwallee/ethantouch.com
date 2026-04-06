@@ -1,3 +1,6 @@
 .DS_Store
 *.pdf
 *-mockup.html
+*.backup-*
+affiliate-tracker.csv
+.claude/

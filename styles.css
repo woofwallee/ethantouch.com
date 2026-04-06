@@ -276,20 +276,25 @@ img {
   position: absolute;
   z-index: 4;
   text-align: center;
-  max-width: 260px;
+  max-width: 300px;
 }
 .annotation__icon {
-  width: 42px;
-  height: 42px;
+  width: 52px;
+  height: 52px;
   color: rgba(183, 201, 195, 0.9);
-  margin: 0 auto 0.6rem;
+  margin: 0 auto 0.75rem;
   display: block;
   filter: drop-shadow(0 0 8px rgba(183, 201, 195, 0.4)) drop-shadow(0 0 24px rgba(183, 201, 195, 0.15));
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+.annotation:hover .annotation__icon {
+  filter: drop-shadow(0 0 12px rgba(250, 225, 197, 0.8)) drop-shadow(0 0 30px rgba(250, 225, 197, 0.5)) drop-shadow(0 0 60px rgba(250, 225, 197, 0.25));
+  transform: scale(1.1);
 }
 .annotation__title {
   font-family: 'Picasso', 'Fraunces', 'Playfair Display', serif;
   font-optical-sizing: auto;
-  font-size: 2.2rem;
+  font-size: 2.6rem;
   font-weight: 700;
   font-style: italic;
   color: #B7C9C3;
@@ -298,9 +303,9 @@ img {
   white-space: nowrap;
 }
 .annotation__text {
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   color: #a8aba9;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 /* Floating keyframes */
@@ -309,11 +314,11 @@ img {
   50% { transform: translateY(-8px); }
 }
 
-/* Positions — tucked close to portrait */
-#ann-tl { left: 18%; top: 22%; animation: float-gentle 5s ease-in-out infinite; }
-#ann-bl { left: 16%; top: 62%; animation: float-gentle 6s ease-in-out 1.5s infinite; }
-#ann-tr { right: 18%; top: 24%; animation: float-gentle 5.5s ease-in-out 0.8s infinite; }
-#ann-br { right: 16%; top: 64%; animation: float-gentle 6.5s ease-in-out 2s infinite; }
+/* Positions — pushed out to clear larger descriptors */
+#ann-tl { left: 14%; top: 22%; animation: float-gentle 5s ease-in-out infinite; }
+#ann-bl { left: 12%; top: 62%; animation: float-gentle 6s ease-in-out 1.5s infinite; }
+#ann-tr { right: 14%; top: 24%; animation: float-gentle 5.5s ease-in-out 0.8s infinite; }
+#ann-br { right: 12%; top: 64%; animation: float-gentle 6.5s ease-in-out 2s infinite; }
 
 /* Connectors hidden — replaced by floating layout */
 /* Corner CTA */
@@ -784,7 +789,7 @@ body.modal-open {
 }
 
 .cs-metric {
-  padding: 1.75rem 2rem;
+  padding: 1.25rem 1.5rem;
   text-align: center;
   border-right: 1px solid rgba(183,201,195,0.06);
 }
@@ -795,7 +800,7 @@ body.modal-open {
 
 .cs-metric__number {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #E6E8E7;
   line-height: 1;
@@ -803,12 +808,12 @@ body.modal-open {
 }
 
 .cs-metric__label {
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #E6E8E7;
-  opacity: 0.45;
+  opacity: 0.55;
 }
 
 /* Body */

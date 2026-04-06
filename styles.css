@@ -447,6 +447,7 @@ img {
   margin-top: 2.5rem;
   padding-top: 2.5rem;
   border-top: 1px solid rgba(183, 201, 195, 0.1);
+  text-align: center;
 }
 
 .stat__number {

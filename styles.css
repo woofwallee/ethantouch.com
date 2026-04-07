@@ -2069,13 +2069,33 @@ body.modal-open {
     font-size: 1.6rem !important;
   }
   .hero__skills-row {
-    display: none !important;
+    display: flex !important;
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    gap: 0.75rem 1rem !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    width: 100% !important;
+    order: 3;
+    margin-top: 1rem;
+  }
+  .hero__skill-icon {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  .hero__skill-label {
+    font-size: 0.5rem !important;
   }
   .hero__corner {
     position: relative !important;
     bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
     right: auto !important;
-    margin-top: 0 !important;
+    margin-top: 1.5rem !important;
+    order: 4;
   }
 
   .about__grid {

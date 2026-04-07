@@ -22,6 +22,8 @@
 
       tl.fromTo('#heroHeadline', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 }, 0.70);
 
+      tl.fromTo('#heroSkillsRow', { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.85);
+
       var skillOrder = ['#skill-tl', '#skill-tr', '#skill-ml', '#skill-mr', '#skill-bl', '#skill-br'];
       skillOrder.forEach(function(sel, i) {
         tl.fromTo(sel, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, 0.90 + i * 0.08);

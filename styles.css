@@ -492,9 +492,9 @@ img {
    =========================== */
 .about__grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 3rem;
-  align-items: center;
+  align-items: start;
 }
 
 .about__text p:not(.section__label) {
@@ -636,16 +636,98 @@ img {
   opacity: 0.8;
 }
 
+.about__image {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible;
+}
+
 .about__headshot {
   width: 100%;
-  max-width: 380px;
-  object-fit: contain;
-  object-position: center;
+  max-width: 560px;
+  height: auto;
+  object-fit: cover;
+  object-position: top center;
   border: none;
   border-radius: 0;
   background: transparent;
   margin: 0 auto;
   display: block;
+  position: relative;
+  z-index: 1;
+  /* Gradient fade on all edges to blend into dark background */
+  mask-image:
+    linear-gradient(to bottom, black 40%, transparent 90%),
+    linear-gradient(to top, black 70%, transparent 100%),
+    linear-gradient(to right, black 65%, transparent 100%),
+    linear-gradient(to left, black 65%, transparent 100%);
+  -webkit-mask-image:
+    linear-gradient(to bottom, black 40%, transparent 90%),
+    linear-gradient(to top, black 70%, transparent 100%),
+    linear-gradient(to right, black 65%, transparent 100%),
+    linear-gradient(to left, black 65%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+.about__dogs {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.about__dog-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.about__dog {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 50%;
+  border: 2px solid rgba(183, 201, 195, 0.12);
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.about__dog:hover {
+  opacity: 1;
+}
+
+.about__dog-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #E6E8E7;
+  opacity: 0.45;
+}
+
+.about__dogs-ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #E6E8E7;
+  opacity: 0.35;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  align-self: center;
+}
+
+.about__dogs-ig:hover {
+  opacity: 0.7;
 }
 
 /* ===========================
@@ -1947,7 +2029,7 @@ body.modal-open {
 
   .about__image {
     order: -1;
-    max-width: 300px;
+    max-width: 280px;
     margin: 0 auto;
   }
 

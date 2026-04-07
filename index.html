@@ -10,14 +10,14 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Ethan Touch — Marketing Operations & HubSpot">
   <meta property="og:description" content="Seven years fixing the marketing systems nobody had time to untangle. Lead routing, email ops, platform migrations, reporting. If it touches HubSpot, I've probably already built it.">
-  <meta property="og:image" content="https://ethantouch.com/images/ethan_headshot.webp">
+  <meta property="og:image" content="https://ethantouch.com/images/ethan_runway.webp">
   <meta property="og:url" content="https://ethantouch.com/">
   <meta property="og:type" content="website">
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Ethan Touch — HubSpot Specialist">
-  <meta name="twitter:description" content="Seven years fixing the marketing systems nobody had time to untangle. Lead routing, email ops, platform migrations, reporting. If it touches HubSpot, I've probably already built it.">
-  <meta name="twitter:image" content="https://ethantouch.com/images/ethan_headshot.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ethan Touch — Marketing Operations & HubSpot">
+  <meta name="twitter:description" content="Seven years fixing the marketing systems nobody had time to untangle. Lead routing, email ops, platform migrations, reporting.">
+  <meta name="twitter:image" content="https://ethantouch.com/images/ethan_runway.webp">
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -32,9 +32,33 @@
   <!-- Lottie player removed — case study cards now use static SVG line art -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400;1,9..144,700&family=Noto+Serif+Display:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <link rel="stylesheet" href="styles.css?v=47">
+  <link rel="preload" href="fonts/Picasso.otf" as="font" type="font/opentype" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <link rel="stylesheet" href="styles.css?v=48">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Ethan Touch",
+      "jobTitle": "Marketing Operations Specialist",
+      "description": "HubSpot specialist with 7+ years in MarTech — lead routing, email operations, platform migrations, and reporting.",
+      "url": "https://ethantouch.com",
+      "image": "https://ethantouch.com/images/ethan_runway.webp",
+      "sameAs": [
+        "https://www.linkedin.com/in/ethantouch"
+      ],
+      "knowsAbout": ["HubSpot", "Marketing Operations", "MarTech", "Email Operations", "Lead Routing", "Revenue Operations", "CRM Administration"],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "MA Psychology"
+      }
+    },
+    "dateModified": "2026-04-07"
+  }
+  </script>
 </head>
 <body>
 
@@ -176,14 +200,14 @@
           <p>Originally from the South, now holding it down in the Midwest with two dogs, good food, and the occasional chaotic karaoke&nbsp;night.</p>
         </div>
         <div class="about__image fade-in">
-          <img src="images/ethan_runway.jpg" alt="Ethan Touch" class="about__headshot" loading="lazy">
+          <img src="images/ethan_runway.webp" alt="Ethan Touch — marketing operations specialist" class="about__headshot" loading="lazy">
           <div class="about__dogs">
             <div class="about__dog-wrap">
-              <img src="images/charlie.jpg" alt="Charlie" class="about__dog" loading="lazy">
+              <img src="images/charlie.webp" alt="Charlie, a white dog" class="about__dog" loading="lazy">
               <span class="about__dog-name">Charlie</span>
             </div>
             <div class="about__dog-wrap">
-              <img src="images/oliver.jpg" alt="Oliver" class="about__dog" loading="lazy">
+              <img src="images/oliver.webp" alt="Oliver, a golden dog" class="about__dog" loading="lazy">
               <span class="about__dog-name">Oliver</span>
             </div>
           </div>
@@ -197,7 +221,7 @@
       <!-- Credentials -->
       <div class="credentials fade-in">
         <div class="credentials__row">
-          <img src="images/HUBS_BIG.D.svg" alt="HubSpot" class="credentials__logo">
+          <img src="images/HUBS_BIG.D.svg" alt="HubSpot" class="credentials__logo" loading="lazy">
           <div class="credentials__badges">
             <button class="credential-badge" data-cred-img="images/HubSpot Sales Hub Software Certified.png" data-cred-title="Sales Hub Software">Sales Hub Software<svg class="credential-badge__ext" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.5 1.5H2a.5.5 0 00-.5.5v8a.5.5 0 00.5.5h8a.5.5 0 00.5-.5V7.5M7 1.5h3.5V5M6 6.5l5-5"/></svg></button>
             <button class="credential-badge" data-cred-img="images/Inbound Marketing Certified.png" data-cred-title="Inbound Marketing">Inbound Marketing<svg class="credential-badge__ext" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.5 1.5H2a.5.5 0 00-.5.5v8a.5.5 0 00.5.5h8a.5.5 0 00.5-.5V7.5M7 1.5h3.5V5M6 6.5l5-5"/></svg></button>
@@ -206,7 +230,7 @@
           </div>
         </div>
         <div class="credentials__row">
-          <img src="images/LNKD.defunct.2016_BIG.D.svg" alt="LinkedIn" class="credentials__logo">
+          <img src="images/LNKD.defunct.2016_BIG.D.svg" alt="LinkedIn" class="credentials__logo" loading="lazy">
           <div class="credentials__badges">
             <button class="credential-badge credential-badge--linkedin" data-cred-img="images/Leading Productive Meetings.jpeg" data-cred-title="Leading Productive Meetings">Leading Productive Meetings<svg class="credential-badge__ext" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.5 1.5H2a.5.5 0 00-.5.5v8a.5.5 0 00.5.5h8a.5.5 0 00.5-.5V7.5M7 1.5h3.5V5M6 6.5l5-5"/></svg></button>
             <button class="credential-badge credential-badge--linkedin" data-cred-img="images/Project Management Foundations- Communication.jpeg" data-cred-title="PM Communication">PM Communication<svg class="credential-badge__ext" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.5 1.5H2a.5.5 0 00-.5.5v8a.5.5 0 00.5.5h8a.5.5 0 00.5-.5V7.5M7 1.5h3.5V5M6 6.5l5-5"/></svg></button>
@@ -228,7 +252,7 @@
       <div class="work__grid">
         <div class="work__card fade-in" data-case-study="upstream" style="cursor:pointer;" role="button" tabindex="0" aria-label="View From Days to Instant case study">
           <div class="work__card-image">
-            <img src="images/lineart-cs1-upstream.svg" alt="Lead routing flow diagram — channels to hub to sorted leads">
+            <img src="images/lineart-cs1-upstream.svg" alt="Lead routing flow diagram — channels to hub to sorted leads" loading="lazy">
           </div>
           <div class="work__card-content">
             <span class="work__card-tag">Lead Routing &bull; Marketing&nbsp;Automation</span>
@@ -239,7 +263,7 @@
 
         <div class="work__card fade-in" data-case-study="mediacause" style="cursor:pointer;" role="button" tabindex="0" aria-label="View Nine Platforms One Hub case study">
           <div class="work__card-image">
-            <img src="images/lineart-cs2-mediacause.svg" alt="Nine platforms connecting to one central hub">
+            <img src="images/lineart-cs2-mediacause.svg" alt="Nine platforms connecting to one central hub" loading="lazy">
           </div>
           <div class="work__card-content">
             <span class="work__card-tag">MarTech Strategy &bull;&nbsp;CRM</span>
@@ -250,7 +274,7 @@
 
         <div class="work__card fade-in" data-case-study="emailops" style="cursor:pointer;" role="button" tabindex="0" aria-label="View Ops That Scale case study">
           <div class="work__card-image">
-            <img src="images/lineart-cs3-emailops.svg" alt="Bar chart showing email performance metrics">
+            <img src="images/lineart-cs3-emailops.svg" alt="Bar chart showing email performance metrics" loading="lazy">
           </div>
           <div class="work__card-content">
             <span class="work__card-tag">Email Ops &bull; HubSpot&nbsp;Admin</span>
@@ -261,7 +285,7 @@
 
         <div class="work__card fade-in" data-case-study="emaildashboard" style="cursor:pointer;" role="button" tabindex="0" aria-label="View Clear Data Clear Priorities case study">
           <div class="work__card-image">
-            <img src="images/lineart-cs4-emaildashboard-new.svg" alt="Email analytics dashboard with charts and metrics">
+            <img src="images/lineart-cs4-emaildashboard-new.svg" alt="Email analytics dashboard with charts and metrics" loading="lazy">
           </div>
           <div class="work__card-content">
             <span class="work__card-tag">Email Analytics &bull;&nbsp;Benchmarking</span>
@@ -272,7 +296,7 @@
 
         <div class="work__card fade-in" data-case-study="courtwatchreport" style="cursor:pointer;" role="button" tabindex="0" aria-label="View Research Report to Public-Facing Asset case study">
           <div class="work__card-image">
-            <img src="images/lineart-cs5-courtwatchreport-new.svg" alt="Designed report with charts, sections, and callout boxes">
+            <img src="images/lineart-cs5-courtwatchreport-new.svg" alt="Designed report with charts, sections, and callout boxes" loading="lazy">
           </div>
           <div class="work__card-content">
             <span class="work__card-tag">Report Design &bull; Digital&nbsp;Production</span>
@@ -283,7 +307,7 @@
 
         <div class="work__card fade-in" data-case-study="nlalandingpage" style="cursor:pointer;" role="button" tabindex="0" aria-label="View Live Page to Clearer Conversion Path case study">
           <div class="work__card-image">
-            <img src="images/lineart-cs6-nlalandingpage-new.svg" alt="Landing page audit with desktop and mobile comparison">
+            <img src="images/lineart-cs6-nlalandingpage-new.svg" alt="Landing page audit with desktop and mobile comparison" loading="lazy">
           </div>
           <div class="work__card-content">
             <span class="work__card-tag">Page Audit &bull; Conversion&nbsp;Strategy</span>
@@ -307,7 +331,7 @@
         <div class="testimonial-card">
           <p class="testimonial-card__quote">"I enjoyed working with Ethan in the same department at Upstream USA. Ethan really knows his technology, like HubSpot, but he's a wiz at quickly learning any platform. He's sharp in analysis, workflow design, and problem solving. Ethan's creative and possesses a fun wit. He's able to converse on all levels to discern business needs, ensure understanding, and share solutions. Any team will be fortunate to benefit from Ethan's many talents."</p>
           <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar"><img src="images/kathy.jpeg" alt="Kathy Pifferetti"></div>
+            <div class="testimonial-card__avatar"><img src="images/kathy.jpeg" alt="Kathy Pifferetti" loading="lazy"></div>
             <div>
               <span class="testimonial-card__name">Kathy Pifferetti</span>
               <span class="testimonial-card__role">Senior Communications Specialist, Upstream&nbsp;USA</span>
@@ -318,7 +342,7 @@
         <div class="testimonial-card">
           <p class="testimonial-card__quote">"Ethan is an out-of-the-box thinker who knows how to build strong brands. His tech and people skills are&nbsp;exceptional!"</p>
           <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar"><img src="images/christa.jpeg" alt="Christa Beall Diefenbach"></div>
+            <div class="testimonial-card__avatar"><img src="images/christa.jpeg" alt="Christa Beall Diefenbach" loading="lazy"></div>
             <div>
               <span class="testimonial-card__name">Christa Beall Diefenbach</span>
               <span class="testimonial-card__role">Vice President of Mission Engagement, Nonprofit Leadership&nbsp;Alliance</span>
@@ -329,7 +353,7 @@
         <div class="testimonial-card">
           <p class="testimonial-card__quote">"I worked with Ethan at Upstream USA, where he served as a vital partner in the administration of the HubSpot email marketing platform. I was consistently impressed by Ethan's technical curiosity and eagerness to learn — he is a quick study who actively asks questions to understand the 'why' behind a project. During his time at Upstream, he built complex workflows to automate lead sorting, ensuring new marketing leads were categorized correctly and funneled into the right nurture campaigns. He was also proactive in improving our email list hygiene and streamlining the design of our newsletter templates to better serve our healthcare recruitment goals. I am sure that Ethan would be an asset to any marketing team."</p>
           <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar"><img src="images/sara.jpeg" alt="Sara Terpeny"></div>
+            <div class="testimonial-card__avatar"><img src="images/sara.jpeg" alt="Sara Terpeny" loading="lazy"></div>
             <div>
               <span class="testimonial-card__name">Sara Terpeny</span>
               <span class="testimonial-card__role">Director of Marketing Operations, Upstream&nbsp;USA</span>
@@ -340,7 +364,7 @@
         <div class="testimonial-card">
           <p class="testimonial-card__quote">"HIGHLY recommend Ethan — he does terrific&nbsp;work!"</p>
           <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar"><img src="images/leslie.jpeg" alt="Leslie Hawes"></div>
+            <div class="testimonial-card__avatar"><img src="images/leslie.jpeg" alt="Leslie Hawes" loading="lazy"></div>
             <div>
               <span class="testimonial-card__name">Leslie Hawes</span>
               <span class="testimonial-card__role">Executive Director, Court Watch&nbsp;Montgomery</span>
@@ -351,7 +375,7 @@
         <div class="testimonial-card">
           <p class="testimonial-card__quote">"Ethan brings a unique perspective to any team. I first met Ethan as a student in the CNP program at The University of Memphis. He was a standout for his bright energy, bold curiosity and clever problem solving. We connected again when I tracked him down and recruited him to move to Kansas City and join my team at the Nonprofit Leadership Alliance. Ethan grew tremendously in this role, finding his own POV on social media, communications and all things technology. I highly recommend Ethan for roles that allow him to make a project his own and drive it to completion."</p>
           <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar"><img src="images/susan.jpeg" alt="Susan Tomlinson Schmidt"></div>
+            <div class="testimonial-card__avatar"><img src="images/susan.jpeg" alt="Susan Tomlinson Schmidt" loading="lazy"></div>
             <div>
               <span class="testimonial-card__name">Susan Tomlinson Schmidt</span>
               <span class="testimonial-card__role">President, Nonprofit Leadership&nbsp;Alliance</span>
@@ -362,7 +386,7 @@
         <div class="testimonial-card">
           <p class="testimonial-card__quote">"As an employee of a small nonprofit without many resources, Ethan has done a great job helping create digital fliers and improving our organization's efficiency and professionalism."</p>
           <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar"><img src="images/amy.jpeg" alt="Amy Kass"></div>
+            <div class="testimonial-card__avatar"><img src="images/amy.jpeg" alt="Amy Kass" loading="lazy"></div>
             <div>
               <span class="testimonial-card__name">Amy Kass</span>
               <span class="testimonial-card__role">Volunteer Coordinator, Court Watch&nbsp;Montgomery</span>
@@ -557,7 +581,7 @@
         <div class="cs-testimonial">
           <blockquote class="cs-testimonial__quote">"I worked with Ethan at Upstream USA, where he served as a vital partner in the administration of the HubSpot email marketing platform. I was consistently impressed by Ethan's technical curiosity and eagerness to learn — he is a quick study who actively asks questions to understand the 'why' behind a project. During his time at Upstream, he built complex workflows to automate lead sorting, ensuring new marketing leads were categorized correctly and funneled into the right nurture campaigns. He was also proactive in improving our email list hygiene and streamlining the design of our newsletter templates to better serve our healthcare recruitment goals. I am sure that Ethan would be an asset to any marketing team."</blockquote>
           <div class="cs-testimonial__author">
-            <div class="cs-testimonial__avatar"><img src="images/sara.jpeg" alt="Sara Terpeny"></div>
+            <div class="cs-testimonial__avatar"><img src="images/sara.jpeg" alt="Sara Terpeny" loading="lazy"></div>
             <div class="cs-testimonial__info">
               <span class="cs-testimonial__name">Sara Terpeny</span>
               <span class="cs-testimonial__role">Director of Marketing Operations — Upstream&nbsp;USA</span>
@@ -699,7 +723,7 @@
         <div class="cs-testimonial">
           <blockquote class="cs-testimonial__quote">"His responsiveness to our needs has been outstanding, guiding us in selecting the most suitable solutions and providing ongoing support as we manage things independently. As a result of his efforts, our entire enterprise has significantly improved its efficiency and&nbsp;accuracy."</blockquote>
           <div class="cs-testimonial__author">
-            <div class="cs-testimonial__avatar"><img src="images/margaret.jpeg" alt="Margaret Golden"></div>
+            <div class="cs-testimonial__avatar"><img src="images/margaret.jpeg" alt="Margaret Golden" loading="lazy"></div>
             <div class="cs-testimonial__info">
               <span class="cs-testimonial__name">Margaret Golden</span>
               <span class="cs-testimonial__role">Director, Forum Program — Millennium&nbsp;Forum</span>
@@ -842,7 +866,7 @@
         <div class="cs-testimonial">
           <blockquote class="cs-testimonial__quote">"I enjoyed working with Ethan in the same department at Upstream USA. Ethan really knows his technology, like HubSpot, but he's a wiz at quickly learning any platform. He's sharp in analysis, workflow design, and problem solving. Ethan's creative and possesses a fun wit. He's able to converse on all levels to discern business needs, ensure understanding, and share solutions. Any team will be fortunate to benefit from Ethan's many talents."</blockquote>
           <div class="cs-testimonial__author">
-            <div class="cs-testimonial__avatar"><img src="images/kathy.jpeg" alt="Kathy Pifferetti"></div>
+            <div class="cs-testimonial__avatar"><img src="images/kathy.jpeg" alt="Kathy Pifferetti" loading="lazy"></div>
             <div class="cs-testimonial__info">
               <span class="cs-testimonial__name">Kathy Pifferetti</span>
               <span class="cs-testimonial__role">Senior Communications Specialist — Upstream&nbsp;USA</span>
@@ -1236,6 +1260,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=13"></script>
+  <script defer src="script.js?v=14"></script>
 </body>
 </html>

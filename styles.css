@@ -179,6 +179,10 @@ img {
   border: none;
   cursor: pointer;
   padding: 4px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav__toggle span {
@@ -575,6 +579,7 @@ img {
   align-items: center;
   gap: 0.35rem;
   padding: 0.45rem 0.9rem;
+  min-height: 44px;
   border: 1px solid rgba(183, 201, 195, 0.1);
   border-radius: 100px;
   background:
@@ -722,7 +727,7 @@ img {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #E6E8E7;
-  opacity: 0.45;
+  opacity: 0.55;
 }
 
 .about__dogs-ig {
@@ -734,7 +739,8 @@ img {
   font-size: 0.7rem;
   font-weight: 400;
   color: #E6E8E7;
-  opacity: 0.35;
+  opacity: 0.55;
+  min-height: 44px;
   text-decoration: none;
   transition: opacity 0.3s ease;
   align-self: center;
@@ -1238,7 +1244,7 @@ body.modal-open {
   font-size: 0.75rem;
   font-weight: 400;
   color: #E6E8E7;
-  opacity: 0.4;
+  opacity: 0.55;
 }
 
 .cs-header__title {
@@ -1317,7 +1323,7 @@ body.modal-open {
 }
 
 .cs-filter-hint.visible {
-  opacity: 0.4;
+  opacity: 0.55;
 }
 
 /* Metrics */
@@ -1594,7 +1600,7 @@ body.modal-open {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #E6E8E7;
-  opacity: 0.45;
+  opacity: 0.55;
 }
 
 .cs-tools__list {
@@ -1606,7 +1612,7 @@ body.modal-open {
   font-size: 0.72rem;
   font-weight: 500;
   color: #E4E2C9;
-  opacity: 0.5;
+  opacity: 0.58;
 }
 
 /* ===========================
@@ -1828,6 +1834,7 @@ body.modal-open {
   gap: 0.75rem;
   color: #E6E8E7;
   opacity: 0.7;
+  min-height: 44px;
   font-size: 0.9rem;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -1883,7 +1890,7 @@ body.modal-open {
 .form__group input::placeholder,
 .form__group textarea::placeholder {
   color: #E4E2C9;
-  opacity: 0.3;
+  opacity: 0.45;
 }
 
 .form__group textarea {
@@ -1928,13 +1935,16 @@ body.modal-open {
 .footer p {
   font-size: 0.8rem;
   color: #E6E8E7;
-  opacity: 0.45;
+  opacity: 0.55;
 }
 
 .footer a {
   font-size: 0.8rem;
   color: #E6E8E7;
-  opacity: 0.45;
+  opacity: 0.55;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   transition: all 0.3s ease;
 }
 
@@ -2135,6 +2145,11 @@ body.modal-open {
     columns: 1;
     padding: 2rem 1.5rem;
   }
+  .fade-in {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
   /* Liquid Glass v2: reduce motion — frostier, less elastic */
   .work__card,
   .testimonial-card,
@@ -2155,6 +2170,34 @@ body.modal-open {
   .cred-modal__content {
     transform: translateY(0) scale(1) !important;
   }
+}
+
+/* ===========================
+   FOCUS-VISIBLE — Accessible focus indicators
+   =========================== */
+.nav__links a:focus-visible,
+.hero__skill:focus-visible,
+.work__card:focus-visible,
+.credential-badge:focus-visible,
+.cs-modal__close:focus-visible,
+.cred-modal__close:focus-visible,
+.hero__corner a:focus-visible,
+.contact__link:focus-visible,
+.contact__social:focus-visible,
+.footer a:focus-visible,
+.about__dogs-ig:focus-visible,
+button[type="submit"]:focus-visible,
+.cs-tag:focus-visible,
+.nav__logo:focus-visible,
+.skip-link:focus-visible {
+  outline: 2px solid rgba(183, 201, 195, 0.6);
+  outline-offset: 3px;
+}
+
+/* Reset button styles for cs-tag buttons */
+.cs-tag {
+  background: none;
+  font-family: 'Inter', sans-serif;
 }
 
 /* Liquid Glass v2: Increased Contrast — bolder borders, opaquer fills */

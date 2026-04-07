@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400;1,9..144,700&family=Noto+Serif+Display:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <link rel="stylesheet" href="styles.css?v=46">
+  <link rel="stylesheet" href="styles.css?v=47">
 </head>
 <body>
 
@@ -43,7 +43,7 @@
   <!-- Navigation -->
   <nav class="nav" id="nav" aria-label="Main navigation">
     <a href="#home" class="nav__logo">Ethan Touch</a>
-    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav__links" id="navLinks">
@@ -419,7 +419,7 @@
   </section>
 
   <!-- Credential Viewer Modal -->
-  <div class="cred-modal" id="credModal">
+  <div class="cred-modal" id="credModal" role="dialog" aria-modal="true" aria-labelledby="credModalTitle">
     <div class="cred-modal__overlay"></div>
     <button class="cred-modal__close" aria-label="Close credential viewer">&times;</button>
     <div class="cred-modal__content">
@@ -439,7 +439,7 @@
   </footer>
 
   <!-- Case Study Modal: Upstream USA -->
-  <div class="cs-modal" id="csModal-upstream">
+  <div class="cs-modal" id="csModal-upstream" role="dialog" aria-modal="true" aria-labelledby="csTitle-upstream">
     <div class="cs-modal__overlay"></div>
     <button class="cs-modal__close" aria-label="Close case study">&times;</button>
     <div class="cs-modal__content">
@@ -451,19 +451,19 @@
             <span class="cs-header__label">Role Spotlight</span>
             <span class="cs-header__role">Email Marketing&nbsp;Specialist</span>
           </div>
-          <h2 class="cs-header__title">Upstream&nbsp;USA</h2>
+          <h2 class="cs-header__title" id="csTitle-upstream">Upstream&nbsp;USA</h2>
           <p class="cs-header__subtitle">After every conference, leads were being sorted by hand. I built a HubSpot routing engine that classified them automatically and synced the right records into&nbsp;Salesforce.</p>
         </div>
 
         <!-- SKILL TAGS -->
         <div class="cs-tags" id="csTags-upstream">
-          <span class="cs-tag cs-tag--highlight" data-tag="automation">Marketing Automation Architecture</span>
-          <span class="cs-tag cs-tag--highlight" data-tag="integration">Cross-Platform Integration</span>
-          <span class="cs-tag cs-tag--highlight" data-tag="optimization">Process Optimization</span>
-          <span class="cs-tag" data-tag="multichannel">Multi-Channel Lead Management</span>
-          <span class="cs-tag" data-tag="email">Email Lifecycle Management</span>
-          <span class="cs-tag" data-tag="crm">CRM Data Architecture</span>
-          <span class="cs-tag" data-tag="enablement">Cross-Functional Enablement</span>
+          <button class="cs-tag cs-tag--highlight" data-tag="automation">Marketing Automation Architecture</button>
+          <button class="cs-tag cs-tag--highlight" data-tag="integration">Cross-Platform Integration</button>
+          <button class="cs-tag cs-tag--highlight" data-tag="optimization">Process Optimization</button>
+          <button class="cs-tag" data-tag="multichannel">Multi-Channel Lead Management</button>
+          <button class="cs-tag" data-tag="email">Email Lifecycle Management</button>
+          <button class="cs-tag" data-tag="crm">CRM Data Architecture</button>
+          <button class="cs-tag" data-tag="enablement">Cross-Functional Enablement</button>
         </div>
 
         <!-- FILTER HINT -->
@@ -581,7 +581,7 @@
   </div>
 
   <!-- Case Study Modal: Media Cause -->
-  <div class="cs-modal" id="csModal-mediacause">
+  <div class="cs-modal" id="csModal-mediacause" role="dialog" aria-modal="true" aria-labelledby="csTitle-mediacause">
     <div class="cs-modal__overlay"></div>
     <button class="cs-modal__close" aria-label="Close case study">&times;</button>
     <div class="cs-modal__content">
@@ -593,19 +593,19 @@
             <span class="cs-header__label">Role Spotlight</span>
             <span class="cs-header__role">Senior MarTech&nbsp;Strategist</span>
           </div>
-          <h2 class="cs-header__title">Media&nbsp;Cause</h2>
+          <h2 class="cs-header__title" id="csTitle-mediacause">Media&nbsp;Cause</h2>
           <p class="cs-header__subtitle">A nonprofit educator program was running across nine disconnected platforms with no central system. I connected the stack through HubSpot and automated the member lifecycle from signup through&nbsp;renewal.</p>
         </div>
 
         <!-- SKILL TAGS -->
         <div class="cs-tags" id="csTags-mediacause">
-          <span class="cs-tag cs-tag--highlight" data-tag="strategy">MarTech Strategy & Architecture</span>
-          <span class="cs-tag cs-tag--highlight" data-tag="integration">Cross-Platform Integration</span>
-          <span class="cs-tag cs-tag--highlight" data-tag="crm">CRM Implementation</span>
-          <span class="cs-tag" data-tag="automation">Workflow Automation</span>
-          <span class="cs-tag" data-tag="email">Email Lifecycle Management</span>
-          <span class="cs-tag" data-tag="ecommerce">eCommerce Platform Migration</span>
-          <span class="cs-tag" data-tag="enablement">Training & Enablement</span>
+          <button class="cs-tag cs-tag--highlight" data-tag="strategy">MarTech Strategy & Architecture</button>
+          <button class="cs-tag cs-tag--highlight" data-tag="integration">Cross-Platform Integration</button>
+          <button class="cs-tag cs-tag--highlight" data-tag="crm">CRM Implementation</button>
+          <button class="cs-tag" data-tag="automation">Workflow Automation</button>
+          <button class="cs-tag" data-tag="email">Email Lifecycle Management</button>
+          <button class="cs-tag" data-tag="ecommerce">eCommerce Platform Migration</button>
+          <button class="cs-tag" data-tag="enablement">Training & Enablement</button>
         </div>
 
         <!-- FILTER HINT -->
@@ -728,7 +728,7 @@
   </div>
 
   <!-- Case Study Modal: Email Ops -->
-  <div class="cs-modal" id="csModal-emailops">
+  <div class="cs-modal" id="csModal-emailops" role="dialog" aria-modal="true" aria-labelledby="csTitle-emailops">
     <div class="cs-modal__overlay"></div>
     <button class="cs-modal__close" aria-label="Close case study">&times;</button>
     <div class="cs-modal__content">
@@ -740,18 +740,18 @@
             <span class="cs-header__label">Role Spotlight</span>
             <span class="cs-header__role">Email Marketing&nbsp;Specialist</span>
           </div>
-          <h2 class="cs-header__title">Upstream&nbsp;USA</h2>
+          <h2 class="cs-header__title" id="csTitle-emailops">Upstream&nbsp;USA</h2>
           <p class="cs-header__subtitle">Tens of thousands of contacts, multiple newsletter audiences, and no real operating structure behind the work. I built the email ops layer in HubSpot: reusable templates, cleaner data, and a process the team could actually rely&nbsp;on.</p>
         </div>
 
         <!-- SKILL TAGS -->
         <div class="cs-tags" id="csTags-emailops">
-          <span class="cs-tag cs-tag--highlight" data-tag="email">Email Operations & Template Design</span>
-          <span class="cs-tag cs-tag--highlight" data-tag="hygiene">Data Hygiene & List Management</span>
-          <span class="cs-tag cs-tag--highlight" data-tag="process">Campaign Process Standardization</span>
-          <span class="cs-tag" data-tag="admin">HubSpot Administration</span>
-          <span class="cs-tag" data-tag="reporting">Custom Reporting & Analytics</span>
-          <span class="cs-tag" data-tag="documentation">Documentation & Enablement</span>
+          <button class="cs-tag cs-tag--highlight" data-tag="email">Email Operations & Template Design</button>
+          <button class="cs-tag cs-tag--highlight" data-tag="hygiene">Data Hygiene & List Management</button>
+          <button class="cs-tag cs-tag--highlight" data-tag="process">Campaign Process Standardization</button>
+          <button class="cs-tag" data-tag="admin">HubSpot Administration</button>
+          <button class="cs-tag" data-tag="reporting">Custom Reporting & Analytics</button>
+          <button class="cs-tag" data-tag="documentation">Documentation & Enablement</button>
         </div>
 
         <!-- FILTER HINT -->
@@ -866,7 +866,7 @@
   </div>
 
   <!-- Case Study Modal: Email Dashboard -->
-  <div class="cs-modal" id="csModal-emaildashboard">
+  <div class="cs-modal" id="csModal-emaildashboard" role="dialog" aria-modal="true" aria-labelledby="csTitle-emaildashboard">
     <div class="cs-modal__overlay"></div>
     <button class="cs-modal__close" aria-label="Close case study">&times;</button>
     <div class="cs-modal__content">
@@ -878,18 +878,18 @@
             <span class="cs-header__label">Role Spotlight</span>
             <span class="cs-header__role">Email Marketing&nbsp;Analyst</span>
           </div>
-          <h2 class="cs-header__title">Email Performance&nbsp;Analysis</h2>
+          <h2 class="cs-header__title" id="csTitle-emaildashboard">Email Performance&nbsp;Analysis</h2>
           <p class="cs-header__subtitle">A year of email data across three audiences, and nobody could say what was actually working. I pulled the numbers, benchmarked them against industry averages, and built a dashboard that made the priorities&nbsp;obvious.</p>
         </div>
 
         <!-- SKILL TAGS -->
         <div class="cs-tags" id="csTags-emaildashboard">
-          <span class="cs-tag cs-tag--highlight" data-tag="analytics">Email Analytics</span>
-          <span class="cs-tag cs-tag--highlight" data-tag="benchmarking">Industry Benchmarking</span>
-          <span class="cs-tag cs-tag--highlight" data-tag="visualization">Data Visualization</span>
-          <span class="cs-tag" data-tag="segmentation">Audience Segmentation</span>
-          <span class="cs-tag" data-tag="strategy">Strategic Recommendations</span>
-          <span class="cs-tag" data-tag="reporting">Executive Reporting</span>
+          <button class="cs-tag cs-tag--highlight" data-tag="analytics">Email Analytics</button>
+          <button class="cs-tag cs-tag--highlight" data-tag="benchmarking">Industry Benchmarking</button>
+          <button class="cs-tag cs-tag--highlight" data-tag="visualization">Data Visualization</button>
+          <button class="cs-tag" data-tag="segmentation">Audience Segmentation</button>
+          <button class="cs-tag" data-tag="strategy">Strategic Recommendations</button>
+          <button class="cs-tag" data-tag="reporting">Executive Reporting</button>
         </div>
 
         <!-- FILTER HINT -->
@@ -989,7 +989,7 @@
   </div>
 
   <!-- Case Study Modal: Court Watch Montgomery Report -->
-  <div class="cs-modal" id="csModal-courtwatchreport">
+  <div class="cs-modal" id="csModal-courtwatchreport" role="dialog" aria-modal="true" aria-labelledby="csTitle-courtwatchreport">
     <div class="cs-modal__overlay"></div>
     <button class="cs-modal__close" aria-label="Close case study">&times;</button>
     <div class="cs-modal__content">
@@ -1001,17 +1001,17 @@
             <span class="cs-header__label">Role Spotlight</span>
             <span class="cs-header__role">Design, Digital Production &amp;&nbsp;Distribution</span>
           </div>
-          <h2 class="cs-header__title">Court Watch&nbsp;Montgomery</h2>
+          <h2 class="cs-header__title" id="csTitle-courtwatchreport">Court Watch&nbsp;Montgomery</h2>
           <p class="cs-header__subtitle">The research was done. Twenty-eight pages of legal analysis with no design, no layout, and one shot to publish it right. I turned the raw content into a report people would actually read and&nbsp;share.</p>
         </div>
 
         <!-- SKILL TAGS -->
         <div class="cs-tags" id="csTags-courtwatchreport">
-          <span class="cs-tag cs-tag--highlight" data-tag="reportdesign">Report Design</span>
-          <span class="cs-tag cs-tag--highlight" data-tag="layout">Layout Systems</span>
-          <span class="cs-tag cs-tag--highlight" data-tag="dataviz">Data Visualization</span>
-          <span class="cs-tag" data-tag="production">PDF Production</span>
-          <span class="cs-tag" data-tag="publishing">Digital Publishing</span>
+          <button class="cs-tag cs-tag--highlight" data-tag="reportdesign">Report Design</button>
+          <button class="cs-tag cs-tag--highlight" data-tag="layout">Layout Systems</button>
+          <button class="cs-tag cs-tag--highlight" data-tag="dataviz">Data Visualization</button>
+          <button class="cs-tag" data-tag="production">PDF Production</button>
+          <button class="cs-tag" data-tag="publishing">Digital Publishing</button>
         </div>
 
         <!-- FILTER HINT -->
@@ -1105,7 +1105,7 @@
   </div>
 
   <!-- Case Study Modal: NLA Landing Page Audit -->
-  <div class="cs-modal" id="csModal-nlalandingpage">
+  <div class="cs-modal" id="csModal-nlalandingpage" role="dialog" aria-modal="true" aria-labelledby="csTitle-nlalandingpage">
     <div class="cs-modal__overlay"></div>
     <button class="cs-modal__close" aria-label="Close case study">&times;</button>
     <div class="cs-modal__content">
@@ -1117,18 +1117,18 @@
             <span class="cs-header__label">Role Spotlight</span>
             <span class="cs-header__role">Landing Page Audit &amp; Conversion&nbsp;Strategy</span>
           </div>
-          <h2 class="cs-header__title">Nonprofit Leadership&nbsp;Alliance</h2>
+          <h2 class="cs-header__title" id="csTitle-nlalandingpage">Nonprofit Leadership&nbsp;Alliance</h2>
           <p class="cs-header__subtitle">The landing page was live and getting traffic, but conversions were soft. I audited the full experience, tracking, forms, messaging, mobile, and gave the team a clear list of what to fix and&nbsp;why.</p>
         </div>
 
         <!-- SKILL TAGS -->
         <div class="cs-tags" id="csTags-nlalandingpage">
-          <span class="cs-tag cs-tag--highlight" data-tag="tracking">Tracking &amp; Lead Capture</span>
-          <span class="cs-tag cs-tag--highlight" data-tag="conversion">Conversion Strategy</span>
-          <span class="cs-tag cs-tag--highlight" data-tag="mobileux">Mobile UX Review</span>
-          <span class="cs-tag" data-tag="forms">Form Optimization</span>
-          <span class="cs-tag" data-tag="messaging">Messaging &amp; Copy</span>
-          <span class="cs-tag" data-tag="segmentation">Audience Segmentation</span>
+          <button class="cs-tag cs-tag--highlight" data-tag="tracking">Tracking &amp; Lead Capture</button>
+          <button class="cs-tag cs-tag--highlight" data-tag="conversion">Conversion Strategy</button>
+          <button class="cs-tag cs-tag--highlight" data-tag="mobileux">Mobile UX Review</button>
+          <button class="cs-tag" data-tag="forms">Form Optimization</button>
+          <button class="cs-tag" data-tag="messaging">Messaging &amp; Copy</button>
+          <button class="cs-tag" data-tag="segmentation">Audience Segmentation</button>
         </div>
 
         <!-- FILTER HINT -->
@@ -1236,6 +1236,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=12"></script>
+  <script src="script.js?v=13"></script>
 </body>
 </html>

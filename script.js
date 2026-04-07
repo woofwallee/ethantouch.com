@@ -105,21 +105,36 @@ const navBackdrop = document.createElement('div');
 navBackdrop.className = 'nav__backdrop';
 document.body.appendChild(navBackdrop);
 
+function openMobileNav() {
+  navLinks.classList.add('open');
+  navBackdrop.classList.add('open');
+  navToggle.setAttribute('aria-expanded', 'true');
+  navLinks.setAttribute('aria-hidden', 'false');
+}
+
+function closeMobileNav() {
+  navLinks.classList.remove('open');
+  navBackdrop.classList.remove('open');
+  navToggle.setAttribute('aria-expanded', 'false');
+  navLinks.setAttribute('aria-hidden', 'true');
+}
+
 navToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-  navBackdrop.classList.toggle('open');
+  if (navLinks.classList.contains('open')) {
+    closeMobileNav();
+  } else {
+    openMobileNav();
+  }
 });
 
 navBackdrop.addEventListener('click', () => {
-  navLinks.classList.remove('open');
-  navBackdrop.classList.remove('open');
+  closeMobileNav();
 });
 
 // Close mobile menu on link click
 navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navBackdrop.classList.remove('open');
+    closeMobileNav();
   });
 });
 
@@ -171,8 +186,45 @@ const formSuccess = document.getElementById('formSuccess');
 const submitBtn = document.getElementById('submitBtn');
 
 // ===========================
+// FOCUS TRAP UTILITY
+// ===========================
+const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+
+function trapFocus(modal) {
+  function handleKeydown(e) {
+    if (e.key !== 'Tab') return;
+    const focusable = Array.from(modal.querySelectorAll(FOCUSABLE_SELECTOR)).filter(el => el.offsetParent !== null);
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+  modal._trapFocusHandler = handleKeydown;
+  document.addEventListener('keydown', handleKeydown);
+}
+
+function releaseFocusTrap(modal) {
+  if (modal._trapFocusHandler) {
+    document.removeEventListener('keydown', modal._trapFocusHandler);
+    delete modal._trapFocusHandler;
+  }
+}
+
+// ===========================
 // CASE STUDY MODALS
 // ===========================
+let csModalTrigger = null;
+
 function initCaseStudyModals() {
   // Open modal when clicking or pressing Enter/Space on a work card
   document.querySelectorAll('[data-case-study]').forEach(card => {
@@ -186,11 +238,16 @@ function initCaseStudyModals() {
       const id = card.dataset.caseStudy;
       const modal = document.getElementById('csModal-' + id);
       if (modal) {
+        csModalTrigger = card;
         modal.classList.add('open');
         document.body.classList.add('modal-open');
         // Reset scroll position of modal content
         const content = modal.querySelector('.cs-modal__content');
         if (content) content.scrollTop = 0;
+        // Focus management
+        const closeBtn = modal.querySelector('.cs-modal__close');
+        if (closeBtn) closeBtn.focus();
+        trapFocus(modal);
       }
     });
   });
@@ -205,6 +262,12 @@ function initCaseStudyModals() {
       document.body.classList.remove('modal-open');
       // Reset any active tag filters
       resetTagFilter(modal);
+      releaseFocusTrap(modal);
+      // Return focus to trigger
+      if (csModalTrigger) {
+        csModalTrigger.focus();
+        csModalTrigger = null;
+      }
     }
 
     closeBtn.addEventListener('click', closeModal);
@@ -304,25 +367,34 @@ initCaseStudyModals();
   var closeBtn = modal.querySelector('.cred-modal__close');
   var img = document.getElementById('credModalImg');
   var title = document.getElementById('credModalTitle');
+  var credTrigger = null;
 
-  function openCredModal(imgSrc, name) {
+  function openCredModal(imgSrc, name, triggerEl) {
+    credTrigger = triggerEl;
     title.textContent = name;
     img.src = imgSrc;
     img.alt = name + ' certificate';
     modal.classList.add('open');
     document.body.classList.add('modal-open');
+    closeBtn.focus();
+    trapFocus(modal);
   }
 
   function closeCredModal() {
     modal.classList.remove('open');
     document.body.classList.remove('modal-open');
     img.src = '';
+    releaseFocusTrap(modal);
+    if (credTrigger) {
+      credTrigger.focus();
+      credTrigger = null;
+    }
   }
 
   document.querySelectorAll('[data-cred-img]').forEach(function(btn) {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
-      openCredModal(btn.getAttribute('data-cred-img'), btn.getAttribute('data-cred-title'));
+      openCredModal(btn.getAttribute('data-cred-img'), btn.getAttribute('data-cred-title'), btn);
     });
   });
 
@@ -382,8 +454,57 @@ initCaseStudyModals();
 // ===========================
 // CONTACT FORM (Netlify Forms)
 // ===========================
+// ===========================
+// FORM VALIDATION — aria-invalid + error messages
+// ===========================
+function clearFieldError(field) {
+  field.removeAttribute('aria-invalid');
+  var errId = field.id + '-error';
+  var existing = document.getElementById(errId);
+  if (existing) existing.remove();
+  field.removeAttribute('aria-describedby');
+}
+
+function setFieldError(field, message) {
+  field.setAttribute('aria-invalid', 'true');
+  var errId = field.id + '-error';
+  var existing = document.getElementById(errId);
+  if (!existing) {
+    var errEl = document.createElement('span');
+    errEl.id = errId;
+    errEl.className = 'form__error';
+    errEl.style.cssText = 'display:block;color:#FAE1C5;font-size:0.75rem;margin-top:0.35rem;opacity:0.85;';
+    field.parentNode.appendChild(errEl);
+  }
+  document.getElementById(errId).textContent = message;
+  field.setAttribute('aria-describedby', errId);
+}
+
+function validateContactForm() {
+  var valid = true;
+  var fields = contactForm.querySelectorAll('[required]');
+  fields.forEach(function(field) {
+    clearFieldError(field);
+    if (!field.value.trim()) {
+      setFieldError(field, 'This field is required.');
+      valid = false;
+    } else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim())) {
+      setFieldError(field, 'Please enter a valid email address.');
+      valid = false;
+    }
+  });
+  return valid;
+}
+
+// Clear errors on input
+contactForm.querySelectorAll('[required]').forEach(function(field) {
+  field.addEventListener('input', function() { clearFieldError(field); });
+});
+
 contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
+
+  if (!validateContactForm()) return;
 
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending...';

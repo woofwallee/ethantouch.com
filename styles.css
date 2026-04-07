@@ -241,7 +241,7 @@ img {
   top: 58%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  width: clamp(360px, 40vw, 580px);
+  width: clamp(320px, 34vw, 500px);
 }
 .hero__portrait img {
   width: 100%;

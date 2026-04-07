@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" width="1536" height="1024">
+
+  <!-- Back page — slightly tilted, peeking out behind front page -->
+  <!-- Top edge -->
+  <path d="M 562,198 C 612,195 682,201 752,196 C 822,191 892,199 962,194 C 1002,192 1032,197 1052,195"
+        fill="none" stroke="#000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right edge -->
+  <path d="M 1052,195 C 1054,265 1049,335 1053,405 C 1057,475 1048,545 1052,615 C 1056,685 1049,735 1053,802"
+        fill="none" stroke="#000" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Bottom edge -->
+  <path d="M 1053,802 C 983,806 913,800 843,805 C 773,810 703,801 633,806 C 593,808 567,803 558,805"
+        fill="none" stroke="#000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Left edge -->
+  <path d="M 558,805 C 556,735 561,665 557,595 C 553,525 560,455 557,385 C 554,315 559,258 562,198"
+        fill="none" stroke="#000" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Front page — main document, slightly overlapping back page -->
+  <!-- Top edge (stops before dog-ear) -->
+  <path d="M 478,238 C 528,235 598,241 668,236 C 738,231 808,239 878,235 C 898,234 918,237 928,234"
+        fill="none" stroke="#000" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Dog-ear diagonal -->
+  <path d="M 928,234 C 936,252 944,268 950,286 C 956,298 964,310 972,296 C 980,278 988,258 998,238"
+        fill="none" stroke="#000" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Dog-ear crease (the fold line from corner inward) -->
+  <path d="M 928,234 C 942,240 958,235 972,240 C 986,245 994,237 998,238"
+        fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Dog-ear bottom horizontal to right edge -->
+  <path d="M 950,286 C 960,289 975,284 988,288 C 996,290 1000,286 1002,288"
+        fill="none" stroke="#000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right edge (from dog-ear fold down) -->
+  <path d="M 1002,288 C 1004,358 999,428 1003,498 C 1007,568 998,638 1002,708 C 1005,758 1000,793 1003,822"
+        fill="none" stroke="#000" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Bottom edge -->
+  <path d="M 1003,822 C 933,826 863,819 793,824 C 723,829 653,820 583,825 C 543,827 503,821 483,824"
+        fill="none" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Left edge -->
+  <path d="M 483,824 C 481,754 486,684 482,614 C 478,544 484,474 481,404 C 478,334 482,278 478,238"
+        fill="none" stroke="#000" stroke-width="4.3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Dog-ear fold triangle fill line (subtle inner crease) -->
+  <path d="M 932,237 C 938,258 941,278 948,290"
+        fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Wavy text line 1 — long -->
+  <path d="M 548,348 C 568,342 588,354 618,346 C 648,338 668,352 698,344 C 728,336 758,350 788,342 C 818,334 848,348 878,340 C 898,336 918,344 932,340"
+        fill="none" stroke="#000" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Wavy text line 2 — medium-long, different rhythm -->
+  <path d="M 552,422 C 578,416 602,428 638,420 C 674,412 698,426 728,418 C 758,410 782,424 812,416 C 842,408 862,420 888,414"
+        fill="none" stroke="#000" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Wavy text line 3 — medium, tighter waves -->
+  <path d="M 546,494 C 566,488 584,500 608,492 C 632,484 652,498 678,490 C 704,482 726,496 752,488 C 778,480 798,492 828,486 C 848,482 862,490 878,486"
+        fill="none" stroke="#000" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Wavy text line 4 — shorter -->
+  <path d="M 550,566 C 576,560 600,572 632,564 C 664,556 688,570 716,562 C 744,554 764,566 790,560"
+        fill="none" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Ellipsis dot 1 — wobbly tiny blob -->
+  <path d="M 668,652 C 672,648 678,648 681,652 C 684,656 680,661 676,661 C 672,661 667,658 668,652"
+        fill="#000" stroke="none"/>
+
+  <!-- Ellipsis dot 2 — slightly different shape -->
+  <path d="M 722,650 C 726,646 732,647 735,651 C 738,655 735,660 731,661 C 727,662 721,657 722,650"
+        fill="#000" stroke="none"/>
+
+  <!-- Ellipsis dot 3 — another wobbly blob -->
+  <path d="M 776,654 C 780,649 787,649 790,653 C 793,657 789,663 785,663 C 781,663 775,659 776,654"
+        fill="#000" stroke="none"/>
+
+  <!-- Wavy text line below dots -->
+  <path d="M 550,728 C 576,722 600,736 632,726 C 664,716 694,732 726,724 C 758,716 788,730 820,722 C 852,714 878,726 908,720 C 928,716 940,724 948,720"
+        fill="none" stroke="#000" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+</svg>

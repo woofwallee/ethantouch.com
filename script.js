@@ -188,11 +188,24 @@ const fadeObserver = new IntersectionObserver((entries) => {
     }
   });
 }, {
-  threshold: 0.15,
-  rootMargin: '0px 0px -50px 0px'
+  threshold: 0.05,
+  rootMargin: '0px 0px 0px 0px'
 });
 
 fadeEls.forEach(el => fadeObserver.observe(el));
+
+// Instantly reveal fade-in elements when nav links are clicked
+navLinks.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', () => {
+    const targetId = link.getAttribute('href').slice(1);
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) {
+      targetSection.querySelectorAll('.fade-in').forEach(el => {
+        el.classList.add('visible');
+      });
+    }
+  });
+});
 
 // ===========================
 // CONTACT FORM (Netlify Forms)

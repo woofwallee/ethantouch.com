@@ -7,22 +7,22 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
     <style>
         :root {
-            --bg-primary: #1a1a2e;
-            --bg-card: #24243a;
-            --bg-card-hover: #2e2e48;
-            --bg-header: #24243a;
-            --text-primary: #e8e6f0;
-            --text-secondary: #b0adc0;
-            --text-muted: #7a7890;
-            --accent-1: #2D5BFF;
-            --accent-2: #e8e6f0;
-            --accent-3: #6ECAA0;
-            --accent-4: #2D5BFF;
-            --accent-5: #1BA8A0;
-            --positive: #3BAA7A;
-            --negative: #E86833;
-            --neutral: #7a7890;
-            --border: rgba(255,255,255,0.08);
+            --bg-primary: #0a0a0a;
+            --bg-card: #141312;
+            --bg-card-hover: #1c1b19;
+            --bg-header: #141312;
+            --text-primary: #E6E8E7;
+            --text-secondary: #B7C9C3;
+            --text-muted: #7a8a85;
+            --accent-1: #E8530E;
+            --accent-2: #E6E8E7;
+            --accent-3: #B7C9C3;
+            --accent-4: #E8530E;
+            --accent-5: #FAE1C5;
+            --positive: #B7C9C3;
+            --negative: #E8530E;
+            --neutral: #7a8a85;
+            --border: rgba(183,201,195,0.1);
             --gap: 16px;
             --radius: 12px;
         }
@@ -57,8 +57,8 @@
             text-transform: uppercase;
             letter-spacing: 1.4px;
             color: var(--accent-1);
-            background: rgba(45,91,255,0.15);
-            border: 1px solid rgba(45,91,255,0.3);
+            background: rgba(232,83,14,0.15);
+            border: 1px solid rgba(232,83,14,0.3);
             padding: 4px 12px;
             border-radius: 20px;
             margin-bottom: 16px;
@@ -185,13 +185,13 @@
         }
 
         .rec-priority-badge.high {
-            background: rgba(232,104,51,0.2);
-            color: #f0885e;
+            background: rgba(232,83,14,0.15);
+            color: #FAE1C5;
         }
 
         .rec-priority-badge.medium {
-            background: rgba(45,91,255,0.18);
-            color: #6b8fff;
+            background: rgba(183,201,195,0.15);
+            color: #B7C9C3;
         }
 
         .rec-content h4 {
@@ -255,8 +255,8 @@
         /* Annotation callout */
         .chart-callout {
             display: inline-block;
-            background: rgba(232,104,51,0.18);
-            color: #f0885e;
+            background: rgba(232,83,14,0.12);
+            color: #FAE1C5;
             font-size: 11px;
             font-weight: 600;
             padding: 3px 10px;
@@ -265,8 +265,8 @@
         }
 
         .chart-callout.positive {
-            background: rgba(59,170,122,0.18);
-            color: #6ecaa0;
+            background: rgba(183,201,195,0.15);
+            color: #B7C9C3;
         }
 
         /* Scorecard table */
@@ -316,9 +316,9 @@
             font-weight: 600;
         }
 
-        .status-badge.above { background: rgba(59,170,122,0.2); color: #6ecaa0; }
-        .status-badge.at { background: rgba(45,91,255,0.18); color: #6b8fff; }
-        .status-badge.below { background: rgba(232,104,51,0.2); color: #f0885e; }
+        .status-badge.above { background: rgba(183,201,195,0.15); color: #B7C9C3; }
+        .status-badge.at { background: rgba(183,201,195,0.15); color: #B7C9C3; }
+        .status-badge.below { background: rgba(232,83,14,0.15); color: #FAE1C5; }
 
         /* Top Performers */
         .top-performers {
@@ -601,7 +601,7 @@
 
         <div class="top-performers">
             <div class="performer-card">
-                <div class="segment-label"><span class="segment-dot" style="background:#2D5BFF"></span> SQL</div>
+                <div class="segment-label"><span class="segment-dot" style="background:#E8530E"></span> SQL</div>
                 <div class="stat-row"><span class="stat-label">Best Open Rate</span><span class="stat-value">20.91%</span></div>
                 <div class="stat-row"><span class="stat-label">Subject Type</span><span class="stat-value" style="font-size:11px;max-width:180px;text-align:right">Thought leadership</span></div>
                 <div class="stat-row"><span class="stat-label">Best Send Time</span><span class="stat-value">10:00 AM</span></div>
@@ -609,7 +609,7 @@
                 <div class="stat-row"><span class="stat-label">Top Link Type</span><span class="stat-value" style="font-size:11px">Educational resource</span></div>
             </div>
             <div class="performer-card">
-                <div class="segment-label"><span class="segment-dot" style="background:#3BAA7A"></span> Customers</div>
+                <div class="segment-label"><span class="segment-dot" style="background:#B7C9C3"></span> Customers</div>
                 <div class="stat-row"><span class="stat-label">Best Open Rate</span><span class="stat-value">32.43%</span></div>
                 <div class="stat-row"><span class="stat-label">Subject Type</span><span class="stat-value" style="font-size:11px;max-width:180px;text-align:right">Industry newsletter</span></div>
                 <div class="stat-row"><span class="stat-label">Best Send Time</span><span class="stat-value">6:45 AM</span></div>
@@ -617,7 +617,7 @@
                 <div class="stat-row"><span class="stat-label">Top Link Type</span><span class="stat-value" style="font-size:11px">Branded storefront</span></div>
             </div>
             <div class="performer-card">
-                <div class="segment-label"><span class="segment-dot" style="background:#1BA8A0"></span> MQL</div>
+                <div class="segment-label"><span class="segment-dot" style="background:#FAE1C5"></span> MQL</div>
                 <div class="stat-row"><span class="stat-label">Best Open Rate</span><span class="stat-value">43.65%</span></div>
                 <div class="stat-row"><span class="stat-label">Subject Type</span><span class="stat-value" style="font-size:11px;max-width:180px;text-align:right">Mission-driven update</span></div>
                 <div class="stat-row"><span class="stat-label">Best Send Time</span><span class="stat-value">10:00 AM</span></div>
@@ -705,13 +705,13 @@
     };
 
     const COLORS = {
-        sql: '#2D5BFF',
-        customers: '#3BAA7A',
-        mql: '#1BA8A0',
-        benchmark: '#E86833',
+        sql: '#E8530E',
+        customers: '#B7C9C3',
+        mql: '#FAE1C5',
+        benchmark: '#E8530E',
         y2024: 'rgba(255,255,255,0.1)',
-        positive: '#3BAA7A',
-        negative: '#E86833'
+        positive: '#B7C9C3',
+        negative: '#E8530E'
     };
 
     // ============ CHART DEFAULTS ============
@@ -721,12 +721,12 @@
             maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    labels: { color: '#b0adc0', usePointStyle: true, padding: 16, font: { size: 11 } }
+                    labels: { color: '#B7C9C3', usePointStyle: true, padding: 16, font: { size: 11 } }
                 },
                 tooltip: {
-                    backgroundColor: '#2e2e48',
-                    titleColor: '#e8e6f0',
-                    bodyColor: '#b0adc0',
+                    backgroundColor: '#1c1b19',
+                    titleColor: '#E6E8E7',
+                    bodyColor: '#B7C9C3',
                     borderColor: 'rgba(255,255,255,0.12)',
                     borderWidth: 1,
                     padding: 12,
@@ -735,11 +735,11 @@
             },
             scales: {
                 x: {
-                    ticks: { color: '#7a7890', font: { size: 11 } },
+                    ticks: { color: '#7a8a85', font: { size: 11 } },
                     grid: { color: 'rgba(255,255,255,0.06)' }
                 },
                 y: {
-                    ticks: { color: '#7a7890', font: { size: 11 }, callback: v => v + '%' },
+                    ticks: { color: '#7a8a85', font: { size: 11 }, callback: v => v + '%' },
                     grid: { color: 'rgba(255,255,255,0.06)' },
                     beginAtZero: true
                 }
@@ -756,7 +756,7 @@
                 const yLow = scales.y.getPixelForValue(high);
                 const yHigh = scales.y.getPixelForValue(low);
                 ctx.save();
-                ctx.fillStyle = 'rgba(45,91,255,0.08)';
+                ctx.fillStyle = 'rgba(232,83,14,0.06)';
                 ctx.fillRect(chartArea.left, yLow, chartArea.right - chartArea.left, yHigh - yLow);
                 ctx.restore();
             }
@@ -840,13 +840,13 @@
                     {
                         label: 'Read Rate',
                         data: [m24.readRate[0], m25.readRate[0], m24.readRate[1], m25.readRate[1], m24.readRate[2], m25.readRate[2]],
-                        backgroundColor: '#2D5BFF' + 'aa',
+                        backgroundColor: '#E8530E' + 'aa',
                         borderRadius: 4
                     },
                     {
                         label: 'Glance Rate',
                         data: [m24.glanceRate[0], m25.glanceRate[0], m24.glanceRate[1], m25.glanceRate[1], m24.glanceRate[2], m25.glanceRate[2]],
-                        backgroundColor: '#E86833' + 'aa',
+                        backgroundColor: '#E8530E' + 'aa',
                         borderRadius: 4
                     }
                 ]

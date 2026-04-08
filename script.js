@@ -1,4 +1,11 @@
 // ===========================
+// REGISTER GSAP PLUGINS
+// ===========================
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+// ===========================
 // HERO ANIMATION — COORDINATED GSAP TIMELINE
 // ===========================
 (function () {
@@ -13,27 +20,36 @@
       tl.fromTo('#nav', { opacity: 0, y: -8 }, { opacity: 1, y: 0, duration: 0.26 }, 0);
       tl.fromTo('#heroParticles', { opacity: 0 }, { opacity: 1, duration: 1.2 }, 0);
 
-      tl.fromTo('#portrait', { opacity: 0, scale: 0.94 }, {
-        opacity: 1, scale: 1, duration: 0.5,
-        onComplete: function() {
-          document.getElementById('portrait').classList.add('float-active', 'glow-active');
-        }
-      }, 0.50);
+      // Massive name — slides in from opposite sides
+      tl.set('#heroName', { opacity: 1 }, 0);
+      tl.fromTo('#heroNameLine1', { opacity: 0, x: -50 }, {
+        opacity: 1, x: 0, duration: 0.8, ease: 'power3.out'
+      }, 0.1);
+      tl.fromTo('#heroNameLine2', { opacity: 0, x: 50 }, {
+        opacity: 1, x: 0, duration: 0.8, ease: 'power3.out'
+      }, 0.25);
 
-      tl.fromTo('#heroHeadline', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 }, 0.70);
+      // Portrait scales in overlapping the name
+      tl.fromTo('#portrait', { opacity: 0, scale: 0.88 }, {
+        opacity: 1, scale: 1, duration: 0.7, ease: 'power3.out'
+      }, 0.4);
 
-      tl.fromTo('#heroSkillsRow', { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.85);
+      tl.fromTo('#heroHeadline', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4 }, 0.75);
+
+      tl.fromTo('#heroSkillsRow', { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.9);
 
       var skillOrder = ['#skill-tl', '#skill-tr', '#skill-ml', '#skill-mr', '#skill-bl', '#skill-br'];
       skillOrder.forEach(function(sel, i) {
-        tl.fromTo(sel, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, 0.90 + i * 0.08);
+        tl.fromTo(sel, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, 0.95 + i * 0.08);
       });
 
-      tl.fromTo('#heroCorner', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 }, 1.4);
+      tl.fromTo('#heroCorner', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 }, 1.5);
 
     });
   });
 })();
+
+// (Horizontal scroll removed — work section now uses static grid layout)
 
 // ===========================
 // HERO PARTICLE SYSTEM
@@ -242,7 +258,7 @@ function initCaseStudyModals() {
         modal.classList.add('open');
         document.body.classList.add('modal-open');
         // Reset scroll position of modal content
-        const content = modal.querySelector('.cs-modal__content');
+        const content = modal.querySelector('.cs-modal__content') || modal.querySelector('.cs-fullpage');
         if (content) content.scrollTop = 0;
         // Focus management
         const closeBtn = modal.querySelector('.cs-modal__close');
@@ -270,8 +286,8 @@ function initCaseStudyModals() {
       }
     }
 
-    closeBtn.addEventListener('click', closeModal);
-    overlay.addEventListener('click', closeModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (overlay) overlay.addEventListener('click', closeModal);
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modal.classList.contains('open')) {
@@ -359,6 +375,48 @@ function resetTagFilter(modal) {
 initCaseStudyModals();
 
 // ===========================
+// CASE STUDY TOC — SCROLL TRACKING
+// ===========================
+(function initCSToc() {
+  document.querySelectorAll('.cs-modal--fullpage').forEach(function(modal) {
+    var toc = modal.querySelector('.cs-toc');
+    if (!toc) return;
+
+    var tocItems = toc.querySelectorAll('.cs-toc__item');
+    var scrollContainer = modal.querySelector('.cs-fullpage');
+    var sections = modal.querySelectorAll('[data-section]');
+
+    // Click to scroll
+    tocItems.forEach(function(item) {
+      item.addEventListener('click', function() {
+        var target = modal.querySelector('[data-section="' + item.dataset.toc + '"]');
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Scroll tracking with IntersectionObserver
+    if (sections.length && scrollContainer) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var sectionId = entry.target.dataset.section;
+            tocItems.forEach(function(item) {
+              item.classList.toggle('cs-toc__item--active', item.dataset.toc === sectionId);
+            });
+          }
+        });
+      }, {
+        root: scrollContainer,
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0
+      });
+
+      sections.forEach(function(section) { observer.observe(section); });
+    }
+  });
+})();
+
+// ===========================
 // CREDENTIAL VIEWER MODAL
 // ===========================
 (function() {
@@ -407,49 +465,7 @@ initCaseStudyModals();
   });
 })();
 
-// ===========================
-// LIQUID GLASS v2 — INTERNAL ILLUMINATION TRACKING
-// Smoothed cursor-following glow with edge-aware specular
-// ===========================
-(function() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  document.querySelectorAll('.work__card, .testimonial-card').forEach(function(card) {
-    var currentX = 50, currentY = 50;
-    var targetX = 50, targetY = 50;
-    var rafId = null;
-
-    function lerp(a, b, t) { return a + (b - a) * t; }
-
-    function animate() {
-      currentX = lerp(currentX, targetX, 0.12);
-      currentY = lerp(currentY, targetY, 0.12);
-      card.style.setProperty('--glow-x', currentX + '%');
-      card.style.setProperty('--glow-y', currentY + '%');
-
-      if (Math.abs(currentX - targetX) > 0.1 || Math.abs(currentY - targetY) > 0.1) {
-        rafId = requestAnimationFrame(animate);
-      } else {
-        rafId = null;
-      }
-    }
-
-    card.addEventListener('mousemove', function(e) {
-      var rect = card.getBoundingClientRect();
-      targetX = ((e.clientX - rect.left) / rect.width) * 100;
-      targetY = ((e.clientY - rect.top) / rect.height) * 100;
-      if (!rafId) rafId = requestAnimationFrame(animate);
-    });
-
-    card.addEventListener('mouseleave', function() {
-      targetX = 50;
-      targetY = 50;
-      if (!rafId) rafId = requestAnimationFrame(animate);
-    });
-  });
-})();
-
-// Testimonials: static staggered grid — no JS needed
+// Cursor-tracking glow removed — cards use clean flat surfaces
 
 // ===========================
 // CONTACT FORM (Netlify Forms)

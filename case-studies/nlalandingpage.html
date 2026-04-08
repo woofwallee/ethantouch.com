@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NLA Landing Page Audit — Ethan Touch</title>
+  <meta name="description" content="How I audited a nonprofit landing page across tracking, lead capture, forms, messaging, and mobile — identifying 9 key fixes to improve conversions.">
+  <link rel="canonical" href="https://ethantouch.com/case-studies/nlalandingpage">
+  <meta name="theme-color" content="#769C8C">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nonprofit Leadership Alliance — Landing Page Audit | Ethan Touch">
+  <meta property="og:description" content="How I audited a nonprofit landing page across tracking, lead capture, forms, messaging, and mobile — identifying 9 key fixes to improve conversions.">
+  <meta property="og:image" content="https://ethantouch.com/images/ethan_runway.webp">
+  <meta property="og:url" content="https://ethantouch.com/case-studies/nlalandingpage">
+  <meta property="og:type" content="article">
+  <!-- Favicon -->
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FWR3RM6KP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3FWR3RM6KP');
+  </script>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=71">
+  <style>
+    /* Standalone page overrides */
+    body {
+      margin: 0;
+      overflow: visible !important;
+      background: #769C8C;
+      background-image:
+        radial-gradient(ellipse at 20% 0%, rgba(228, 226, 201, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 100%, rgba(228, 226, 201, 0.2) 0%, transparent 40%);
+      animation: csPageIn 0.5s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+    @keyframes csPageIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .cs-fullpage__main {
+      /* Override absolute positioning from modal context */
+      position: static;
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+    }
+    /* Back button and TOC work as-is (position: fixed) */
+  </style>
+</head>
+<body>
+
+  <!-- Back Button -->
+  <a href="/#work" class="cs-fullpage__back" aria-label="Back to portfolio">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M11 14L6 9L11 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Back
+  </a>
+
+  <main class="cs-fullpage__main">
+
+    <!-- Header -->
+    <header class="cs-fp-header">
+      <span class="cs-fp-header__label">Case Study&nbsp;06</span>
+      <h1 class="cs-fp-header__title">Nonprofit Leadership&nbsp;Alliance</h1>
+      <p class="cs-fp-header__bio">The landing page was live and getting traffic, but conversions were soft. I audited the full experience — tracking, forms, messaging, mobile — and gave the team a clear list of what to fix and&nbsp;why.</p>
+      <div class="cs-fp-header__role">
+        <span class="cs-fp-header__role-label">My Role</span>
+        <span class="cs-fp-header__role-value">Landing Page Audit &amp; Conversion&nbsp;Strategy</span>
+      </div>
+    </header>
+
+    <!-- Problem / Solution Summary -->
+    <div class="cs-fp-summary" data-section="overview">
+      <div class="cs-fp-summary__block cs-fp-summary__block--problem">
+        <div class="cs-fp-summary__icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M10 6v5M10 13.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cs-fp-summary__label">The Problem</div>
+          <p>The page had a solid foundation. It explained the program, captured leads, and gave students a clear next step. But it was leaving conversions on the table. Tracking was incomplete, one integration was broken, and mobile layout collapsed in&nbsp;places.</p>
+        </div>
+      </div>
+      <div class="cs-fp-summary__block cs-fp-summary__block--solution">
+        <div class="cs-fp-summary__icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="cs-fp-summary__label">The Solution</div>
+          <p>Audited the page across five areas, identified nine key recommendations, and delivered a practical optimization roadmap the team could use without starting&nbsp;over.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills Strip -->
+    <div class="cs-fp-skills">
+      <div class="cs-fp-skills__label">Skills Demonstrated</div>
+      <div class="cs-fp-skills__list">
+        <span class="cs-fp-skills__tag">Tracking &amp; Lead Capture</span>
+        <span class="cs-fp-skills__tag">Conversion Strategy</span>
+        <span class="cs-fp-skills__tag">Mobile UX Review</span>
+        <span class="cs-fp-skills__tag">Form Optimization</span>
+        <span class="cs-fp-skills__tag">Messaging &amp; Copy</span>
+        <span class="cs-fp-skills__tag">Audience Segmentation</span>
+      </div>
+    </div>
+
+    <!-- Metrics -->
+    <div class="cs-fp-metrics">
+      <div class="cs-fp-metric">
+        <div class="cs-fp-metric__num">5</div>
+        <div class="cs-fp-metric__label">Audit&nbsp;Areas</div>
+      </div>
+      <div class="cs-fp-metric">
+        <div class="cs-fp-metric__num">1</div>
+        <div class="cs-fp-metric__label">Full Page&nbsp;Audit</div>
+      </div>
+      <div class="cs-fp-metric">
+        <div class="cs-fp-metric__num">9</div>
+        <div class="cs-fp-metric__label">Key&nbsp;Recommendations</div>
+      </div>
+      <div class="cs-fp-metric">
+        <div class="cs-fp-metric__num">7</div>
+        <div class="cs-fp-metric__label">Fixes&nbsp;Identified</div>
+      </div>
+    </div>
+
+    <!-- Challenge Section -->
+    <section class="cs-fp-section" data-section="challenge">
+      <div class="cs-fp-section__label">Challenge</div>
+      <p>The page had a solid foundation. It explained the program, captured leads, and gave students a clear next step. But it was leaving conversions on the&nbsp;table.</p>
+      <p>Tracking was incomplete. One email capture path had a broken integration. The sign-up flow had an extra confirmation step adding unnecessary friction. On mobile, the layout broke in places and copy got hard to read. The form had fields that made the data messy on the back&nbsp;end.</p>
+      <p>The page didn't need a redesign. It needed someone to go through it carefully, find the gaps, and tell the team exactly what to&nbsp;fix.</p>
+    </section>
+
+    <!-- Approach Section -->
+    <section class="cs-fp-section" data-section="approach">
+      <div class="cs-fp-section__label">Approach</div>
+      <p>Audited the page across five areas: tracking, lead capture, form experience, messaging, and mobile&nbsp;performance.</p>
+      <p>Found a missing conversion signal on one sign-up path and a broken integration killing email capture. Highest-priority&nbsp;fixes.</p>
+      <p>Flagged an extra confirmation step adding friction, plus form fields that needed simplification for cleaner data&nbsp;capture.</p>
+      <p>Mobile had real problems — broken spacing, poor readability, layout collapse. Desktop was fine. Mobile was&nbsp;not.</p>
+      <p>Tightened copy, removed clutter, moved the program's value proposition higher on the&nbsp;page.</p>
+      <p>Recommended audience-specific landing page variants instead of routing all traffic to one generic&nbsp;page.</p>
+    </section>
+
+    <!-- Results Section -->
+    <section class="cs-fp-section" data-section="results">
+      <div class="cs-fp-section__label">Results</div>
+      <div class="cs-fp-results">
+        <div class="cs-fp-result">
+          <div class="cs-fp-result__dot"></div>
+          <div class="cs-fp-result__text"><strong>Delivered a full landing page audit</strong> for Nonprofit Leadership&nbsp;Alliance</div>
+        </div>
+        <div class="cs-fp-result">
+          <div class="cs-fp-result__dot"></div>
+          <div class="cs-fp-result__text"><strong>Audited a live campaign page</strong> supporting Alpha Phi Omega&nbsp;outreach</div>
+        </div>
+        <div class="cs-fp-result">
+          <div class="cs-fp-result__dot"></div>
+          <div class="cs-fp-result__text"><strong>Identified tracking and lead capture issues</strong> that could affect conversion&nbsp;measurement</div>
+        </div>
+        <div class="cs-fp-result">
+          <div class="cs-fp-result__dot"></div>
+          <div class="cs-fp-result__text"><strong>Flagged sign-up friction</strong> that could reduce form completion or list&nbsp;growth</div>
+        </div>
+        <div class="cs-fp-result">
+          <div class="cs-fp-result__dot"></div>
+          <div class="cs-fp-result__text"><strong>Surfaced mobile usability issues</strong> affecting readability, spacing, and&nbsp;layout</div>
+        </div>
+        <div class="cs-fp-result">
+          <div class="cs-fp-result__dot"></div>
+          <div class="cs-fp-result__text"><strong>Recommended form updates</strong> to improve usability and data&nbsp;consistency</div>
+        </div>
+        <div class="cs-fp-result">
+          <div class="cs-fp-result__dot"></div>
+          <div class="cs-fp-result__text"><strong>Strengthened message clarity</strong> by reducing clutter and sharpening the&nbsp;offer</div>
+        </div>
+        <div class="cs-fp-result">
+          <div class="cs-fp-result__dot"></div>
+          <div class="cs-fp-result__text"><strong>Added a performance layer</strong> to the audit, including desktop and mobile page speed&nbsp;review</div>
+        </div>
+        <div class="cs-fp-result">
+          <div class="cs-fp-result__dot"></div>
+          <div class="cs-fp-result__text"><strong>Created a practical optimization roadmap</strong> the team could use without starting&nbsp;over</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools -->
+    <div class="cs-fp-tools">
+      <span class="cs-fp-tools__label">Tools Used</span>
+      <div class="cs-fp-tools__list">
+        <a class="cs-fp-tools__item" href="https://unbounce.com" target="_blank" rel="noopener">Unbounce</a>
+        <a class="cs-fp-tools__item" href="https://mailchimp.com" target="_blank" rel="noopener">Mailchimp</a>
+        <span class="cs-fp-tools__item">Google PageSpeed Insights</span>
+        <span class="cs-fp-tools__item">Facebook Pixel</span>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>

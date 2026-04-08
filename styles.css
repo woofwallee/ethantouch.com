@@ -1509,17 +1509,17 @@ body.modal-open {
    CASE STUDY — FULL PAGE TAKEOVER
    =========================== */
 .cs-modal--fullpage {
-  background: #769C8C;
+  background: #0a0a0a;
 }
 
 .cs-fullpage {
   position: absolute;
   inset: 0;
   overflow-y: auto;
-  background: #769C8C;
+  background: #0a0a0a;
   background-image:
-    radial-gradient(ellipse at 20% 0%, rgba(228, 226, 201, 0.3) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 100%, rgba(228, 226, 201, 0.2) 0%, transparent 40%);
+    radial-gradient(ellipse at 20% 0%, rgba(25, 20, 15, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(15, 22, 20, 0.3) 0%, transparent 40%);
   transform: translateY(30px);
   opacity: 0;
   transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s ease;
@@ -1615,8 +1615,8 @@ body.modal-open {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  border: 1.5px solid rgba(0, 0, 0, 0.2);
-  background: #769C8C;
+  border: 1.5px solid rgba(183, 201, 195, 0.2);
+  background: #141312;
   transition: all 0.3s ease;
   z-index: 1;
 }
@@ -1900,7 +1900,7 @@ body.modal-open {
   font-family: 'Playfair Display', serif;
   font-size: 1rem;
   font-style: italic;
-  color: #E4E2C9;
+  color: #E6E8E7;
   line-height: 1.85;
   max-width: 620px;
   margin-bottom: 1.5rem;
@@ -2143,7 +2143,7 @@ body.modal-open {
 .testimonial-card--pullquote .testimonial-card__quote {
   font-size: 1.5rem;
   line-height: 1.5;
-  color: #E4E2C9;
+  color: #E6E8E7;
   margin-bottom: 1rem;
 }
 
@@ -2228,7 +2228,7 @@ body.modal-open {
 
 .form__group input::placeholder,
 .form__group textarea::placeholder {
-  color: #E4E2C9;
+  color: #B7C9C3;
   opacity: 0.45;
 }
 

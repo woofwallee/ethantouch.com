@@ -208,7 +208,7 @@ navLinks.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 // ===========================
-// CONTACT FORM (Netlify Forms)
+// CONTACT FORM (Formspark)
 // ===========================
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
@@ -540,10 +540,11 @@ contactForm.addEventListener('submit', async (e) => {
 
   try {
     const formData = new FormData(contactForm);
-    const response = await fetch('/', {
+    const data = Object.fromEntries(formData);
+    const response = await fetch('https://submit-form.com/AtVPTbBQF', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
     });
 
     if (response.ok) {

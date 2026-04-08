@@ -530,6 +530,15 @@ contactForm.querySelectorAll('[required]').forEach(function(field) {
   field.addEventListener('input', function() { clearFieldError(field); });
 });
 
+function playCelebration() {
+  const overlay = document.getElementById('celebration-overlay');
+  const video = document.getElementById('celebration-video');
+  overlay.style.display = 'block';
+  video.currentTime = 0;
+  video.play();
+  video.onended = () => { overlay.style.display = 'none'; };
+}
+
 contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -550,6 +559,7 @@ contactForm.addEventListener('submit', async (e) => {
     if (response.ok) {
       contactForm.style.display = 'none';
       formSuccess.style.display = 'block';
+      playCelebration();
     } else {
       throw new Error('Form submission failed');
     }

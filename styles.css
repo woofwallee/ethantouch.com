@@ -1544,12 +1544,12 @@ body.modal-open {
   align-items: center;
   gap: 0.4rem;
   padding: 0.55rem 1.1rem 0.55rem 0.8rem;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(20, 19, 18, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(183, 201, 195, 0.12);
   border-radius: 8px;
-  color: #1a1a1a;
+  color: #E6E8E7;
   font-family: 'Instrument Sans', sans-serif;
   font-size: 0.78rem;
   font-weight: 500;
@@ -1559,8 +1559,8 @@ body.modal-open {
 }
 
 .cs-fullpage__back:hover {
-  border-color: rgba(0, 0, 0, 0.3);
-  color: #000;
+  border-color: rgba(183, 201, 195, 0.3);
+  color: #B7C9C3;
 }
 
 .cs-fullpage__back svg { width: 16px; height: 16px; }
@@ -1635,7 +1635,7 @@ body.modal-open {
 .cs-fp-header {
   margin-bottom: 3rem;
   padding-bottom: 2.5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(183, 201, 195, 0.12);
 }
 
 .cs-fp-header__label {
@@ -1645,7 +1645,7 @@ body.modal-open {
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #E8530E;
+  color: #FAE1C5;
   margin-bottom: 1rem;
 }
 
@@ -1653,14 +1653,14 @@ body.modal-open {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
-  color: #1a1a1a;
+  color: #B7C9C3;
   line-height: 1.1;
   margin-bottom: 1.25rem;
 }
 
 .cs-fp-header__bio {
   font-size: 1rem;
-  color: #1a1a1a;
+  color: #E6E8E7;
   line-height: 1.75;
   max-width: 600px;
   margin-bottom: 1.5rem;
@@ -1678,14 +1678,14 @@ body.modal-open {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #1a1a1a;
+  color: #FAE1C5;
 }
 
 .cs-fp-header__role-value {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
-  color: #1a1a1a;
+  color: #E6E8E7;
 }
 
 /* ---- Problem / Solution Summary ---- */
@@ -1701,12 +1701,12 @@ body.modal-open {
   gap: 1rem;
   padding: 1.5rem;
   border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  background: #E4E2C9;
+  border: 1px solid rgba(183, 201, 195, 0.1);
+  background: #141312;
 }
 
 .cs-fp-summary__block--problem { border-left: 2px solid #E8530E; }
-.cs-fp-summary__block--solution { border-left: 2px solid #3a3a3a; }
+.cs-fp-summary__block--solution { border-left: 2px solid #B7C9C3; }
 
 .cs-fp-summary__icon {
   flex-shrink: 0;
@@ -1716,7 +1716,7 @@ body.modal-open {
 }
 
 .cs-fp-summary__block--problem .cs-fp-summary__icon { color: #E8530E; }
-.cs-fp-summary__block--solution .cs-fp-summary__icon { color: #3a3a3a; }
+.cs-fp-summary__block--solution .cs-fp-summary__icon { color: #B7C9C3; }
 
 .cs-fp-summary__label {
   font-family: 'Instrument Sans', sans-serif;
@@ -1724,13 +1724,13 @@ body.modal-open {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #1a1a1a;
+  color: #FAE1C5;
   margin-bottom: 0.5rem;
 }
 
 .cs-fp-summary__block p {
   font-size: 0.95rem;
-  color: #1a1a1a;
+  color: #E6E8E7;
   line-height: 1.7;
   margin: 0;
 }
@@ -1739,8 +1739,8 @@ body.modal-open {
 .cs-fp-skills {
   margin-bottom: 2.5rem;
   padding: 1.5rem 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(183, 201, 195, 0.12);
+  border-bottom: 1px solid rgba(183, 201, 195, 0.12);
 }
 
 .cs-fp-skills__label {
@@ -1749,7 +1749,7 @@ body.modal-open {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #1a1a1a;
+  color: #FAE1C5;
   margin-bottom: 0.85rem;
 }
 
@@ -1765,8 +1765,8 @@ body.modal-open {
   font-weight: 500;
   padding: 0.3rem 0.75rem;
   border-radius: 100px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  color: #1a1a1a;
+  border: 1px solid rgba(183, 201, 195, 0.15);
+  color: #E6E8E7;
   letter-spacing: 0.02em;
 }
 
@@ -1775,16 +1775,16 @@ body.modal-open {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin-bottom: 3rem;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(183, 201, 195, 0.1);
   border-radius: 10px;
   overflow: hidden;
-  background: #E4E2C9;
+  background: #141312;
 }
 
 .cs-fp-metric {
   padding: 1.5rem;
   text-align: center;
-  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  border-right: 1px solid rgba(183, 201, 195, 0.08);
 }
 
 .cs-fp-metric:last-child { border-right: none; }
@@ -1792,7 +1792,7 @@ body.modal-open {
 .cs-fp-metric__num {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2rem;
-  color: #1a1a1a;
+  color: #FFF7E7;
   line-height: 1;
   margin-bottom: 0.3rem;
   letter-spacing: 0.05em;
@@ -1804,7 +1804,7 @@ body.modal-open {
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #1a1a1a;
+  color: #9B9D9C;
 }
 
 /* ---- Inline Illustration ---- */
@@ -1812,14 +1812,14 @@ body.modal-open {
   margin: 0 0 3rem;
   padding: 2rem 1.5rem;
   border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  background: #E4E2C9;
+  border: 1px solid rgba(183, 201, 195, 0.1);
+  background: #141312;
 }
 
 .cs-fp-illustration svg {
   width: 100%;
   height: auto;
-  color: #1a1a1a;
+  color: #B7C9C3;
 }
 
 /* ---- Content Sections ---- */
@@ -1842,7 +1842,7 @@ body.modal-open {
 
 .cs-fp-section p {
   font-size: 1.05rem;
-  color: #1a1a1a;
+  color: #E6E8E7;
   line-height: 1.8;
   max-width: 640px;
   margin-bottom: 0.85rem;
@@ -1876,12 +1876,12 @@ body.modal-open {
 
 .cs-fp-result__text {
   font-size: 1rem;
-  color: #1a1a1a;
+  color: #E6E8E7;
   line-height: 1.6;
 }
 
 .cs-fp-result__text strong {
-  color: #1a1a1a;
+  color: #FFF7E7;
   font-weight: 600;
 }
 
@@ -1890,8 +1890,8 @@ body.modal-open {
   margin-bottom: 2.5rem;
   padding: 2rem;
   border-radius: 10px;
-  background: #E4E2C9;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: #141312;
+  border: 1px solid rgba(183, 201, 195, 0.1);
 }
 
 .cs-fp-testimonial .cs-fp-section__label { margin-bottom: 1.5rem; }
@@ -1900,7 +1900,7 @@ body.modal-open {
   font-family: 'Playfair Display', serif;
   font-size: 1rem;
   font-style: italic;
-  color: #1a1a1a;
+  color: #E4E2C9;
   line-height: 1.85;
   max-width: 620px;
   margin-bottom: 1.5rem;
@@ -1920,7 +1920,7 @@ body.modal-open {
   height: 40px;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(183, 201, 195, 0.15);
   flex-shrink: 0;
 }
 
@@ -1940,14 +1940,14 @@ body.modal-open {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #E6E8E7;
 }
 
 .cs-fp-testimonial__role {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 0.7rem;
   font-weight: 400;
-  color: #1a1a1a;
+  color: #9B9D9C;
 }
 
 /* ---- Tools Bar ---- */
@@ -1956,7 +1956,7 @@ body.modal-open {
   align-items: center;
   gap: 1.5rem;
   padding: 1.5rem 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(183, 201, 195, 0.12);
 }
 
 .cs-fp-tools__label {
@@ -1965,7 +1965,7 @@ body.modal-open {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #1a1a1a;
+  color: #FAE1C5;
   white-space: nowrap;
 }
 
@@ -1979,28 +1979,28 @@ body.modal-open {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
-  color: #1a1a1a;
+  color: #E6E8E7;
   text-decoration: none;
-  border-bottom: 1px solid rgba(79, 65, 29, 0.2);
+  border-bottom: 1px solid rgba(183, 201, 195, 0.2);
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .cs-fp-tools__item:hover {
-  color: #4F411D;
-  border-color: #4F411D;
+  color: #B7C9C3;
+  border-color: #B7C9C3;
 }
 
 /* Inline body text links */
 .cs-fp-link {
   color: inherit;
   text-decoration: none;
-  border-bottom: 1px solid rgba(79, 65, 29, 0.25);
+  border-bottom: 1px solid rgba(183, 201, 195, 0.25);
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .cs-fp-link:hover {
-  color: #4F411D;
-  border-color: #4F411D;
+  color: #B7C9C3;
+  border-color: #B7C9C3;
 }
 
 /* ---- Fullpage Responsive ---- */
@@ -2013,7 +2013,7 @@ body.modal-open {
   .cs-fullpage__main { padding: 4rem 1.25rem 3rem; }
   .cs-fp-summary { grid-template-columns: 1fr; }
   .cs-fp-metrics { grid-template-columns: repeat(2, 1fr); }
-  .cs-fp-metric { border-bottom: 1px solid rgba(0, 0, 0, 0.06); }
+  .cs-fp-metric { border-bottom: 1px solid rgba(183, 201, 195, 0.08); }
   .cs-fp-results { grid-template-columns: 1fr; }
   .cs-fp-header__title { font-size: 2rem; }
   .cs-fp-tools { flex-direction: column; align-items: flex-start; gap: 0.75rem; }

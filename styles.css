@@ -905,9 +905,8 @@ img {
 
 .about__headshot {
   width: 100%;
-  max-width: 560px;
-  height: auto;
-  object-fit: cover;
+  max-width: 320px;
+  object-fit: contain;
   object-position: top center;
   border: none;
   border-radius: 0;

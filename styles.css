@@ -918,15 +918,15 @@ img {
   z-index: 1;
   /* Gradient fade on all edges to blend into dark background */
   mask-image:
-    linear-gradient(to bottom, black 40%, transparent 90%),
-    linear-gradient(to top, black 70%, transparent 100%),
-    linear-gradient(to right, black 65%, transparent 100%),
-    linear-gradient(to left, black 65%, transparent 100%);
+    linear-gradient(to bottom, black 70%, transparent 98%),
+    linear-gradient(to top, black 85%, transparent 100%),
+    linear-gradient(to right, black 85%, transparent 100%),
+    linear-gradient(to left, black 85%, transparent 100%);
   -webkit-mask-image:
-    linear-gradient(to bottom, black 40%, transparent 90%),
-    linear-gradient(to top, black 70%, transparent 100%),
-    linear-gradient(to right, black 65%, transparent 100%),
-    linear-gradient(to left, black 65%, transparent 100%);
+    linear-gradient(to bottom, black 70%, transparent 98%),
+    linear-gradient(to top, black 85%, transparent 100%),
+    linear-gradient(to right, black 85%, transparent 100%),
+    linear-gradient(to left, black 85%, transparent 100%);
   mask-composite: intersect;
   -webkit-mask-composite: source-in;
 }

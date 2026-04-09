@@ -106,6 +106,59 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 })();
 
 // ===========================
+// DOG TREAT INTERACTION — clicker style, no limits
+// ===========================
+(function() {
+  var btn = document.getElementById('treatBtn');
+  var pool = document.getElementById('treatBonePool');
+  if (!btn || !pool) return;
+
+  var clickCount = 0;
+  var boneSVG = '<svg viewBox="0 0 32 14" fill="none" stroke="rgba(230,232,231,0.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="3.5" cy="3" r="2.2"/><circle cx="3.5" cy="11" r="2.2"/><circle cx="28.5" cy="3" r="2.2"/><circle cx="28.5" cy="11" r="2.2"/><rect x="4" y="3.5" width="24" height="7" rx="1.5"/></svg>';
+
+  // Dog nose targets — % of portrait SVG viewBox (898x708)
+  // Left dog (Charlie): nose at ~SVG(185, 395) → 20.6%, 55.8%
+  // Right dog (Oliver): nose at ~SVG(510, 390) → 56.8%, 55.1%
+  var dogs = [
+    { left: '25.5%', top: '56%', rot: -25, name: 'Charlie' },
+    { left: '71%', top: '53%', rot: 20, name: 'Oliver' }
+  ];
+
+  var chewSound = new Audio('dog%20chewing.mp3');
+  chewSound.volume = 0.2;
+
+  function playChew() {
+    var s = chewSound.cloneNode();
+    s.volume = 0.2;
+    s.play().catch(function() {});
+  }
+
+  function spawnBone() {
+    var dog = dogs[clickCount % 2];
+    clickCount++;
+
+    var bone = document.createElement('div');
+    bone.className = 'treat-bone';
+    bone.innerHTML = boneSVG;
+    pool.appendChild(bone);
+
+    var tl = gsap.timeline({
+      onComplete: function() { bone.remove(); }
+    });
+
+    tl.set(bone, { opacity: 1, left: '50%', top: '105%', xPercent: -50, yPercent: -50, rotation: 0, scale: 1 });
+    tl.to(bone, {
+      left: dog.left, top: dog.top, rotation: dog.rot, scale: 0.7,
+      duration: 0.45, ease: 'power2.in',
+      onComplete: playChew
+    });
+    tl.to(bone, { opacity: 0, scale: 0.15, duration: 0.1, ease: 'power1.in' });
+  }
+
+  btn.addEventListener('click', spawnBone);
+})();
+
+// ===========================
 // PAPER SLIDE SOUND — "See my work" CTA
 // ===========================
 (function() {

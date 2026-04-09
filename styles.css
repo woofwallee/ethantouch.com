@@ -497,6 +497,58 @@ img {
   display: none;
 }
 
+/* Dog treat interaction */
+.treat-btn {
+  position: absolute;
+  left: 2.5rem;
+  bottom: 2rem;
+  z-index: 6;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.3s ease;
+  opacity: 0.7;
+}
+
+.treat-btn:hover {
+  opacity: 1;
+  transform: scale(1.08);
+  filter: brightness(1.15);
+}
+
+.treat-btn:active {
+  transform: scale(0.95);
+}
+
+.treat-btn__bag {
+  width: 44px;
+  height: auto;
+  display: block;
+}
+
+.treat-bone-pool {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.treat-bone {
+  position: absolute;
+  width: 22px;
+  height: 10px;
+  opacity: 0;
+  pointer-events: none;
+  left: 50%;
+  top: 100%;
+}
+
+.treat-bone svg {
+  width: 100%;
+  height: 100%;
+}
+
 /* Hero headline — centered tagline below the composition */
 .hero__headline {
   position: absolute;

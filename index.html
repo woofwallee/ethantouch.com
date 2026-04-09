@@ -94,7 +94,29 @@
     <!-- Portrait layered behind the name -->
     <div class="hero__portrait" id="portrait">
       <img src="images/portrait-hero.svg" alt="Ethan Touch with dogs — line art portrait">
+      <!-- Bone treat pool — clones spawned on click -->
+      <div class="treat-bone-pool" id="treatBonePool" aria-hidden="true"></div>
     </div>
+
+    <!-- Dog treat button — treat bag -->
+    <button class="treat-btn" id="treatBtn" aria-label="Give Charlie and Oliver a treat">
+      <svg class="treat-btn__bag" viewBox="0 0 80 100" aria-hidden="true">
+        <!-- Bag body -->
+        <path d="M12 28L8 92C8 95 10 97 13 97H67C70 97 72 95 72 92L68 28Z" fill="rgba(232,83,14,0.7)"/>
+        <!-- Bag top fold -->
+        <path d="M10 18L12 28H68L70 18C70 15 68 13 65 13H15C12 13 10 15 10 18Z" fill="rgba(232,83,14,0.85)"/>
+        <!-- Fold crease -->
+        <path d="M12 28H68" stroke="rgba(0,0,0,0.15)" stroke-width="0.8"/>
+        <!-- Label area -->
+        <rect x="18" y="38" width="44" height="38" rx="3" fill="rgba(250,225,197,0.25)"/>
+        <!-- "DOG" text -->
+        <text x="40" y="56" text-anchor="middle" font-family="'Instrument Sans',sans-serif" font-size="11" font-weight="700" letter-spacing="0.1em" fill="rgba(250,225,197,0.8)">DOG</text>
+        <!-- "TREAT" text -->
+        <text x="40" y="70" text-anchor="middle" font-family="'Instrument Sans',sans-serif" font-size="11" font-weight="700" letter-spacing="0.1em" fill="rgba(250,225,197,0.8)">TREAT</text>
+        <!-- Shine highlight -->
+        <path d="M30 13L22 97H13L12 28L10 18C10 15 12 13 15 13Z" fill="rgba(255,255,255,0.08)"/>
+      </svg>
+    </button>
 
     <!-- Subtitle -->
     <div class="hero__headline" id="heroHeadline">

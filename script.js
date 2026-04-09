@@ -106,6 +106,74 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 })();
 
 // ===========================
+// PAPER SLIDE SOUND — "See my work" CTA
+// ===========================
+(function() {
+  var cta = document.querySelector('#heroCorner a');
+  if (!cta) return;
+  var audio = new Audio('oxidvideos-paper-slide-short-478835.mp3');
+  audio.volume = 0.15;
+
+  cta.addEventListener('click', function() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    audio.currentTime = 0;
+    audio.play().catch(function() {});
+  });
+})();
+
+// ===========================
+// RESUME TIMELINE PANEL
+// ===========================
+(function() {
+  const resumeBtn = document.getElementById('resumeBtn');
+  const resumePanel = document.getElementById('resumePanel');
+  const resumeOverlay = document.getElementById('resumeOverlay');
+  const resumeClose = document.getElementById('resumeClose');
+
+  var swishAudio = new Audio('freesound_community-funny-swish-101878.mp3');
+  swishAudio.volume = 0.15;
+
+  function playSwish() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    swishAudio.currentTime = 0;
+    swishAudio.play().catch(function() {});
+  }
+
+  function openResume() {
+    resumePanel.classList.add('open');
+    resumeOverlay.classList.add('open');
+    resumePanel.setAttribute('aria-hidden', 'false');
+    resumeClose.focus();
+    trapFocus(resumePanel);
+    playSwish();
+  }
+
+  function closeResume() {
+    resumePanel.classList.remove('open');
+    resumeOverlay.classList.remove('open');
+    resumePanel.setAttribute('aria-hidden', 'true');
+    releaseFocusTrap(resumePanel);
+    resumeBtn.focus();
+    playSwish();
+  }
+
+  resumeBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    openResume();
+    closeMobileNav();
+  });
+
+  resumeClose.addEventListener('click', closeResume);
+  resumeOverlay.addEventListener('click', closeResume);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && resumePanel.classList.contains('open')) {
+      closeResume();
+    }
+  });
+})();
+
+// ===========================
 // NAV SCROLL EFFECT
 // ===========================
 const nav = document.getElementById('nav');
@@ -560,6 +628,9 @@ contactForm.addEventListener('submit', async (e) => {
       contactForm.style.display = 'none';
       formSuccess.style.display = 'block';
       playCelebration();
+      var notifSound = new Audio('universfield-new-notification-09-352705.mp3');
+      notifSound.volume = 0.2;
+      notifSound.play().catch(function() {});
     } else {
       throw new Error('Form submission failed');
     }

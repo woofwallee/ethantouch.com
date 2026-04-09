@@ -229,6 +229,194 @@ img {
 }
 
 /* ===========================
+   RESUME TIMELINE PANEL
+   =========================== */
+.resume-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1999;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.resume-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.resume-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  max-width: 88vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 2000;
+  background: rgba(12, 12, 12, 0.88);
+  backdrop-filter: blur(32px) saturate(1.2);
+  -webkit-backdrop-filter: blur(32px) saturate(1.2);
+  border-right: 1px solid rgba(183, 201, 195, 0.07);
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem 1.25rem;
+  overflow: hidden;
+}
+
+.resume-panel.open {
+  transform: translateX(0);
+}
+
+.resume-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+.resume-panel__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #B7C9C3;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.resume-panel__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(183, 201, 195, 0.12);
+  background: rgba(183, 201, 195, 0.04);
+  color: #9B9D9C;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.resume-panel__close:hover {
+  color: #E6E8E7;
+  border-color: rgba(183, 201, 195, 0.25);
+  background: rgba(183, 201, 195, 0.08);
+}
+
+.resume-panel__timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  justify-content: space-evenly;
+  padding-left: 1.25rem;
+  border-left: 1px solid rgba(183, 201, 195, 0.1);
+}
+
+.resume-entry {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+/* Timeline dot */
+.resume-entry::before {
+  content: '';
+  position: absolute;
+  left: -1.25rem;
+  top: 0.15rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(183, 201, 195, 0.3);
+  border: 1px solid rgba(183, 201, 195, 0.15);
+  transform: translateX(-50%);
+}
+
+.resume-entry:first-child::before {
+  background: #B7C9C3;
+  border-color: #B7C9C3;
+  box-shadow: 0 0 6px rgba(183, 201, 195, 0.25);
+}
+
+.resume-entry__date {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #E8530E;
+  opacity: 0.85;
+}
+
+.resume-entry__role {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #FFF7E7;
+  line-height: 1.3;
+  margin-top: 0.15rem;
+}
+
+.resume-entry__org {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #B7C9C3;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+}
+
+.resume-entry__desc {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #9B9D9C;
+  line-height: 1.45;
+  margin-top: 0.2rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .resume-panel {
+    width: 100vw;
+    max-width: 100vw;
+    padding: 1.5rem 1.5rem 1rem;
+  }
+
+  .resume-panel__header {
+    margin-bottom: 1.25rem;
+  }
+
+  .resume-entry__role {
+    font-size: 0.88rem;
+  }
+
+  .resume-entry__desc {
+    font-size: 0.68rem;
+  }
+}
+
+/* Small height screens — tighter spacing */
+@media (max-height: 650px) {
+  .resume-panel {
+    padding: 1.25rem 1.5rem 1rem;
+  }
+  .resume-panel__header {
+    margin-bottom: 1rem;
+  }
+  .resume-entry__desc {
+    font-size: 0.67rem;
+    line-height: 1.4;
+    margin-top: 0.2rem;
+  }
+}
+
+/* ===========================
    HERO — INITIAL HIDDEN STATES
    =========================== */
 .nav,
@@ -456,7 +644,7 @@ img {
 }
 
 .hero__name-line:last-child {
-  color: rgba(183, 201, 195, 0.18);
+  color: rgba(232, 83, 14, 0.18);
   letter-spacing: 0.08em;
 }
 

@@ -74,6 +74,7 @@
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
+      <li><a href="#" id="resumeBtn" role="button" aria-controls="resumePanel">Resume</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -506,6 +507,49 @@
     <video id="celebration-video" src="/images/celebration.webm" muted playsinline style="width:100%; height:100%; object-fit:cover;"></video>
   </div>
 
-  <script defer src="script.js?v=16"></script>
+  <!-- Resume Timeline Panel -->
+  <div class="resume-overlay" id="resumeOverlay"></div>
+  <aside class="resume-panel" id="resumePanel" role="dialog" aria-label="Professional Timeline" aria-hidden="true">
+    <div class="resume-panel__header">
+      <h2 class="resume-panel__title">Experience</h2>
+      <button class="resume-panel__close" id="resumeClose" aria-label="Close resume panel">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="4" y1="4" x2="16" y2="16"/><line x1="16" y1="4" x2="4" y2="16"/></svg>
+      </button>
+    </div>
+    <div class="resume-panel__timeline">
+      <div class="resume-entry">
+        <span class="resume-entry__date">Oct 2023 &ndash; Oct 2025</span>
+        <h3 class="resume-entry__role">Email Marketing Specialist</h3>
+        <span class="resume-entry__org">Upstream USA</span>
+        <p class="resume-entry__desc">HubSpot admin managing platform requests, newsletter templates, automated workflows, and performance dashboards for a multi-audience database.</p>
+      </div>
+      <div class="resume-entry">
+        <span class="resume-entry__date">Oct 2023 &ndash; Dec 2025</span>
+        <h3 class="resume-entry__role">Marketing Manager, Comms &amp; Events</h3>
+        <span class="resume-entry__org">Missouri Energy Initiative</span>
+        <p class="resume-entry__desc">Managed digital marketing across five websites, executed 50+ events, and ran 150+ segmented campaigns driving 30% traffic growth.</p>
+      </div>
+      <div class="resume-entry">
+        <span class="resume-entry__date">Sep 2022 &ndash; Oct 2023</span>
+        <h3 class="resume-entry__role">Email Marketing Strategist</h3>
+        <span class="resume-entry__org">Court Watch Montgomery</span>
+        <p class="resume-entry__desc">Executed advocacy and donor email campaigns, coordinating with attorneys on content accuracy and deployment schedules.</p>
+      </div>
+      <div class="resume-entry">
+        <span class="resume-entry__date">Mar 2021 &ndash; Sep 2022</span>
+        <h3 class="resume-entry__role">Senior MarTech Strategist</h3>
+        <span class="resume-entry__org">Media Cause</span>
+        <p class="resume-entry__desc">Led end-to-end HubSpot implementations for nonprofit clients, from tech stack audits through CRM setup, customization, and launch.</p>
+      </div>
+      <div class="resume-entry">
+        <span class="resume-entry__date">May 2016 &ndash; Mar 2021</span>
+        <h3 class="resume-entry__role">Digital Marketing Manager</h3>
+        <span class="resume-entry__org">Nonprofit Leadership Alliance</span>
+        <p class="resume-entry__desc">Directed digital marketing for the CNP credential across email, web, and social channels using Salesforce-driven outreach and reporting.</p>
+      </div>
+    </div>
+  </aside>
+
+  <script defer src="script.js?v=17"></script>
 </body>
 </html>

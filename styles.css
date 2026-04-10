@@ -29,7 +29,7 @@ html {
 }
 
 body {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Instrument Sans', sans-serif;
   background-color: #0a0a0a;
   background-image:
     radial-gradient(ellipse at 15% 50%, rgba(25, 20, 15, 0.4) 0%, transparent 50%),
@@ -354,7 +354,7 @@ img {
 }
 
 .resume-entry__role {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   color: #FFF7E7;
@@ -764,7 +764,7 @@ img {
 
 .stat__number {
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   color: #E6E8E7;
@@ -1464,7 +1464,7 @@ body.modal-open {
 }
 
 .cs-metric__number {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: #E6E8E7;
@@ -1633,7 +1633,7 @@ body.modal-open {
 }
 
 .cs-testimonial__quote {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 1rem;
   font-style: italic;
   color: #E6E8E7;
@@ -1889,7 +1889,7 @@ body.modal-open {
 }
 
 .cs-fp-header__title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   color: #B7C9C3;
@@ -2136,7 +2136,7 @@ body.modal-open {
 .cs-fp-testimonial .cs-fp-section__label { margin-bottom: 1.5rem; }
 
 .cs-fp-testimonial__quote {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 1rem;
   font-style: italic;
   color: #E6E8E7;
@@ -2318,7 +2318,7 @@ body.modal-open {
 }
 
 .testimonial-card__quote {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 0.95rem;
   font-style: italic;
   color: #C8CAC9;

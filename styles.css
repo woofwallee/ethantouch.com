@@ -552,7 +552,7 @@ img {
 /* Hero headline — centered tagline below the composition */
 .hero__headline {
   position: absolute;
-  bottom: 14rem;
+  bottom: 17rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 5;
@@ -582,7 +582,7 @@ img {
 /* Skills row — horizontal bar below portrait */
 .hero__skills-row {
   position: absolute;
-  bottom: 8rem;
+  bottom: 11rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 4;

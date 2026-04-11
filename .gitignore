@@ -4,3 +4,13 @@
 *.backup-*
 affiliate-tracker.csv
 .claude/
+
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+Gemfile.lock
+
+# Local preview scratch (rendered Jekyll output for visual verification)
+.preview/

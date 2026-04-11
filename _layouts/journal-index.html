@@ -1,0 +1,39 @@
+---
+layout: journal-base
+---
+
+<a href="/" class="journal-back" aria-label="Back to ethantouch.com">
+  <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+    <path d="M11 14L6 9L11 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span>ethantouch.com</span>
+</a>
+
+<main class="journal-index">
+
+  <header class="journal-index__header">
+    <div class="journal-index__label">The Journal</div>
+    <h1 class="journal-index__title">{{ page.headline | default: "Field notes from the work between." }}</h1>
+    <p class="journal-index__intro">{{ page.intro | default: "Notes on marketing operations, markets, and the strange middle ground where psychology meets HubSpot." }}</p>
+  </header>
+
+  <div class="journal-index__list">
+    {% for post in site.posts %}
+    <a href="{{ post.url }}" class="journal-entry">
+      <div class="journal-entry__meta">
+        <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+        <span class="journal-entry__sep">·</span>
+        <span class="journal-entry__readtime">{{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+      </div>
+      <h2 class="journal-entry__title">{{ post.title }}</h2>
+      {% if post.subtitle %}
+        <p class="journal-entry__excerpt">{{ post.subtitle }}</p>
+      {% else %}
+        <p class="journal-entry__excerpt">{{ post.excerpt | strip_html | truncate: 180 }}</p>
+      {% endif %}
+      <span class="journal-entry__more">Read</span>
+    </a>
+    {% endfor %}
+  </div>
+
+</main>

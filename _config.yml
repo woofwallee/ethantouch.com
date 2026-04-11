@@ -1,0 +1,57 @@
+# Jekyll config — scoped to add a /journal/ section to the existing static site.
+# Existing index.html, styles.css, case-studies/, fonts/, and images/ are passed
+# through unchanged because they have no front matter.
+
+title: "Ethan Touch — Journal"
+description: "Notes on marketing operations, markets, and the work between."
+author: "Ethan Touch"
+url: "https://ethantouch.com"
+baseurl: ""
+lang: en
+timezone: America/Chicago
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  smart_quotes: ["lsquo", "rsquo", "ldquo", "rdquo"]
+
+# Posts live at /journal/<slug>/ instead of /YYYY/MM/DD/<slug>/
+permalink: /journal/:slug/
+
+# GitHub Pages whitelisted plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# RSS feed location
+feed:
+  path: /journal/feed.xml
+
+# Default layout for posts so each entry doesn't need to declare it
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: journal-post
+
+# Files Jekyll should ignore. Existing content not listed here is passed through.
+exclude:
+  - .claude/
+  - CLAUDE.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - node_modules/
+  - "*.backup.html"
+  - "*.backup.css"
+  - "*.backup-*"
+  - "*-mockup.html"
+  - cs1-preview.html
+  - affiliate-tracker.csv
+  - "Ethan_Touch_-_Brand_Voice_Guide.docx.pdf"
+  - "Soft-Organic-Brand-Color-Palette-Guide.pdf"
+  - "*.mp3"

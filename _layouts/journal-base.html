@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta name="theme-color" content="#F5EBD8">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:image" content="{{ site.url }}/images/og-image.png">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:type" content="{% if page.layout == 'journal-post' %}article{% else %}website{% endif %}">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title | default: site.title }}">
+  <meta name="twitter:description" content="{{ page.description | default: site.description }}">
+  <meta name="twitter:image" content="{{ site.url }}/images/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.url }}/journal/feed.xml">
+
+  <!-- Google Analytics (matches main site tag) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FWR3RM6KP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3FWR3RM6KP');
+  </script>
+
+  <!-- Fraunces variable serif (display + body, italic + roman, optical size) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
+
+  <!-- Lenis smooth scroll -->
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js" defer></script>
+
+  <!-- Journal styles -->
+  <link rel="stylesheet" href="/journal/style.css?v=1">
+
+  {% seo %}
+</head>
+<body class="journal">
+
+  <div class="journal-cursor" aria-hidden="true"></div>
+
+  {{ content }}
+
+  <script src="/journal/script.js?v=1" defer></script>
+</body>
+</html>

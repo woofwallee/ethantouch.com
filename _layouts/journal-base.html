@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:title" content="{{ page.title | default: site.title }}">
   <meta property="og:description" content="{{ page.description | default: site.description }}">
-  <meta property="og:image" content="{{ site.url }}/images/og-image.png">
+  <meta property="og:image" content="{{ site.url }}{{ page.image | default: '/images/og-image.png' }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:type" content="{% if page.layout == 'journal-post' %}article{% else %}website{% endif %}">
 
@@ -19,7 +19,30 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ page.title | default: site.title }}">
   <meta name="twitter:description" content="{{ page.description | default: site.description }}">
-  <meta name="twitter:image" content="{{ site.url }}/images/og-image.png">
+  <meta name="twitter:image" content="{{ site.url }}{{ page.image | default: '/images/og-image.png' }}">
+
+  {% if page.layout == 'journal-post' %}
+  <!-- Article schema (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": {{ page.title | jsonify }},
+    "description": {{ page.description | jsonify }},
+    {% if page.image %}"image": "{{ site.url }}{{ page.image }}",
+    {% endif %}"datePublished": "{{ page.date | date_to_xmlschema }}",
+    "author": {
+      "@type": "Person",
+      "name": "Ethan Touch",
+      "url": "{{ site.url }}/"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ site.url }}{{ page.url }}"
+    }
+  }
+  </script>
+  {% endif %}
 
   <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon">

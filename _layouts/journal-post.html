@@ -21,6 +21,8 @@ layout: journal-base
     <div class="journal-post__meta">
       <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %-d, %Y" }}</time>
       <span class="journal-post__sep">·</span>
+      <span class="journal-post__byline"><em>by Ethan Touch</em></span>
+      <span class="journal-post__sep">·</span>
       <span class="journal-post__readtime">{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
     </div>
     <h1 class="journal-post__title">{{ page.title }}</h1>

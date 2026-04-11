@@ -12,9 +12,9 @@ layout: journal-base
 <main class="journal-index">
 
   <header class="journal-index__header">
-    <div class="journal-index__label">The Journal</div>
-    <h1 class="journal-index__title">{{ page.headline | default: "Field notes from the work between." }}</h1>
-    <p class="journal-index__intro">{{ page.intro | default: "Notes on marketing operations, markets, and the strange middle ground where psychology meets HubSpot." }}</p>
+    <div class="journal-index__label">Journal</div>
+    <h1 class="journal-index__title">{{ page.headline | default: "Whatever you're going through, someone like me probably has too." }}</h1>
+    {% if page.intro %}<p class="journal-index__intro">{{ page.intro }}</p>{% endif %}
   </header>
 
   <div class="journal-index__list">

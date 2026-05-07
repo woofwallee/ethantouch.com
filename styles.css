@@ -1051,14 +1051,13 @@ img {
   gap: 2rem;
 }
 
-/* Visual group (number + art) for wide cards */
+/* Visual group for wide cards (now just the number) */
 .work__card-visual {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1rem;
-  min-width: 140px;
+  min-width: 80px;
 }
 
 /* Card number */
@@ -1071,24 +1070,6 @@ img {
   border-left: 2px solid var(--accent);
   padding-left: 0.6rem;
   line-height: 1;
-}
-
-/* Card art (SVG) */
-.work__card-art {
-  max-width: 140px;
-}
-
-.work__card-art svg {
-  width: 100%;
-  height: auto;
-  color: var(--sage);
-  opacity: 0.6;
-  transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.work__card:hover .work__card-art svg {
-  opacity: 1;
-  transform: translateY(-4px);
 }
 
 /* Card body (tag + title + CTA) */
@@ -1105,14 +1086,9 @@ img {
   margin-bottom: 0.75rem;
 }
 
-/* Narrow card: number sits above art */
+/* Narrow card: number sits above body */
 .work__card:not(.work__card--wide) .work__card-num {
   margin-bottom: 1rem;
-}
-
-.work__card:not(.work__card--wide) .work__card-art {
-  margin-bottom: 1.25rem;
-  max-width: 120px;
 }
 
 /* Card tag and CTA */
@@ -2776,7 +2752,6 @@ body.modal-open {
   }
   .hero__portrait img { opacity: 0.9; }
   .hero__particles { display: none; }
-  .work__card-art svg { transition: none !important; }
   .testimonials-grid {
     grid-template-columns: 1fr;
     padding: 2rem 1.5rem;
@@ -2793,7 +2768,6 @@ body.modal-open {
   .hero__corner a {
     transition-duration: 0.15s !important;
   }
-  .work__card:hover .work__card-art svg,
   .testimonial-card:hover { transform: translateY(-2px); }
   .cs-modal__content,
   .cred-modal__content {

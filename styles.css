@@ -2291,9 +2291,6 @@ body.modal-open {
   padding: 3rem 2rem;
 }
 
-/* Kathy (2nd card) spans 2 to fill row 1 with Christa */
-.testimonial-card:nth-child(2) { grid-column: span 2; }
-
 /* --- Testimonial Cards — Clean flat surface --- */
 .testimonial-card {
   position: relative;

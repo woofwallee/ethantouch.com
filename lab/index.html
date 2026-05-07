@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab · Email Design — Ethan Touch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700;1,900&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0a;
+      --card: #161616;
+      --card-hi: #1d1d1d;
+      --rule: #262626;
+      --rule-soft: #1c1c1c;
+      --text: #cdcccb;
+      --text-muted: #7a7775;
+      --text-dim: #4f4d4b;
+      --orange: #cf6940;
+      --orange-deep: #b3552f;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: 'Instrument Sans', -apple-system, sans-serif;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.55;
+    }
+
+    /* ── HEADER NAV ── */
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(8px);
+      z-index: 10;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    .nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 22px 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+    .wordmark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.18em;
+      color: var(--text);
+    }
+    .section-tag {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      color: var(--text-dim);
+    }
+    .nav-links {
+      display: flex;
+      gap: 44px;
+    }
+    .nav-links a {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--text);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .nav-links a.active { color: var(--orange); }
+
+    /* ── INTRO ── */
+    .intro {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 52px 56px;
+    }
+    .intro .eyebrow {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 22px;
+    }
+    .intro .eyebrow::before {
+      content: '|';
+      margin-right: 14px;
+      color: var(--orange);
+      font-weight: 700;
+    }
+    .intro h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 76px;
+      font-weight: 700;
+      line-height: 0.98;
+      letter-spacing: -0.015em;
+      color: var(--text);
+      margin-bottom: 28px;
+      max-width: 920px;
+    }
+    .intro p {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 580px;
+    }
+    .intro p strong { color: var(--text); font-weight: 600; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 52px;
+    }
+    .divider hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 0;
+    }
+
+    /* ── EMAIL ENTRY ── */
+    .entries {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px 52px 80px;
+    }
+    .entry {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 48px;
+      padding: 56px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: flex-start;
+    }
+    .entry:last-child { border-bottom: none; }
+
+    .meta .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      letter-spacing: 0.18em;
+      color: var(--orange);
+      margin-bottom: 18px;
+    }
+    .meta .num::before {
+      content: '|';
+      margin-right: 10px;
+      color: var(--orange);
+    }
+
+    .meta .tag {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .meta h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 22px;
+    }
+    .meta p {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .meta p strong { color: var(--text); font-weight: 600; }
+
+    .meta .specs {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 8px 16px;
+    }
+    .meta .specs dt {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding-top: 2px;
+    }
+    .meta .specs dd {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .meta .open-link {
+      display: inline-block;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      text-decoration: none;
+      margin-top: 26px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--orange);
+    }
+    .meta .open-link::after { content: ' →'; }
+
+    /* ── PREVIEW FRAME (iframe of the actual email) ── */
+    .preview {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--card);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+      border: 1px solid var(--rule);
+    }
+    .preview-bar {
+      background: var(--card-hi);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .preview-bar .dots {
+      display: flex;
+      gap: 6px;
+    }
+    .preview-bar .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--rule);
+    }
+    .preview-bar .dot.r { background: #5e3d36; }
+    .preview-bar .dot.y { background: #5e5536; }
+    .preview-bar .dot.g { background: #3d5e44; }
+    .preview-bar .url {
+      flex: 1;
+      background: var(--bg);
+      border-radius: 4px;
+      padding: 5px 12px;
+      font-family: 'Instrument Sans', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+    .preview-bar .url .domain { color: var(--text-muted); }
+    .preview-frame {
+      position: relative;
+      height: 720px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .preview-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+    .preview-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 78%, rgba(10,10,10,0.95) 100%);
+      pointer-events: none;
+    }
+    .preview-cta {
+      position: absolute;
+      bottom: 20px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--orange);
+      color: #fff;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 11px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      pointer-events: auto;
+      box-shadow: 0 4px 16px rgba(207, 105, 64, 0.4);
+    }
+    .preview-cta:hover { background: var(--orange-deep); }
+    .preview-cta::after { content: ' →'; }
+
+    /* ── FOOTER ── */
+    .lab-footer {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 52px 80px;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+    .lab-footer p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 22px;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto 24px;
+      line-height: 1.4;
+    }
+    .lab-footer a {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      text-decoration: none;
+      border-bottom: 1px solid var(--orange);
+      padding-bottom: 4px;
+    }
+    .lab-footer a::after { content: ' →'; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .nav { padding: 16px 22px; }
+      .nav-links { display: none; }
+      .intro { padding: 50px 22px 40px; }
+      .intro h1 { font-size: 44px; }
+      .intro p { font-size: 14.5px; }
+      .divider, .entries { padding-left: 22px; padding-right: 22px; }
+      .entry { grid-template-columns: 1fr; gap: 28px; padding: 36px 0; }
+      .meta h2 { font-size: 28px; }
+      .preview-frame { height: 500px; }
+      .lab-footer { padding: 40px 22px 50px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <div class="nav">
+    <div class="brand">
+      <a href="/" style="text-decoration:none"><span class="wordmark">ETHAN TOUCH</span></a>
+      <span class="section-tag">LAB</span>
+    </div>
+    <nav class="nav-links">
+      <a href="/#home">HOME</a>
+      <a href="/#about">ABOUT</a>
+      <a href="/#work">WORK</a>
+      <a href="/lab/" class="active">LAB</a>
+      <a href="/#contact">CONTACT</a>
+    </nav>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="eyebrow">Field Notes / Email Design</div>
+  <h1>Four redesigns. <em>Four creative directors.</em></h1>
+  <p>A short collection of email redesigns I built across 2025–26. The brief in each case was the same: take a real production email, throw out the template, and rebuild it as if a different designer had been art-directing each campaign. <strong>One Memorial Weekend pet-care promo. One nonprofit policy newsletter. One association magazine. One B2B energy summit.</strong> Different brand, different audience, different visual world for each one.</p>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ENTRIES -->
+<div class="entries">
+
+  <!-- 01 — COLLARS -->
+  <article class="entry">
+    <div class="meta">
+      <div class="num">01</div>
+      <div class="tag">Pet Care · Memorial Weekend Boarding</div>
+      <h2>The Ultimate Dog Daycare</h2>
+      <p>Collars Dog Resort hired me to rework their Memorial Weekend boarding promo. Original was a templated three-row drag-and-drop email; the redesign rebuilt it as a polished pet-care brand microsite — Montserrat all-caps, teal + golden mustard, circular framed photos with paw watermarks. Pulled directly from the real Collars website.</p>
+      <dl class="specs">
+        <dt>Brand</dt><dd>Collars Dog Resort, Olathe KS</dd>
+        <dt>Direction</dt><dd>Modern photographic pet-care brand</dd>
+        <dt>Type</dt><dd>Promotional · Single-CTA conversion</dd>
+      </dl>
+      <a href="/lab/emails/collars/" class="open-link" target="_blank">Open full email</a>
+    </div>
+    <div class="preview">
+      <div class="preview-bar">
+        <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+        <div class="url">ethantouch.com<span class="domain">/lab/emails/collars</span></div>
+      </div>
+      <div class="preview-frame">
+        <iframe src="/lab/emails/collars/" loading="lazy"></iframe>
+        <div class="preview-overlay"></div>
+        <a href="/lab/emails/collars/" class="preview-cta" target="_blank">Open Full Email</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- 02 — UPSTREAM -->
+  <article class="entry">
+    <div class="meta">
+      <div class="num">02</div>
+      <div class="tag">Nonprofit · Monthly Policy Newsletter</div>
+      <h2>On the front line of access</h2>
+      <p>Upstream USA — a nonprofit advancing contraceptive access in primary care. Reworked their monthly stakeholder newsletter to match their actual brand site: soft lavender background, scatter-dot decorations, white rounded cards, Lato sans-serif, purple pill CTAs. Drops the original "long-form drag-and-drop" structure for a modular healthcare microsite feel.</p>
+      <dl class="specs">
+        <dt>Brand</dt><dd>Upstream USA, Boston MA</dd>
+        <dt>Direction</dt><dd>Modern healthcare microsite</dd>
+        <dt>Type</dt><dd>Editorial · Multi-section newsletter</dd>
+      </dl>
+      <a href="/lab/emails/upstream/" class="open-link" target="_blank">Open full email</a>
+    </div>
+    <div class="preview">
+      <div class="preview-bar">
+        <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+        <div class="url">ethantouch.com<span class="domain">/lab/emails/upstream</span></div>
+      </div>
+      <div class="preview-frame">
+        <iframe src="/lab/emails/upstream/" loading="lazy"></iframe>
+        <div class="preview-overlay"></div>
+        <a href="/lab/emails/upstream/" class="preview-cta" target="_blank">Open Full Email</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- 03 — NLA -->
+  <article class="entry">
+    <div class="meta">
+      <div class="num">03</div>
+      <div class="tag">Association · Member Newsletter</div>
+      <h2>A note from the Alliance</h2>
+      <p>The Nonprofit Leadership Alliance — a credentialing body for nonprofit professionals. Reframed their monthly digest as a warm community magazine: cream paper, Lora serif headlines, sage Kalam handwritten kickers, photo treatments with offset outline frames. Direct lift from their actual brand site, not the original drag-and-drop template.</p>
+      <dl class="specs">
+        <dt>Brand</dt><dd>Nonprofit Leadership Alliance, Kansas City</dd>
+        <dt>Direction</dt><dd>Warm community magazine</dd>
+        <dt>Type</dt><dd>Editorial · Profile + event + reading list</dd>
+      </dl>
+      <a href="/lab/emails/nla/" class="open-link" target="_blank">Open full email</a>
+    </div>
+    <div class="preview">
+      <div class="preview-bar">
+        <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+        <div class="url">ethantouch.com<span class="domain">/lab/emails/nla</span></div>
+      </div>
+      <div class="preview-frame">
+        <iframe src="/lab/emails/nla/" loading="lazy"></iframe>
+        <div class="preview-overlay"></div>
+        <a href="/lab/emails/nla/" class="preview-cta" target="_blank">Open Full Email</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- 04 — MEPS -->
+  <article class="entry">
+    <div class="meta">
+      <div class="num">04</div>
+      <div class="tag">B2B Event · Energy Policy Summit</div>
+      <h2>Data centers. <em>The grid.</em></h2>
+      <p>Missouri Energy Initiative's annual Midwest Energy Policy Series — a hybrid summit for utility executives, federal energy officials, and economic development leaders. Reworked the event invite as a cinematic dark-mode terminal: full dark navy background, Inter + JetBrains Mono pairing, electric green accents, vertical agenda timeline rail, marquee speaker hierarchy.</p>
+      <dl class="specs">
+        <dt>Brand</dt><dd>Missouri Energy Initiative, Jefferson City</dd>
+        <dt>Direction</dt><dd>Dark cinematic event invite</dd>
+        <dt>Type</dt><dd>Event · Speakers + agenda + registration</dd>
+      </dl>
+      <a href="/lab/emails/meps/" class="open-link" target="_blank">Open full email</a>
+    </div>
+    <div class="preview">
+      <div class="preview-bar">
+        <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+        <div class="url">ethantouch.com<span class="domain">/lab/emails/meps</span></div>
+      </div>
+      <div class="preview-frame">
+        <iframe src="/lab/emails/meps/" loading="lazy"></iframe>
+        <div class="preview-overlay"></div>
+        <a href="/lab/emails/meps/" class="preview-cta" target="_blank">Open Full Email</a>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<!-- LAB FOOTER -->
+<div class="lab-footer">
+  <p>If you're rebuilding an email program and your designer can only think in <em>one template</em> — let's talk.</p>
+  <a href="/#contact">Get in touch</a>
+</div>
+
+</body>
+</html>

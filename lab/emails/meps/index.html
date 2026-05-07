@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEPS · Economic Development — December 9, St. Louis</title>
+  <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+    Data centers, workforce, and the grid — December 9 in St. Louis. The Midwest energy summit decision-makers attend.
+  </div>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0e14;
+      --surface: #131820;
+      --surface-2: #1a212c;
+      --line: #232a36;
+      --line-bright: #2c3543;
+      --green: #00d385;
+      --green-deep: #00a86b;
+      --green-glow: rgba(0, 211, 133, 0.15);
+      --blue: #3b82f6;
+      --blue-deep: #2563eb;
+      --amber: #f59e0b;
+      --text: #e6e9ef;
+      --text-bright: #ffffff;
+      --text-muted: #8b95a3;
+      --text-dim: #5b6573;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+
+    .mono { font-family: 'JetBrains Mono', 'Courier New', monospace; }
+
+    .frame {
+      max-width: 660px;
+      margin: 0 auto;
+      background: var(--bg);
+    }
+
+    /* ── BRAND BAR ── */
+    .brand-bar {
+      padding: 24px 32px 18px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .mei-logo { height: 38px; width: auto; display: block; }
+    .brand-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    /* ── STATUS BAR ── */
+    .status {
+      padding: 14px 32px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+    .status .live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+    }
+    .status .live::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--green);
+    }
+    .status .right { color: var(--text-dim); }
+
+    /* ── HERO (typographic, no banner image) ── */
+    .hero {
+      padding: 56px 32px 48px;
+      position: relative;
+      background: linear-gradient(180deg, #0d1219 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0;
+      width: 35%;
+      height: 1px;
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+    }
+
+    .hero-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-tag::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--green);
+    }
+
+    .hero-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 54px;
+      font-weight: 800;
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      color: var(--text-bright);
+      margin-bottom: 16px;
+    }
+    .hero-title .em {
+      color: var(--green);
+      font-weight: 800;
+    }
+    .hero-title .thin {
+      font-weight: 300;
+      color: var(--text);
+    }
+
+    .hero-deck {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 540px;
+      line-height: 1.55;
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+    .hero-deck strong { color: var(--text-bright); font-weight: 600; }
+
+    /* ── SPEC SHEET (event metadata) ── */
+    .spec {
+      padding: 0 32px;
+      background: var(--bg);
+    }
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+    .spec-cell {
+      padding: 22px 18px;
+      border-right: 1px solid var(--line);
+    }
+    .spec-cell:last-child { border-right: none; }
+    .spec-cell .lbl {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.22em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .spec-cell .val {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-bright);
+      line-height: 1.25;
+      letter-spacing: -0.005em;
+    }
+    .spec-cell .sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* ── PRIMARY CTA BAND ── */
+    .cta-band {
+      padding: 32px 32px 36px;
+      background: var(--bg);
+    }
+    .seats-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: rgba(245, 158, 11, 0.08);
+      border-left: 2px solid var(--amber);
+      margin-bottom: 22px;
+    }
+    .seats-row .lbl {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+    .seats-row .val {
+      font-size: 13.5px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .cta-stack {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 10px;
+    }
+    .btn-primary {
+      display: block;
+      background: var(--green);
+      color: #001f12;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 18px 24px;
+      text-align: center;
+      position: relative;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover { background: var(--green-deep); box-shadow: 0 0 24px var(--green-glow); }
+    .btn-primary .arr {
+      font-family: 'JetBrains Mono', monospace;
+      margin-left: 8px;
+    }
+    .btn-secondary {
+      display: block;
+      background: transparent;
+      color: var(--text-bright);
+      text-decoration: none;
+      border: 1px solid var(--line-bright);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 18px 24px;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+    .btn-secondary:hover { border-color: var(--green); color: var(--green); }
+
+    /* ── SECTION ── */
+    .section {
+      padding: 56px 32px 48px;
+      border-top: 1px solid var(--line);
+    }
+    .section-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.22em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-num .marker {
+      color: var(--green);
+      font-weight: 700;
+    }
+    .section-num::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--green);
+    }
+
+    .section-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: var(--text-bright);
+      margin-bottom: 16px;
+    }
+
+    .section-deck {
+      font-size: 15.5px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      max-width: 520px;
+      margin-bottom: 28px;
+    }
+
+    /* ── WHY NOW / PULL STAT ── */
+    .pull-quote {
+      padding: 32px 0 0;
+      border-top: 1px solid var(--line);
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 32px;
+    }
+    .pull-quote .stat {
+      font-family: 'Inter', sans-serif;
+      font-size: 56px;
+      font-weight: 200;
+      color: var(--green);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .pull-quote .stat .unit {
+      font-size: 22px;
+      color: var(--text-muted);
+      font-weight: 300;
+      vertical-align: top;
+      margin-left: 4px;
+    }
+    .pull-quote .ctx {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .pull-quote .ctx strong { color: var(--text-bright); font-weight: 600; }
+
+    /* ── TOPICS (numbered horizontal blocks) ── */
+    .topics {
+      display: flex;
+      flex-direction: column;
+    }
+    .topic {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 24px;
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+      align-items: start;
+    }
+    .topic:last-child { border-bottom: 1px solid var(--line); }
+    .topic .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--green);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+    .topic h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-bright);
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .topic p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── SPEAKERS ── */
+    .marquee {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 28px;
+      align-items: center;
+      padding: 26px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .marquee::before {
+      content: 'KEYNOTE / DOE FEDERAL';
+      position: absolute;
+      top: -8px; left: 18px;
+      background: var(--bg);
+      padding: 0 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.22em;
+      color: var(--green);
+      font-weight: 500;
+    }
+    .marquee .photo {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--green);
+      padding: 4px;
+      background: var(--bg);
+    }
+    .marquee .name {
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-bright);
+      letter-spacing: -0.015em;
+      margin-bottom: 4px;
+      line-height: 1.15;
+    }
+    .marquee .role {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .marquee .role strong { color: var(--green); font-weight: 600; }
+    .marquee .session {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+    .marquee .session strong { color: var(--text); font-weight: 500; }
+
+    .co-speakers {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+    .co {
+      padding: 18px 16px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+    .co-photo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 12px;
+      border: 1px solid var(--line-bright);
+    }
+    .co-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-bright);
+      margin-bottom: 4px;
+      line-height: 1.25;
+    }
+    .co-role {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+    .co-org {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--green);
+      letter-spacing: 0.08em;
+      margin-top: 8px;
+      text-transform: uppercase;
+    }
+
+    .speakers-more {
+      margin-top: 16px;
+      padding: 14px 18px;
+      border: 1px dashed var(--line-bright);
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+    .speakers-more strong { color: var(--green); font-weight: 500; }
+    .speakers-more a { color: var(--text-bright); text-decoration: none; border-bottom: 1px solid var(--green); }
+
+    /* ── AGENDA TIMELINE ── */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 6px;
+      bottom: 6px;
+      width: 1px;
+      background: var(--line-bright);
+    }
+    .session-item {
+      position: relative;
+      padding-bottom: 22px;
+      padding-left: 4px;
+    }
+    .session-item:last-child { padding-bottom: 0; }
+    .session-item::before {
+      content: '';
+      position: absolute;
+      left: -27px;
+      top: 5px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--line-bright);
+    }
+    .session-item.feature::before {
+      border-color: var(--green);
+      background: var(--green);
+      box-shadow: 0 0 0 4px var(--green-glow);
+    }
+    .session-item.break::before {
+      border-color: var(--text-dim);
+      background: transparent;
+    }
+    .session-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+    .session-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-bright);
+      letter-spacing: -0.005em;
+      line-height: 1.4;
+    }
+    .session-item.break .session-title {
+      color: var(--text-muted);
+      font-weight: 400;
+      font-size: 13px;
+      font-style: italic;
+    }
+    .session-item.feature .session-title {
+      color: var(--green);
+    }
+    .session-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--green);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ── SPONSORS ── */
+    .sponsors-block {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .sponsors-tier {
+      margin-bottom: 22px;
+    }
+    .sponsors-tier:last-child { margin-bottom: 0; }
+    .sponsors-tier-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .sponsor-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .sponsor-row.partner { grid-template-columns: 1fr; }
+    .sponsor-cell {
+      background: var(--surface);
+      padding: 18px 12px;
+      text-align: center;
+    }
+    .sponsor-cell .name {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-bright);
+      letter-spacing: -0.005em;
+      line-height: 1.3;
+    }
+    .sponsor-cell .ctx {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      color: var(--text-dim);
+      margin-top: 4px;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      padding: 56px 32px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg) 0%, #060a10 100%);
+      border-top: 1px solid var(--line);
+      position: relative;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 0;
+      width: 35%;
+      height: 1px;
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+    }
+    .final-cta .pre {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .final-cta h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      max-width: 480px;
+      margin: 0 auto 14px;
+      color: var(--text-bright);
+    }
+    .final-cta h2 .em { color: var(--green); }
+    .final-cta p {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 440px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+    .final-cta .ctas {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .final-cta .btn-primary { display: inline-block; padding: 16px 32px; }
+    .final-cta .btn-secondary { display: inline-block; padding: 16px 32px; }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 32px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+    .footer-mei-logo {
+      height: 42px;
+      width: auto;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    .footer-tagline {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-bottom: 22px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    .footer-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .footer-links a:hover { color: var(--green); }
+    .footer-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      line-height: 1.7;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+    .footer-meta a { color: var(--text-muted); text-decoration: underline; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      .status { padding: 12px 18px; flex-wrap: wrap; gap: 6px; font-size: 9.5px; }
+      .hero { padding: 40px 20px 36px; }
+      .hero-title { font-size: 38px; }
+      .hero-deck { font-size: 15px; }
+      .spec { padding: 0 20px; }
+      .spec-grid { grid-template-columns: 1fr 1fr; }
+      .spec-cell { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .spec-cell:nth-child(2) { border-right: none; }
+      .spec-cell:nth-child(3), .spec-cell:nth-child(4) { border-bottom: none; }
+      .cta-band { padding: 24px 20px 28px; }
+      .cta-stack { grid-template-columns: 1fr; }
+      .section { padding: 40px 20px 36px; }
+      .section-title { font-size: 24px; }
+      .pull-quote { grid-template-columns: 1fr; gap: 16px; }
+      .pull-quote .stat { font-size: 44px; }
+      .marquee { grid-template-columns: 1fr; gap: 18px; padding: 22px 18px; }
+      .marquee .photo { width: 110px; margin: 0 auto; }
+      .marquee .name { font-size: 20px; text-align: center; }
+      .marquee .role { text-align: center; }
+      .co-speakers { grid-template-columns: 1fr; }
+      .topic { grid-template-columns: 50px 1fr; gap: 14px; }
+      .sponsor-row { grid-template-columns: 1fr 1fr; }
+      .final-cta { padding: 40px 22px; }
+      .final-cta h2 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+<div class="frame">
+
+  <!-- BRAND BAR -->
+  <div class="brand-bar">
+    <img class="mei-logo" src="https://static.wixstatic.com/media/72a47f_cdf4e36a9cd34f38ae327eeb3ceba3a6~mv2.png/v1/fill/w_153,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/MEI%20Primary%20White.png" alt="Missouri Energy Initiative">
+    <div class="brand-meta">St. Louis · 12.09.2025</div>
+  </div>
+
+  <!-- STATUS BAR -->
+  <div class="status">
+    <div class="live">Open Registration</div>
+    <div class="right">A Convening of the Missouri Energy Initiative</div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">Midwest Energy Policy Series</div>
+    <h1 class="hero-title">
+      Data centers. <span class="thin">Workforce.</span><br>
+      <span class="em">The grid.</span>
+    </h1>
+    <p class="hero-deck">A working summit on the energy and economic forces reshaping Missouri and the Midwest. Hosted by the <strong>Missouri Energy Initiative</strong> with utility leaders, federal partners, and economic development decision-makers.</p>
+  </section>
+
+  <!-- SPEC SHEET -->
+  <div class="spec">
+    <div class="spec-grid">
+      <div class="spec-cell">
+        <div class="lbl">Date</div>
+        <div class="val">Dec 9, 2025</div>
+        <div class="sub">TUE / 8:30A–3:30P CST</div>
+      </div>
+      <div class="spec-cell">
+        <div class="lbl">Venue</div>
+        <div class="val">IBEW Local 1</div>
+        <div class="sub">ST. LOUIS, MO</div>
+      </div>
+      <div class="spec-cell">
+        <div class="lbl">Format</div>
+        <div class="val">Hybrid</div>
+        <div class="sub">IN-PERSON / ZOOM</div>
+      </div>
+      <div class="spec-cell">
+        <div class="lbl">Sessions</div>
+        <div class="val">7 / 17 Speakers</div>
+        <div class="sub">FED · UTILITY · POLICY</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRIMARY CTA BAND -->
+  <div class="cta-band">
+    <div class="seats-row">
+      <span class="lbl">/// SEATING</span>
+      <span class="val">In-person seats are limited &nbsp;·&nbsp; Virtual capacity available</span>
+    </div>
+    <div class="cta-stack">
+      <a href="#" class="btn-primary">Reserve Your Seat <span class="arr">→</span></a>
+      <a href="#" class="btn-secondary">Attend Virtually</a>
+    </div>
+  </div>
+
+  <!-- ── 01 · WHY NOW ── -->
+  <section class="section">
+    <div class="section-num"><span class="marker">01 /</span> Why Now</div>
+    <h2 class="section-title">Demand is rewriting the Midwest energy playbook in real time.</h2>
+    <p class="section-deck">Hyperscale data centers, retiring generation, and rural transmission constraints are converging — and Missouri sits at the center of every one of those conversations. This is the room where utility, federal, and economic development leaders will work through what's next.</p>
+
+    <div class="pull-quote">
+      <div class="stat">17<span class="unit">SPEAKERS</span></div>
+      <div class="ctx">Across utility executives, federal energy officials, economic development leaders, and rural cooperative experts. <strong>One room. One day.</strong> Designed for decision-makers who set policy, capital, and infrastructure direction across the region.</div>
+    </div>
+  </section>
+
+  <!-- ── 02 · TOPICS ── -->
+  <section class="section">
+    <div class="section-num"><span class="marker">02 /</span> Discussion Tracks</div>
+    <h2 class="section-title">What's on the table.</h2>
+
+    <div class="topics">
+      <div class="topic">
+        <div class="num">/01</div>
+        <div>
+          <h3>The real story behind data center demand.</h3>
+          <p>Why other countries aren't using as much — and what hyperscale buildout actually means for Missouri grid load and local energy prices.</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="num">/02</div>
+        <div>
+          <h3>Workforce strategy for an aging energy sector.</h3>
+          <p>How utilities and economic development orgs are responding to retirement waves and new infrastructure jobs simultaneously.</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="num">/03</div>
+        <div>
+          <h3>Generation, transmission, and rural demand.</h3>
+          <p>Where new generation gets sited, how rural cooperatives are scaling, and what's holding back transmission build-out across the region.</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="num">/04</div>
+        <div>
+          <h3>Efficiency under high-demand conditions.</h3>
+          <p>What energy efficiency means when load is climbing fast — and what it actually does to bills, reliability, and capacity planning.</p>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="num">/05</div>
+        <div>
+          <h3>Biggest economic development &amp; energy stories.</h3>
+          <p>The Missouri and Midwest deals, projects, and policy fights that defined 2025 — and what they signal for 2026.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 03 · SPEAKERS ── -->
+  <section class="section">
+    <div class="section-num"><span class="marker">03 /</span> Featured Voices</div>
+    <h2 class="section-title">Who's at the table.</h2>
+    <p class="section-deck">A working room of 17 industry voices. Headlining the data center session: a federal energy official from the U.S. Department of Energy.</p>
+
+    <div class="marquee">
+      <img class="photo" src="https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/8637fe3a-dd9a-4be6-aa17-121129a4c84e/BEN-CAMPBELL-157x180.jpg" alt="Ben Campbell">
+      <div>
+        <div class="name">Ben Campbell</div>
+        <div class="role">Assistant Director · <strong>U.S. Department of Energy</strong><br>Central Onsite Energy Technical Assistance Partnership</div>
+        <div class="session"><strong>SESSION:</strong> The Real Story on Data Center Demand &nbsp;·&nbsp; 12:45–1:45p</div>
+      </div>
+    </div>
+
+    <div class="co-speakers">
+      <div class="co">
+        <img class="co-photo" src="https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/423c8279-8888-448b-9397-7b0b96d1eb09/Kevin-Gunn.jpg" alt="Kevin Gunn">
+        <div class="co-name">Kevin Gunn</div>
+        <div class="co-role">VP, Federal &amp; State Policy</div>
+        <div class="co-org">EVERGY</div>
+      </div>
+      <div class="co">
+        <img class="co-photo" src="https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/3eddad3a-0d60-4fb8-882a-50edbb13ab19/Rob-Dixon.jpg" alt="Rob Dixon">
+        <div class="co-name">Rob Dixon</div>
+        <div class="co-role">Sr. Director, Economic &amp; Business Dev.</div>
+        <div class="co-org">AMEREN MISSOURI</div>
+      </div>
+      <div class="co">
+        <img class="co-photo" src="https://static.wixstatic.com/media/c22196_5a2cd882348348b7a579dcf2856833f5~mv2.jpg/v1/fill/w_548,h_608,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Josh-Headshot-819x1024.jpg" alt="Josh Campbell">
+        <div class="co-name">Josh Campbell</div>
+        <div class="co-role">Executive Director</div>
+        <div class="co-org">MEI · HOST</div>
+      </div>
+    </div>
+
+    <div class="speakers-more">
+      <strong>+ 13 more</strong> from the DOE, Data Center Coalition, Missouri Partnership, Spire, Junior Achievement, Missouri S&amp;T, and rural cooperatives. <a href="#">Full lineup →</a>
+    </div>
+  </section>
+
+  <!-- ── 04 · AGENDA ── -->
+  <section class="section">
+    <div class="section-num"><span class="marker">04 /</span> Schedule</div>
+    <h2 class="section-title">Day of agenda.</h2>
+    <p class="section-deck">Tuesday, December 9 · St. Louis, MO &nbsp;·&nbsp; All times Central.</p>
+
+    <div class="timeline">
+      <div class="session-item">
+        <div class="session-time">07:30 — 08:30</div>
+        <div class="session-title">Check-in, breakfast, and networking</div>
+      </div>
+      <div class="session-item">
+        <div class="session-time">08:30 — 09:30</div>
+        <div class="session-title">Workforce Development Innovation</div>
+      </div>
+      <div class="session-item">
+        <div class="session-time">09:30 — 10:30</div>
+        <div class="session-title">Meeting Rural Economic Needs</div>
+        <div class="session-tag">GENERATION · TRANSMISSION · DEMAND</div>
+      </div>
+      <div class="session-item break">
+        <div class="session-time">10:30 — 10:45</div>
+        <div class="session-title">Morning break</div>
+      </div>
+      <div class="session-item">
+        <div class="session-time">10:45 — 11:45</div>
+        <div class="session-title">Biggest Economic Development &amp; Energy Stories</div>
+      </div>
+      <div class="session-item break">
+        <div class="session-time">11:45 — 12:15</div>
+        <div class="session-title">Lunch</div>
+      </div>
+      <div class="session-item">
+        <div class="session-time">12:15 — 12:45</div>
+        <div class="session-title">MEI Rebrand Reveal</div>
+      </div>
+      <div class="session-item feature">
+        <div class="session-time">12:45 — 13:45</div>
+        <div class="session-title">The Real Story on Data Center Demand</div>
+        <div class="session-tag">FEATURED · DOE FEDERAL</div>
+      </div>
+      <div class="session-item break">
+        <div class="session-time">13:45 — 14:00</div>
+        <div class="session-title">Afternoon break</div>
+      </div>
+      <div class="session-item">
+        <div class="session-time">14:00 — 15:00</div>
+        <div class="session-title">The Future of Energy Efficiency in a High-Demand Grid</div>
+      </div>
+      <div class="session-item break">
+        <div class="session-time">15:00 — 15:15</div>
+        <div class="session-title">Closing remarks &amp; networking</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 05 · SPONSORS ── -->
+  <section class="section">
+    <div class="section-num"><span class="marker">05 /</span> Backed By</div>
+    <h2 class="section-title">Underwriting the conversation.</h2>
+
+    <div class="sponsors-block">
+      <div class="sponsors-tier">
+        <div class="sponsors-tier-label">/// Gold Sponsors</div>
+        <div class="sponsor-row">
+          <div class="sponsor-cell">
+            <div class="name">Missouri S&amp;T</div>
+            <div class="ctx">UNIVERSITY</div>
+          </div>
+          <div class="sponsor-cell">
+            <div class="name">Evergy</div>
+            <div class="ctx">UTILITY</div>
+          </div>
+          <div class="sponsor-cell">
+            <div class="name">The Nature Conservancy</div>
+            <div class="ctx">NGO</div>
+          </div>
+          <div class="sponsor-cell">
+            <div class="name">Ameren</div>
+            <div class="ctx">UTILITY</div>
+          </div>
+        </div>
+      </div>
+      <div class="sponsors-tier">
+        <div class="sponsors-tier-label">/// Partner Sponsor</div>
+        <div class="sponsor-row partner">
+          <div class="sponsor-cell">
+            <div class="name">Lincoln University</div>
+            <div class="ctx">UNIVERSITY</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <div class="final-cta">
+    <div class="pre">/// Closing The Gap</div>
+    <h2>Be in the room where <span class="em">Missouri's energy future</span> is decided.</h2>
+    <p>Hyperscale demand. Aging generation. New federal money. The decisions made over the next twelve months will set Midwest energy strategy for the decade. This is where those conversations start.</p>
+    <div class="ctas">
+      <a href="#" class="btn-primary">Reserve Your Seat <span class="arr">→</span></a>
+      <a href="#" class="btn-secondary">Join Virtually</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <img class="footer-mei-logo" src="https://static.wixstatic.com/media/72a47f_cdf4e36a9cd34f38ae327eeb3ceba3a6~mv2.png/v1/fill/w_153,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/MEI%20Primary%20White.png" alt="Missouri Energy Initiative">
+    <div class="footer-tagline">Independent voice on Midwest energy &amp; economic development</div>
+
+    <div class="footer-links">
+      <a href="#">moenergy.org</a>
+      <a href="#">linkedin</a>
+      <a href="#">youtube</a>
+    </div>
+
+    <div class="footer-meta">
+      MISSOURI ENERGY INITIATIVE &nbsp;·&nbsp; 238 E HIGH ST, FLOOR 3 &nbsp;·&nbsp; JEFFERSON CITY, MO 65101<br>
+      © 2025 ALL RIGHTS RESERVED &nbsp;·&nbsp; <a href="#">UNSUBSCRIBE</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connections — A Note from the Nonprofit Leadership Alliance</title>
+  <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+    Elevate 2026 by the numbers, a new President & CEO, and what's coming up at the Alliance.
+  </div>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Kalam:wght@400;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream: #f7f3ec;
+      --cream-deep: #ede6d6;
+      --paper: #ffffff;
+      --ink: #2c3838;
+      --ink-soft: #4a5252;
+      --body: #5a5e5e;
+      --muted: #8b8e8e;
+      --rule: #e5dfd2;
+      --rule-soft: #efeae0;
+
+      --orange: #e8893d;
+      --orange-deep: #c4711f;
+      --orange-pale: #fde5cd;
+      --teal: #159cbd;
+      --teal-deep: #0e7a96;
+      --teal-pale: #d6ecf2;
+      --sage: #7fa758;
+      --sage-deep: #5e8839;
+      --gold: #f5c842;
+    }
+
+    body {
+      background: var(--cream);
+      font-family: 'Open Sans', -apple-system, sans-serif;
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    .serif { font-family: 'Lora', Georgia, serif; }
+    .script { font-family: 'Kalam', cursive; }
+
+    .magazine {
+      max-width: 660px;
+      margin: 0 auto;
+      background: var(--cream);
+    }
+
+    /* ── BRAND BAR ── */
+    .brand {
+      padding: 22px 32px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--rule);
+    }
+    .brand img.logo { height: 50px; width: auto; display: block; }
+    .brand .meta {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .brand .meta .accent { color: var(--orange); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      background: var(--ink);
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      filter: brightness(0.7);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 36px 32px 60px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(28,30,30,0.65) 100%);
+    }
+    .hero-script {
+      font-family: 'Kalam', cursive;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 6px;
+      transform: rotate(-2deg);
+    }
+    .hero-title {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 44px;
+      font-weight: 500;
+      line-height: 1.1;
+      color: #fff;
+      letter-spacing: -0.005em;
+      max-width: 480px;
+    }
+    .hero-title em { font-style: italic; }
+
+    /* Wave divider */
+    .wave-divider {
+      position: relative;
+      height: 40px;
+      margin-top: -40px;
+      background: var(--cream);
+      border-top-left-radius: 100% 100%;
+      border-top-right-radius: 100% 100%;
+      transform: scale(1.4) translateY(8px);
+      transform-origin: center top;
+    }
+
+    /* ── GREETING ── */
+    .greeting {
+      padding: 36px 48px 22px;
+      text-align: center;
+      background: var(--cream);
+    }
+    .greeting .script {
+      font-family: 'Kalam', cursive;
+      font-size: 22px;
+      color: var(--sage);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .greeting .date {
+      font-family: 'Lora', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      padding: 12px 36px;
+    }
+    .section:first-of-type { padding-top: 26px; }
+    .section:last-of-type { padding-bottom: 26px; }
+
+    .eyebrow {
+      font-family: 'Kalam', cursive;
+      font-size: 18px;
+      color: var(--sage);
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: 0.01em;
+    }
+    .eyebrow.orange { color: var(--orange-deep); }
+    .eyebrow.teal { color: var(--teal-deep); }
+
+    .h-display {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1.18;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+    }
+    .h-display em { font-style: italic; color: var(--orange-deep); }
+
+    .body-copy {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14.5px;
+      line-height: 1.78;
+      color: var(--body);
+      margin-bottom: 16px;
+    }
+    .body-copy strong { color: var(--ink); font-weight: 700; }
+
+    /* ── PHOTO FRAME (NLA signature: rounded rect + offset outline) ── */
+    .frame {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+    }
+    .frame img {
+      display: block;
+      width: 100%;
+      border-radius: 14px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 4px 18px rgba(44, 56, 56, 0.15);
+    }
+    .frame::after {
+      content: '';
+      position: absolute;
+      top: 14px; left: 14px;
+      right: -14px; bottom: -14px;
+      border: 2px solid var(--orange);
+      border-radius: 14px;
+      z-index: 1;
+    }
+    .frame.teal::after { border-color: var(--teal); }
+    .frame.sage::after { border-color: var(--sage); }
+
+    /* ── LEAD STORY (Elevate) ── */
+    .lead-story {
+      background: var(--paper);
+      border-radius: 12px;
+      padding: 30px 32px 32px;
+      margin: 0;
+      box-shadow: 0 1px 0 var(--rule);
+    }
+    .lead-story .frame { margin: 0 14px 28px 0; max-width: calc(100% - 14px); }
+
+    .price-pill {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 10px 20px;
+      background: var(--orange-pale);
+      border-radius: 999px;
+      margin-bottom: 22px;
+    }
+    .price-pill .now {
+      font-family: 'Lora', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--orange-deep);
+    }
+    .price-pill .was {
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+    .price-pill .label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange-deep);
+    }
+
+    /* ── BUTTONS ── */
+    .btn-teal {
+      display: inline-block;
+      background: var(--teal);
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 13px 28px;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+    .btn-teal:hover { background: var(--teal-deep); }
+    .btn-orange {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 13px 28px;
+      border-radius: 4px;
+    }
+    .btn-orange:hover { background: var(--orange-deep); }
+
+    .read-link {
+      display: inline-block;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13px;
+      color: var(--teal-deep);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 2px solid var(--orange);
+      padding-bottom: 2px;
+      letter-spacing: 0.02em;
+    }
+    .read-link::after { content: ' →'; }
+
+    /* ── BY THE NUMBERS (warm photo strip + stats) ── */
+    .numbers {
+      background: var(--paper);
+      border-radius: 12px;
+      padding: 30px 32px 28px;
+      margin: 0;
+      text-align: center;
+    }
+    .numbers .h-display { margin-bottom: 4px; }
+    .numbers .sub {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 14.5px;
+      color: var(--muted);
+      margin-bottom: 26px;
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 26px;
+    }
+    .stat-pod {
+      padding: 22px 16px;
+      background: var(--cream);
+      border-radius: 10px;
+      border-top: 4px solid var(--orange);
+    }
+    .stat-pod:nth-child(2) { border-top-color: var(--teal); }
+    .stat-pod:nth-child(3) { border-top-color: var(--sage); }
+    .stat-pod .figure {
+      font-family: 'Lora', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .stat-pod .label {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 11.5px;
+      letter-spacing: 0.06em;
+      color: var(--ink-soft);
+      font-weight: 600;
+    }
+    .stat-pod .label strong {
+      display: block;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 2px;
+      font-size: 12.5px;
+    }
+
+    .tracks-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      text-align: left;
+      padding-top: 22px;
+      border-top: 1px solid var(--rule);
+    }
+    .tracks-row .label {
+      font-family: 'Kalam', cursive;
+      font-size: 16px;
+      color: var(--sage);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .track-line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 14px;
+      background: var(--cream);
+      border-radius: 6px;
+    }
+    .track-line .n {
+      font-family: 'Lora', serif;
+      font-size: 16px;
+      font-style: italic;
+      font-weight: 700;
+      color: var(--orange);
+      width: 22px;
+    }
+    .track-line .t {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13.5px;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ── PROFILE CARD (Pherabe) ── */
+    .profile {
+      background: var(--paper);
+      border-radius: 12px;
+      padding: 30px 32px 32px;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 38px;
+      align-items: center;
+    }
+    .profile .frame { width: 200px; }
+    .profile .frame img { aspect-ratio: 1; object-fit: cover; }
+    .profile h3 {
+      font-family: 'Lora', serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+    .profile .name {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: var(--orange-deep);
+      margin-bottom: 14px;
+    }
+    .profile p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--body);
+      margin-bottom: 14px;
+    }
+
+    /* ── TWO-UP CARDS (CNP Network) ── */
+    .duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 0;
+    }
+    .duo .card {
+      background: var(--paper);
+      border-radius: 12px;
+      padding: 24px 22px 26px;
+    }
+    .duo .frame { margin-bottom: 18px; }
+    .duo .frame::after { display: none; }
+    .duo .frame img { border-radius: 10px; box-shadow: none; height: 130px; object-fit: cover; }
+    .duo .card .ek {
+      font-family: 'Kalam', cursive;
+      font-size: 16px;
+      color: var(--sage);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .duo .card h4 {
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      letter-spacing: -0.005em;
+      margin-bottom: 10px;
+    }
+    .duo .card p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--body);
+      margin-bottom: 14px;
+    }
+
+    /* ── EVENT CARD (Webinar) ── */
+    .event {
+      background: var(--paper);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 0;
+    }
+    .event img.banner {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .event .body {
+      padding: 28px 32px 30px;
+    }
+    .event .when {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--orange);
+      color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .event h3 {
+      font-family: 'Lora', serif;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.18;
+      color: var(--ink);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .event p {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--body);
+      margin-bottom: 18px;
+    }
+    .event .speaker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 0;
+      border-top: 1px dashed var(--rule);
+      border-bottom: 1px dashed var(--rule);
+      margin-bottom: 18px;
+    }
+    .event .speaker-avi {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    .event .speaker-name {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .event .speaker-role {
+      font-size: 12px;
+      color: var(--body);
+      margin-top: 2px;
+    }
+
+    /* ── MISSION BANNER (full-bleed photo with overlay) ── */
+    .mission {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      border-radius: 12px;
+    }
+    .mission .bg {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.5);
+    }
+    .mission .ovr {
+      position: absolute;
+      inset: 0;
+      padding: 36px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+    .mission .since {
+      font-family: 'Kalam', cursive;
+      font-size: 20px;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .mission h3 {
+      font-family: 'Lora', serif;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.25;
+      color: #fff;
+      max-width: 460px;
+      margin: 0 auto 18px;
+      letter-spacing: -0.005em;
+    }
+    .mission h3 em { font-style: italic; }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 30px 36px 26px;
+      text-align: center;
+      background: var(--cream-deep);
+    }
+    .footer img.flogo { height: 54px; width: auto; display: block; margin: 0 auto 14px; }
+    .footer .signoff {
+      font-family: 'Kalam', cursive;
+      font-size: 18px;
+      color: var(--sage);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .footer-social {
+      display: inline-flex;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .footer-social a {
+      width: 32px; height: 32px;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .footer-social a:hover { background: var(--orange); border-color: var(--orange); }
+    .footer-social svg { width: 13px; height: 13px; fill: var(--ink-soft); }
+    .footer-social a:hover svg { fill: #fff; }
+
+    .footer-info {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--body);
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+    }
+    .footer-info a { color: var(--teal-deep); text-decoration: none; font-weight: 700; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      .brand { padding: 16px 20px 14px; }
+      .brand img.logo { height: 42px; }
+      .hero img { height: 320px; }
+      .hero-title { font-size: 30px; }
+      .hero-script { font-size: 20px; }
+      .greeting { padding: 28px 24px 18px; }
+      .section { padding: 24px 22px 28px; }
+      .h-display { font-size: 24px; }
+      .lead-story, .numbers, .profile, .event { padding: 24px 22px; border-radius: 10px; }
+      .stats-row { grid-template-columns: 1fr; }
+      .stat-pod .figure { font-size: 32px; }
+      .profile { grid-template-columns: 1fr; gap: 22px; text-align: center; }
+      .profile .frame { width: 160px; margin: 0 auto; }
+      .duo { grid-template-columns: 1fr; }
+      .event img.banner { height: auto; }
+      .event h3 { font-size: 20px; }
+      .mission .bg { height: 240px; }
+      .mission h3 { font-size: 20px; }
+      .footer { padding: 24px 22px; }
+    }
+  </style>
+</head>
+<body>
+<div class="magazine">
+
+  <!-- BRAND BAR -->
+  <div class="brand">
+    <a href="#"><img class="logo" src="nla-logo.png" alt="Nonprofit Leadership Alliance"></a>
+    <div class="meta">Connections <span class="accent">·</span> August 2025</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="https://cdn-ileanid.nitrocdn.com/SzmAoJdvMlvThxTcfCZMrAMJWZMQkFDu/assets/images/optimized/rev-9db1c86/nla1.org/wp-content/uploads/2023/10/010720.AMI-KCMO_Camp-Fire.IMG_1770-scaled.jpg" alt="Nonprofit professionals at the Alliance">
+    <div class="hero-overlay">
+      <div class="hero-script">Nonprofits change the world.</div>
+      <div class="hero-title">We prepare <em>the leaders</em> who get them there.</div>
+    </div>
+  </div>
+
+  <!-- GREETING -->
+  <div class="greeting">
+    <div class="script">Welcome to August —</div>
+    <div class="date">A note from the Alliance · Issue dated 8.21.2025</div>
+  </div>
+
+  <!-- LEAD STORY: Elevate -->
+  <div class="section">
+    <div class="lead-story">
+      <div class="eyebrow orange">The headline this month</div>
+      <h2 class="h-display">Elevate 2026 is now <em>on-demand</em>.</h2>
+      <p class="body-copy">On February 24–26, <strong>658 nonprofit professionals</strong> from across the country came together virtually to learn, connect, and drive the sector forward. Now you can catch every keynote, panel, and breakout — at a fraction of the original cost.</p>
+
+      <div class="frame teal" style="margin: 18px 14px 26px 0; max-width: calc(100% - 14px);">
+        <img src="https://gallery.eomail4.com/2e835c96-d8ac-11ed-9c64-e3621c5669e8%2Fvideo-thumbnail%2Fd523792706aefe18d820fd1e68d59e48_4.png" alt="Elevate 2026 conference">
+      </div>
+
+      <div class="price-pill">
+        <span class="label">All-Access</span>
+        <span class="now">$65</span>
+        <span class="was">$150</span>
+      </div>
+
+      <div>
+        <a href="#" class="btn-teal">Watch On-Demand</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BY THE NUMBERS -->
+  <div class="section">
+    <div class="numbers">
+      <div class="eyebrow orange">A look at the impact</div>
+      <h2 class="h-display">Three days, <em>told in numbers</em>.</h2>
+      <p class="sub">What our community actually moved across the social sector in February.</p>
+
+      <div class="stats-row">
+        <div class="stat-pod">
+          <div class="figure">658</div>
+          <div class="label"><strong>Attendees</strong>From around the world</div>
+        </div>
+        <div class="stat-pod">
+          <div class="figure">31</div>
+          <div class="label"><strong>Speakers</strong>Across 3 content tracks</div>
+        </div>
+        <div class="stat-pod">
+          <div class="figure">267</div>
+          <div class="label"><strong>Badges Earned</strong>And growing weekly</div>
+        </div>
+      </div>
+
+      <div class="tracks-row">
+        <div class="label">The three content tracks —</div>
+        <div class="track-line"><span class="n">i.</span><span class="t">Sustainability of Self</span></div>
+        <div class="track-line"><span class="n">ii.</span><span class="t">Your Career, Every Step of the Way</span></div>
+        <div class="track-line"><span class="n">iii.</span><span class="t">Tech Lessons: The Good, the Bad, and the Must-Haves</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROFILE: Pherabe Kolb -->
+  <div class="section">
+    <div class="profile">
+      <div class="frame">
+        <img src="https://gallery.eomail4.com/2e835c96-d8ac-11ed-9c64-e3621c5669e8%2Fmedia-manager%2F1777856940817-pherabe-kolb-headshot-for-bio-and-staff-webpages-scaled-e1773975741699-600x654.jpg" alt="Pherabe Kolb">
+      </div>
+      <div>
+        <div class="eyebrow orange">Leadership spotlight</div>
+        <h3>Meet our new President &amp; CEO.</h3>
+        <div class="name">Pherabe Kolb</div>
+        <p>On April 6, 2026, Pherabe Kolb began her tenure as President and CEO of the Alliance — stepping into the role at a pivotal moment for the nonprofit sector and the workforce that powers it.</p>
+        <a href="#" class="read-link">Read the announcement</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TWO-UP: CNP NETWORK -->
+  <div class="section">
+    <div class="duo">
+      <div class="card">
+        <div class="frame">
+          <img src="https://gallery.eomail4.com/2e835c96-d8ac-11ed-9c64-e3621c5669e8%2Fmedia-manager%2F1769536493969-untitled%20design%20%281%29.png" alt="CNP credential">
+        </div>
+        <div class="ek">Help grow the network</div>
+        <h4>You know what the CNP credential delivers.</h4>
+        <p>Now imagine that level of expertise across your entire team. Forward this to a colleague.</p>
+        <a href="#" class="read-link">Explore training</a>
+      </div>
+      <div class="card">
+        <div class="frame">
+          <img src="https://gallery.eomail4.com/2e835c96-d8ac-11ed-9c64-e3621c5669e8%2Fmedia-manager%2F1777858871368-association%20of%20cnps%20executive%20committee.png" alt="Association of CNPs Executive Committee">
+        </div>
+        <div class="ek">Network leadership</div>
+        <h4>Meet the new Executive Committee.</h4>
+        <p>The Association of CNPs grows stronger when people show up. These are the leaders investing in your network.</p>
+        <a href="#" class="read-link">Join the network</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVENT -->
+  <div class="section">
+    <div class="event">
+      <img class="banner" src="https://gallery.eomail4.com/2e835c96-d8ac-11ed-9c64-e3621c5669e8%2Fmedia-manager%2F1777859486440-association%20of%20cnps%20webinar_videostrategy.png" alt="Crafting Your Nonprofit's Video Strategy webinar">
+      <div class="body">
+        <div class="when">📅 Wednesday, June 4 · 1pm CT</div>
+        <h3>Crafting Your Nonprofit's Video Strategy.</h3>
+        <p>Video consistently outperforms other content formats — generating more shares, stronger engagement, and higher conversion. Yet many nonprofits struggle to prioritize it.</p>
+
+        <div class="speaker">
+          <div class="speaker-avi">MP</div>
+          <div>
+            <div class="speaker-name">Matt Pearl</div>
+            <div class="speaker-role">Founder, Pearl Impact Media · Former TV news reporter (WXIA-TV, Scripps News)</div>
+          </div>
+        </div>
+
+        <a href="#" class="btn-orange">Reserve Your Free Seat</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MISSION BANNER -->
+  <div class="section" style="padding-top: 0;">
+    <div class="mission">
+      <img class="bg" src="https://cdn-ileanid.nitrocdn.com/SzmAoJdvMlvThxTcfCZMrAMJWZMQkFDu/assets/images/optimized/rev-9db1c86/nla1.org/wp-content/uploads/2023/10/010720.AMI-KCMO_Camp-Fire.IMG_1770-scaled.jpg" alt="Community of nonprofit leaders">
+      <div class="ovr">
+        <div class="since">Since 1948 —</div>
+        <h3>Nonprofits are changing the world. <em>We're preparing the leaders</em> who'll get them there.</h3>
+        <div><a href="#" class="btn-teal">Become a CNP</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <a href="#"><img class="flogo" src="nla-logo.png" alt="Nonprofit Leadership Alliance"></a>
+    <div class="signoff">— With purpose, the Alliance team</div>
+
+    <div class="footer-social">
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88V14.9H7.9V12h2.54V9.8c0-2.5 1.5-3.9 3.78-3.9 1.1 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.9h-2.33v6.98A10 10 0 0 0 22 12z"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58 0 4.85.07 3.25.15 4.77 1.7 4.92 4.92.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.15 3.22-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58 0-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s0-3.58.07-4.85C2.4 3.93 3.92 2.38 7.15 2.23 8.42 2.18 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0m0 5.84a6.16 6.16 0 1 0 0 12.32A6.16 6.16 0 0 0 12 5.84M12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8m6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
+      <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14M18.5 18.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+    </div>
+
+    <div class="footer-info">
+      1800 Wyandotte, Suite 204 · Kansas City, MO 64108<br>
+      <a href="#">nla1.org</a> &nbsp;·&nbsp; <a href="#">Unsubscribe</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

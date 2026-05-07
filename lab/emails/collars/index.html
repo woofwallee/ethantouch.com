@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memorial Weekend Boarding at Collars</title>
+  <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+    Memorial Weekend boarding spots are filling fast. Reserve your pup's stay at Collars before we're full.
+  </div>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --teal: #1f6776;
+      --teal-deep: #154e5b;
+      --teal-pale: #e6eef0;
+      --gold: #d9a83a;
+      --gold-deep: #b88a25;
+      --gold-pale: #fbf2db;
+      --ink: #2c3838;
+      --ink-soft: #4a5454;
+      --body: #5e6868;
+      --muted: #8b9090;
+      --paper: #ffffff;
+      --warm: #f8f5ef;
+      --rule: #ebe7df;
+    }
+
+    body {
+      background: var(--paper);
+      font-family: 'Montserrat', -apple-system, sans-serif;
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    .frame {
+      max-width: 660px;
+      margin: 0 auto;
+      background: var(--paper);
+    }
+
+    /* ── TOP UTILITY BAR ── */
+    .top-bar {
+      background: var(--teal);
+      padding: 12px 32px;
+      text-align: center;
+    }
+    .top-bar a {
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .top-bar a::after { content: ' ›'; color: rgba(255,255,255,0.7); }
+
+    /* ── HEADER ── */
+    .header {
+      background: var(--paper);
+      padding: 18px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--rule);
+    }
+    .header img.logo {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
+    .header-meta {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+    .header-meta a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .header-meta a svg { width: 14px; height: 14px; fill: var(--gold-deep); }
+    .header-meta .phone { color: var(--gold-deep); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      background: var(--ink);
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      object-position: center 38%;
+      display: block;
+      filter: brightness(0.7);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0 50px;
+      background: linear-gradient(90deg, rgba(28,40,42,0.65) 0%, rgba(28,40,42,0.15) 70%);
+    }
+    .hero-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 50px;
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+      color: #fff;
+      margin-bottom: 26px;
+      max-width: 480px;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--gold);
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border-radius: 999px;
+      box-shadow: 0 4px 20px rgba(217, 168, 58, 0.4);
+    }
+    .hero-cta:hover { background: var(--gold-deep); }
+    .hero-cta::after { content: ' ›'; }
+
+    /* ── INTRO BLOCK ── */
+    .intro {
+      padding: 64px 50px 48px;
+      text-align: center;
+      background: var(--paper);
+    }
+    .intro .ek {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .intro .ek::before, .intro .ek::after {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--gold);
+    }
+    .intro h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 18px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .intro h2 .accent { color: var(--teal); }
+    .intro p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--body);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .intro p strong { color: var(--ink); font-weight: 700; }
+
+    /* ── DATE BAND ── */
+    .date-band {
+      background: var(--teal);
+      padding: 26px 50px;
+      text-align: center;
+      color: #fff;
+    }
+    .date-band .lbl {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .date-band .when {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+    }
+    .date-band .sub {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.04em;
+      margin-top: 6px;
+    }
+
+    /* ── FEATURES (4-up grid) ── */
+    .features {
+      padding: 60px 40px 50px;
+      background: var(--warm);
+    }
+    .features-head {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .features-head .ek {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 12px;
+    }
+    .features-head h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.018em;
+      color: var(--ink);
+      max-width: 420px;
+      margin: 0 auto;
+      line-height: 1.15;
+    }
+    .feat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .feat {
+      background: var(--paper);
+      padding: 26px 24px 24px;
+      border-radius: 4px;
+      border-top: 3px solid var(--gold);
+      text-align: left;
+    }
+    .feat:nth-child(2), .feat:nth-child(4) { border-top-color: var(--teal); }
+    .feat .num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .feat h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .feat p {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--body);
+    }
+
+    /* ── PHOTO STRIP (circular, with paw watermark feel) ── */
+    .photo-strip {
+      padding: 52px 50px 48px;
+      background: var(--paper);
+      text-align: center;
+    }
+    .photo-strip .ek {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 12px;
+    }
+    .photo-strip h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.018em;
+      color: var(--ink);
+      margin-bottom: 30px;
+      line-height: 1.15;
+    }
+    .photo-strip h3 em { font-style: normal; color: var(--teal); }
+    .circle-photo {
+      display: inline-block;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 32px rgba(31, 103, 118, 0.18);
+    }
+    .circle-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .circle-photo::after {
+      content: '🐾';
+      position: absolute;
+      top: 14px; left: 18px;
+      font-size: 26px;
+      opacity: 0.35;
+      filter: grayscale(0.3);
+    }
+
+    /* ── URGENCY STRIP ── */
+    .urgency {
+      background: var(--gold-pale);
+      padding: 22px 50px;
+      text-align: center;
+      border-top: 3px solid var(--gold);
+      border-bottom: 3px solid var(--gold);
+    }
+    .urgency .lbl {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13.5px;
+      color: var(--gold-deep);
+      font-weight: 700;
+    }
+    .urgency .lbl .dot {
+      width: 8px; height: 8px;
+      background: var(--gold-deep);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .urgency .lbl strong { font-weight: 900; color: var(--ink); }
+
+    /* ── PRIMARY CTA ── */
+    .cta-section {
+      padding: 50px 50px 56px;
+      text-align: center;
+      background: var(--paper);
+    }
+    .cta-section h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 10px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.18;
+    }
+    .cta-section p {
+      font-size: 14px;
+      color: var(--body);
+      margin-bottom: 22px;
+      max-width: 380px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--gold);
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 17px 38px;
+      border-radius: 999px;
+      box-shadow: 0 6px 24px rgba(217, 168, 58, 0.4);
+    }
+    .btn-primary:hover { background: var(--gold-deep); }
+    .btn-primary::after { content: ' ›'; }
+
+    .cta-aside {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-top: 18px;
+      text-transform: uppercase;
+    }
+    .cta-aside a { color: var(--teal); text-decoration: none; font-weight: 700; }
+
+    /* ── TIP SIDEBAR ── */
+    .tip {
+      background: var(--teal-pale);
+      margin: 0 50px 0;
+      padding: 26px 28px;
+      border-radius: 6px;
+      border-left: 4px solid var(--teal);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .tip .icon {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+    .tip h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 6px;
+    }
+    .tip p {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+    .tip-wrap { padding: 0 0 50px; background: var(--paper); }
+
+    /* ── VOTE BAND ── */
+    .vote {
+      background: var(--teal);
+      padding: 36px 50px;
+      text-align: center;
+    }
+    .vote .ek {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .vote h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      max-width: 420px;
+      margin: 0 auto 16px;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+    .vote-btn {
+      display: inline-block;
+      background: transparent;
+      color: var(--gold);
+      text-decoration: none;
+      border: 2px solid var(--gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 12px 26px;
+      border-radius: 999px;
+    }
+    .vote-btn:hover { background: var(--gold); color: var(--teal); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--ink);
+      padding: 36px 40px 28px;
+      text-align: center;
+      color: rgba(255,255,255,0.55);
+    }
+    .footer img.flogo {
+      height: 56px;
+      width: auto;
+      display: block;
+      margin: 0 auto 16px;
+      filter: brightness(0) invert(1);
+      opacity: 0.95;
+    }
+    .footer-social {
+      display: inline-flex;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+    .footer-social a {
+      width: 34px; height: 34px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .footer-social a:hover { background: var(--gold); }
+    .footer-social svg { width: 14px; height: 14px; fill: rgba(255,255,255,0.75); }
+    .footer-social a:hover svg { fill: var(--ink); }
+
+    .footer-info {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.55);
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-info strong {
+      color: rgba(255,255,255,0.9);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .footer-info a { color: var(--gold); text-decoration: none; font-weight: 700; }
+
+    .footer-legal {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10.5px;
+      color: rgba(255,255,255,0.32);
+      margin-top: 14px;
+      letter-spacing: 0.04em;
+    }
+    .footer-legal a { color: rgba(255,255,255,0.55); text-decoration: underline; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      .top-bar { padding: 10px 16px; }
+      .top-bar a { font-size: 11px; }
+      .header { padding: 14px 18px; flex-direction: column; gap: 10px; }
+      .header img.logo { height: 38px; }
+      .header-meta { gap: 14px; }
+      .header-meta a { font-size: 10.5px; }
+      .hero img { height: 360px; }
+      .hero-overlay { padding: 0 28px; }
+      .hero-title { font-size: 32px; }
+      .intro { padding: 44px 24px 36px; }
+      .intro h2 { font-size: 26px; }
+      .date-band { padding: 22px 24px; }
+      .date-band .when { font-size: 22px; }
+      .features { padding: 44px 22px 38px; }
+      .features-head h3 { font-size: 22px; }
+      .feat-grid { grid-template-columns: 1fr; }
+      .photo-strip { padding: 40px 22px; }
+      .photo-strip h3 { font-size: 22px; }
+      .circle-photo { width: 200px; height: 200px; }
+      .urgency { padding: 18px 22px; }
+      .cta-section { padding: 40px 24px 44px; }
+      .cta-section h3 { font-size: 22px; }
+      .tip { margin: 0 22px; padding: 22px 22px; flex-direction: column; gap: 8px; }
+      .vote { padding: 30px 22px; }
+      .footer { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+<div class="frame">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <a href="#">Welcome to Collars Dog Resort!</a>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <a href="#"><img class="logo" src="collars-logo.png" alt="Collars Dog Resort"></a>
+    <div class="header-meta">
+      <a class="phone" href="tel:8168328285">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+        816.832.8285
+      </a>
+      <a href="#">
+        <svg viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+        Live Webcam
+      </a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="https://0de1c7f487.sdkmedia.net/pub/a4v5/1rg4yr7u/y00/n8n/bnk/IMG_1896.JPG" alt="Dogs playing at Collars Dog Resort">
+    <div class="hero-overlay">
+      <div class="hero-eyebrow">Memorial Weekend · May 23–26</div>
+      <h1 class="hero-title">RESERVE YOUR PUP'S SPOT BEFORE WE'RE FULL.</h1>
+      <a href="#" class="hero-cta">Book Now</a>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="ek">The Headline This Month</div>
+    <h2>Holiday weekends fill <span class="accent">fast</span>. Once we're full, we're full.</h2>
+    <p>Memorial Weekend is right around the corner. If you're heading out of town, lock in your dog's stay at our Olathe house now — supervised play, comfortable overnights, and a team that genuinely likes dogs. <strong>That's it.</strong></p>
+  </section>
+
+  <!-- DATE BAND -->
+  <div class="date-band">
+    <div class="lbl">Save the Dates</div>
+    <div class="when">FRI MAY 23 — MON MAY 26</div>
+    <div class="sub">Hosting at our Olathe location · 12732 S Pflumm Rd</div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="features-head">
+      <div class="ek">What's Included</div>
+      <h3>Every stay at Collars covers the basics — and then some.</h3>
+    </div>
+    <div class="feat-grid">
+      <div class="feat">
+        <div class="num">/ 01</div>
+        <h4>Supervised Group Play</h4>
+        <p>Friends matched by size and temperament. Always staffed, always watching.</p>
+      </div>
+      <div class="feat">
+        <div class="num">/ 02</div>
+        <h4>Overnight Comfort</h4>
+        <p>Clean, calm accommodations so your pup actually sleeps and wakes up rested.</p>
+      </div>
+      <div class="feat">
+        <div class="num">/ 03</div>
+        <h4>Exercise &amp; Enrichment</h4>
+        <p>Activity, stimulation, and one-on-one attention from a team that loves dogs.</p>
+      </div>
+      <div class="feat">
+        <div class="num">/ 04</div>
+        <h4>Built for Dogs Only</h4>
+        <p>A facility designed top-to-bottom around four-legged guests. Spotlessly clean.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO STRIP -->
+  <section class="photo-strip">
+    <div class="ek">Inside Olathe</div>
+    <h3>Where your pup will be staying — <em>see for yourself</em>.</h3>
+    <div class="circle-photo">
+      <img src="https://0de1c7f487.sdkmedia.net/pub/a4v5/1rg4yr7u/y00/n8n/bnk/IMG_1896.JPG" alt="Dogs at Collars Olathe">
+    </div>
+  </section>
+
+  <!-- URGENCY -->
+  <div class="urgency">
+    <div class="lbl">
+      <span class="dot"></span>
+      <span><strong>Limited spots remaining</strong> &nbsp;·&nbsp; Reservations are filling weekly</span>
+    </div>
+  </div>
+
+  <!-- PRIMARY CTA -->
+  <section class="cta-section">
+    <h3>Book your pup's Memorial Weekend stay today.</h3>
+    <p>Two minutes through Gingr or one phone call. We'll handle the rest.</p>
+    <a href="#" class="btn-primary">Reserve [Pet Name]'s Spot</a>
+    <div class="cta-aside">Or call <a href="tel:8168328285">816.832.8285</a></div>
+  </section>
+
+  <!-- TIP -->
+  <div class="tip-wrap">
+    <div class="tip">
+      <div class="icon">☀️</div>
+      <div>
+        <h4>Quick Holiday Tip</h4>
+        <p>Memorial Weekend temps in Kansas climb fast — asphalt can burn paw pads in under sixty seconds. Press your hand flat to the pavement for seven seconds. If you can't hold it there, your pup shouldn't walk on it.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOTE -->
+  <div class="vote">
+    <div class="ek">Help Shape What's Next</div>
+    <h4>We're asking the Collars community to vote on our next service.</h4>
+    <a href="#" class="vote-btn">Cast Your Vote</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <a href="#"><img class="flogo" src="collars-logo.png" alt="Collars Dog Resort"></a>
+
+    <div class="footer-social">
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88V14.9H7.9V12h2.54V9.8c0-2.5 1.5-3.9 3.78-3.9 1.1 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.9h-2.33v6.98A10 10 0 0 0 22 12z"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58 0 4.85.07 3.25.15 4.77 1.7 4.92 4.92.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.15 3.22-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58 0-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s0-3.58.07-4.85C2.4 3.93 3.92 2.38 7.15 2.23 8.42 2.18 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0m0 5.84a6.16 6.16 0 1 0 0 12.32A6.16 6.16 0 0 0 12 5.84M12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8m6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88"/></svg></a>
+    </div>
+
+    <div class="footer-info">
+      <strong>Collars Dog Resort · Olathe</strong><br>
+      12732 S Pflumm Rd, Olathe, KS 66062<br>
+      <a href="tel:8168328285">816.832.8285</a> &nbsp;·&nbsp; <a href="#">collarsdogresort.com</a>
+    </div>
+
+    <div class="footer-legal">
+      Copyright © The Collar Club, LLC · All Rights Reserved · <a href="#">Unsubscribe</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

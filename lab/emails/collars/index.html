@@ -3,36 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
   <title>Memorial Weekend Boarding at Collars</title>
   <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
-    Memorial Weekend boarding spots are filling fast. Reserve your pup's stay at Collars before we're full.
+    Memorial Weekend fills fast. Lock in your pup's spot before we're full.
   </div>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --teal: #1f6776;
-      --teal-deep: #154e5b;
-      --teal-pale: #e6eef0;
-      --gold: #d9a83a;
-      --gold-deep: #b88a25;
-      --gold-pale: #fbf2db;
-      --ink: #2c3838;
-      --ink-soft: #4a5454;
-      --body: #5e6868;
-      --muted: #8b9090;
-      --paper: #ffffff;
-      --warm: #f8f5ef;
-      --rule: #ebe7df;
+      --teal:        #006784;
+      --teal-light:  #B3D1DA;
+      --teal-pale:   #DCE9ED;
+      --gold:        #EDB111;
+      --gold-deep:   #C8930A;
+      --paper:       #FFFFFF;
+      --rule:        #E6EEF1;
+      --ink:         #003F52;
+      --body:        #4A6571;
+      --muted:       #8AA0A9;
     }
 
     body {
-      background: var(--paper);
+      background: #FFFFFF;
       font-family: 'Montserrat', -apple-system, sans-serif;
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     .frame {
@@ -49,7 +48,6 @@
     }
     .top-bar a {
       color: #fff;
-      font-family: 'Montserrat', sans-serif;
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.06em;
@@ -58,17 +56,33 @@
     }
     .top-bar a::after { content: ' ›'; color: rgba(255,255,255,0.7); }
 
+    /* ── HEADER TAGLINE (handwritten) ── */
+    .header-tagline {
+      flex: 1;
+      text-align: center;
+      font-family: 'Caveat', cursive;
+      font-weight: 600;
+      font-size: 24px;
+      color: var(--gold);
+      line-height: 1.1;
+      padding: 0 18px;
+    }
+
     /* ── HEADER ── */
     .header {
       background: var(--paper);
+      background-image: url('paw-prints.svg#v=20260507c');
+      background-repeat: repeat;
+      background-size: 220px auto;
+      background-position: center;
       padding: 18px 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--rule);
+      gap: 18px;
     }
     .header img.logo {
-      height: 48px;
+      height: 52px;
       width: auto;
       display: block;
     }
@@ -78,509 +92,583 @@
       align-items: center;
     }
     .header-meta a {
-      font-family: 'Montserrat', sans-serif;
       font-size: 11.5px;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--gold-deep);
+      color: var(--teal);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 6px;
     }
-    .header-meta a svg { width: 14px; height: 14px; fill: var(--gold-deep); }
-    .header-meta .phone { color: var(--gold-deep); }
+    .header-meta a svg { width: 14px; height: 14px; fill: var(--teal); }
 
-    /* ── HERO ── */
-    .hero {
+    /* ── HERO BAND (two-column, light) ── */
+    .hero-band {
       position: relative;
-      background: var(--ink);
+      background: linear-gradient(90deg, #FFFFFF 0%, #FFFFFF 22%, var(--teal-light) 22%, var(--teal-light) 100%);
+      padding: 48px 50px 56px;
+      display: flex;
+      gap: 36px;
+      align-items: center;
       overflow: hidden;
     }
-    .hero img {
-      width: 100%;
-      height: 460px;
-      object-fit: cover;
-      object-position: center 38%;
-      display: block;
-      filter: brightness(0.7);
-    }
-    .hero-overlay {
+    .hero-paws-bg {
       position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 0 50px;
-      background: linear-gradient(90deg, rgba(28,40,42,0.65) 0%, rgba(28,40,42,0.15) 70%);
+      top: 0;
+      left: 0;
+      width: 38%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
     }
-    .hero-eyebrow {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 14px;
+    .hero-photo-col, .hero-text-col { position: relative; z-index: 2; }
+    .hero-photo-col {
+      flex: 0 0 38%;
+      display: flex;
+      justify-content: center;
+    }
+    .hero-photo-circle {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(0,63,82,0.15);
+    }
+    .hero-photo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+    .hero-text-col {
+      flex: 1;
+      min-width: 0;
     }
     .hero-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 50px;
-      font-weight: 800;
-      line-height: 1.02;
-      letter-spacing: -0.025em;
-      color: #fff;
-      margin-bottom: 26px;
-      max-width: 480px;
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+    .hero-lead {
+      font-size: 15.5px;
+      color: var(--ink);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      max-width: 420px;
     }
     .hero-cta {
       display: inline-block;
       background: var(--gold);
-      color: #fff;
-      text-decoration: none;
-      font-family: 'Montserrat', sans-serif;
+      color: var(--ink);
+      font-weight: 900;
       font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 16px 36px;
+      padding: 14px 28px;
       border-radius: 999px;
-      box-shadow: 0 4px 20px rgba(217, 168, 58, 0.4);
+      text-decoration: none;
     }
-    .hero-cta:hover { background: var(--gold-deep); }
-    .hero-cta::after { content: ' ›'; }
 
-    /* ── INTRO BLOCK ── */
+    /* ── INTRO ── */
     .intro {
-      padding: 64px 50px 48px;
-      text-align: center;
-      background: var(--paper);
+      padding: 48px 50px 36px;
+      text-align: left;
     }
     .intro .ek {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
       color: var(--gold-deep);
-      margin-bottom: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .intro .ek::before, .intro .ek::after {
-      content: '';
-      width: 28px; height: 1px;
-      background: var(--gold);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
     .intro h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 36px;
+      font-size: 28px;
       font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+      line-height: 1.2;
       color: var(--ink);
-      margin-bottom: 18px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-bottom: 14px;
     }
     .intro h2 .accent { color: var(--teal); }
     .intro p {
-      font-size: 15px;
-      line-height: 1.75;
+      font-size: 15.5px;
       color: var(--body);
-      max-width: 480px;
-      margin: 0 auto;
+      line-height: 1.7;
+      max-width: 540px;
     }
-    .intro p strong { color: var(--ink); font-weight: 700; }
 
     /* ── DATE BAND ── */
     .date-band {
+      position: relative;
       background: var(--teal);
-      padding: 26px 50px;
-      text-align: center;
       color: #fff;
+      padding: 28px 50px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .date-band-inner {
+      position: relative;
+      z-index: 2;
+    }
+    .date-band-paws {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      transform: translateY(-50%);
+      width: 240px;
+      height: auto;
+      z-index: 1;
+      pointer-events: none;
     }
     .date-band .lbl {
-      font-family: 'Montserrat', sans-serif;
       font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
+      font-weight: 800;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 8px;
+      color: var(--teal-light);
+      margin-bottom: 6px;
     }
     .date-band .when {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: -0.015em;
-      line-height: 1.1;
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: 0.02em;
     }
     .date-band .sub {
-      font-size: 12.5px;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 0.04em;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--teal-pale);
       margin-top: 6px;
     }
 
-    /* ── FEATURES (4-up grid) ── */
-    .features {
-      padding: 60px 40px 50px;
-      background: var(--warm);
+    /* ── SUITES ── */
+    .suites {
+      padding: 56px 50px 24px;
     }
-    .features-head {
-      text-align: center;
-      margin-bottom: 36px;
-    }
-    .features-head .ek {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
+    .suites-head .ek {
       color: var(--gold-deep);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       margin-bottom: 12px;
     }
-    .features-head h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 28px;
+    .suites-head h3 {
+      font-size: 26px;
       font-weight: 800;
-      letter-spacing: -0.018em;
       color: var(--ink);
-      max-width: 420px;
-      margin: 0 auto;
-      line-height: 1.15;
+      line-height: 1.25;
+      margin-bottom: 8px;
     }
-    .feat-grid {
+    .suites-head .sub {
+      font-size: 14.5px;
+      color: var(--body);
+      margin-bottom: 32px;
+    }
+    .suite-card {
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 26px 28px;
+      margin-bottom: 16px;
+      background: #fff;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    .suite-card .badge {
+      flex: 0 0 auto;
+      width: 56px;
+      height: 56px;
+      background: var(--teal-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--teal);
+    }
+    .suite-card .suite-body {
+      flex: 1;
+    }
+    .suite-card .suite-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 6px;
+    }
+    .suite-card h4 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .suite-card .suite-price {
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+    .suite-card .price {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--teal);
+      letter-spacing: -0.01em;
+    }
+    .suite-card .per {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-left: 3px;
+    }
+    .suite-card p {
+      font-size: 14px;
+      color: var(--body);
+      line-height: 1.65;
+    }
+    .suite-fineprint {
+      font-size: 12.5px;
+      color: var(--body);
+      text-align: center;
+      margin-top: 8px;
+      padding: 0 12px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      text-wrap: pretty;
+    }
+    .suite-fineprint strong { color: var(--ink); }
+
+    /* ── TRANSPAWRENCY CALLOUT ── */
+    .transpaw-section {
+      padding: 16px 50px 0;
+    }
+    .transpaw-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .transpaw-photo {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .transpaw-photo img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: center 50%;
+      display: block;
+    }
+    .transpaw-caption {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: var(--paper);
+      color: var(--teal);
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 10px;
+    }
+    .transpaw {
+      background: var(--teal-pale);
+      border-left: 4px solid var(--gold);
+      padding: 22px 26px;
+      border-radius: 10px;
+    }
+    .transpaw h4 {
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--teal);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .transpaw p {
+      font-size: 14.5px;
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    /* ── DEADLINE STRIP ── */
+    .deadline {
+      padding: 32px 50px 8px;
+    }
+    .deadline-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
-    .feat {
-      background: var(--paper);
-      padding: 26px 24px 24px;
-      border-radius: 4px;
-      border-top: 3px solid var(--gold);
+    .deadline-cell {
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 22px 24px;
       text-align: left;
     }
-    .feat:nth-child(2), .feat:nth-child(4) { border-top-color: var(--teal); }
-    .feat .num {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-    .feat h4 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 17px;
-      font-weight: 800;
-      color: var(--ink);
-      letter-spacing: -0.01em;
-      line-height: 1.2;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-    .feat p {
-      font-size: 13px;
-      line-height: 1.55;
-      color: var(--body);
-    }
-
-    /* ── PHOTO STRIP (circular, with paw watermark feel) ── */
-    .photo-strip {
-      padding: 52px 50px 48px;
-      background: var(--paper);
-      text-align: center;
-    }
-    .photo-strip .ek {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11.5px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold-deep);
-      margin-bottom: 12px;
-    }
-    .photo-strip h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: -0.018em;
-      color: var(--ink);
-      margin-bottom: 30px;
-      line-height: 1.15;
-    }
-    .photo-strip h3 em { font-style: normal; color: var(--teal); }
-    .circle-photo {
-      display: inline-block;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      overflow: hidden;
-      position: relative;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 32px rgba(31, 103, 118, 0.18);
-    }
-    .circle-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-    .circle-photo::after {
-      content: '🐾';
-      position: absolute;
-      top: 14px; left: 18px;
-      font-size: 26px;
-      opacity: 0.35;
-      filter: grayscale(0.3);
-    }
-
-    /* ── URGENCY STRIP ── */
-    .urgency {
-      background: var(--gold-pale);
-      padding: 22px 50px;
-      text-align: center;
-      border-top: 3px solid var(--gold);
-      border-bottom: 3px solid var(--gold);
-    }
-    .urgency .lbl {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13.5px;
-      color: var(--gold-deep);
-      font-weight: 700;
-    }
-    .urgency .lbl .dot {
-      width: 8px; height: 8px;
-      background: var(--gold-deep);
-      border-radius: 50%;
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-    .urgency .lbl strong { font-weight: 900; color: var(--ink); }
-
-    /* ── PRIMARY CTA ── */
-    .cta-section {
-      padding: 50px 50px 56px;
-      text-align: center;
-      background: var(--paper);
-    }
-    .cta-section h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 26px;
-      font-weight: 800;
-      letter-spacing: -0.015em;
-      color: var(--ink);
-      margin-bottom: 10px;
-      max-width: 420px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.18;
-    }
-    .cta-section p {
-      font-size: 14px;
-      color: var(--body);
-      margin-bottom: 22px;
-      max-width: 380px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .btn-primary {
-      display: inline-block;
+    .deadline-cell:first-child {
       background: var(--gold);
-      color: #fff;
-      text-decoration: none;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13px;
+      border-color: var(--gold);
+    }
+    .deadline-cell:first-child .deadline-label,
+    .deadline-cell:first-child .deadline-value,
+    .deadline-cell:first-child .deadline-sub {
+      color: var(--ink);
+    }
+    .deadline-label {
+      font-size: 10.5px;
       font-weight: 800;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      padding: 17px 38px;
-      border-radius: 999px;
-      box-shadow: 0 6px 24px rgba(217, 168, 58, 0.4);
-    }
-    .btn-primary:hover { background: var(--gold-deep); }
-    .btn-primary::after { content: ' ›'; }
-
-    .cta-aside {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-      margin-top: 18px;
-      text-transform: uppercase;
-    }
-    .cta-aside a { color: var(--teal); text-decoration: none; font-weight: 700; }
-
-    /* ── TIP SIDEBAR ── */
-    .tip {
-      background: var(--teal-pale);
-      margin: 0 50px 0;
-      padding: 26px 28px;
-      border-radius: 6px;
-      border-left: 4px solid var(--teal);
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .tip .icon {
-      font-size: 28px;
-      flex-shrink: 0;
-    }
-    .tip h4 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--teal);
+      color: var(--gold-deep);
       margin-bottom: 6px;
     }
-    .tip p {
-      font-size: 13px;
-      color: var(--ink-soft);
-      line-height: 1.6;
+    .deadline-value {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
     }
-    .tip-wrap { padding: 0 0 50px; background: var(--paper); }
+    .deadline-sub {
+      font-size: 12px;
+      color: var(--body);
+      line-height: 1.5;
+    }
 
-    /* ── VOTE BAND ── */
-    .vote {
-      background: var(--teal);
-      padding: 36px 50px;
-      text-align: center;
+    /* ── HOURS ── */
+    .hours {
+      padding: 48px 50px 36px;
     }
-    .vote .ek {
-      font-family: 'Montserrat', sans-serif;
+    .hours .ek {
+      color: var(--gold-deep);
       font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
+      font-weight: 800;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--gold);
       margin-bottom: 10px;
     }
-    .vote h4 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 20px;
+    .hours h3 {
+      font-size: 22px;
       font-weight: 800;
-      color: #fff;
-      max-width: 420px;
-      margin: 0 auto 16px;
-      letter-spacing: -0.01em;
-      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 18px;
     }
-    .vote-btn {
-      display: inline-block;
-      background: transparent;
-      color: var(--gold);
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 30px;
+      border-top: 1px solid var(--rule);
+      padding-top: 18px;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: var(--body);
+    }
+    .hours-row .day { font-weight: 700; color: var(--ink); }
+    .hours-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 18px;
+      font-style: italic;
+    }
+
+    /* ── VOTE FOR US BLOCK ── */
+    .vote-block {
+      background: #F4F8FA;
+      padding: 40px 50px 44px;
+      text-align: center;
+    }
+    .vote-image {
+      width: 100%;
+      max-width: 560px;
+      height: auto;
+      display: block;
+      margin: 0 auto 24px;
+      border-radius: 10px;
+    }
+    .vote-instructions {
+      max-width: 480px;
+      margin: 0 auto 22px;
+    }
+    .vote-instructions p {
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    .vote-host {
+      color: var(--teal);
+      font-weight: 800;
+      text-decoration: underline;
+    }
+    .vote-link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 460px;
+      margin: 0 auto;
+    }
+    .vote-link-btn {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 14px 18px;
       text-decoration: none;
-      border: 2px solid var(--gold);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 12px 26px;
-      border-radius: 999px;
+      color: var(--ink);
+      transition: border-color 0.15s, background 0.15s;
     }
-    .vote-btn:hover { background: var(--gold); color: var(--teal); }
+    .vote-link-btn:hover {
+      border-color: var(--teal);
+      background: var(--teal-pale);
+    }
+    .vote-link-num {
+      flex: 0 0 auto;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 14px;
+      color: var(--teal);
+      letter-spacing: 0.06em;
+      width: 28px;
+    }
+    .vote-link-label {
+      flex: 1;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 14.5px;
+      color: var(--ink);
+      text-align: left;
+      line-height: 1.3;
+    }
+    .vote-link-sub {
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--body);
+      display: inline;
+    }
+    .vote-link-arrow {
+      flex: 0 0 auto;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--teal);
+      line-height: 1;
+    }
+
 
     /* ── FOOTER ── */
     .footer {
-      background: var(--ink);
-      padding: 36px 40px 28px;
+      background: var(--paper);
+      padding: 48px 50px 28px;
       text-align: center;
-      color: rgba(255,255,255,0.55);
     }
     .footer img.flogo {
-      height: 56px;
+      height: 64px;
       width: auto;
-      display: block;
-      margin: 0 auto 16px;
-      filter: brightness(0) invert(1);
-      opacity: 0.95;
-    }
-    .footer-social {
-      display: inline-flex;
-      gap: 8px;
       margin-bottom: 22px;
+      display: inline-block;
     }
-    .footer-social a {
-      width: 34px; height: 34px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
+    .footer-addr {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1.4;
+      margin-bottom: 24px;
     }
-    .footer-social a:hover { background: var(--gold); }
-    .footer-social svg { width: 14px; height: 14px; fill: rgba(255,255,255,0.75); }
-    .footer-social a:hover svg { fill: var(--ink); }
-
-    .footer-info {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
-      letter-spacing: 0.04em;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.55);
-      padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+    .footer-tagline {
+      font-size: 16px;
+      font-style: italic;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 32px;
     }
-    .footer-info strong {
-      color: rgba(255,255,255,0.9);
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .footer-legal-block {
+      max-width: 540px;
+      margin: 0 auto;
     }
-    .footer-info a { color: var(--gold); text-decoration: none; font-weight: 700; }
-
-    .footer-legal {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10.5px;
-      color: rgba(255,255,255,0.32);
-      margin-top: 14px;
-      letter-spacing: 0.04em;
+    .footer-legal-block .legal-line {
+      font-size: 13px;
+      color: var(--teal);
+      line-height: 1.55;
+      margin-bottom: 6px;
     }
-    .footer-legal a { color: rgba(255,255,255,0.55); text-decoration: underline; }
+    .footer-legal-block .legal-line a {
+      color: var(--teal);
+      text-decoration: underline;
+    }
+    .footer-bar {
+      height: 18px;
+      background: var(--teal);
+    }
 
     /* ── MOBILE ── */
-    @media (max-width: 600px) {
-      .top-bar { padding: 10px 16px; }
-      .top-bar a { font-size: 11px; }
-      .header { padding: 14px 18px; flex-direction: column; gap: 10px; }
-      .header img.logo { height: 38px; }
+    @media only screen and (max-width: 640px) {
+      .header { flex-wrap: wrap; gap: 10px; padding: 16px 22px; justify-content: center; }
+      .header img.logo { height: 44px; }
+      .header-tagline { order: 3; flex: 0 0 100%; font-size: 20px; padding: 0; }
       .header-meta { gap: 14px; }
-      .header-meta a { font-size: 10.5px; }
-      .hero img { height: 360px; }
-      .hero-overlay { padding: 0 28px; }
-      .hero-title { font-size: 32px; }
-      .intro { padding: 44px 24px 36px; }
-      .intro h2 { font-size: 26px; }
-      .date-band { padding: 22px 24px; }
-      .date-band .when { font-size: 22px; }
-      .features { padding: 44px 22px 38px; }
-      .features-head h3 { font-size: 22px; }
-      .feat-grid { grid-template-columns: 1fr; }
-      .photo-strip { padding: 40px 22px; }
-      .photo-strip h3 { font-size: 22px; }
-      .circle-photo { width: 200px; height: 200px; }
-      .urgency { padding: 18px 22px; }
-      .cta-section { padding: 40px 24px 44px; }
+      .hero-band {
+        flex-direction: column;
+        gap: 24px;
+        padding: 36px 24px 40px;
+        background: var(--teal-light);
+        text-align: center;
+      }
+      .hero-paws-bg { display: none; }
+      .hero-photo-col { flex: 0 0 auto; }
+      .hero-photo-circle { width: 180px; height: 180px; }
+      .hero-text-col { text-align: center; }
+      .hero-title { font-size: 26px; }
+      .hero-lead { margin-left: auto; margin-right: auto; }
+      .intro { padding: 36px 24px 24px; }
+      .intro h2 { font-size: 22px; }
+      .date-band { padding: 24px 22px; }
+      .date-band .when { font-size: 20px; }
+      .date-band-paws { width: 110px; right: 8px; opacity: 0.5; }
+      .suites { padding: 36px 24px 12px; }
+      .suite-card { flex-direction: column; gap: 10px; padding: 22px 20px; }
+      .suite-card .badge { width: 48px; height: 48px; font-size: 16px; }
+      .transpaw-section { padding: 12px 24px 0; }
+      .transpaw-photos { grid-template-columns: 1fr; gap: 10px; }
+      .transpaw-photo img { height: 200px; }
+      .transpaw { padding: 20px 22px; }
+      .deadline { padding: 24px 24px 4px; }
+      .deadline-grid { grid-template-columns: 1fr; gap: 12px; }
+      .deadline-cell { padding: 18px 20px; }
+      .deadline-value { font-size: 18px; }
+      .hours { padding: 36px 24px 24px; }
+      .hours-grid { grid-template-columns: 1fr; gap: 10px; }
+      .vote-block { padding: 28px 22px 32px; }
+      .vote-link-btn { padding: 12px 14px; gap: 12px; }
+      .vote-link-label { font-size: 13.5px; }
+      .cta-section { padding: 44px 24px; }
       .cta-section h3 { font-size: 22px; }
-      .tip { margin: 0 22px; padding: 22px 22px; flex-direction: column; gap: 8px; }
-      .vote { padding: 30px 22px; }
       .footer { padding: 28px 22px; }
+      .footer { padding: 36px 22px 24px; }
+      .footer img.flogo { height: 56px; }
+      .footer-addr, .footer-tagline { font-size: 15px; }
+      .footer-legal-block .legal-line { font-size: 12px; }
     }
+
+    /* ── DARK MODE: keep brand zones (header/footer/frame) light to preserve logo ── */
+    @media (prefers-color-scheme: dark) {
+      body { background: #FFFFFF !important; }
+      .frame, .header, .footer { background: #FFFFFF !important; }
+      .header img.logo, .footer img.flogo { /* keep visible on white */ }
+    }
+    [data-ogsc] .frame, [data-ogsc] .header, [data-ogsc] .footer { background: #FFFFFF !important; }
   </style>
 </head>
 <body>
@@ -588,140 +676,215 @@
 
   <!-- TOP BAR -->
   <div class="top-bar">
-    <a href="#">Welcome to Collars Dog Resort!</a>
+    <a href="https://olathe.collarsdogresort.com/">Collars Dog Resort &middot; Olathe Location</a>
   </div>
 
   <!-- HEADER -->
   <div class="header">
-    <a href="#"><img class="logo" src="collars-logo.png" alt="Collars Dog Resort"></a>
+    <a href="https://olathe.collarsdogresort.com/"><img class="logo" src="data:image/png;base64,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" alt="Collars Dog Resort"></a>
+    <div class="header-tagline">From your Collars family with love</div>
     <div class="header-meta">
       <a class="phone" href="tel:8168328285">
         <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
         816.832.8285
       </a>
-      <a href="#">
-        <svg viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-        Live Webcam
-      </a>
     </div>
   </div>
 
-  <!-- HERO -->
-  <div class="hero">
-    <img src="https://0de1c7f487.sdkmedia.net/pub/a4v5/1rg4yr7u/y00/n8n/bnk/IMG_1896.JPG" alt="Dogs playing at Collars Dog Resort">
-    <div class="hero-overlay">
-      <div class="hero-eyebrow">Memorial Weekend · May 23–26</div>
-      <h1 class="hero-title">RESERVE YOUR PUP'S SPOT BEFORE WE'RE FULL.</h1>
-      <a href="#" class="hero-cta">Book Now</a>
+  <!-- HERO (light two-column with circular pup photo) -->
+  <section class="hero-band">
+    <svg class="hero-paws-bg" viewBox="0 0 280 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="#B3D1DA" opacity="0.55">
+        <!-- top-right paw, large -->
+        <g transform="translate(120, -10) scale(0.62) rotate(-22 50 50)">
+          <path d="M 27.9166 86.5699 L 33.0824 56.4879 C 33.0874 49.7944 40.2213 45.6756 46.0205 49.0181 L 74.6552 59.5853 C 80.5365 62.975 80.6341 71.475 74.8285 74.8268 L 41.0294 94.3408 C 35.2238 97.6926 27.9122 93.3595 27.9166 86.5699 Z M 1.247 58.4971 C -1.7991 62.4696 0.9565 69.6545 7.4043 74.5431 C 13.852 79.4317 21.5464 80.1738 24.5925 76.2013 C 27.6387 72.2288 24.8831 65.0439 18.4353 60.1554 C 11.9875 55.2668 4.2932 54.5246 1.247 58.4971 Z M 23.2376 33.1045 C 29.0991 38.6949 31.0274 46.1379 27.5472 49.729 C 24.0671 53.3201 16.494 51.7 10.6325 46.1096 C 4.771 40.5192 2.8428 33.0762 6.3229 29.4851 C 9.8045 25.8932 17.3776 27.5133 23.2376 33.1045 Z M 57.356 37.6845 C 58.3672 45.7119 63.2095 51.6901 68.1736 51.0398 C 73.137 50.388 76.3429 43.3526 75.3317 35.3252 C 74.3206 27.2978 69.4783 21.3195 64.5141 21.9699 C 59.5507 22.6217 56.3463 29.6563 57.356 37.6845 Z M 36.8495 11.8605 C 41.6996 10.6422 47.1814 16.0336 49.092 23.905 C 51.0027 31.7764 48.6206 39.1441 43.7692 40.3633 C 38.9191 41.5816 33.4374 36.1902 31.5267 28.3188 C 29.616 20.4474 31.9995 13.0789 36.8495 11.8605 Z"/>
+        </g>
+        <!-- left paw, medium -->
+        <g transform="translate(-15, 80) scale(0.50) rotate(35 50 50)">
+          <path d="M 27.9166 86.5699 L 33.0824 56.4879 C 33.0874 49.7944 40.2213 45.6756 46.0205 49.0181 L 74.6552 59.5853 C 80.5365 62.975 80.6341 71.475 74.8285 74.8268 L 41.0294 94.3408 C 35.2238 97.6926 27.9122 93.3595 27.9166 86.5699 Z M 1.247 58.4971 C -1.7991 62.4696 0.9565 69.6545 7.4043 74.5431 C 13.852 79.4317 21.5464 80.1738 24.5925 76.2013 C 27.6387 72.2288 24.8831 65.0439 18.4353 60.1554 C 11.9875 55.2668 4.2932 54.5246 1.247 58.4971 Z M 23.2376 33.1045 C 29.0991 38.6949 31.0274 46.1379 27.5472 49.729 C 24.0671 53.3201 16.494 51.7 10.6325 46.1096 C 4.771 40.5192 2.8428 33.0762 6.3229 29.4851 C 9.8045 25.8932 17.3776 27.5133 23.2376 33.1045 Z M 57.356 37.6845 C 58.3672 45.7119 63.2095 51.6901 68.1736 51.0398 C 73.137 50.388 76.3429 43.3526 75.3317 35.3252 C 74.3206 27.2978 69.4783 21.3195 64.5141 21.9699 C 59.5507 22.6217 56.3463 29.6563 57.356 37.6845 Z M 36.8495 11.8605 C 41.6996 10.6422 47.1814 16.0336 49.092 23.905 C 51.0027 31.7764 48.6206 39.1441 43.7692 40.3633 C 38.9191 41.5816 33.4374 36.1902 31.5267 28.3188 C 29.616 20.4474 31.9995 13.0789 36.8495 11.8605 Z"/>
+        </g>
+        <!-- mid-center paw, large -->
+        <g transform="translate(140, 180) scale(0.55) rotate(-8 50 50)">
+          <path d="M 27.9166 86.5699 L 33.0824 56.4879 C 33.0874 49.7944 40.2213 45.6756 46.0205 49.0181 L 74.6552 59.5853 C 80.5365 62.975 80.6341 71.475 74.8285 74.8268 L 41.0294 94.3408 C 35.2238 97.6926 27.9122 93.3595 27.9166 86.5699 Z M 1.247 58.4971 C -1.7991 62.4696 0.9565 69.6545 7.4043 74.5431 C 13.852 79.4317 21.5464 80.1738 24.5925 76.2013 C 27.6387 72.2288 24.8831 65.0439 18.4353 60.1554 C 11.9875 55.2668 4.2932 54.5246 1.247 58.4971 Z M 23.2376 33.1045 C 29.0991 38.6949 31.0274 46.1379 27.5472 49.729 C 24.0671 53.3201 16.494 51.7 10.6325 46.1096 C 4.771 40.5192 2.8428 33.0762 6.3229 29.4851 C 9.8045 25.8932 17.3776 27.5133 23.2376 33.1045 Z M 57.356 37.6845 C 58.3672 45.7119 63.2095 51.6901 68.1736 51.0398 C 73.137 50.388 76.3429 43.3526 75.3317 35.3252 C 74.3206 27.2978 69.4783 21.3195 64.5141 21.9699 C 59.5507 22.6217 56.3463 29.6563 57.356 37.6845 Z M 36.8495 11.8605 C 41.6996 10.6422 47.1814 16.0336 49.092 23.905 C 51.0027 31.7764 48.6206 39.1441 43.7692 40.3633 C 38.9191 41.5816 33.4374 36.1902 31.5267 28.3188 C 29.616 20.4474 31.9995 13.0789 36.8495 11.8605 Z"/>
+        </g>
+        <!-- bottom-left paw, medium -->
+        <g transform="translate(20, 270) scale(0.45) rotate(-30 50 50)">
+          <path d="M 27.9166 86.5699 L 33.0824 56.4879 C 33.0874 49.7944 40.2213 45.6756 46.0205 49.0181 L 74.6552 59.5853 C 80.5365 62.975 80.6341 71.475 74.8285 74.8268 L 41.0294 94.3408 C 35.2238 97.6926 27.9122 93.3595 27.9166 86.5699 Z M 1.247 58.4971 C -1.7991 62.4696 0.9565 69.6545 7.4043 74.5431 C 13.852 79.4317 21.5464 80.1738 24.5925 76.2013 C 27.6387 72.2288 24.8831 65.0439 18.4353 60.1554 C 11.9875 55.2668 4.2932 54.5246 1.247 58.4971 Z M 23.2376 33.1045 C 29.0991 38.6949 31.0274 46.1379 27.5472 49.729 C 24.0671 53.3201 16.494 51.7 10.6325 46.1096 C 4.771 40.5192 2.8428 33.0762 6.3229 29.4851 C 9.8045 25.8932 17.3776 27.5133 23.2376 33.1045 Z M 57.356 37.6845 C 58.3672 45.7119 63.2095 51.6901 68.1736 51.0398 C 73.137 50.388 76.3429 43.3526 75.3317 35.3252 C 74.3206 27.2978 69.4783 21.3195 64.5141 21.9699 C 59.5507 22.6217 56.3463 29.6563 57.356 37.6845 Z M 36.8495 11.8605 C 41.6996 10.6422 47.1814 16.0336 49.092 23.905 C 51.0027 31.7764 48.6206 39.1441 43.7692 40.3633 C 38.9191 41.5816 33.4374 36.1902 31.5267 28.3188 C 29.616 20.4474 31.9995 13.0789 36.8495 11.8605 Z"/>
+        </g>
+      </g>
+    </svg>
+    <div class="hero-photo-col">
+      <div class="hero-photo-circle">
+        <img src="collars-hero-pup.jpg#v=20260507e" alt="Happy golden retriever at Collars Dog Resort Olathe">
+      </div>
     </div>
-  </div>
+    <div class="hero-text-col">
+      <h1 class="hero-title">Pups have plans too. Book theirs at Olathe before we&rsquo;re full.</h1>
+      <p class="hero-lead">This is for our Olathe house only. Holiday weekends fill quickly here, so save your pup&rsquo;s spot, then go enjoy yours.</p>
+      <a href="https://collarclubolathe.portal.gingrapp.com/#/public/login" class="hero-cta">Reserve [Pet Name]'s Spot &nbsp;›</a>
+    </div>
+  </section>
 
   <!-- INTRO -->
   <section class="intro">
-    <div class="ek">The Headline This Month</div>
-    <h2>Holiday weekends fill <span class="accent">fast</span>. Once we're full, we're full.</h2>
-    <p>Memorial Weekend is right around the corner. If you're heading out of town, lock in your dog's stay at our Olathe house now — supervised play, comfortable overnights, and a team that genuinely likes dogs. <strong>That's it.</strong></p>
+    <h2>No crates. No hidden fees. Just <span class="accent">honest, all-inclusive boarding</span> in Olathe.</h2>
+    <p>Daycare, cameras, feeding, medication, and caregivers who actually like dogs are part of every stay. Just like humans, pups have preferences too, so pick the suite that fits yours.</p>
   </section>
 
   <!-- DATE BAND -->
   <div class="date-band">
-    <div class="lbl">Save the Dates</div>
-    <div class="when">FRI MAY 23 — MON MAY 26</div>
-    <div class="sub">Hosting at our Olathe location · 12732 S Pflumm Rd</div>
+    <div class="date-band-inner">
+      <div class="lbl">Save the Dates</div>
+      <div class="when">FRI MAY 23 – MON MAY 26</div>
+    </div>
+    <svg class="date-band-paws" viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="#B3D1DA" opacity="0.6">
+        <!-- paw 1: top, big -->
+        <g transform="translate(-5, -8) scale(0.30) rotate(-25 50 50)">
+          <path d="M 27.9166 86.5699 L 33.0824 56.4879 C 33.0874 49.7944 40.2213 45.6756 46.0205 49.0181 L 74.6552 59.5853 C 80.5365 62.975 80.6341 71.475 74.8285 74.8268 L 41.0294 94.3408 C 35.2238 97.6926 27.9122 93.3595 27.9166 86.5699 Z M 1.247 58.4971 C -1.7991 62.4696 0.9565 69.6545 7.4043 74.5431 C 13.852 79.4317 21.5464 80.1738 24.5925 76.2013 C 27.6387 72.2288 24.8831 65.0439 18.4353 60.1554 C 11.9875 55.2668 4.2932 54.5246 1.247 58.4971 Z M 23.2376 33.1045 C 29.0991 38.6949 31.0274 46.1379 27.5472 49.729 C 24.0671 53.3201 16.494 51.7 10.6325 46.1096 C 4.771 40.5192 2.8428 33.0762 6.3229 29.4851 C 9.8045 25.8932 17.3776 27.5133 23.2376 33.1045 Z M 57.356 37.6845 C 58.3672 45.7119 63.2095 51.6901 68.1736 51.0398 C 73.137 50.388 76.3429 43.3526 75.3317 35.3252 C 74.3206 27.2978 69.4783 21.3195 64.5141 21.9699 C 59.5507 22.6217 56.3463 29.6563 57.356 37.6845 Z M 36.8495 11.8605 C 41.6996 10.6422 47.1814 16.0336 49.092 23.905 C 51.0027 31.7764 48.6206 39.1441 43.7692 40.3633 C 38.9191 41.5816 33.4374 36.1902 31.5267 28.3188 C 29.616 20.4474 31.9995 13.0789 36.8495 11.8605 Z"/>
+        </g>
+        <!-- paw 2: middle, biggest, lower right -->
+        <g transform="translate(95, 25) scale(0.36) rotate(18 50 50)">
+          <path d="M 27.9166 86.5699 L 33.0824 56.4879 C 33.0874 49.7944 40.2213 45.6756 46.0205 49.0181 L 74.6552 59.5853 C 80.5365 62.975 80.6341 71.475 74.8285 74.8268 L 41.0294 94.3408 C 35.2238 97.6926 27.9122 93.3595 27.9166 86.5699 Z M 1.247 58.4971 C -1.7991 62.4696 0.9565 69.6545 7.4043 74.5431 C 13.852 79.4317 21.5464 80.1738 24.5925 76.2013 C 27.6387 72.2288 24.8831 65.0439 18.4353 60.1554 C 11.9875 55.2668 4.2932 54.5246 1.247 58.4971 Z M 23.2376 33.1045 C 29.0991 38.6949 31.0274 46.1379 27.5472 49.729 C 24.0671 53.3201 16.494 51.7 10.6325 46.1096 C 4.771 40.5192 2.8428 33.0762 6.3229 29.4851 C 9.8045 25.8932 17.3776 27.5133 23.2376 33.1045 Z M 57.356 37.6845 C 58.3672 45.7119 63.2095 51.6901 68.1736 51.0398 C 73.137 50.388 76.3429 43.3526 75.3317 35.3252 C 74.3206 27.2978 69.4783 21.3195 64.5141 21.9699 C 59.5507 22.6217 56.3463 29.6563 57.356 37.6845 Z M 36.8495 11.8605 C 41.6996 10.6422 47.1814 16.0336 49.092 23.905 C 51.0027 31.7764 48.6206 39.1441 43.7692 40.3633 C 38.9191 41.5816 33.4374 36.1902 31.5267 28.3188 C 29.616 20.4474 31.9995 13.0789 36.8495 11.8605 Z"/>
+        </g>
+        <!-- paw 3: bottom right, medium -->
+        <g transform="translate(180, 60) scale(0.26) rotate(-12 50 50)">
+          <path d="M 27.9166 86.5699 L 33.0824 56.4879 C 33.0874 49.7944 40.2213 45.6756 46.0205 49.0181 L 74.6552 59.5853 C 80.5365 62.975 80.6341 71.475 74.8285 74.8268 L 41.0294 94.3408 C 35.2238 97.6926 27.9122 93.3595 27.9166 86.5699 Z M 1.247 58.4971 C -1.7991 62.4696 0.9565 69.6545 7.4043 74.5431 C 13.852 79.4317 21.5464 80.1738 24.5925 76.2013 C 27.6387 72.2288 24.8831 65.0439 18.4353 60.1554 C 11.9875 55.2668 4.2932 54.5246 1.247 58.4971 Z M 23.2376 33.1045 C 29.0991 38.6949 31.0274 46.1379 27.5472 49.729 C 24.0671 53.3201 16.494 51.7 10.6325 46.1096 C 4.771 40.5192 2.8428 33.0762 6.3229 29.4851 C 9.8045 25.8932 17.3776 27.5133 23.2376 33.1045 Z M 57.356 37.6845 C 58.3672 45.7119 63.2095 51.6901 68.1736 51.0398 C 73.137 50.388 76.3429 43.3526 75.3317 35.3252 C 74.3206 27.2978 69.4783 21.3195 64.5141 21.9699 C 59.5507 22.6217 56.3463 29.6563 57.356 37.6845 Z M 36.8495 11.8605 C 41.6996 10.6422 47.1814 16.0336 49.092 23.905 C 51.0027 31.7764 48.6206 39.1441 43.7692 40.3633 C 38.9191 41.5816 33.4374 36.1902 31.5267 28.3188 C 29.616 20.4474 31.9995 13.0789 36.8495 11.8605 Z"/>
+        </g>
+      </g>
+    </svg>
   </div>
 
-  <!-- FEATURES -->
-  <section class="features">
-    <div class="features-head">
-      <div class="ek">What's Included</div>
-      <h3>Every stay at Collars covers the basics — and then some.</h3>
+  <!-- SUITES -->
+  <section class="suites">
+    <div class="suites-head">
+      <div class="ek">Pick Your Pup's Suite</div>
+      <h3>Two ways to stay. Both built around the dog, not the kennel.</h3>
+      <div class="sub">Every suite is glass-front and camera-ready, so check-ins are constant.</div>
     </div>
-    <div class="feat-grid">
-      <div class="feat">
-        <div class="num">/ 01</div>
-        <h4>Supervised Group Play</h4>
-        <p>Friends matched by size and temperament. Always staffed, always watching.</p>
+
+    <div class="suite-card">
+      <div class="badge">A</div>
+      <div class="suite-body">
+        <div class="suite-row">
+          <h4>The Apartment Suites</h4>
+          <div class="suite-price"><span class="price">$65</span><span class="per">/night</span></div>
+        </div>
+        <p>The largest suites in the building, with a live camera inside so you can check in any time. Plenty of room to stretch out or cuddle up with a sibling.</p>
       </div>
-      <div class="feat">
-        <div class="num">/ 02</div>
-        <h4>Overnight Comfort</h4>
-        <p>Clean, calm accommodations so your pup actually sleeps and wakes up rested.</p>
+    </div>
+
+    <div class="suite-card">
+      <div class="badge">S</div>
+      <div class="suite-body">
+        <div class="suite-row">
+          <h4>The Standard Suite</h4>
+          <div class="suite-price"><span class="price">$55</span><span class="per">/night</span></div>
+        </div>
+        <p>Open-air, glass-front suite with warm pearl walls. Calm, clean, and well-lit, so your pup actually rests instead of just waiting out the night.</p>
       </div>
-      <div class="feat">
-        <div class="num">/ 03</div>
-        <h4>Exercise &amp; Enrichment</h4>
-        <p>Activity, stimulation, and one-on-one attention from a team that loves dogs.</p>
+    </div>
+
+    <div class="suite-fineprint">
+      Per dog, per night. <strong>15% off additional dogs sharing a suite.</strong> Fromm food add-on&nbsp;available.
+    </div>
+  </section>
+
+  <!-- TRANSPAWRENCY -->
+  <section class="transpaw-section">
+    <div class="transpaw-photos">
+      <div class="transpaw-photo">
+        <img src="collars-suites.jpg#v=20260507c" alt="Row of empty glass-front sleeping suites at Collars Olathe, doors open, numbered 5 and 6">
+        <div class="transpaw-caption">Glass-front suites</div>
       </div>
-      <div class="feat">
-        <div class="num">/ 04</div>
-        <h4>Built for Dogs Only</h4>
-        <p>A facility designed top-to-bottom around four-legged guests. Spotlessly clean.</p>
+      <div class="transpaw-photo">
+        <img src="collars-lobby.jpg#v=20260507c" alt="Collars Olathe lobby with live-camera TVs streaming the daycare floor in real time">
+        <div class="transpaw-caption">Live cameras in the lobby</div>
+      </div>
+    </div>
+    <div class="transpaw">
+      <h4>transPAWrency</h4>
+      <p>Every suite has a glass front and a viewing window. Staff watches the floor, dogs can see what&rsquo;s happening, and nothing hides behind closed doors. <strong>Apartment Suites add a live in-suite camera</strong> so you can check in from anywhere while you&rsquo;re away.</p>
+    </div>
+  </section>
+
+  <!-- DEADLINE STRIP -->
+  <section class="deadline">
+    <div class="deadline-grid">
+      <div class="deadline-cell">
+        <div class="deadline-label">Book By</div>
+        <div class="deadline-value">Wed, May 21</div>
+        <div class="deadline-sub">Two days before opens room for new-pup temperament tests</div>
+      </div>
+      <div class="deadline-cell">
+        <div class="deadline-label">First Visit?</div>
+        <div class="deadline-value">First Day Free</div>
+        <div class="deadline-sub">New pups get a free day of daycare to settle in</div>
       </div>
     </div>
   </section>
 
-  <!-- PHOTO STRIP -->
-  <section class="photo-strip">
-    <div class="ek">Inside Olathe</div>
-    <h3>Where your pup will be staying — <em>see for yourself</em>.</h3>
-    <div class="circle-photo">
-      <img src="https://0de1c7f487.sdkmedia.net/pub/a4v5/1rg4yr7u/y00/n8n/bnk/IMG_1896.JPG" alt="Dogs at Collars Olathe">
+  <!-- HOURS -->
+  <section class="hours">
+    <div class="ek">Plan Your Drop-Off</div>
+    <h3>Business Hours</h3>
+    <div class="hours-grid">
+      <div class="hours-row"><span class="day">Mon – Fri</span><span>7:00am – 7:00pm</span></div>
+      <div class="hours-row"><span class="day">Saturday</span><span>9:00am – 4:00pm</span></div>
+      <div class="hours-row"><span class="day">Sunday</span><span>9:00am – 4:00pm</span></div>
+      <div class="hours-row"><span class="day">After Hours</span><span>Upon request</span></div>
     </div>
+    <div class="hours-note">Heading out before we open or back after we close? Call ahead and we'll set up an after-hours pick-up or drop-off.</div>
   </section>
 
-  <!-- URGENCY -->
-  <div class="urgency">
-    <div class="lbl">
-      <span class="dot"></span>
-      <span><strong>Limited spots remaining</strong> &nbsp;·&nbsp; Reservations are filling weekly</span>
-    </div>
-  </div>
+  <!-- VOTE FOR US BLOCK -->
+  <section class="vote-block">
+    <img class="vote-image" src="vote-for-us.jpg#v=20260507g" alt="Vote for Collars Dog Resort in The Pitch Best of KC 2026 — nominated for Best Dog Trainer, Best Pet Boarding/Daycare, Best Pet Groomer, and Best Place to Work (Under 50 Employees)">
 
-  <!-- PRIMARY CTA -->
-  <section class="cta-section">
-    <h3>Book your pup's Memorial Weekend stay today.</h3>
-    <p>Two minutes through Gingr or one phone call. We'll handle the rest.</p>
-    <a href="#" class="btn-primary">Reserve [Pet Name]'s Spot</a>
-    <div class="cta-aside">Or call <a href="tel:8168328285">816.832.8285</a></div>
+    <div class="vote-instructions">
+      <p>Click any nomination below to cast your vote at <a href="https://vote.thepitchkc.com" class="vote-host">vote.thepitchkc.com</a></p>
+    </div>
+
+    <div class="vote-link-list">
+      <a class="vote-link-btn" href="https://vote.thepitchkc.com/goods-and-services/best-dog-training">
+        <span class="vote-link-num">01</span>
+        <span class="vote-link-label">Best Dog Trainer</span>
+        <span class="vote-link-arrow">›</span>
+      </a>
+      <a class="vote-link-btn" href="https://vote.thepitchkc.com/goods-and-services/best-pet-boarding-daycare">
+        <span class="vote-link-num">02</span>
+        <span class="vote-link-label">Best Pet Boarding / Daycare</span>
+        <span class="vote-link-arrow">›</span>
+      </a>
+      <a class="vote-link-btn" href="https://vote.thepitchkc.com/goods-and-services/best-pet-groomer">
+        <span class="vote-link-num">03</span>
+        <span class="vote-link-label">Best Pet Groomer</span>
+        <span class="vote-link-arrow">›</span>
+      </a>
+      <a class="vote-link-btn" href="https://vote.thepitchkc.com/people-and-places/best-place-to-work-under-50-employees">
+        <span class="vote-link-num">04</span>
+        <span class="vote-link-label">Best Place to Work <span class="vote-link-sub">(Under 50 Employees)</span></span>
+        <span class="vote-link-arrow">›</span>
+      </a>
+    </div>
   </section>
-
-  <!-- TIP -->
-  <div class="tip-wrap">
-    <div class="tip">
-      <div class="icon">☀️</div>
-      <div>
-        <h4>Quick Holiday Tip</h4>
-        <p>Memorial Weekend temps in Kansas climb fast — asphalt can burn paw pads in under sixty seconds. Press your hand flat to the pavement for seven seconds. If you can't hold it there, your pup shouldn't walk on it.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- VOTE -->
-  <div class="vote">
-    <div class="ek">Help Shape What's Next</div>
-    <h4>We're asking the Collars community to vote on our next service.</h4>
-    <a href="#" class="vote-btn">Cast Your Vote</a>
-  </div>
 
   <!-- FOOTER -->
   <div class="footer">
-    <a href="#"><img class="flogo" src="collars-logo.png" alt="Collars Dog Resort"></a>
+    <a href="https://olathe.collarsdogresort.com/"><img class="flogo" src="data:image/png;base64,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" alt="Collars Dog Resort"></a>
 
-    <div class="footer-social">
-      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88V14.9H7.9V12h2.54V9.8c0-2.5 1.5-3.9 3.78-3.9 1.1 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.9h-2.33v6.98A10 10 0 0 0 22 12z"/></svg></a>
-      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58 0 4.85.07 3.25.15 4.77 1.7 4.92 4.92.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.15 3.22-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58 0-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s0-3.58.07-4.85C2.4 3.93 3.92 2.38 7.15 2.23 8.42 2.18 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0m0 5.84a6.16 6.16 0 1 0 0 12.32A6.16 6.16 0 0 0 12 5.84M12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8m6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88"/></svg></a>
+    <div class="footer-addr">
+      12732 S Pflumm Rd<br>
+      Olathe, Kansas 66062
     </div>
 
-    <div class="footer-info">
-      <strong>Collars Dog Resort · Olathe</strong><br>
-      12732 S Pflumm Rd, Olathe, KS 66062<br>
-      <a href="tel:8168328285">816.832.8285</a> &nbsp;·&nbsp; <a href="#">collarsdogresort.com</a>
-    </div>
-
-    <div class="footer-legal">
-      Copyright © The Collar Club, LLC · All Rights Reserved · <a href="#">Unsubscribe</a>
+    <div class="footer-legal-block">
+      <div class="legal-line">Copyright © The Collar Club, LLC &middot; All Rights Reserved</div>
+      <div class="legal-line">You have received this e-mail based on your GINGR preferences. If you would like to unsubscribe click here: <a href="#">Click here to unsubscribe</a>.</div>
     </div>
   </div>
+
+  <div class="footer-bar"></div>
 
 </div>
 </body>

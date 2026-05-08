@@ -593,16 +593,14 @@
       align-items: center;
     }
 
-    /* before/after slider */
+    /* before/after slider — height set by JS to match the taller email */
     .slider {
       position: relative;
       max-width: 720px;
-      height: 720px;
       margin: 0 auto;
       background: #fff;
       border: 1px solid var(--rule);
       border-radius: 6px;
-      overflow: hidden;
       user-select: none;
       -webkit-user-select: none;
       cursor: ew-resize;
@@ -645,10 +643,10 @@
       z-index: 3;
       pointer-events: none;
     }
+    /* grip uses position:fixed so it follows the page scroll and stays in
+       the viewport while the user reads through a long email */
     .slider-grip {
-      position: absolute;
-      top: 50%;
-      left: 50%;
+      position: fixed;
       width: 44px;
       height: 44px;
       border-radius: 50%;
@@ -660,6 +658,7 @@
       align-items: center;
       justify-content: center;
       pointer-events: none;
+      will-change: top, left;
     }
     .slider-grip::before, .slider-grip::after {
       content: "";
@@ -763,7 +762,7 @@
       .week-list { grid-template-columns: 1fr; }
       .compare-table { font-size: 13px; }
       .compare-table th, .compare-table td { padding: 12px 14px; }
-      .slider { height: 560px; }
+      /* slider height set by JS, no override needed */
       .audit-footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -1131,14 +1130,70 @@
     var buttons = document.querySelectorAll('.viewport-toggle button');
     if (!slider || !beforeLayer || !divider || !grip) return;
 
+    var iframes = slider.querySelectorAll('iframe');
     var dragging = false;
+    var currentPct = 50;
 
+    // ── height sync ────────────────────────────────────────────────────
+    // Both emails are same-origin so we can read scrollHeight. Set the
+    // slider stage to the taller of the two iframes, and lock each iframe
+    // height to that so neither needs an internal scrollbar. The page
+    // itself becomes the scroll context.
+    function measureAndSyncHeight() {
+      var maxHeight = 0;
+      iframes.forEach(function (iframe) {
+        try {
+          var doc = iframe.contentDocument || iframe.contentWindow.document;
+          if (!doc || !doc.body) return;
+          // reset first so we measure natural height, not a previously-set value
+          iframe.style.height = 'auto';
+          var h = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight);
+          if (h > maxHeight) maxHeight = h;
+        } catch (err) {}
+      });
+      if (maxHeight < 400) maxHeight = 720; // fallback while iframes are still loading
+      slider.style.height = maxHeight + 'px';
+      iframes.forEach(function (iframe) {
+        iframe.style.height = maxHeight + 'px';
+      });
+      updateGrip();
+    }
+
+    iframes.forEach(function (iframe) {
+      iframe.addEventListener('load', function () {
+        // give email styles a tick to settle
+        setTimeout(measureAndSyncHeight, 60);
+      });
+    });
+
+    // ── slider position ────────────────────────────────────────────────
     function setPosition(pct) {
       pct = Math.max(0, Math.min(100, pct));
+      currentPct = pct;
       beforeLayer.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
       divider.style.left = pct + '%';
-      grip.style.left = pct + '%';
       slider.setAttribute('aria-valuenow', Math.round(pct));
+      updateGrip();
+    }
+
+    function updateGrip() {
+      var rect = slider.getBoundingClientRect();
+      var viewportH = window.innerHeight;
+
+      // hide grip when slider is out of view
+      if (rect.bottom < 40 || rect.top > viewportH - 40) {
+        grip.style.display = 'none';
+        return;
+      }
+      grip.style.display = 'flex';
+
+      // horizontal: the divider's screen X
+      var x = rect.left + (rect.width * currentPct / 100);
+      // vertical: viewport center, clamped to slider bounds
+      var y = Math.max(rect.top + 30, Math.min(rect.bottom - 30, viewportH / 2));
+
+      grip.style.left = x + 'px';
+      grip.style.top = y + 'px';
     }
 
     function clientXToPct(clientX) {
@@ -1146,7 +1201,7 @@
       return ((clientX - rect.left) / rect.width) * 100;
     }
 
-    // mouse
+    // ── input handlers ─────────────────────────────────────────────────
     slider.addEventListener('mousedown', function (e) {
       dragging = true;
       setPosition(clientXToPct(e.clientX));
@@ -1158,7 +1213,6 @@
     });
     window.addEventListener('mouseup', function () { dragging = false; });
 
-    // touch
     slider.addEventListener('touchstart', function (e) {
       dragging = true;
       setPosition(clientXToPct(e.touches[0].clientX));
@@ -1170,25 +1224,35 @@
     }, { passive: false });
     slider.addEventListener('touchend', function () { dragging = false; });
 
-    // keyboard
     slider.addEventListener('keydown', function (e) {
-      var current = parseFloat(slider.getAttribute('aria-valuenow')) || 50;
-      if (e.key === 'ArrowLeft') { setPosition(current - 5); e.preventDefault(); }
-      if (e.key === 'ArrowRight') { setPosition(current + 5); e.preventDefault(); }
+      if (e.key === 'ArrowLeft') { setPosition(currentPct - 5); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { setPosition(currentPct + 5); e.preventDefault(); }
     });
 
-    // viewport toggle
+    // ── viewport toggle ────────────────────────────────────────────────
     buttons.forEach(function (btn) {
       btn.addEventListener('click', function () {
         var mode = btn.getAttribute('data-viewport');
         buttons.forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
         slider.classList.toggle('viewport-mobile', mode === 'mobile');
+        // iframe widths change → email reflows → re-measure
+        setTimeout(measureAndSyncHeight, 100);
       });
     });
 
-    // initial position
+    // ── lifecycle ──────────────────────────────────────────────────────
+    window.addEventListener('scroll', updateGrip, { passive: true });
+    window.addEventListener('resize', function () {
+      measureAndSyncHeight();
+      updateGrip();
+    });
+
     setPosition(50);
+    // safety net — re-measure once after full load
+    window.addEventListener('load', function () {
+      setTimeout(measureAndSyncHeight, 200);
+    });
   })();
 </script>
 

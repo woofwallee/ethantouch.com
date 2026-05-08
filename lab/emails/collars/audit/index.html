@@ -647,14 +647,14 @@
 <!-- INTRO -->
 <section class="intro">
   <div class="eyebrow">Field Notes / Email Audit</div>
-  <h1>A quick audit of the <em>Memorial Weekend</em> send.</h1>
-  <p class="lead">A short, specific look at what's working and what's broken in the Memorial Weekend boarding sends. The reimagined version pairs with the <strong>Olathe</strong> email; Waldo received a near-identical send the same day with a few of its own issues. Findings call out which location each one applies to. Paired with a reimagined version of the Olathe email.</p>
+  <h1>The <em>Memorial Weekend</em> send, audited.</h1>
+  <p class="lead">Two sends, same Gingr template, two different sets of bugs. Seven issues. Three to fix first. Findings tag the location each applies to.</p>
 </section>
 
 <div class="meta-bar">
-  <span><strong>Primary source:</strong> "Memorial Weekend Boarding at Collars Olathe 🐾" (sent May 6, 12:38 PM)</span>
-  <span><strong>Companion send:</strong> "Memorial Weekend Boarding at Collars Waldo 🐾" (May 6, 12:26 PM)</span>
-  <span><strong>Sender:</strong> via marketing.gingrapp.com</span>
+  <span><strong>Olathe send:</strong> May 6, 12:38 PM</span>
+  <span><strong>Waldo send:</strong> May 6, 12:26 PM</span>
+  <span><strong>Sender:</strong> marketing.gingrapp.com</span>
   <span><strong>Inbox tab:</strong> Promotions</span>
 </div>
 
@@ -663,19 +663,19 @@
 <!-- SUMMARY -->
 <section class="summary">
   <div class="summary-eyebrow">At a glance</div>
-  <h2>Seven issues across the two sends. Three to pay attention to first.</h2>
+  <h2>Seven issues. Severity stacks heavy in the middle.</h2>
   <div class="summary-grid">
     <div class="summary-stat">
       <div class="num">2</div>
-      <div class="lbl"><strong style="color:var(--red);">High-severity</strong> findings — broken footer links and a vote-campaign CTA that landed customers on the wrong page</div>
+      <div class="lbl"><strong style="color:var(--red);">High</strong> — broken footer links and a vote-campaign CTA pointed at the wrong page</div>
     </div>
     <div class="summary-stat">
       <div class="num">4</div>
-      <div class="lbl"><strong style="color:var(--gold);">Medium-severity</strong> findings — social-handle drift, weak subject + preheader, Promotions-tab placement, and the multi-section newsletter cadence going dark</div>
+      <div class="lbl"><strong style="color:var(--gold);">Medium</strong> — handle drift, weak subject + preheader, Promotions placement, newsletter cadence collapse</div>
     </div>
     <div class="summary-stat">
       <div class="num">1</div>
-      <div class="lbl"><strong style="color:var(--green);">Low-severity</strong> finding — two-location segmentation is half-implemented (Olathe and Waldo don't cross-reference each other when one fills up)</div>
+      <div class="lbl"><strong style="color:var(--green);">Low</strong> — two-location segmentation is half-implemented</div>
     </div>
   </div>
 </section>
@@ -691,31 +691,26 @@
         <div class="snapshot-loc">Olathe</div>
         <div class="snapshot-time">May 6 · 12:38 PM</div>
       </div>
-      <div class="snapshot-subject">Subject: <strong>Memorial Weekend Boarding at Collars Olathe 🐾</strong></div>
 
       <div class="snapshot-row">
         <span class="icon bad">✗</span>
-        <span class="label"><strong>Vote CTA broken</strong> — links to Gingr account login instead of vote.thepitchkc.com</span>
-      </div>
-      <div class="snapshot-row">
-        <span class="icon ok">✓</span>
-        <span class="label"><strong>Service links mostly working</strong> — Daycare, Boarding, Training all use the correct subdomain URLs</span>
+        <span class="label"><strong>Vote CTA</strong> points to Gingr login, not vote.thepitchkc.com</span>
       </div>
       <div class="snapshot-row">
         <span class="icon warn">⚠</span>
-        <span class="label"><strong>About Us misrouted</strong> to a puppy-training page; Testimonials goes to a Google Search</span>
+        <span class="label"><strong>About Us</strong> misroutes to a puppy-training page; Testimonials goes to Google Search</span>
       </div>
       <div class="snapshot-row">
         <span class="icon bad">✗</span>
-        <span class="label"><strong>Instagram icon links to a deleted account</strong> (collarclubolathe) — clicks land on Instagram's "page not available" error</span>
+        <span class="label"><strong>Instagram icon</strong> links to a deleted account (@collarclubolathe)</span>
       </div>
       <div class="snapshot-row">
         <span class="icon warn">⚠</span>
-        <span class="label"><strong>Facebook on new brand, no LinkedIn in footer</strong> — channel coverage incomplete vs Waldo</span>
+        <span class="label"><strong>No LinkedIn icon</strong> in footer (Waldo has one)</span>
       </div>
       <div class="snapshot-row">
         <span class="icon dash">—</span>
-        <span class="label">No preheader, no personalization, lands in Promotions tab</span>
+        <span class="label">No preheader, no personalization, lands in Promotions</span>
       </div>
     </div>
 
@@ -724,31 +719,26 @@
         <div class="snapshot-loc">Waldo</div>
         <div class="snapshot-time">May 6 · 12:26 PM</div>
       </div>
-      <div class="snapshot-subject">Subject: <strong>Memorial Weekend Boarding at Collars Waldo 🐾</strong></div>
 
       <div class="snapshot-row">
-        <span class="icon ok">✓</span>
-        <span class="label"><strong>Vote text link works</strong> — Cast Your Vote correctly points to vote.thepitchkc.com</span>
+        <span class="icon bad">✗</span>
+        <span class="label"><strong>Best of KC badge image</strong> links to /bestofkc20/ (2020 archive)</span>
       </div>
       <div class="snapshot-row">
         <span class="icon bad">✗</span>
-        <span class="label"><strong>Best of KC badge image links to /bestofkc20/</strong> — the 2020 archive page, not the 2026 round</span>
+        <span class="label"><strong>5 of 7 footer links</strong> return 404 (apex-domain URLs)</span>
       </div>
       <div class="snapshot-row">
         <span class="icon bad">✗</span>
-        <span class="label"><strong>5 of 7 footer links return 404</strong> — apex-domain URLs (Dayplay, Board, Groom, Testimonials, About Us)</span>
-      </div>
-      <div class="snapshot-row">
-        <span class="icon bad">✗</span>
-        <span class="label"><strong>Instagram icon links to a deleted account</strong> (collarclubkc) — clicks land on Instagram's "page not available" error</span>
+        <span class="label"><strong>Instagram icon</strong> links to a deleted account (@collarclubkc)</span>
       </div>
       <div class="snapshot-row">
         <span class="icon warn">⚠</span>
-        <span class="label"><strong>Facebook still on the old "Collar Club KC" handle</strong> — works, but legacy brand naming</span>
+        <span class="label"><strong>Facebook</strong> still on legacy "Collar Club KC" handle</span>
       </div>
       <div class="snapshot-row">
         <span class="icon dash">—</span>
-        <span class="label">No preheader, no personalization, lands in Promotions tab</span>
+        <span class="label">No preheader, no personalization, lands in Promotions</span>
       </div>
     </div>
 
@@ -759,46 +749,27 @@
 <section class="findings">
   <div class="findings-head">
     <div class="eyebrow">Findings</div>
-    <h2>What I caught in three minutes.</h2>
+    <h2>Seven things, in order of impact.</h2>
   </div>
 
   <!-- Finding 1 -->
   <article class="finding">
     <div class="finding-head">
       <div class="finding-num">01</div>
-      <div class="finding-title">Footer link integrity — broken on Waldo, sloppy on Olathe</div>
+      <div class="finding-title">Footer links — broken on Waldo, sloppy on Olathe</div>
       <span class="severity high">High</span>
     </div>
-    <p>Same Gingr template, two completely different execution states. I followed every footer link in both sends to its real destination. Waldo's footer is mostly broken; Olathe's is mostly correct but has lazy substitutions.</p>
+    <p>I followed every footer link in both sends. Same Gingr template, two completely different execution states.</p>
 
-    <p><strong>Waldo (5 of 7 service-strip links return 404, plus a dead Instagram link):</strong></p>
-    <ul>
-      <li>Dayplay → <code>http://collarsdogresort.com/dayplay/</code> — 404</li>
-      <li>Board → <code>http://collarsdogresort.com/boarding/</code> — 404</li>
-      <li>Groom → <code>http://collarsdogresort.com/grooming/</code> — 404</li>
-      <li>Testimonials → <code>http://collarsdogresort.com/reviews/</code> — 404</li>
-      <li>About Us → <code>http://collarsdogresort.com/about-us/</code> — 404</li>
-      <li>Directions → Google Search results for "collar club" (not a real map link)</li>
-      <li>Contact Us → <code>tel:8168328285</code> (mislabeled as a page link, actually a phone tap)</li>
-      <li><strong>Instagram icon → <code>instagram.com/collarclubkc/</code> — account is gone</strong> ("Sorry, this page isn't available")</li>
-    </ul>
+    <p><strong>Waldo</strong> — Dayplay, Board, Groom, Testimonials, About Us all 404 on the apex domain. Directions points to a Google Search, not a map. Instagram icon links to <code>@collarclubkc</code>, which Instagram returns "page not available" for.</p>
 
-    <p><strong>Olathe (4 issues):</strong></p>
-    <ul>
-      <li>Daycare → <code>olathe.collarsdogresort.com/dog-day-care-in-olathe/</code> — works ✓</li>
-      <li>Boarding → <code>olathe.collarsdogresort.com/dog-boarding-in-olathe/</code> — works ✓</li>
-      <li>Training → <code>olathe.collarsdogresort.com/dog-training-in-olathe/</code> — works ✓</li>
-      <li>Testimonials → Google Search results page (no real testimonials page exists)</li>
-      <li>About Us → <code>olathe.collarsdogresort.com/puppy-training-in-olathe/</code> — wrong destination (lands on a training page, not About)</li>
-      <li>Directions → Google Maps directions to 12732 S Pflumm Rd — works ✓</li>
-      <li><strong>Instagram icon → <code>instagram.com/collarclubolathe/</code> — account is gone</strong> ("Sorry, this page isn't available")</li>
-    </ul>
+    <p><strong>Olathe</strong> — service subdomain links work, but About Us drops customers on a puppy-training page, Testimonials goes to Google Search, and the Instagram icon links to <code>@collarclubolathe</code>, also deleted.</p>
 
-    <p>Same brand, same Gingr template, totally inconsistent execution. Waldo subscribers hit a dead end on five of seven links. Olathe subscribers click "About Us" and learn about puppy training. Neither send has a real testimonials destination.</p>
+    <p>Five of seven Waldo links dead. About Us misrouted on Olathe. Both Instagram icons dead. Neither send has a real testimonials destination.</p>
 
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
-      <p>Repoint the Waldo footer to the <code>waldo.collarsdogresort.com/{slug}/</code> subdomain pattern that Olathe already uses correctly. Build a real testimonials page on each subdomain or strip the link. Repoint Olathe's About Us to a real about page. Or skip the whole service strip — the reimagined Olathe email drops it and keeps only social icons.</p>
+      <p>Repoint Waldo to the <code>waldo.collarsdogresort.com/{slug}/</code> pattern Olathe already uses. Repoint Olathe's About Us. Build a testimonials page on each subdomain or strip the link. The reimagined Olathe send drops the service strip entirely and keeps only working social icons.</p>
     </div>
   </article>
 
@@ -806,19 +777,19 @@
   <article class="finding">
     <div class="finding-head">
       <div class="finding-num">02</div>
-      <div class="finding-title">Pitch vote campaign is broken on both emails — different bugs each</div>
+      <div class="finding-title">Pitch vote campaign broken on both sends, different bugs each</div>
       <span class="severity high">High</span>
     </div>
-    <p>Both sends ran the same Pitch Best of KC vote-for-us promo, and both sends broke it differently:</p>
+    <p>Same Best of KC promo. Both sends broke it differently:</p>
     <ul>
-      <li><strong>Olathe</strong> "Cast Your Vote!" button → <code>collarclubolathe.portal.gingrapp.com/#/public/login</code>. Recipients land on a Gingr account login screen, not the vote page. They can't vote at all from this link.</li>
-      <li><strong>Waldo</strong> "Cast Your Vote!" text link → <code>vote.thepitchkc.com</code> ✓ (works). But the Best of KC <strong>badge image</strong> next to it links to <code>thepitchkc.com/bestofkc20/</code> — that's the <strong>2020</strong> archive page, not the 2026 nomination round.</li>
+      <li><strong>Olathe</strong> "Cast Your Vote!" button → Gingr account login screen. Customers can't vote at all from this link.</li>
+      <li><strong>Waldo</strong> "Cast Your Vote!" text link works, but the Best of KC <strong>badge image</strong> next to it links to <code>thepitchkc.com/bestofkc20/</code> — the 2020 archive, not the 2026 round.</li>
     </ul>
-    <p>Net effect: every Olathe customer who clicked the vote button hit a dead end. Every Waldo customer who clicked the badge instead of the text link landed on a six-year-old archived contest. The vote campaign reached zero of the customers it was supposed to mobilize through these specific paths. <strong>The send already went out</strong>, so the lost clicks aren't recoverable through a template change. The Pitch Best of KC voting round ran <strong>April 22 through May 13, 2026</strong>. Whether a recovery send is worth running depends on how much voting time remained when this audit was read. The bigger value is in the process lesson, not the recapture.</p>
+    <p>The Pitch round ran April 22 through May 13, 2026. The send already went out. Lost clicks aren't recoverable through a template fix.</p>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
-      <p><strong>1. Optional recovery send — only if voting is still meaningfully open.</strong> Short follow-up to Olathe subscribers: "Our vote link last week pointed to the wrong page. Here's the working one — <code>vote.thepitchkc.com</code>." Two paragraphs, the corrected URL as the only CTA, no other pitch. Worth running if there are still several days left in the voting window when this is read; not worth the operational lift if the round is closing within 48 hours or has already closed. Either way, the value is in owning the bug publicly more than in vote recapture — owners who fix mistakes in the open earn more trust than ones who hope nobody noticed. Same playbook applies the next time a campaign-bound CTA goes out broken.</p>
-      <p><strong>2. Pre-send link check on every campaign going forward.</strong> This is the durable fix and the part that matters most. A two-minute QA pass that follows every CTA to its real destination before any campaign hits send. A single dead CTA should not be able to take down a multi-nomination vote drive again. The reimagined Olathe email already wires all four nominations directly to their real Pitch URLs by default.</p>
+      <p><strong>1. Optional recovery send</strong> if voting is still meaningfully open when this is read. Two paragraphs to Olathe subscribers, working URL as the only CTA. Owning the bug in the open earns more trust than hoping nobody noticed.</p>
+      <p><strong>2. Pre-send link check on every campaign.</strong> Two-minute QA that follows every CTA to its real destination before send. One dead CTA shouldn't take down a multi-nomination vote drive. The reimagined Olathe send wires all four nominations to their real Pitch URLs by default.</p>
     </div>
   </article>
 
@@ -826,24 +797,24 @@
   <article class="finding">
     <div class="finding-head">
       <div class="finding-num">03</div>
-      <div class="finding-title">Social handles drift across locations — three brand naming systems live at once</div>
+      <div class="finding-title">Social handles drift across locations</div>
       <span class="severity medium">Medium</span>
     </div>
-    <p>The legal entity is <strong>The Collar Club, LLC</strong>. The consumer-facing brand is <strong>Collars Dog Resort</strong>. The actual social handles linked from each email tell a third story — handles are mid-migration, partially per-location, and not consistent across channels:</p>
+    <p>Three naming systems live at once: legal entity <strong>The Collar Club, LLC</strong>, consumer brand <strong>Collars Dog Resort</strong>, and the legacy "Collar Club KC" handles still wired into the footer:</p>
     <table class="compare-table" style="margin: 8px 0 14px;">
       <thead>
-        <tr><th>Channel</th><th>Olathe email links to</th><th>Waldo email links to</th></tr>
+        <tr><th>Channel</th><th>Olathe email</th><th>Waldo email</th></tr>
       </thead>
       <tbody>
-        <tr><td>Facebook</td><td class="col-new">CollarsDogResortOlathe (new brand)</td><td class="col-orig">CollarClubKC (old brand)</td></tr>
-        <tr><td>Instagram</td><td class="col-orig"><strong style="color:#d76a6a;">collarclubolathe — account no longer exists</strong></td><td class="col-orig"><strong style="color:#d76a6a;">collarclubkc — account no longer exists</strong></td></tr>
-        <tr><td>LinkedIn</td><td class="col-orig">— (no LinkedIn icon in Olathe footer)</td><td class="col-new">collarsdogresort (new brand)</td></tr>
+        <tr><td>Facebook</td><td class="col-new">CollarsDogResortOlathe (new)</td><td class="col-orig">CollarClubKC (old)</td></tr>
+        <tr><td>Instagram</td><td class="col-orig"><strong style="color:#d76a6a;">@collarclubolathe — deleted</strong></td><td class="col-orig"><strong style="color:#d76a6a;">@collarclubkc — deleted</strong></td></tr>
+        <tr><td>LinkedIn</td><td class="col-orig">missing from footer</td><td class="col-new">collarsdogresort (new)</td></tr>
       </tbody>
     </table>
-    <p><strong>Both</strong> Instagram links — Olathe's <code>collarclubolathe</code> and Waldo's <code>collarclubkc</code> — point to deleted accounts. Anyone clicking the IG icon on either email gets Instagram's "Sorry, this page isn't available" page. The brand isn't on Instagram at the linked handles at all right now, which means every social-icon click on IG is a credibility hit. Three of five social handles still carry the legacy "Collar Club" naming on top of that. New customers searching for "Collars Dog Resort" on Instagram or Facebook won't land on the right account. Olathe customers don't see a LinkedIn link at all, even though one exists.</p>
+    <p>Both Instagram icons point to deleted accounts. Every IG click is a credibility hit. New customers searching for "Collars Dog Resort" on social won't find the right account.</p>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
-      <p>Pick one handle pattern and migrate everything. <code>@collarsdogresort</code> as the master handle, with optional <code>@collarsdogresortolathe</code> / <code>@collarsdogresortwaldo</code> if you want location-specific accounts. Add LinkedIn to the Olathe footer template too — it's a missed credibility signal.</p>
+      <p>Pick one pattern and migrate. <code>@collarsdogresort</code> as the master handle, with location-specific accounts if useful. Add LinkedIn to the Olathe footer.</p>
     </div>
   </article>
 
@@ -851,21 +822,21 @@
   <article class="finding">
     <div class="finding-head">
       <div class="finding-num">04</div>
-      <div class="finding-title">Subject line and preheader leave revenue on the table</div>
+      <div class="finding-title">Subject and preheader leave open rate on the table</div>
       <span class="severity medium">Medium</span>
     </div>
-    <p>Olathe subject: <code>Memorial Weekend Boarding at Collars Olathe 🐾</code>. Waldo subject: same template with the location swapped. Functional but flat for both. Preheader: <code>Memorial Weekend Boarding!</code> (literally the first H1 of the email body, repeated as preview text — the preheader was never explicitly set on either send).</p>
+    <p>Subject works (emoji is good). Preheader was never set — both sends auto-pull the H1 (<code>Memorial Weekend Boarding!</code>) as preview text, repeating the subject line.</p>
     <div class="litmus-callout">
       <div class="litmus-label">
         <span class="tag">Industry Benchmark</span>
         <span class="source">Litmus State of Email 2026 · Jay Schwedelson, p. 30</span>
       </div>
-      <blockquote>"Open rates are extremely important. Directionally, if one variant has an emoji and one doesn't, and the emoji one gets a 20% higher open rate, the emoji one wins."</blockquote>
-      <p class="application">Collars keeps the emoji <strong>✓</strong>, but wastes the preheader — the second-most-read piece of copy after the subject.</p>
+      <blockquote>"If one variant has an emoji and one doesn't, and the emoji one gets a 20% higher open rate, the emoji one wins."</blockquote>
+      <p class="application">Collars keeps the emoji. The preheader is wasted — the second-most-read line of copy after the subject.</p>
     </div>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
-      <p>Set a real preheader for every send. For Memorial Weekend, something like <code>Holiday weekends fill quickly — book before they're gone.</code> Adds zero send-time effort, lifts open rate measurably.</p>
+      <p>Set a real preheader on every send. For Memorial Weekend: <code>Holiday weekends fill quickly. Book before they're gone.</code> Zero send-time cost, measurable open-rate lift.</p>
     </div>
   </article>
 
@@ -873,21 +844,21 @@
   <article class="finding">
     <div class="finding-head">
       <div class="finding-num">05</div>
-      <div class="finding-title">Lands in Gmail's Promotions tab, no engagement signals to climb out</div>
+      <div class="finding-title">Lands in Promotions, with no signals to climb out</div>
       <span class="severity medium">Medium</span>
     </div>
-    <p>Gmail's inbox sorting put this email in the Promotions tab, alongside every retailer pushing a holiday sale. That's the right tab for a promotional email, but it means Collars is competing with Target and Best Buy for attention rather than landing in Primary where personal correspondence sits.</p>
+    <p>Gmail sorted this into Promotions, where it competes with Target and Best Buy for attention instead of landing in Primary.</p>
     <div class="litmus-callout">
       <div class="litmus-label">
         <span class="tag">Industry Trend</span>
         <span class="source">Litmus State of Email 2026 · p. 6</span>
       </div>
-      <blockquote>"Inbox AI matured significantly in 2025 — Gmail 'most-relevant' Promotions sort, Apple Intelligence summaries, Yahoo Catch Up. Senders that act like a single human writing to a single subscriber climb out of Promotions; senders that look templated stay there."</blockquote>
-      <p class="application">Collars' templated multi-section footer and broadcast tone are exactly the signals Inbox AI uses to keep an email parked in Promotions.</p>
+      <blockquote>"Senders that act like a single human writing to a single subscriber climb out of Promotions; senders that look templated stay there."</blockquote>
+      <p class="application">The templated footer and broadcast tone are exactly what Inbox AI uses to keep email parked in Promotions.</p>
     </div>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
-      <p>Cut the broadcast tone. Personalize from line ("Alan from Collars" instead of "Collars Dog Resort"). Use the dog's name in the body when possible. Reduce image-to-text ratio. The reimagined email leaves room for a <code>[Pet Name]</code> token in the CTA, which is a 30-second template change in Gingr.</p>
+      <p>Personalize the From line ("Alan from Collars" instead of "Collars Dog Resort"). Use the dog's name in the body when available. Reduce image-to-text ratio. The reimagined send leaves room for a <code>[Pet Name]</code> token in the CTA — a 30-second Gingr change.</p>
     </div>
   </article>
 
@@ -898,10 +869,10 @@
       <div class="finding-title">Two-location segmentation half-implemented</div>
       <span class="severity low">Low</span>
     </div>
-    <p>Collars sent <strong>two separate Memorial Weekend emails</strong> the same day — one for Olathe, one for Waldo. That's the right move. But neither email cross-references the other location ("Waldo full? Olathe still has spots"), and the body copy is nearly identical between them apart from the address. Customers whose dog stays at one location and overflows to the other (a real pattern) get no signal that flexibility exists.</p>
+    <p>Two separate Memorial Weekend sends went out same day, one per location. Right move. But neither cross-references the other ("Waldo full? Olathe still has spots"), and the body copy is near-identical apart from the address. Customers who overflow between locations get no signal that the flexibility exists.</p>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
-      <p>Add a one-line cross-reference in the footer of each location's email: "Hosting at our [other-location] house too — book there if your home location fills." The reimagined email's footer does this with a two-card location block (currently disabled per your direction, but ready to switch back on for campaigns where it helps).</p>
+      <p>One-line footer cross-reference on each send: "Hosting at our [other-location] house too. Book there if your home location fills."</p>
     </div>
   </article>
 
@@ -909,130 +880,65 @@
   <article class="finding">
     <div class="finding-head">
       <div class="finding-num">07</div>
-      <div class="finding-title">The multi-section newsletter cadence existed — and then it stopped</div>
+      <div class="finding-title">The multi-section newsletter existed — then stopped</div>
       <span class="severity medium">Medium</span>
     </div>
-    <p>Looking back across the last 12 months of Collars sends, the pattern shifted noticeably. Through 2025, Collars sent <strong>multi-section newsletters</strong> that mixed promotional content with real relationship segments. A few from the inbox:</p>
+    <p>Through 2025, Collars sent multi-section newsletters mixing promo with relationship segments. A few from the inbox:</p>
     <ul>
-      <li><strong>Sep 19, 2025</strong> — "Training Classes Next Week | Dog of the Month | Staff Member Spotlight: Lily"</li>
+      <li><strong>Sep 19, 2025</strong> — "Training Classes Next Week | Dog of the Month | Staff Spotlight: Lily"</li>
       <li><strong>Aug 14, 2025</strong> — "Training Class | Hope 4 La Paws Rescue | Labor Day Boarding"</li>
-      <li><strong>Jul 21, 2025</strong> — "Collars Dog Resort: Change in Leadership"</li>
-      <li><strong>Jun 20, 2025</strong> — "Collars Building Signage Update"</li>
       <li><strong>Jun 11, 2025</strong> — "New Grooming Updates | A Few Life Lessons from Your Dog"</li>
       <li><strong>May 13, 2025</strong> — "Petiquette | Construction Update | Dog of the Month"</li>
-      <li><strong>Jan 19, 2026</strong> — "Welcome to our New GM, Liberty"</li>
     </ul>
-    <p>Dog of the Month, Staff Spotlights, community partnerships (Hope 4 La Paws), behind-the-scenes (signage, construction, leadership change), and storytelling pieces ("Life Lessons from Your Dog") were all in the rotation. Then sometime in early 2026, the format collapsed. The <strong>twelve sends from January through May 2026</strong> are all single-topic promo emails — training class, daycare deal, grooming offer, Memorial Weekend boarding, vote-for-us, repeat. Every email asks for money or a sign-up. The relationship segments stopped.</p>
+    <p>Dog of the Month, Staff Spotlights, community partnerships, behind-the-scenes — all in rotation. Then in early 2026 the format collapsed. The twelve sends from January through May 2026 are all single-topic promos. Every email asks for money or a sign-up. The relationship segments stopped.</p>
     <div class="litmus-callout">
       <div class="litmus-label">
         <span class="tag">Industry Insight</span>
         <span class="source">Litmus State of Email 2026 · Ann Handley, p. 28</span>
       </div>
-      <blockquote>"From broadcasting to corresponding. A newsletter, in particular, is less about the news, and more about the letter."</blockquote>
-      <p class="application">Newsletters are <strong>90% more likely</strong> to be the top-performing email type at pure-B2C brands. Collars used to know this — the multi-section format proved out for a year.</p>
+      <blockquote>"A newsletter, in particular, is less about the news, and more about the letter."</blockquote>
+      <p class="application">Newsletters are <strong>90% more likely</strong> to be the top-performing email type at pure-B2C brands. Collars used to know this. The format proved out for a year.</p>
     </div>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
-      <p>Bring back the multi-section format. One Dog of the Month, one Staff Spotlight, one community/partner story, one behind-the-scenes update — pick any three and combine with the month's promo. The pattern already worked for Collars; it doesn't need to be reinvented. The customers who opened the September 2025 send are still on the list.</p>
+      <p>Bring it back. Pick any three of Dog of the Month, Staff Spotlight, community story, behind-the-scenes — combine with the month's promo. The pattern already worked. The customers who opened the September 2025 send are still on the list.</p>
     </div>
   </article>
 </section>
 
-<!-- COMPARE TABLE -->
-<section class="compare">
-  <h2>The original vs the reimagined.</h2>
-  <p class="lead">Same campaign, same audience, same pre-holiday lead time. Component by component.</p>
-  <table class="compare-table">
-    <thead>
-      <tr>
-        <th>Component</th>
-        <th>Original Olathe send (May 6)</th>
-        <th>Reimagined</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Subject line</td>
-        <td class="col-orig">Memorial Weekend Boarding at Collars Olathe 🐾</td>
-        <td class="col-new">Pups have plans too. Book theirs at Olathe before we're full. (subject would be tested)</td>
-      </tr>
-      <tr>
-        <td>Preheader</td>
-        <td class="col-orig">"Boarding Memorial Weekend!" (auto-pulled from H1; not set)</td>
-        <td class="col-new">"Memorial Weekend fills fast. Lock in your pup's spot before we're full." (set explicitly)</td>
-      </tr>
-      <tr>
-        <td>Hero copy</td>
-        <td class="col-orig">"Collars here! Memorial Weekend is right around the corner..." (template opener)</td>
-        <td class="col-new">"Pups have plans too. Book theirs at Olathe before we're full." (brand voice, not template)</td>
-      </tr>
-      <tr>
-        <td>Personalization</td>
-        <td class="col-orig">None — same body for everyone</td>
-        <td class="col-new"><code>[Pet Name]</code> merge token in the primary CTA ("Reserve Charlie's Spot")</td>
-      </tr>
-      <tr>
-        <td>Brand voice cues</td>
-        <td class="col-orig">Generic boarding bullets ("safe supervised play, comfortable accommodations")</td>
-        <td class="col-new">Site language used: "no crates", "honest, all-inclusive boarding", "transPAWrency"</td>
-      </tr>
-      <tr>
-        <td>Vote-for-us module</td>
-        <td class="col-orig">One-line "Cast Your Vote!" with a single link. Olathe version links to wrong page (member portal).</td>
-        <td class="col-new">Module with all four nominations linked separately to their actual Pitch URLs + the Best of KC badge</td>
-      </tr>
-      <tr>
-        <td>Footer service strip</td>
-        <td class="col-orig">7 links, 5 broken, 1 orphaned social handle</td>
-        <td class="col-new">Strip removed. Three working social icons + plain address block.</td>
-      </tr>
-      <tr>
-        <td>Visual identity</td>
-        <td class="col-orig">Default Gingr template structure</td>
-        <td class="col-new">Brand-locked palette (#006784 / #B3D1DA / #EDB111), Caveat handwritten tagline, paw-print accents</td>
-      </tr>
-      <tr>
-        <td>Mobile</td>
-        <td class="col-orig">Responsive (Gingr default)</td>
-        <td class="col-new">Responsive + dark-mode rules + WCAG-compliant CTA contrast</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
 <!-- WEEK ONE -->
 <section class="week-one">
-  <h2>What I'd own in week one.</h2>
+  <h2>Week one, if I owned this.</h2>
   <div class="week-list">
     <div class="week-item">
       <div class="num">01</div>
       <h4>Patch the dead links</h4>
-      <p>Fix or remove the six broken footer links across the Gingr template. One afternoon.</p>
+      <p>Fix or strip the six broken Waldo footer links and Olathe's About Us misroute. One afternoon.</p>
     </div>
     <div class="week-item">
       <div class="num">02</div>
       <h4>Migrate social handles</h4>
-      <p>Move Facebook and Instagram off the old "CollarClubKC" name to match the LinkedIn migration. New customer search match on day one.</p>
+      <p>Move Facebook and Instagram off the legacy "CollarClubKC" name. New customer search match on day one.</p>
     </div>
     <div class="week-item">
       <div class="num">03</div>
-      <h4>Set real preheaders for every send</h4>
-      <p>Add the second-most-read line of copy back into every email. No platform changes, just discipline.</p>
+      <h4>Set real preheaders</h4>
+      <p>Add the second-most-read line of copy back into every send. No platform change, just discipline.</p>
     </div>
     <div class="week-item">
       <div class="num">04</div>
-      <h4>Build the [Pet Name] token</h4>
-      <p>Wire Gingr customer data into Pet Name and Pet First Name merge fields. Personalize one CTA per send.</p>
+      <h4>Wire the [Pet Name] token</h4>
+      <p>Pull Gingr customer data into a Pet Name merge field. Personalize one CTA per send.</p>
     </div>
     <div class="week-item">
       <div class="num">05</div>
       <h4>Cross-reference the locations</h4>
-      <p>Add the "also at our other house" footer line. Improves conversion when a location fills up. Same email infrastructure.</p>
+      <p>Add the "also at our other house" footer line. Recovers customers when a location fills.</p>
     </div>
     <div class="week-item">
       <div class="num">06</div>
       <h4>Draft the first relationship letter</h4>
-      <p>One newsletter, one staff or pup spotlight, no CTA. Schedule it for the first week of next month. Set the cadence.</p>
+      <p>One newsletter, one Dog of the Month or Staff Spotlight, no CTA. Reset the cadence.</p>
     </div>
   </div>
 </section>
@@ -1040,7 +946,7 @@
 <!-- REIMAGINE EMBED -->
 <section class="reimagine">
   <h2>The reimagined send.</h2>
-  <p class="lead">Same campaign, rebuilt as live HTML. Brand-locked palette, real Olathe photos, the Best of KC vote module integrated, mobile and dark-mode tested.</p>
+  <p class="lead">Same campaign, rebuilt. Brand-locked palette, real Olathe photos, all four Pitch nominations wired in, mobile and dark-mode tested.</p>
   <div class="reimagine-frame">
     <div class="reimagine-bar">
       <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>

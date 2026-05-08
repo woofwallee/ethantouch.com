@@ -564,29 +564,19 @@
       color: #0a0a0a;
     }
 
-    .compare-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-    .compare-grid.viewport-mobile .reimagine-frame {
-      max-width: 390px;
-      margin: 0 auto;
-    }
-    .compare-grid.viewport-mobile .reimagine-frame iframe {
-      height: 720px;
-    }
-    .compare-col-label {
+    /* slider header labels */
+    .slider-header {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
+      max-width: 720px;
+      margin: 0 auto 12px;
       font-family: 'Bebas Neue', sans-serif;
       font-size: 14px;
       letter-spacing: 0.22em;
       color: var(--text-dim);
     }
-    .compare-col-label .pill {
+    .slider-header .pill {
       font-family: 'Instrument Sans', sans-serif;
       font-size: 10.5px;
       font-weight: 700;
@@ -594,44 +584,123 @@
       text-transform: uppercase;
       padding: 3px 8px;
       border-radius: 3px;
+      margin-left: 8px;
     }
-    .compare-col-label .pill.original { background: rgba(215,106,106,0.15); color: var(--red); border: 1px solid rgba(215,106,106,0.4); }
-    .compare-col-label .pill.new { background: rgba(125,192,125,0.15); color: var(--green); border: 1px solid rgba(125,192,125,0.4); }
-    .reimagine-frame {
+    .slider-header .pill.original { background: rgba(215,106,106,0.15); color: var(--red); border: 1px solid rgba(215,106,106,0.4); }
+    .slider-header .pill.new { background: rgba(125,192,125,0.15); color: var(--green); border: 1px solid rgba(125,192,125,0.4); }
+    .slider-header .label-left, .slider-header .label-right {
+      display: flex;
+      align-items: center;
+    }
+
+    /* before/after slider */
+    .slider {
       position: relative;
-      background: var(--card);
+      max-width: 720px;
+      height: 720px;
+      margin: 0 auto;
+      background: #fff;
       border: 1px solid var(--rule);
       border-radius: 6px;
       overflow: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: ew-resize;
+      touch-action: none;
     }
-    .reimagine-bar {
-      background: var(--card-hi);
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      border-bottom: 1px solid var(--rule);
+    .slider.viewport-mobile {
+      max-width: 390px;
     }
-    .dots { display: flex; gap: 6px; }
-    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--rule); }
-    .dot.r { background: #d97757; }
-    .dot.y { background: #d6b758; }
-    .dot.g { background: #6ab06a; }
-    .url {
-      font-family: 'SF Mono', Menlo, monospace;
-      font-size: 12px;
-      color: var(--text-dim);
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .url .domain { color: var(--text-muted); }
-    .reimagine-frame iframe {
+    .slider-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 720px;
+      height: 100%;
+    }
+    .slider-layer iframe {
+      width: 100%;
+      height: 100%;
       border: none;
       background: #fff;
       display: block;
+      pointer-events: none;
+    }
+    .slider-before {
+      z-index: 2;
+      clip-path: inset(0 50% 0 0);
+    }
+    .slider-after {
+      z-index: 1;
+    }
+    .slider-divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: #fff;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.15), 0 0 12px rgba(0,0,0,0.25);
+      transform: translateX(-50%);
+      z-index: 3;
+      pointer-events: none;
+    }
+    .slider-grip {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.08);
+      transform: translate(-50%, -50%);
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .slider-grip::before, .slider-grip::after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+    }
+    .slider-grip::before {
+      border-right: 7px solid #1a1a1a;
+      margin-right: 4px;
+    }
+    .slider-grip::after {
+      border-left: 7px solid #1a1a1a;
+      margin-left: 4px;
+    }
+    .slider-corner-label {
+      position: absolute;
+      top: 14px;
+      z-index: 5;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 3px;
+      pointer-events: none;
+      backdrop-filter: blur(4px);
+    }
+    .slider-corner-label.left {
+      left: 14px;
+      background: rgba(10,10,10,0.7);
+      color: var(--red);
+      border: 1px solid rgba(215,106,106,0.5);
+    }
+    .slider-corner-label.right {
+      right: 14px;
+      background: rgba(10,10,10,0.7);
+      color: var(--green);
+      border: 1px solid rgba(125,192,125,0.5);
     }
     .reimagine-cta {
       display: inline-block;
@@ -694,8 +763,7 @@
       .week-list { grid-template-columns: 1fr; }
       .compare-table { font-size: 13px; }
       .compare-table th, .compare-table td { padding: 12px 14px; }
-      .compare-grid { grid-template-columns: 1fr; }
-      .reimagine-frame iframe { height: 560px; }
+      .slider { height: 560px; }
       .audit-footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -1012,44 +1080,34 @@
   </div>
 </section>
 
-<!-- BEFORE / AFTER -->
+<!-- BEFORE / AFTER SLIDER -->
 <section class="reimagine">
   <h2>Before and after.</h2>
-  <p class="lead">Same campaign, same audience, same pre-holiday lead time. The original Olathe send is on the left, the reimagined version on the right.</p>
+  <p class="lead">Same campaign, same audience, same pre-holiday lead time. Drag the handle to wipe between the original Olathe send and the reimagined version.</p>
 
   <div class="viewport-toggle" role="group" aria-label="Viewport size">
     <button type="button" class="active" data-viewport="desktop">Desktop</button>
     <button type="button" data-viewport="mobile">Mobile</button>
   </div>
 
-  <div class="compare-grid" id="compareGrid">
-    <div>
-      <div class="compare-col-label">
-        <span>Original</span>
-        <span class="pill original">As sent · May 6</span>
-      </div>
-      <div class="reimagine-frame">
-        <div class="reimagine-bar">
-          <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
-          <div class="url">marketing.gingrapp.com<span class="domain">/collarclubolathe</span></div>
-        </div>
-        <iframe src="original-olathe.html" loading="lazy" title="Original Collars Olathe Memorial Weekend email as sent"></iframe>
-      </div>
+  <div class="slider-header">
+    <div class="label-left">Original<span class="pill original">As sent · May 6</span></div>
+    <div class="label-right">Reimagined<span class="pill new">Live HTML</span></div>
+  </div>
+
+  <div class="slider" id="slider" role="slider" aria-label="Before / after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
+    <div class="slider-corner-label left">Original</div>
+    <div class="slider-corner-label right">Reimagined</div>
+
+    <div class="slider-layer slider-after">
+      <iframe src="/lab/emails/collars/" loading="lazy" title="Reimagined Collars Memorial Weekend email" scrolling="no"></iframe>
+    </div>
+    <div class="slider-layer slider-before" id="sliderBefore">
+      <iframe src="original-olathe.html" loading="lazy" title="Original Collars Olathe Memorial Weekend email as sent" scrolling="no"></iframe>
     </div>
 
-    <div>
-      <div class="compare-col-label">
-        <span>Reimagined</span>
-        <span class="pill new">Live HTML</span>
-      </div>
-      <div class="reimagine-frame">
-        <div class="reimagine-bar">
-          <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
-          <div class="url">ethantouch.com<span class="domain">/lab/emails/collars</span></div>
-        </div>
-        <iframe src="/lab/emails/collars/" loading="lazy" title="Reimagined Collars Memorial Weekend email"></iframe>
-      </div>
-    </div>
+    <div class="slider-divider" id="sliderDivider"></div>
+    <div class="slider-grip" id="sliderGrip"></div>
   </div>
 
   <div class="compare-actions">
@@ -1066,17 +1124,71 @@
 
 <script>
   (function () {
-    var grid = document.getElementById('compareGrid');
+    var slider = document.getElementById('slider');
+    var beforeLayer = document.getElementById('sliderBefore');
+    var divider = document.getElementById('sliderDivider');
+    var grip = document.getElementById('sliderGrip');
     var buttons = document.querySelectorAll('.viewport-toggle button');
-    if (!grid || !buttons.length) return;
+    if (!slider || !beforeLayer || !divider || !grip) return;
+
+    var dragging = false;
+
+    function setPosition(pct) {
+      pct = Math.max(0, Math.min(100, pct));
+      beforeLayer.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+      divider.style.left = pct + '%';
+      grip.style.left = pct + '%';
+      slider.setAttribute('aria-valuenow', Math.round(pct));
+    }
+
+    function clientXToPct(clientX) {
+      var rect = slider.getBoundingClientRect();
+      return ((clientX - rect.left) / rect.width) * 100;
+    }
+
+    // mouse
+    slider.addEventListener('mousedown', function (e) {
+      dragging = true;
+      setPosition(clientXToPct(e.clientX));
+      e.preventDefault();
+    });
+    window.addEventListener('mousemove', function (e) {
+      if (!dragging) return;
+      setPosition(clientXToPct(e.clientX));
+    });
+    window.addEventListener('mouseup', function () { dragging = false; });
+
+    // touch
+    slider.addEventListener('touchstart', function (e) {
+      dragging = true;
+      setPosition(clientXToPct(e.touches[0].clientX));
+    }, { passive: true });
+    slider.addEventListener('touchmove', function (e) {
+      if (!dragging) return;
+      setPosition(clientXToPct(e.touches[0].clientX));
+      e.preventDefault();
+    }, { passive: false });
+    slider.addEventListener('touchend', function () { dragging = false; });
+
+    // keyboard
+    slider.addEventListener('keydown', function (e) {
+      var current = parseFloat(slider.getAttribute('aria-valuenow')) || 50;
+      if (e.key === 'ArrowLeft') { setPosition(current - 5); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { setPosition(current + 5); e.preventDefault(); }
+    });
+
+    // viewport toggle
     buttons.forEach(function (btn) {
       btn.addEventListener('click', function () {
         var mode = btn.getAttribute('data-viewport');
         buttons.forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
-        grid.classList.toggle('viewport-mobile', mode === 'mobile');
+        slider.classList.toggle('viewport-mobile', mode === 'mobile');
       });
     });
+
+    // initial position
+    setPosition(50);
   })();
 </script>
 

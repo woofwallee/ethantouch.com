@@ -765,10 +765,9 @@
     </ul>
     <p>Net effect: every Olathe customer who clicked the vote button hit a dead end. Every Waldo customer who clicked the badge instead of the text link landed on a six-year-old archived contest. The vote campaign reached zero of the customers it was supposed to mobilize through these specific paths. <strong>The send already went out, so a template-only fix doesn't recover the lost clicks.</strong> The Pitch nomination round is still open — that's a recovery window worth using.</p>
     <div class="finding-fix">
-      <div class="finding-fix-label">The fix (in order)</div>
-      <p><strong>1. Recovery send, this week.</strong> Short follow-up to Olathe subscribers only: "Our vote link last week pointed to the wrong page. Here's the working one." Two paragraphs, the corrected URL, no other pitch. Owning the bug earns more trust than hoping nobody noticed. The Pitch round is still open, so the conversion window isn't fully closed yet.</p>
-      <p><strong>2. Fix it before the next reminder send.</strong> Vote-for-us campaigns usually run 2-4 reminder emails during the open Pitch round. Whatever's already drafted (or about to be drafted) for the next reminder needs the URL corrected before it ships — Olathe's vote CTA pointing to <code>vote.thepitchkc.com</code>, Waldo's Best of KC badge image linking to the 2026 round instead of the 2020 archive. Skip this step entirely if no more vote sends are planned in this round.</p>
-      <p><strong>3. Pre-send link check, every campaign going forward.</strong> Two-minute QA pass that follows every CTA to its real destination before any campaign hits send. The reimagined Olathe email already wires all four nominations directly to their real Pitch URLs by default.</p>
+      <div class="finding-fix-label">The fix</div>
+      <p><strong>1. Recovery send to Olathe subscribers, this week.</strong> Short follow-up: "Our vote link last week pointed to the wrong page. Here's the working one — <code>vote.thepitchkc.com</code>." Two paragraphs, the corrected URL embedded as the only CTA, no other pitch. Owning the bug earns more trust than hoping nobody noticed. The Pitch round is still open, so the conversion window isn't fully closed yet. While doing this, also fix the Waldo Pitch badge image link in any upcoming Waldo reminder so it points to the 2026 round, not the 2020 archive.</p>
+      <p><strong>2. Pre-send link check on every campaign going forward.</strong> Two-minute QA pass that follows every CTA to its real destination before any campaign hits send. A single dead CTA shouldn't be able to take down a vote drive again. The reimagined Olathe email already wires all four nominations directly to their real Pitch URLs by default.</p>
     </div>
   </article>
 

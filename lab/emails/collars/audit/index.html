@@ -773,10 +773,10 @@
       <li><strong>Olathe</strong> "Cast Your Vote!" button → <code>collarclubolathe.portal.gingrapp.com/#/public/login</code>. Recipients land on a Gingr account login screen, not the vote page. They can't vote at all from this link.</li>
       <li><strong>Waldo</strong> "Cast Your Vote!" text link → <code>vote.thepitchkc.com</code> ✓ (works). But the Best of KC <strong>badge image</strong> next to it links to <code>thepitchkc.com/bestofkc20/</code> — that's the <strong>2020</strong> archive page, not the 2026 nomination round.</li>
     </ul>
-    <p>Net effect: every Olathe customer who clicked the vote button hit a dead end. Every Waldo customer who clicked the badge instead of the text link landed on a six-year-old archived contest. The vote campaign reached zero of the customers it was supposed to mobilize through these specific paths. <strong>The send already went out</strong>, so the lost clicks aren't recoverable through a template change. The Pitch round runs <strong>April 22 – May 13</strong>; with the audit landing the week of May 7, there's a narrow window to send a recovery email but the realistic conversion ceiling is low. The bigger value is in the process lesson, not the recapture.</p>
+    <p>Net effect: every Olathe customer who clicked the vote button hit a dead end. Every Waldo customer who clicked the badge instead of the text link landed on a six-year-old archived contest. The vote campaign reached zero of the customers it was supposed to mobilize through these specific paths. <strong>The send already went out</strong>, so the lost clicks aren't recoverable through a template change. The Pitch Best of KC voting round ran <strong>April 22 through May 13, 2026</strong>. Whether a recovery send is worth running depends on how much voting time remained when this audit was read. The bigger value is in the process lesson, not the recapture.</p>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
-      <p><strong>1. Optional recovery send (only if it ships within 48 hours).</strong> Short follow-up to Olathe subscribers: "Our vote link last week pointed to the wrong page. Here's the working one — <code>vote.thepitchkc.com</code>." Two paragraphs, the corrected URL as the only CTA, no other pitch. With voting closing May 13, the realistic vote-recapture is small. The actual value is in owning the bug publicly — that earns more long-term trust than quietly hoping nobody noticed. If a same-day or next-day send isn't operationally possible, skip the recovery and focus on item 2.</p>
+      <p><strong>1. Optional recovery send — only if voting is still meaningfully open.</strong> Short follow-up to Olathe subscribers: "Our vote link last week pointed to the wrong page. Here's the working one — <code>vote.thepitchkc.com</code>." Two paragraphs, the corrected URL as the only CTA, no other pitch. Worth running if there are still several days left in the voting window when this is read; not worth the operational lift if the round is closing within 48 hours or has already closed. Either way, the value is in owning the bug publicly more than in vote recapture — owners who fix mistakes in the open earn more trust than ones who hope nobody noticed. Same playbook applies the next time a campaign-bound CTA goes out broken.</p>
       <p><strong>2. Pre-send link check on every campaign going forward.</strong> This is the durable fix and the part that matters most. A two-minute QA pass that follows every CTA to its real destination before any campaign hits send. A single dead CTA should not be able to take down a multi-nomination vote drive again. The reimagined Olathe email already wires all four nominations directly to their real Pitch URLs by default.</p>
     </div>
   </article>
@@ -879,7 +879,7 @@
 <!-- COMPARE TABLE -->
 <section class="compare">
   <h2>The original vs the reimagined.</h2>
-  <p class="lead">Same campaign, same audience, same 12-day window before the holiday. Component by component.</p>
+  <p class="lead">Same campaign, same audience, same pre-holiday lead time. Component by component.</p>
   <table class="compare-table">
     <thead>
       <tr>

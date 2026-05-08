@@ -10,19 +10,19 @@
 
     :root {
       --bg: #0a0a0a;
-      --card: #161616;
-      --card-hi: #1d1d1d;
-      --rule: #262626;
+      --card: #1a1a1a;
+      --card-hi: #232323;
+      --rule: #2e2e2e;
       --rule-soft: #1c1c1c;
-      --text: #cdcccb;
-      --text-muted: #7a7775;
-      --text-dim: #4f4d4b;
-      --orange: #cf6940;
+      --text: #ececea;
+      --text-muted: #b6b3af;
+      --text-dim: #7a7775;
+      --orange: #e07a4d;
       --orange-deep: #b3552f;
       --teal: #006784;
       --gold: #EDB111;
-      --red: #c95757;
-      --green: #6ab06a;
+      --red: #d76a6a;
+      --green: #7dc07d;
     }
 
     body {
@@ -30,7 +30,8 @@
       font-family: 'Instrument Sans', -apple-system, sans-serif;
       color: var(--text);
       -webkit-font-smoothing: antialiased;
-      line-height: 1.6;
+      font-size: 17px;
+      line-height: 1.65;
     }
 
     a { color: var(--orange); text-decoration: none; border-bottom: 1px solid rgba(207,105,64,0.3); }
@@ -108,7 +109,8 @@
     }
     .intro .lead {
       max-width: 760px;
-      font-size: 17px;
+      font-size: 18.5px;
+      line-height: 1.6;
       color: var(--text-muted);
     }
     .meta-bar {
@@ -118,13 +120,13 @@
       display: flex;
       flex-wrap: wrap;
       gap: 28px;
-      font-size: 13px;
-      color: var(--text-dim);
-      letter-spacing: 0.04em;
+      font-size: 14.5px;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
     }
     .meta-bar span strong {
       color: var(--text);
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .divider {
@@ -178,9 +180,10 @@
       margin-bottom: 4px;
     }
     .summary-stat .lbl {
-      font-size: 13px;
+      font-size: 14.5px;
+      line-height: 1.5;
       color: var(--text-muted);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.02em;
     }
 
     /* ── FINDINGS ── */
@@ -250,24 +253,25 @@
 
     .finding p {
       color: var(--text-muted);
-      font-size: 15px;
-      margin-bottom: 12px;
+      font-size: 16.5px;
+      line-height: 1.7;
+      margin-bottom: 14px;
     }
     .finding p:last-child { margin-bottom: 0; }
     .finding strong { color: var(--text); font-weight: 600; }
     .finding code {
       font-family: 'SF Mono', Menlo, monospace;
-      font-size: 13px;
-      background: rgba(255,255,255,0.04);
-      padding: 2px 6px;
+      font-size: 14.5px;
+      background: rgba(255,255,255,0.06);
+      padding: 2px 7px;
       border-radius: 3px;
-      color: var(--text);
+      color: #f0eeec;
     }
     .finding ul {
-      margin: 8px 0 12px 20px;
+      margin: 10px 0 14px 22px;
       color: var(--text-muted);
     }
-    .finding ul li { margin-bottom: 4px; font-size: 14.5px; }
+    .finding ul li { margin-bottom: 6px; font-size: 16px; line-height: 1.65; }
     .finding-fix {
       margin-top: 16px;
       padding-top: 16px;
@@ -298,7 +302,8 @@
     }
     .compare .lead {
       color: var(--text-muted);
-      font-size: 15px;
+      font-size: 16.5px;
+      line-height: 1.6;
       margin-bottom: 28px;
       max-width: 680px;
     }
@@ -325,9 +330,9 @@
       font-weight: 400;
     }
     .compare-table td {
-      font-size: 14px;
+      font-size: 15.5px;
       color: var(--text-muted);
-      line-height: 1.55;
+      line-height: 1.65;
     }
     .compare-table td:first-child {
       font-family: 'Instrument Sans', sans-serif;
@@ -371,13 +376,14 @@
     }
     .week-item h4 {
       font-family: 'Instrument Sans', sans-serif;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 700;
       color: var(--text);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
     .week-item p {
-      font-size: 14px;
+      font-size: 15.5px;
+      line-height: 1.6;
       color: var(--text-muted);
     }
 
@@ -396,7 +402,8 @@
     }
     .reimagine .lead {
       color: var(--text-muted);
-      font-size: 15px;
+      font-size: 16.5px;
+      line-height: 1.6;
       margin-bottom: 28px;
       max-width: 680px;
     }
@@ -511,13 +518,13 @@
 <section class="intro">
   <div class="eyebrow">Field Notes / Email Audit</div>
   <h1>A quick audit of the <em>Memorial Weekend</em> send.</h1>
-  <p class="lead">A short, specific look at what's working and what's broken in the most recent Collars Dog Resort marketing email. Six findings, one location-segmentation gap, and a list of fixes that take less than a week to implement. Paired with a reimagined version of the same email.</p>
+  <p class="lead">A short, specific look at what's working and what's broken in the Memorial Weekend boarding sends. The reimagined version pairs with the <strong>Olathe</strong> email; Waldo received a near-identical send the same day with a few of its own issues. Findings call out which location each one applies to. Paired with a reimagined version of the Olathe email.</p>
 </section>
 
 <div class="meta-bar">
-  <span><strong>Source:</strong> "Memorial Weekend Boarding at Collars Waldo 🐾"</span>
-  <span><strong>Sender:</strong> contact@collarsdogresort.com via marketing.gingrapp.com</span>
-  <span><strong>Sent:</strong> May 6, 2026 · 12:26 PM</span>
+  <span><strong>Primary source:</strong> "Memorial Weekend Boarding at Collars Olathe 🐾" (sent May 6, 12:38 PM)</span>
+  <span><strong>Companion send:</strong> "Memorial Weekend Boarding at Collars Waldo 🐾" (May 6, 12:26 PM)</span>
+  <span><strong>Sender:</strong> via marketing.gingrapp.com</span>
   <span><strong>Inbox tab:</strong> Promotions</span>
 </div>
 
@@ -554,22 +561,20 @@
   <article class="finding">
     <div class="finding-head">
       <div class="finding-num">01</div>
-      <div class="finding-title">Six dead links in the footer service strip</div>
+      <div class="finding-title">Dead links in both location footers</div>
       <span class="severity high">High</span>
     </div>
-    <p>The footer of the Memorial Weekend email links to <strong>Dayplay, Board, Groom, Testimonials, About Us, Directions, and Contact Us</strong>. Five of them point to <code>collarsdogresort.com/{slug}/</code> URLs that don't resolve, and the Instagram handle (<code>collarclubkc</code>) is orphaned.</p>
+    <p><strong>Both</strong> Memorial Weekend sends carry the same Gingr-template footer service strip, with slightly different labels per location:</p>
     <ul>
-      <li><code>collarsdogresort.com/about-us/</code> — broken</li>
-      <li><code>collarsdogresort.com/reviews/</code> — broken</li>
-      <li><code>collarsdogresort.com/grooming/</code> — broken</li>
-      <li><code>collarsdogresort.com/boarding/</code> — broken</li>
-      <li><code>collarsdogresort.com/dayplay/</code> — broken</li>
-      <li><code>instagram.com/collarclubkc/</code> — orphaned (account no longer maintained at this handle)</li>
+      <li><strong>Waldo footer</strong>: Dayplay · Board · Groom · Testimonials · About Us · Directions · Contact Us</li>
+      <li><strong>Olathe footer</strong>: Daycare · Boarding · Training · Testimonials · About Us · Directions</li>
     </ul>
-    <p>Every send goes out with the same bad links. A subscriber who clicks the wrong link doesn't blame Gingr; they blame Collars.</p>
+    <p>Confirmed broken on the Waldo email: <code>collarsdogresort.com/about-us/</code>, <code>/reviews/</code>, <code>/grooming/</code>, <code>/boarding/</code>, <code>/dayplay/</code> all return error pages. The Instagram handle (<code>collarclubkc</code>) is orphaned.</p>
+    <p>The Olathe footer uses the same template and likely points to the same dead URLs. Pending a manual link-by-link verification, treat every <code>collarsdogresort.com/{slug}/</code> link as suspect on both sends. A subscriber who clicks the wrong link doesn't blame Gingr; they blame Collars.</p>
+    <p>Worth noting: Waldo and Olathe also disagree on service naming — Waldo says "Dayplay / Board / Groom", Olathe says "Daycare / Boarding / Training". Inconsistent labels confuse customers who use both houses.</p>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
-      <p>Either point the links to the correct subdomain URLs (<code>olathe.collarsdogresort.com/dog-boarding-in-olathe/</code> works; the apex domain doesn't), or strip the service link strip out of the footer template entirely. The reimagined version drops it and keeps only social icons.</p>
+      <p>Two options. Option A: re-point every link to the correct subdomain URL (<code>olathe.collarsdogresort.com/dog-boarding-in-olathe/</code> resolves; the apex domain doesn't). Option B (recommended): strip the service link strip from the Gingr footer template entirely. The reimagined Olathe email drops it and keeps only social icons. Either way, also align the service naming between Olathe and Waldo so customers don't see two different vocabularies.</p>
     </div>
   </article>
 
@@ -614,7 +619,7 @@
       <div class="finding-title">Subject line and preheader leave revenue on the table</div>
       <span class="severity medium">Medium</span>
     </div>
-    <p>Subject: <code>Memorial Weekend Boarding at Collars Waldo 🐾</code>. Functional but flat. Preheader: <code>Boarding Memorial Weekend!</code> (literally the first H1 of the email body, repeated as preview text — the preheader was never set).</p>
+    <p>Olathe subject: <code>Memorial Weekend Boarding at Collars Olathe 🐾</code>. Waldo subject: same template with the location swapped. Functional but flat for both. Preheader: <code>Memorial Weekend Boarding!</code> (literally the first H1 of the email body, repeated as preview text — the preheader was never explicitly set on either send).</p>
     <p>Per Litmus 2026 (Jay Schwedelson): "Open rates are extremely important. Directionally, if one variant has an emoji and one doesn't, and the emoji one gets a 20% higher open rate, the emoji one wins." The email keeps the emoji ✓ but wastes the preheader, the second-most-read piece of copy after the subject.</p>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
@@ -675,14 +680,14 @@
     <thead>
       <tr>
         <th>Component</th>
-        <th>Original send (May 6)</th>
+        <th>Original Olathe send (May 6)</th>
         <th>Reimagined</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>Subject line</td>
-        <td class="col-orig">Memorial Weekend Boarding at Collars Waldo 🐾</td>
+        <td class="col-orig">Memorial Weekend Boarding at Collars Olathe 🐾</td>
         <td class="col-new">Pups have plans too. Book theirs at Olathe before we're full. (subject would be tested)</td>
       </tr>
       <tr>

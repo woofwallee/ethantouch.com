@@ -625,8 +625,8 @@
   <h2>Seven issues, none of them complicated.</h2>
   <div class="summary-grid">
     <div class="summary-stat">
-      <div class="num">5</div>
-      <div class="lbl">Waldo footer links return 404 (apex-domain URLs that don't resolve)</div>
+      <div class="num">6</div>
+      <div class="lbl">Waldo footer links broken — 5 service-strip URLs return 404, plus the Instagram icon links to a deleted account</div>
     </div>
     <div class="summary-stat">
       <div class="num">2</div>
@@ -694,8 +694,12 @@
         <span class="label"><strong>5 of 7 footer links return 404</strong> — apex-domain URLs (Dayplay, Board, Groom, Testimonials, About Us)</span>
       </div>
       <div class="snapshot-row">
+        <span class="icon bad">✗</span>
+        <span class="label"><strong>Instagram icon links to a deleted account</strong> (collarclubkc) — clicks land on Instagram's "page not available" error</span>
+      </div>
+      <div class="snapshot-row">
         <span class="icon warn">⚠</span>
-        <span class="label"><strong>Old "Collar Club KC" social handles</strong> — Facebook + Instagram both still on the legacy name</span>
+        <span class="label"><strong>Facebook still on the old "Collar Club KC" handle</strong> — works, but legacy brand naming</span>
       </div>
       <div class="snapshot-row">
         <span class="icon dash">—</span>
@@ -722,7 +726,7 @@
     </div>
     <p>Same Gingr template, two completely different execution states. I followed every footer link in both sends to its real destination. Waldo's footer is mostly broken; Olathe's is mostly correct but has lazy substitutions.</p>
 
-    <p><strong>Waldo (5 of 7 service-strip links return 404):</strong></p>
+    <p><strong>Waldo (5 of 7 service-strip links return 404, plus a dead Instagram link):</strong></p>
     <ul>
       <li>Dayplay → <code>http://collarsdogresort.com/dayplay/</code> — 404</li>
       <li>Board → <code>http://collarsdogresort.com/boarding/</code> — 404</li>
@@ -731,6 +735,7 @@
       <li>About Us → <code>http://collarsdogresort.com/about-us/</code> — 404</li>
       <li>Directions → Google Search results for "collar club" (not a real map link)</li>
       <li>Contact Us → <code>tel:8168328285</code> (mislabeled as a page link, actually a phone tap)</li>
+      <li><strong>Instagram icon → <code>instagram.com/collarclubkc/</code> — account is gone</strong> ("Sorry, this page isn't available")</li>
     </ul>
 
     <p><strong>Olathe (3 issues, otherwise clean):</strong></p>
@@ -785,11 +790,11 @@
       </thead>
       <tbody>
         <tr><td>Facebook</td><td class="col-new">CollarsDogResortOlathe (new brand)</td><td class="col-orig">CollarClubKC (old brand)</td></tr>
-        <tr><td>Instagram</td><td class="col-orig">collarclubolathe (transitional)</td><td class="col-orig">collarclubkc (old brand)</td></tr>
+        <tr><td>Instagram</td><td class="col-orig">collarclubolathe (transitional)</td><td class="col-orig"><strong style="color:#d76a6a;">collarclubkc — account no longer exists</strong></td></tr>
         <tr><td>LinkedIn</td><td class="col-orig">— (no LinkedIn icon in Olathe footer)</td><td class="col-new">collarsdogresort (new brand)</td></tr>
       </tbody>
     </table>
-    <p>Three of five social handles still carry the legacy "Collar Club" naming. New customers searching for "Collars Dog Resort" on Instagram or Facebook won't land on the right account. Olathe customers don't see a LinkedIn link at all, even though one exists.</p>
+    <p>The Waldo Instagram link points to a deleted or renamed account — anyone clicking the IG icon gets Instagram's "Sorry, this page isn't available" page. That's a credibility hit on top of the brand-naming inconsistency. Three of five social handles still carry the legacy "Collar Club" naming. New customers searching for "Collars Dog Resort" on Instagram or Facebook won't land on the right account. Olathe customers don't see a LinkedIn link at all, even though one exists.</p>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
       <p>Pick one handle pattern and migrate everything. <code>@collarsdogresort</code> as the master handle, with optional <code>@collarsdogresortolathe</code> / <code>@collarsdogresortwaldo</code> if you want location-specific accounts. Add LinkedIn to the Olathe footer template too — it's a missed credibility signal.</p>

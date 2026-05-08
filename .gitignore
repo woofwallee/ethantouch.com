@@ -14,3 +14,7 @@ Gemfile.lock
 
 # Local preview scratch (rendered Jekyll output for visual verification)
 .preview/
+
+# Private outreach drafts — colocated with project files but never deployed
+lab/emails/*/pitch-email.txt
+lab/emails/*/pitch-*.txt

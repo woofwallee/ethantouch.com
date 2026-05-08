@@ -526,7 +526,7 @@
 <!-- SUMMARY -->
 <section class="summary">
   <div class="summary-eyebrow">At a glance</div>
-  <h2>Six issues, none of them complicated.</h2>
+  <h2>Seven issues, none of them complicated.</h2>
   <div class="summary-grid">
     <div class="summary-stat">
       <div class="num">6</div>
@@ -577,6 +577,21 @@
   <article class="finding">
     <div class="finding-head">
       <div class="finding-num">02</div>
+      <div class="finding-title">"Cast Your Vote" CTA in the Olathe email points to the wrong page</div>
+      <span class="severity high">High</span>
+    </div>
+    <p>Both Memorial Weekend emails (Waldo and Olathe) include a <strong>Cast Your Vote!</strong> button promoting the Pitch Best of KC nomination. The Waldo version links to the actual Pitch voting page, where customers can vote. <strong>The Olathe version links to the Collars Gingr member portal</strong> — recipients land on a logged-in account page that has nothing to do with voting. The campaign is unrunnable for half the customer base.</p>
+    <p>This is the highest-impact issue in the audit. Every Olathe customer who clicked "Cast Your Vote" got an immediate dead-end and almost certainly did not vote. The Pitch nomination round closes; that conversion window is already gone.</p>
+    <div class="finding-fix">
+      <div class="finding-fix-label">The fix</div>
+      <p>Repoint the Olathe template's vote CTA to <code>vote.thepitchkc.com</code> (specifically the boarding/daycare nomination page). 30 seconds in Gingr. After that, set up a pre-send link checker on every campaign so a single broken CTA doesn't take down a full vote drive again. The reimagined version wires all four nominations to their actual Pitch URLs by default.</p>
+    </div>
+  </article>
+
+  <!-- Finding 3 -->
+  <article class="finding">
+    <div class="finding-head">
+      <div class="finding-num">03</div>
       <div class="finding-title">Brand handles still using the old "Collar Club KC" name</div>
       <span class="severity medium">Medium</span>
     </div>
@@ -592,10 +607,10 @@
     </div>
   </article>
 
-  <!-- Finding 3 -->
+  <!-- Finding 4 -->
   <article class="finding">
     <div class="finding-head">
-      <div class="finding-num">03</div>
+      <div class="finding-num">04</div>
       <div class="finding-title">Subject line and preheader leave revenue on the table</div>
       <span class="severity medium">Medium</span>
     </div>
@@ -607,10 +622,10 @@
     </div>
   </article>
 
-  <!-- Finding 4 -->
+  <!-- Finding 5 -->
   <article class="finding">
     <div class="finding-head">
-      <div class="finding-num">04</div>
+      <div class="finding-num">05</div>
       <div class="finding-title">Lands in Gmail's Promotions tab, no engagement signals to climb out</div>
       <span class="severity medium">Medium</span>
     </div>
@@ -622,10 +637,10 @@
     </div>
   </article>
 
-  <!-- Finding 5 -->
+  <!-- Finding 6 -->
   <article class="finding">
     <div class="finding-head">
-      <div class="finding-num">05</div>
+      <div class="finding-num">06</div>
       <div class="finding-title">Two-location segmentation half-implemented</div>
       <span class="severity low">Low</span>
     </div>
@@ -636,10 +651,10 @@
     </div>
   </article>
 
-  <!-- Finding 6 -->
+  <!-- Finding 7 -->
   <article class="finding">
     <div class="finding-head">
-      <div class="finding-num">06</div>
+      <div class="finding-num">07</div>
       <div class="finding-title">Sends only happen for holidays and promos — no relationship cadence</div>
       <span class="severity medium">Medium</span>
     </div>
@@ -692,8 +707,8 @@
       </tr>
       <tr>
         <td>Vote-for-us module</td>
-        <td class="col-orig">One-line "Cast Your Vote!" with a single link</td>
-        <td class="col-new">Module with all four nominations linked separately + the Best of KC badge</td>
+        <td class="col-orig">One-line "Cast Your Vote!" with a single link. Olathe version links to wrong page (member portal).</td>
+        <td class="col-new">Module with all four nominations linked separately to their actual Pitch URLs + the Best of KC badge</td>
       </tr>
       <tr>
         <td>Footer service strip</td>

@@ -186,6 +186,92 @@
       letter-spacing: 0.02em;
     }
 
+    /* ── LOCATION SNAPSHOT ── */
+    .snapshot {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8px 52px 56px;
+    }
+    .snapshot-eyebrow {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.24em;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+    .snapshot h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .snapshot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .snapshot-card {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 28px 30px;
+    }
+    .snapshot-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .snapshot-loc {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.12em;
+      color: var(--text);
+    }
+    .snapshot-time {
+      font-family: 'SF Mono', Menlo, monospace;
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+    .snapshot-subject {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      line-height: 1.5;
+    }
+    .snapshot-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-top: 1px dashed var(--rule);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .snapshot-row:first-of-type { border-top: 1px solid var(--rule); padding-top: 16px; }
+    .snapshot-row .icon {
+      flex: 0 0 auto;
+      width: 20px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0;
+      line-height: 1.55;
+    }
+    .snapshot-row .icon.ok { color: var(--green); }
+    .snapshot-row .icon.bad { color: var(--red); }
+    .snapshot-row .icon.warn { color: var(--gold); }
+    .snapshot-row .icon.dash { color: var(--text-dim); }
+    .snapshot-row .label {
+      flex: 1;
+      color: var(--text-muted);
+    }
+    .snapshot-row .label strong { color: var(--text); font-weight: 600; }
+
     /* ── FINDINGS ── */
     .findings {
       max-width: 1200px;
@@ -487,8 +573,11 @@
       .intro h1 { font-size: 38px; }
       .meta-bar { padding: 0 22px 18px; gap: 14px; }
       .divider { padding: 0 22px; }
-      .summary, .findings, .compare, .week-one, .reimagine, .audit-footer { padding-left: 22px; padding-right: 22px; }
+      .summary, .snapshot, .findings, .compare, .week-one, .reimagine, .audit-footer { padding-left: 22px; padding-right: 22px; }
       .summary-grid { grid-template-columns: 1fr; }
+      .snapshot-grid { grid-template-columns: 1fr; }
+      .snapshot-card { padding: 22px 22px; }
+      .snapshot-loc { font-size: 24px; }
       .week-list { grid-template-columns: 1fr; }
       .compare-table { font-size: 13px; }
       .compare-table th, .compare-table td { padding: 12px 14px; }
@@ -547,6 +636,73 @@
       <div class="num">0</div>
       <div class="lbl">Personalization tokens across either send (no [Pet Name], no [First Name])</div>
     </div>
+  </div>
+</section>
+
+<!-- LOCATION SNAPSHOT -->
+<section class="snapshot">
+  <div class="snapshot-eyebrow">By location</div>
+  <h2>Same campaign. Two different sets of bugs.</h2>
+  <div class="snapshot-grid">
+
+    <div class="snapshot-card">
+      <div class="snapshot-card-head">
+        <div class="snapshot-loc">Olathe</div>
+        <div class="snapshot-time">May 6 · 12:38 PM</div>
+      </div>
+      <div class="snapshot-subject">Subject: <strong>Memorial Weekend Boarding at Collars Olathe 🐾</strong></div>
+
+      <div class="snapshot-row">
+        <span class="icon bad">✗</span>
+        <span class="label"><strong>Vote CTA broken</strong> — links to Gingr account login instead of vote.thepitchkc.com</span>
+      </div>
+      <div class="snapshot-row">
+        <span class="icon ok">✓</span>
+        <span class="label"><strong>Service links mostly working</strong> — Daycare, Boarding, Training all use the correct subdomain URLs</span>
+      </div>
+      <div class="snapshot-row">
+        <span class="icon warn">⚠</span>
+        <span class="label"><strong>About Us misrouted</strong> to a puppy-training page; Testimonials goes to a Google Search</span>
+      </div>
+      <div class="snapshot-row">
+        <span class="icon warn">⚠</span>
+        <span class="label"><strong>Mixed-era social handles</strong> — FB on new brand, IG on transitional, no LinkedIn in footer</span>
+      </div>
+      <div class="snapshot-row">
+        <span class="icon dash">—</span>
+        <span class="label">No preheader, no personalization, lands in Promotions tab</span>
+      </div>
+    </div>
+
+    <div class="snapshot-card">
+      <div class="snapshot-card-head">
+        <div class="snapshot-loc">Waldo</div>
+        <div class="snapshot-time">May 6 · 12:26 PM</div>
+      </div>
+      <div class="snapshot-subject">Subject: <strong>Memorial Weekend Boarding at Collars Waldo 🐾</strong></div>
+
+      <div class="snapshot-row">
+        <span class="icon ok">✓</span>
+        <span class="label"><strong>Vote text link works</strong> — Cast Your Vote correctly points to vote.thepitchkc.com</span>
+      </div>
+      <div class="snapshot-row">
+        <span class="icon bad">✗</span>
+        <span class="label"><strong>Best of KC badge image links to /bestofkc20/</strong> — the 2020 archive page, not the 2026 round</span>
+      </div>
+      <div class="snapshot-row">
+        <span class="icon bad">✗</span>
+        <span class="label"><strong>5 of 7 footer links return 404</strong> — apex-domain URLs (Dayplay, Board, Groom, Testimonials, About Us)</span>
+      </div>
+      <div class="snapshot-row">
+        <span class="icon warn">⚠</span>
+        <span class="label"><strong>Old "Collar Club KC" social handles</strong> — Facebook + Instagram both still on the legacy name</span>
+      </div>
+      <div class="snapshot-row">
+        <span class="icon dash">—</span>
+        <span class="label">No preheader, no personalization, lands in Promotions tab</span>
+      </div>
+    </div>
+
   </div>
 </section>
 

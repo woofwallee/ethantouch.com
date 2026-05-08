@@ -797,10 +797,9 @@
 
 <div class="meta-bar">
   <span><strong>Brand:</strong> Collars Dog Resort (Olathe + Waldo)</span>
-  <span><strong>Olathe send:</strong> May 6, 12:38 PM</span>
-  <span><strong>Waldo send:</strong> May 6, 12:26 PM</span>
-  <span><strong>Sender:</strong> marketing.gingrapp.com</span>
-  <span><strong>Inbox tab:</strong> Promotions</span>
+  <span><strong>Olathe send:</strong> May 6, 12:38 PM CDT · from <code>collarclubolathe@marketing.gingrapp.com</code></span>
+  <span><strong>Waldo send:</strong> May 6, 12:26 PM CDT · from <code>contact@collarsdogresort.com</code> (routed via marketing.gingrapp.com)</span>
+  <span><strong>Inbox tab:</strong> Promotions (Gmail label <code>CATEGORY_PROMOTIONS</code>, both sends)</span>
 </div>
 
 <div class="divider"><hr></div>
@@ -816,7 +815,7 @@
     </div>
     <div class="summary-stat">
       <div class="num">4</div>
-      <div class="lbl"><strong style="color:var(--gold);">Medium</strong> — handle drift, weak subject + preheader, Promotions placement, newsletter cadence collapse</div>
+      <div class="lbl"><strong style="color:var(--gold);">Medium</strong> — handle drift, weak subject + preheader, Promotions placement, newsletter cadence thinned across two senders</div>
     </div>
     <div class="summary-stat">
       <div class="num">1</div>
@@ -988,7 +987,7 @@
       <div class="finding-title">Lands in Promotions, with no signals to climb out</div>
       <span class="severity medium">Medium</span>
     </div>
-    <p>Gmail sorted this into Promotions, where it competes with Target and Best Buy for attention instead of landing in Primary.</p>
+    <p>Gmail sorted both sends into Promotions (label <code>CATEGORY_PROMOTIONS</code>, verified directly via the Gmail API on both message IDs), where they compete with Target and Best Buy for attention instead of landing in Primary.</p>
     <div class="litmus-callout">
       <div class="litmus-label">
         <span class="tag">Industry Trend</span>
@@ -1021,28 +1020,34 @@
   <article class="finding">
     <div class="finding-head">
       <div class="finding-num">07</div>
-      <div class="finding-title">The multi-section newsletter existed — then stopped</div>
+      <div class="finding-title">Newsletter cadence has thinned, and the format is split across two senders</div>
       <span class="severity medium">Medium</span>
     </div>
-    <p>Through 2025, Collars sent multi-section newsletters mixing promo with relationship segments. A few from the inbox:</p>
+    <p>Collars actually runs <strong>two parallel email programs</strong> from two different visible senders, and the multi-section newsletter format only lives in one of them:</p>
+    <ul>
+      <li><code>contact@collarsdogresort.com</code> — the brand-domain sender. Historical home of the multi-section newsletter.</li>
+      <li><code>collarclubolathe@marketing.gingrapp.com</code> — the Olathe-specific Gingr-marketing sender. Always single-topic promos.</li>
+    </ul>
+    <p>Through 2025, the brand-domain sender ran multi-section newsletters consistently. From the inbox:</p>
     <ul>
       <li><strong>Sep 19, 2025</strong> — "Training Classes Next Week | Dog of the Month | Staff Spotlight: Lily"</li>
       <li><strong>Aug 14, 2025</strong> — "Training Class | Hope 4 La Paws Rescue | Labor Day Boarding"</li>
       <li><strong>Jun 11, 2025</strong> — "New Grooming Updates | A Few Life Lessons from Your Dog"</li>
       <li><strong>May 13, 2025</strong> — "Petiquette | Construction Update | Dog of the Month"</li>
     </ul>
-    <p>Dog of the Month, Staff Spotlights, community partnerships, behind-the-scenes — all in rotation. Then in early 2026 the format collapsed. The twelve sends from January through May 2026 are all single-topic promos. Every email asks for money or a sign-up. The relationship segments stopped.</p>
+    <p>The format <strong>has not disappeared</strong> in 2026 — Jan 9 ran "Olathe Grooming 50% Off | Upcoming Group Training Classes | Grooming Pricing Updates" and Apr 28 ran "Creative Color, Madra Mor Mud Bath &amp; Boarding Brushouts." But the cadence has thinned. From January through May 2026, the brand-domain sender ran <strong>three multi-section newsletters across five months</strong>. The Gingr-marketing sender filled the gap with single-topic promos for daycare deals, training classes, grooming offers, vote-for-us, and the broken Memorial Weekend send.</p>
+    <p>Net effect: customers used to hear a real letter from Collars roughly once a month. They now hear it every six to ten weeks, with the rest of their inbox filling up with Gingr-template sends that read like a different brand.</p>
     <div class="litmus-callout">
       <div class="litmus-label">
         <span class="tag">Industry Insight</span>
         <span class="source">Litmus State of Email 2026 · Ann Handley, p. 28</span>
       </div>
       <blockquote>"A newsletter, in particular, is less about the news, and more about the letter."</blockquote>
-      <p class="application">Newsletters are <strong>90% more likely</strong> to be the top-performing email type at pure-B2C brands. Collars used to know this. The format proved out for a year.</p>
+      <p class="application">Newsletters are <strong>90% more likely</strong> to be the top-performing email type at pure-B2C brands. The brand-domain sender used to know this. The Gingr-marketing sender has never been built that way.</p>
     </div>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
-      <p>Bring it back. Pick any three of Dog of the Month, Staff Spotlight, community story, behind-the-scenes — combine with the month's promo. The pattern already worked. The customers who opened the September 2025 send are still on the list.</p>
+      <p>Decide which sender owns the relationship voice and either consolidate or commit to both. If brand-domain stays the newsletter sender, lift its frequency back to monthly multi-section. If Gingr-marketing absorbs everything, port the multi-section format into it. Today the customer experience is two different brands talking to the same person.</p>
     </div>
   </article>
 </section>

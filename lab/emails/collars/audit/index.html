@@ -536,16 +536,16 @@
   <h2>Seven issues, none of them complicated.</h2>
   <div class="summary-grid">
     <div class="summary-stat">
-      <div class="num">6</div>
-      <div class="lbl">Broken links in the footer</div>
+      <div class="num">5</div>
+      <div class="lbl">Waldo footer links return 404 (apex-domain URLs that don't resolve)</div>
     </div>
     <div class="summary-stat">
       <div class="num">2</div>
-      <div class="lbl">Brand handles still on the old "Collar Club KC" name</div>
+      <div class="lbl">Critical CTA bugs (Olathe vote button + Waldo Pitch badge wrong year)</div>
     </div>
     <div class="summary-stat">
       <div class="num">0</div>
-      <div class="lbl">Personalization tokens (no [Pet Name], no [First Name])</div>
+      <div class="lbl">Personalization tokens across either send (no [Pet Name], no [First Name])</div>
     </div>
   </div>
 </section>
@@ -561,20 +561,37 @@
   <article class="finding">
     <div class="finding-head">
       <div class="finding-num">01</div>
-      <div class="finding-title">Dead links in both location footers</div>
+      <div class="finding-title">Footer link integrity — broken on Waldo, sloppy on Olathe</div>
       <span class="severity high">High</span>
     </div>
-    <p><strong>Both</strong> Memorial Weekend sends carry the same Gingr-template footer service strip, with slightly different labels per location:</p>
+    <p>Same Gingr template, two completely different execution states. I followed every footer link in both sends to its real destination. Waldo's footer is mostly broken; Olathe's is mostly correct but has lazy substitutions.</p>
+
+    <p><strong>Waldo (5 of 7 service-strip links return 404):</strong></p>
     <ul>
-      <li><strong>Waldo footer</strong>: Dayplay · Board · Groom · Testimonials · About Us · Directions · Contact Us</li>
-      <li><strong>Olathe footer</strong>: Daycare · Boarding · Training · Testimonials · About Us · Directions</li>
+      <li>Dayplay → <code>http://collarsdogresort.com/dayplay/</code> — 404</li>
+      <li>Board → <code>http://collarsdogresort.com/boarding/</code> — 404</li>
+      <li>Groom → <code>http://collarsdogresort.com/grooming/</code> — 404</li>
+      <li>Testimonials → <code>http://collarsdogresort.com/reviews/</code> — 404</li>
+      <li>About Us → <code>http://collarsdogresort.com/about-us/</code> — 404</li>
+      <li>Directions → Google Search results for "collar club" (not a real map link)</li>
+      <li>Contact Us → <code>tel:8168328285</code> (mislabeled as a page link, actually a phone tap)</li>
     </ul>
-    <p>Confirmed broken on the Waldo email: <code>collarsdogresort.com/about-us/</code>, <code>/reviews/</code>, <code>/grooming/</code>, <code>/boarding/</code>, <code>/dayplay/</code> all return error pages. The Instagram handle (<code>collarclubkc</code>) is orphaned.</p>
-    <p>The Olathe footer uses the same template and likely points to the same dead URLs. Pending a manual link-by-link verification, treat every <code>collarsdogresort.com/{slug}/</code> link as suspect on both sends. A subscriber who clicks the wrong link doesn't blame Gingr; they blame Collars.</p>
-    <p>Worth noting: Waldo and Olathe also disagree on service naming — Waldo says "Dayplay / Board / Groom", Olathe says "Daycare / Boarding / Training". Inconsistent labels confuse customers who use both houses.</p>
+
+    <p><strong>Olathe (3 issues, otherwise clean):</strong></p>
+    <ul>
+      <li>Daycare → <code>olathe.collarsdogresort.com/dog-day-care-in-olathe/</code> — works ✓</li>
+      <li>Boarding → <code>olathe.collarsdogresort.com/dog-boarding-in-olathe/</code> — works ✓</li>
+      <li>Training → <code>olathe.collarsdogresort.com/dog-training-in-olathe/</code> — works ✓</li>
+      <li>Testimonials → Google Search results page (no real testimonials page exists)</li>
+      <li>About Us → <code>olathe.collarsdogresort.com/puppy-training-in-olathe/</code> — wrong destination (lands on a training page, not About)</li>
+      <li>Directions → Google Maps directions to 12732 S Pflumm Rd — works ✓</li>
+    </ul>
+
+    <p>Same brand, same Gingr template, totally inconsistent execution. Waldo subscribers hit a dead end on five of seven links. Olathe subscribers click "About Us" and learn about puppy training. Neither send has a real testimonials destination.</p>
+
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
-      <p>Two options. Option A: re-point every link to the correct subdomain URL (<code>olathe.collarsdogresort.com/dog-boarding-in-olathe/</code> resolves; the apex domain doesn't). Option B (recommended): strip the service link strip from the Gingr footer template entirely. The reimagined Olathe email drops it and keeps only social icons. Either way, also align the service naming between Olathe and Waldo so customers don't see two different vocabularies.</p>
+      <p>Repoint the Waldo footer to the <code>waldo.collarsdogresort.com/{slug}/</code> subdomain pattern that Olathe already uses correctly. Build a real testimonials page on each subdomain or strip the link. Repoint Olathe's About Us to a real about page. Or skip the whole service strip — the reimagined Olathe email drops it and keeps only social icons.</p>
     </div>
   </article>
 
@@ -582,14 +599,18 @@
   <article class="finding">
     <div class="finding-head">
       <div class="finding-num">02</div>
-      <div class="finding-title">"Cast Your Vote" CTA in the Olathe email points to the wrong page</div>
+      <div class="finding-title">Pitch vote campaign is broken on both emails — different bugs each</div>
       <span class="severity high">High</span>
     </div>
-    <p>Both Memorial Weekend emails (Waldo and Olathe) include a <strong>Cast Your Vote!</strong> button promoting the Pitch Best of KC nomination. The Waldo version links to the actual Pitch voting page, where customers can vote. <strong>The Olathe version links to the Collars Gingr member portal</strong> — recipients land on a logged-in account page that has nothing to do with voting. The campaign is unrunnable for half the customer base.</p>
-    <p>This is the highest-impact issue in the audit. Every Olathe customer who clicked "Cast Your Vote" got an immediate dead-end and almost certainly did not vote. The Pitch nomination round closes; that conversion window is already gone.</p>
+    <p>Both sends ran the same Pitch Best of KC vote-for-us promo, and both sends broke it differently:</p>
+    <ul>
+      <li><strong>Olathe</strong> "Cast Your Vote!" button → <code>collarclubolathe.portal.gingrapp.com/#/public/login</code>. Recipients land on a Gingr account login screen, not the vote page. They can't vote at all from this link.</li>
+      <li><strong>Waldo</strong> "Cast Your Vote!" text link → <code>vote.thepitchkc.com</code> ✓ (works). But the Best of KC <strong>badge image</strong> next to it links to <code>thepitchkc.com/bestofkc20/</code> — that's the <strong>2020</strong> archive page, not the 2026 nomination round.</li>
+    </ul>
+    <p>Net effect: every Olathe customer who clicked the vote button hit a dead end. Every Waldo customer who clicked the badge instead of the text link landed on a six-year-old archived contest. The vote campaign reached zero of the customers it was supposed to mobilize through these specific paths.</p>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
-      <p>Repoint the Olathe template's vote CTA to <code>vote.thepitchkc.com</code> (specifically the boarding/daycare nomination page). 30 seconds in Gingr. After that, set up a pre-send link checker on every campaign so a single broken CTA doesn't take down a full vote drive again. The reimagined version wires all four nominations to their actual Pitch URLs by default.</p>
+      <p>Repoint the Olathe vote button to <code>vote.thepitchkc.com</code> (or specifically to the boarding/daycare nomination URL). Repoint the Waldo Best of KC badge image to the same 2026 vote URL — the badge image asset can stay, only the link target needs updating. After that, set up a pre-send link check on every campaign. The reimagined Olathe email wires all four nominations directly to their real Pitch URLs.</p>
     </div>
   </article>
 
@@ -597,18 +618,24 @@
   <article class="finding">
     <div class="finding-head">
       <div class="finding-num">03</div>
-      <div class="finding-title">Brand handles still using the old "Collar Club KC" name</div>
+      <div class="finding-title">Social handles drift across locations — three brand naming systems live at once</div>
       <span class="severity medium">Medium</span>
     </div>
-    <p>The legal entity is <strong>The Collar Club, LLC</strong>. The consumer-facing brand is <strong>Collars Dog Resort</strong>. But the social handles still read:</p>
-    <ul>
-      <li>Facebook: <code>facebook.com/CollarClubKC/</code></li>
-      <li>Instagram: <code>instagram.com/collarclubkc/</code></li>
-    </ul>
-    <p>LinkedIn already migrated to <code>collarsdogresort</code>. Facebook and Instagram are on the old name. New customers searching for "Collars Dog Resort" on social won't find the right account on the first try.</p>
+    <p>The legal entity is <strong>The Collar Club, LLC</strong>. The consumer-facing brand is <strong>Collars Dog Resort</strong>. The actual social handles linked from each email tell a third story — handles are mid-migration, partially per-location, and not consistent across channels:</p>
+    <table class="compare-table" style="margin: 8px 0 14px;">
+      <thead>
+        <tr><th>Channel</th><th>Olathe email links to</th><th>Waldo email links to</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Facebook</td><td class="col-new">CollarsDogResortOlathe (new brand)</td><td class="col-orig">CollarClubKC (old brand)</td></tr>
+        <tr><td>Instagram</td><td class="col-orig">collarclubolathe (transitional)</td><td class="col-orig">collarclubkc (old brand)</td></tr>
+        <tr><td>LinkedIn</td><td class="col-orig">— (no LinkedIn icon in Olathe footer)</td><td class="col-new">collarsdogresort (new brand)</td></tr>
+      </tbody>
+    </table>
+    <p>Three of five social handles still carry the legacy "Collar Club" naming. New customers searching for "Collars Dog Resort" on Instagram or Facebook won't land on the right account. Olathe customers don't see a LinkedIn link at all, even though one exists.</p>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
-      <p>Migrate Facebook and Instagram handles to <code>collarsdogresort</code> (or a near variant if taken) and add 301-style profile redirect notices on the old accounts for 90 days.</p>
+      <p>Pick one handle pattern and migrate everything. <code>@collarsdogresort</code> as the master handle, with optional <code>@collarsdogresortolathe</code> / <code>@collarsdogresortwaldo</code> if you want location-specific accounts. Add LinkedIn to the Olathe footer template too — it's a missed credibility signal.</p>
     </div>
   </article>
 

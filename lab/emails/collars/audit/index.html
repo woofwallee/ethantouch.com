@@ -607,10 +607,12 @@
       <li><strong>Olathe</strong> "Cast Your Vote!" button → <code>collarclubolathe.portal.gingrapp.com/#/public/login</code>. Recipients land on a Gingr account login screen, not the vote page. They can't vote at all from this link.</li>
       <li><strong>Waldo</strong> "Cast Your Vote!" text link → <code>vote.thepitchkc.com</code> ✓ (works). But the Best of KC <strong>badge image</strong> next to it links to <code>thepitchkc.com/bestofkc20/</code> — that's the <strong>2020</strong> archive page, not the 2026 nomination round.</li>
     </ul>
-    <p>Net effect: every Olathe customer who clicked the vote button hit a dead end. Every Waldo customer who clicked the badge instead of the text link landed on a six-year-old archived contest. The vote campaign reached zero of the customers it was supposed to mobilize through these specific paths.</p>
+    <p>Net effect: every Olathe customer who clicked the vote button hit a dead end. Every Waldo customer who clicked the badge instead of the text link landed on a six-year-old archived contest. The vote campaign reached zero of the customers it was supposed to mobilize through these specific paths. <strong>The send already went out, so a template-only fix doesn't recover the lost clicks.</strong> The Pitch nomination round is still open — that's a recovery window worth using.</p>
     <div class="finding-fix">
-      <div class="finding-fix-label">The fix</div>
-      <p>Repoint the Olathe vote button to <code>vote.thepitchkc.com</code> (or specifically to the boarding/daycare nomination URL). Repoint the Waldo Best of KC badge image to the same 2026 vote URL — the badge image asset can stay, only the link target needs updating. After that, set up a pre-send link check on every campaign. The reimagined Olathe email wires all four nominations directly to their real Pitch URLs.</p>
+      <div class="finding-fix-label">The fix (in order)</div>
+      <p><strong>1. Recovery send, this week.</strong> Short follow-up to Olathe subscribers only: "Our vote link last week pointed to the wrong page. Here's the working one." Two paragraphs, the corrected URL, no other pitch. Owning the bug earns more trust than hoping nobody noticed. The Pitch round is still open, so the conversion window isn't fully closed yet.</p>
+      <p><strong>2. Template repoint.</strong> Update the Gingr Olathe vote CTA to <code>vote.thepitchkc.com</code> (specifically the boarding/daycare nomination URL). Update the Waldo Pitch badge image link to the same — the badge asset can stay, only the link target changes. 30 seconds each.</p>
+      <p><strong>3. Pre-send link check, every campaign going forward.</strong> Two-minute QA pass that follows every CTA to its real destination before any campaign hits send. The reimagined Olathe email already wires all four nominations directly to their real Pitch URLs by default.</p>
     </div>
   </article>
 

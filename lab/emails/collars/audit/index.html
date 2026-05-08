@@ -363,6 +363,47 @@
       padding-top: 16px;
       border-top: 1px dashed var(--rule);
     }
+
+    /* ── LITMUS CALLOUT ── */
+    .litmus-callout {
+      background: var(--card-hi);
+      border-left: 3px solid var(--orange);
+      border-radius: 0 4px 4px 0;
+      padding: 18px 22px;
+      margin: 18px 0;
+    }
+    .litmus-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .litmus-label .tag {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      color: var(--orange);
+    }
+    .litmus-label .source {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 11.5px;
+      letter-spacing: 0.04em;
+      color: var(--text-dim);
+    }
+    .litmus-callout blockquote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .litmus-callout .application {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+    .litmus-callout .application strong { color: var(--text); }
     .finding-fix-label {
       font-family: 'Instrument Sans', sans-serif;
       font-size: 11px;
@@ -814,7 +855,14 @@
       <span class="severity medium">Medium</span>
     </div>
     <p>Olathe subject: <code>Memorial Weekend Boarding at Collars Olathe 🐾</code>. Waldo subject: same template with the location swapped. Functional but flat for both. Preheader: <code>Memorial Weekend Boarding!</code> (literally the first H1 of the email body, repeated as preview text — the preheader was never explicitly set on either send).</p>
-    <p>Per Litmus 2026 (Jay Schwedelson): "Open rates are extremely important. Directionally, if one variant has an emoji and one doesn't, and the emoji one gets a 20% higher open rate, the emoji one wins." The email keeps the emoji ✓ but wastes the preheader, the second-most-read piece of copy after the subject.</p>
+    <div class="litmus-callout">
+      <div class="litmus-label">
+        <span class="tag">Industry Benchmark</span>
+        <span class="source">Litmus State of Email 2026 · Jay Schwedelson, p. 30</span>
+      </div>
+      <blockquote>"Open rates are extremely important. Directionally, if one variant has an emoji and one doesn't, and the emoji one gets a 20% higher open rate, the emoji one wins."</blockquote>
+      <p class="application">Collars keeps the emoji <strong>✓</strong>, but wastes the preheader — the second-most-read piece of copy after the subject.</p>
+    </div>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
       <p>Set a real preheader for every send. For Memorial Weekend, something like <code>Holiday weekends fill quickly — book before they're gone.</code> Adds zero send-time effort, lifts open rate measurably.</p>
@@ -829,7 +877,14 @@
       <span class="severity medium">Medium</span>
     </div>
     <p>Gmail's inbox sorting put this email in the Promotions tab, alongside every retailer pushing a holiday sale. That's the right tab for a promotional email, but it means Collars is competing with Target and Best Buy for attention rather than landing in Primary where personal correspondence sits.</p>
-    <p>Per Litmus 2026 (p. 6), Inbox AI matured significantly in 2025 — Gmail "most-relevant" Promotions sort, Apple Intelligence summaries, Yahoo Catch Up. Senders that act like a single human writing to a single subscriber climb out of Promotions; senders that look templated stay there.</p>
+    <div class="litmus-callout">
+      <div class="litmus-label">
+        <span class="tag">Industry Trend</span>
+        <span class="source">Litmus State of Email 2026 · p. 6</span>
+      </div>
+      <blockquote>"Inbox AI matured significantly in 2025 — Gmail 'most-relevant' Promotions sort, Apple Intelligence summaries, Yahoo Catch Up. Senders that act like a single human writing to a single subscriber climb out of Promotions; senders that look templated stay there."</blockquote>
+      <p class="application">Collars' templated multi-section footer and broadcast tone are exactly the signals Inbox AI uses to keep an email parked in Promotions.</p>
+    </div>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
       <p>Cut the broadcast tone. Personalize from line ("Alan from Collars" instead of "Collars Dog Resort"). Use the dog's name in the body when possible. Reduce image-to-text ratio. The reimagined email leaves room for a <code>[Pet Name]</code> token in the CTA, which is a 30-second template change in Gingr.</p>
@@ -868,7 +923,14 @@
       <li><strong>Jan 19, 2026</strong> — "Welcome to our New GM, Liberty"</li>
     </ul>
     <p>Dog of the Month, Staff Spotlights, community partnerships (Hope 4 La Paws), behind-the-scenes (signage, construction, leadership change), and storytelling pieces ("Life Lessons from Your Dog") were all in the rotation. Then sometime in early 2026, the format collapsed. The <strong>twelve sends from January through May 2026</strong> are all single-topic promo emails — training class, daycare deal, grooming offer, Memorial Weekend boarding, vote-for-us, repeat. Every email asks for money or a sign-up. The relationship segments stopped.</p>
-    <p>Per Litmus 2026 (Ann Handley): "From broadcasting to corresponding. A newsletter, in particular, is less about the news, and more about the letter." Newsletters are <strong>90% more likely</strong> to be the top-performing email type at pure-B2C brands. Collars used to know this; the format proved out for a year.</p>
+    <div class="litmus-callout">
+      <div class="litmus-label">
+        <span class="tag">Industry Insight</span>
+        <span class="source">Litmus State of Email 2026 · Ann Handley, p. 28</span>
+      </div>
+      <blockquote>"From broadcasting to corresponding. A newsletter, in particular, is less about the news, and more about the letter."</blockquote>
+      <p class="application">Newsletters are <strong>90% more likely</strong> to be the top-performing email type at pure-B2C brands. Collars used to know this — the multi-section format proved out for a year.</p>
+    </div>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
       <p>Bring back the multi-section format. One Dog of the Month, one Staff Spotlight, one community/partner story, one behind-the-scenes update — pick any three and combine with the month's promo. The pattern already worked for Collars; it doesn't need to be reinvented. The customers who opened the September 2025 send are still on the list.</p>

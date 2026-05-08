@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit · Collars Memorial Weekend Email — Ethan Touch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700;1,900&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0a;
+      --card: #161616;
+      --card-hi: #1d1d1d;
+      --rule: #262626;
+      --rule-soft: #1c1c1c;
+      --text: #cdcccb;
+      --text-muted: #7a7775;
+      --text-dim: #4f4d4b;
+      --orange: #cf6940;
+      --orange-deep: #b3552f;
+      --teal: #006784;
+      --gold: #EDB111;
+      --red: #c95757;
+      --green: #6ab06a;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: 'Instrument Sans', -apple-system, sans-serif;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    a { color: var(--orange); text-decoration: none; border-bottom: 1px solid rgba(207,105,64,0.3); }
+    a:hover { border-bottom-color: var(--orange); }
+
+    /* ── HEADER NAV ── */
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(8px);
+      z-index: 10;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 22px 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand { display: flex; align-items: baseline; gap: 16px; }
+    .wordmark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.18em;
+      color: var(--text);
+      border: none;
+    }
+    .section-tag {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      color: var(--text-dim);
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--text);
+      text-transform: uppercase;
+      border: none;
+    }
+
+    /* ── INTRO ── */
+    .intro {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 52px 40px;
+    }
+    .intro .eyebrow {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 22px;
+    }
+    .intro h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    .intro h1 em {
+      font-style: italic;
+      color: var(--orange);
+    }
+    .intro .lead {
+      max-width: 760px;
+      font-size: 17px;
+      color: var(--text-muted);
+    }
+    .meta-bar {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 52px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      font-size: 13px;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+    .meta-bar span strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .divider {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 52px;
+    }
+    .divider hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── SUMMARY GRID ── */
+    .summary {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 52px 24px;
+    }
+    .summary-eyebrow {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.24em;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+    .summary h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .summary-stat {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 24px 22px;
+    }
+    .summary-stat .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px;
+      line-height: 1;
+      color: var(--orange);
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+    .summary-stat .lbl {
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── FINDINGS ── */
+    .findings {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 52px;
+    }
+    .findings-head {
+      margin-bottom: 32px;
+    }
+    .findings-head .eyebrow {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.24em;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+    .findings-head h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .finding {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 32px 36px;
+      margin-bottom: 18px;
+    }
+    .finding-head {
+      display: flex;
+      align-items: baseline;
+      gap: 22px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .finding-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 0.04em;
+      color: var(--text-dim);
+      line-height: 1;
+    }
+    .finding-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text);
+      flex: 1;
+      min-width: 0;
+    }
+    .severity {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 3px;
+    }
+    .severity.high { background: rgba(201,87,87,0.15); color: var(--red); border: 1px solid rgba(201,87,87,0.4); }
+    .severity.medium { background: rgba(237,177,17,0.12); color: var(--gold); border: 1px solid rgba(237,177,17,0.4); }
+    .severity.low { background: rgba(106,176,106,0.12); color: var(--green); border: 1px solid rgba(106,176,106,0.4); }
+
+    .finding p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+    .finding p:last-child { margin-bottom: 0; }
+    .finding strong { color: var(--text); font-weight: 600; }
+    .finding code {
+      font-family: 'SF Mono', Menlo, monospace;
+      font-size: 13px;
+      background: rgba(255,255,255,0.04);
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: var(--text);
+    }
+    .finding ul {
+      margin: 8px 0 12px 20px;
+      color: var(--text-muted);
+    }
+    .finding ul li { margin-bottom: 4px; font-size: 14.5px; }
+    .finding-fix {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--rule);
+    }
+    .finding-fix-label {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+
+    /* ── COMPARE TABLE ── */
+    .compare {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 52px 56px;
+    }
+    .compare h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .compare .lead {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 28px;
+      max-width: 680px;
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .compare-table th, .compare-table td {
+      padding: 16px 22px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--rule);
+    }
+    .compare-table th {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      color: var(--text-dim);
+      background: var(--card-hi);
+      font-weight: 400;
+    }
+    .compare-table td {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .compare-table td:first-child {
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 600;
+      color: var(--text);
+      width: 22%;
+    }
+    .compare-table td.col-orig { color: #a89b95; }
+    .compare-table td.col-new { color: var(--text); }
+
+    /* ── WEEK ONE ── */
+    .week-one {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 52px 56px;
+    }
+    .week-one h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    .week-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .week-item {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 22px 24px;
+    }
+    .week-item .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.06em;
+      color: var(--orange);
+      margin-bottom: 6px;
+    }
+    .week-item h4 {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .week-item p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* ── REIMAGINE EMBED ── */
+    .reimagine {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 52px 80px;
+    }
+    .reimagine h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .reimagine .lead {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 28px;
+      max-width: 680px;
+    }
+    .reimagine-frame {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .reimagine-bar {
+      background: var(--card-hi);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .dots { display: flex; gap: 6px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--rule); }
+    .dot.r { background: #d97757; }
+    .dot.y { background: #d6b758; }
+    .dot.g { background: #6ab06a; }
+    .url {
+      font-family: 'SF Mono', Menlo, monospace;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+    .url .domain { color: var(--text-muted); }
+    .reimagine iframe {
+      width: 100%;
+      height: 720px;
+      border: none;
+      background: #fff;
+      display: block;
+    }
+    .reimagine-cta {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 14px 22px;
+      background: var(--orange);
+      color: #0a0a0a;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      border: none;
+    }
+    .reimagine-cta:hover { background: var(--orange-deep); }
+
+    /* ── FOOTER ── */
+    .audit-footer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 52px 56px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+    .audit-footer p {
+      font-size: 13px;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+    .audit-footer .signature {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 17px;
+      color: var(--text);
+    }
+
+    @media (max-width: 760px) {
+      .nav { padding: 18px 22px; }
+      .nav-links { display: none; }
+      .intro { padding: 56px 22px 28px; }
+      .intro h1 { font-size: 38px; }
+      .meta-bar { padding: 0 22px 18px; gap: 14px; }
+      .divider { padding: 0 22px; }
+      .summary, .findings, .compare, .week-one, .reimagine, .audit-footer { padding-left: 22px; padding-right: 22px; }
+      .summary-grid { grid-template-columns: 1fr; }
+      .week-list { grid-template-columns: 1fr; }
+      .compare-table { font-size: 13px; }
+      .compare-table th, .compare-table td { padding: 12px 14px; }
+      .reimagine iframe { height: 560px; }
+      .audit-footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <nav class="nav">
+    <div class="brand">
+      <a href="/" class="wordmark">ETHAN TOUCH</a>
+      <span class="section-tag">/ AUDIT / COLLARS</span>
+    </div>
+    <div class="nav-links">
+      <a href="/lab/">Lab</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </nav>
+</div>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="eyebrow">Field Notes / Email Audit</div>
+  <h1>A quick audit of the <em>Memorial Weekend</em> send.</h1>
+  <p class="lead">A short, specific look at what's working and what's broken in the most recent Collars Dog Resort marketing email. Six findings, one location-segmentation gap, and a list of fixes that take less than a week to implement. Paired with a reimagined version of the same email.</p>
+</section>
+
+<div class="meta-bar">
+  <span><strong>Source:</strong> "Memorial Weekend Boarding at Collars Waldo 🐾"</span>
+  <span><strong>Sender:</strong> contact@collarsdogresort.com via marketing.gingrapp.com</span>
+  <span><strong>Sent:</strong> May 6, 2026 · 12:26 PM</span>
+  <span><strong>Inbox tab:</strong> Promotions</span>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- SUMMARY -->
+<section class="summary">
+  <div class="summary-eyebrow">At a glance</div>
+  <h2>Six issues, none of them complicated.</h2>
+  <div class="summary-grid">
+    <div class="summary-stat">
+      <div class="num">6</div>
+      <div class="lbl">Broken links in the footer</div>
+    </div>
+    <div class="summary-stat">
+      <div class="num">2</div>
+      <div class="lbl">Brand handles still on the old "Collar Club KC" name</div>
+    </div>
+    <div class="summary-stat">
+      <div class="num">0</div>
+      <div class="lbl">Personalization tokens (no [Pet Name], no [First Name])</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINDINGS -->
+<section class="findings">
+  <div class="findings-head">
+    <div class="eyebrow">Findings</div>
+    <h2>What I caught in three minutes.</h2>
+  </div>
+
+  <!-- Finding 1 -->
+  <article class="finding">
+    <div class="finding-head">
+      <div class="finding-num">01</div>
+      <div class="finding-title">Six dead links in the footer service strip</div>
+      <span class="severity high">High</span>
+    </div>
+    <p>The footer of the Memorial Weekend email links to <strong>Dayplay, Board, Groom, Testimonials, About Us, Directions, and Contact Us</strong>. Five of them point to <code>collarsdogresort.com/{slug}/</code> URLs that don't resolve, and the Instagram handle (<code>collarclubkc</code>) is orphaned.</p>
+    <ul>
+      <li><code>collarsdogresort.com/about-us/</code> — broken</li>
+      <li><code>collarsdogresort.com/reviews/</code> — broken</li>
+      <li><code>collarsdogresort.com/grooming/</code> — broken</li>
+      <li><code>collarsdogresort.com/boarding/</code> — broken</li>
+      <li><code>collarsdogresort.com/dayplay/</code> — broken</li>
+      <li><code>instagram.com/collarclubkc/</code> — orphaned (account no longer maintained at this handle)</li>
+    </ul>
+    <p>Every send goes out with the same bad links. A subscriber who clicks the wrong link doesn't blame Gingr; they blame Collars.</p>
+    <div class="finding-fix">
+      <div class="finding-fix-label">The fix</div>
+      <p>Either point the links to the correct subdomain URLs (<code>olathe.collarsdogresort.com/dog-boarding-in-olathe/</code> works; the apex domain doesn't), or strip the service link strip out of the footer template entirely. The reimagined version drops it and keeps only social icons.</p>
+    </div>
+  </article>
+
+  <!-- Finding 2 -->
+  <article class="finding">
+    <div class="finding-head">
+      <div class="finding-num">02</div>
+      <div class="finding-title">Brand handles still using the old "Collar Club KC" name</div>
+      <span class="severity medium">Medium</span>
+    </div>
+    <p>The legal entity is <strong>The Collar Club, LLC</strong>. The consumer-facing brand is <strong>Collars Dog Resort</strong>. But the social handles still read:</p>
+    <ul>
+      <li>Facebook: <code>facebook.com/CollarClubKC/</code></li>
+      <li>Instagram: <code>instagram.com/collarclubkc/</code></li>
+    </ul>
+    <p>LinkedIn already migrated to <code>collarsdogresort</code>. Facebook and Instagram are on the old name. New customers searching for "Collars Dog Resort" on social won't find the right account on the first try.</p>
+    <div class="finding-fix">
+      <div class="finding-fix-label">The fix</div>
+      <p>Migrate Facebook and Instagram handles to <code>collarsdogresort</code> (or a near variant if taken) and add 301-style profile redirect notices on the old accounts for 90 days.</p>
+    </div>
+  </article>
+
+  <!-- Finding 3 -->
+  <article class="finding">
+    <div class="finding-head">
+      <div class="finding-num">03</div>
+      <div class="finding-title">Subject line and preheader leave revenue on the table</div>
+      <span class="severity medium">Medium</span>
+    </div>
+    <p>Subject: <code>Memorial Weekend Boarding at Collars Waldo 🐾</code>. Functional but flat. Preheader: <code>Boarding Memorial Weekend!</code> (literally the first H1 of the email body, repeated as preview text — the preheader was never set).</p>
+    <p>Per Litmus 2026 (Jay Schwedelson): "Open rates are extremely important. Directionally, if one variant has an emoji and one doesn't, and the emoji one gets a 20% higher open rate, the emoji one wins." The email keeps the emoji ✓ but wastes the preheader, the second-most-read piece of copy after the subject.</p>
+    <div class="finding-fix">
+      <div class="finding-fix-label">The fix</div>
+      <p>Set a real preheader for every send. For Memorial Weekend, something like <code>Holiday weekends fill quickly — book before they're gone.</code> Adds zero send-time effort, lifts open rate measurably.</p>
+    </div>
+  </article>
+
+  <!-- Finding 4 -->
+  <article class="finding">
+    <div class="finding-head">
+      <div class="finding-num">04</div>
+      <div class="finding-title">Lands in Gmail's Promotions tab, no engagement signals to climb out</div>
+      <span class="severity medium">Medium</span>
+    </div>
+    <p>Gmail's inbox sorting put this email in the Promotions tab, alongside every retailer pushing a holiday sale. That's the right tab for a promotional email, but it means Collars is competing with Target and Best Buy for attention rather than landing in Primary where personal correspondence sits.</p>
+    <p>Per Litmus 2026 (p. 6), Inbox AI matured significantly in 2025 — Gmail "most-relevant" Promotions sort, Apple Intelligence summaries, Yahoo Catch Up. Senders that act like a single human writing to a single subscriber climb out of Promotions; senders that look templated stay there.</p>
+    <div class="finding-fix">
+      <div class="finding-fix-label">The fix</div>
+      <p>Cut the broadcast tone. Personalize from line ("Alan from Collars" instead of "Collars Dog Resort"). Use the dog's name in the body when possible. Reduce image-to-text ratio. The reimagined email leaves room for a <code>[Pet Name]</code> token in the CTA, which is a 30-second template change in Gingr.</p>
+    </div>
+  </article>
+
+  <!-- Finding 5 -->
+  <article class="finding">
+    <div class="finding-head">
+      <div class="finding-num">05</div>
+      <div class="finding-title">Two-location segmentation half-implemented</div>
+      <span class="severity low">Low</span>
+    </div>
+    <p>Collars sent <strong>two separate Memorial Weekend emails</strong> the same day — one for Olathe, one for Waldo. That's the right move. But neither email cross-references the other location ("Waldo full? Olathe still has spots"), and the body copy is nearly identical between them apart from the address. Customers whose dog stays at one location and overflows to the other (a real pattern) get no signal that flexibility exists.</p>
+    <div class="finding-fix">
+      <div class="finding-fix-label">The fix</div>
+      <p>Add a one-line cross-reference in the footer of each location's email: "Hosting at our [other-location] house too — book there if your home location fills." The reimagined email's footer does this with a two-card location block (currently disabled per your direction, but ready to switch back on for campaigns where it helps).</p>
+    </div>
+  </article>
+
+  <!-- Finding 6 -->
+  <article class="finding">
+    <div class="finding-head">
+      <div class="finding-num">06</div>
+      <div class="finding-title">Sends only happen for holidays and promos — no relationship cadence</div>
+      <span class="severity medium">Medium</span>
+    </div>
+    <p>Your last six sends across April and May are all transactional or promotional: training class enrollment, summer grooming offer, half-off Tuesday daycare, Memorial Weekend boarding (×2), creative color grooming. Every email asks for money. None of them just write to subscribers.</p>
+    <p>Per Litmus 2026 (Ann Handley): "From broadcasting to corresponding. A newsletter, in particular, is less about the news, and more about the letter." Newsletters are <strong>90% more likely</strong> to be the top-performing email type at pure-B2C brands. Collars is leaving the highest-engagement category unused.</p>
+    <div class="finding-fix">
+      <div class="finding-fix-label">The fix</div>
+      <p>Add a monthly "From the Collars Family" letter. A real photo from one of the houses, a single piece of dog-care advice, one staff or pup spotlight. Three paragraphs. No CTA. The relationship asset that sets up every promo email that follows it.</p>
+    </div>
+  </article>
+</section>
+
+<!-- COMPARE TABLE -->
+<section class="compare">
+  <h2>The original vs the reimagined.</h2>
+  <p class="lead">Same campaign, same audience, same 12-day window before the holiday. Component by component.</p>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Original send (May 6)</th>
+        <th>Reimagined</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Subject line</td>
+        <td class="col-orig">Memorial Weekend Boarding at Collars Waldo 🐾</td>
+        <td class="col-new">Pups have plans too. Book theirs at Olathe before we're full. (subject would be tested)</td>
+      </tr>
+      <tr>
+        <td>Preheader</td>
+        <td class="col-orig">"Boarding Memorial Weekend!" (auto-pulled from H1; not set)</td>
+        <td class="col-new">"Memorial Weekend fills fast. Lock in your pup's spot before we're full." (set explicitly)</td>
+      </tr>
+      <tr>
+        <td>Hero copy</td>
+        <td class="col-orig">"Collars here! Memorial Weekend is right around the corner..." (template opener)</td>
+        <td class="col-new">"Pups have plans too. Book theirs at Olathe before we're full." (brand voice, not template)</td>
+      </tr>
+      <tr>
+        <td>Personalization</td>
+        <td class="col-orig">None — same body for everyone</td>
+        <td class="col-new"><code>[Pet Name]</code> merge token in the primary CTA ("Reserve Charlie's Spot")</td>
+      </tr>
+      <tr>
+        <td>Brand voice cues</td>
+        <td class="col-orig">Generic boarding bullets ("safe supervised play, comfortable accommodations")</td>
+        <td class="col-new">Site language used: "no crates", "honest, all-inclusive boarding", "transPAWrency"</td>
+      </tr>
+      <tr>
+        <td>Vote-for-us module</td>
+        <td class="col-orig">One-line "Cast Your Vote!" with a single link</td>
+        <td class="col-new">Module with all four nominations linked separately + the Best of KC badge</td>
+      </tr>
+      <tr>
+        <td>Footer service strip</td>
+        <td class="col-orig">7 links, 5 broken, 1 orphaned social handle</td>
+        <td class="col-new">Strip removed. Three working social icons + plain address block.</td>
+      </tr>
+      <tr>
+        <td>Visual identity</td>
+        <td class="col-orig">Default Gingr template structure</td>
+        <td class="col-new">Brand-locked palette (#006784 / #B3D1DA / #EDB111), Caveat handwritten tagline, paw-print accents</td>
+      </tr>
+      <tr>
+        <td>Mobile</td>
+        <td class="col-orig">Responsive (Gingr default)</td>
+        <td class="col-new">Responsive + dark-mode rules + WCAG-compliant CTA contrast</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- WEEK ONE -->
+<section class="week-one">
+  <h2>What I'd own in week one.</h2>
+  <div class="week-list">
+    <div class="week-item">
+      <div class="num">01</div>
+      <h4>Patch the dead links</h4>
+      <p>Fix or remove the six broken footer links across the Gingr template. One afternoon.</p>
+    </div>
+    <div class="week-item">
+      <div class="num">02</div>
+      <h4>Migrate social handles</h4>
+      <p>Move Facebook and Instagram off the old "CollarClubKC" name to match the LinkedIn migration. New customer search match on day one.</p>
+    </div>
+    <div class="week-item">
+      <div class="num">03</div>
+      <h4>Set real preheaders for every send</h4>
+      <p>Add the second-most-read line of copy back into every email. No platform changes, just discipline.</p>
+    </div>
+    <div class="week-item">
+      <div class="num">04</div>
+      <h4>Build the [Pet Name] token</h4>
+      <p>Wire Gingr customer data into Pet Name and Pet First Name merge fields. Personalize one CTA per send.</p>
+    </div>
+    <div class="week-item">
+      <div class="num">05</div>
+      <h4>Cross-reference the locations</h4>
+      <p>Add the "also at our other house" footer line. Improves conversion when a location fills up. Same email infrastructure.</p>
+    </div>
+    <div class="week-item">
+      <div class="num">06</div>
+      <h4>Draft the first relationship letter</h4>
+      <p>One newsletter, one staff or pup spotlight, no CTA. Schedule it for the first week of next month. Set the cadence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REIMAGINE EMBED -->
+<section class="reimagine">
+  <h2>The reimagined send.</h2>
+  <p class="lead">Same campaign, rebuilt as live HTML. Brand-locked palette, real Olathe photos, the Best of KC vote module integrated, mobile and dark-mode tested.</p>
+  <div class="reimagine-frame">
+    <div class="reimagine-bar">
+      <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+      <div class="url">ethantouch.com<span class="domain">/lab/emails/collars</span></div>
+    </div>
+    <iframe src="/lab/emails/collars/" loading="lazy" title="Reimagined Collars Memorial Weekend email"></iframe>
+  </div>
+  <a href="/lab/emails/collars/" class="reimagine-cta" target="_blank" rel="noopener">Open the full reimagine →</a>
+</section>
+
+<!-- FOOTER -->
+<div class="audit-footer">
+  <p>Audit prepared by Ethan Touch · May 7, 2026</p>
+  <span class="signature">From a fellow KC operator who reads your emails</span>
+</div>
+
+</body>
+</html>

@@ -792,7 +792,7 @@
 <section class="intro">
   <div class="eyebrow">Field Notes / Email Audit · Collars Dog Resort</div>
   <h1>Auditing the <em>Memorial Weekend</em> send from <em>Collars Dog Resort</em>.</h1>
-  <p class="lead">Collars Dog Resort is a two-location Kansas City dog boarding, daycare, training, and grooming business with houses in Olathe and Waldo. On May 6 they sent two near-identical Memorial Weekend emails, one per location, both built on the same Gingr template. This is a short, specific look at what's working and what's broken across both sends, paired with a reimagined version of the Olathe email at the bottom.</p>
+  <p class="lead">Collars Dog Resort is a two-location Kansas City dog boarding, daycare, training, and grooming business with houses in Olathe and Waldo. On May 6 they sent two structurally similar Memorial Weekend emails, one per location, both routed through Gingr's marketing infrastructure. This is a short, specific look at what's working and what's broken across both sends, paired with a reimagined version of the Olathe email at the bottom.</p>
 </section>
 
 <div class="meta-bar">
@@ -850,7 +850,7 @@
       </div>
       <div class="snapshot-row">
         <span class="icon bad">✗</span>
-        <span class="label"><strong>Instagram icon</strong> links to a deleted account (@collarclubolathe)</span>
+        <span class="label"><strong>Instagram icon</strong> points to <code>@collarclubolathe</code> (deleted) — the live account is <code>@collarsdogresortolathe</code></span>
       </div>
       <div class="snapshot-row">
         <span class="icon bad">✗</span>
@@ -874,7 +874,7 @@
       </div>
       <div class="snapshot-row">
         <span class="icon bad">✗</span>
-        <span class="label"><strong>Instagram icon</strong> links to a deleted account (@collarclubkc)</span>
+        <span class="label"><strong>Instagram icon</strong> points to <code>@collarclubkc</code> (deleted) — the live account is <code>@collarsdogresortwaldo</code></span>
       </div>
       <div class="snapshot-row">
         <span class="icon bad">✗</span>
@@ -901,11 +901,11 @@
     </div>
     <p>I followed every footer link in both sends. Same Gingr template, two completely different execution states.</p>
 
-    <p><strong>Waldo</strong> — Dayplay, Board, Groom, Testimonials, About Us all 404 on the apex domain. Directions points to a Google Search, not a map. Instagram icon links to <code>@collarclubkc</code>, which Instagram returns "page not available" for.</p>
+    <p><strong>Waldo</strong> — Dayplay, Board, Groom, Testimonials, About Us all 404 on the apex domain. Directions points to a Google Search, not a map. Instagram icon links to <code>@collarclubkc</code>, which Instagram returns "page not available" for. The <em>real</em> Waldo IG account, <a href="https://www.instagram.com/collarsdogresortwaldo/" target="_blank" rel="noopener"><code>@collarsdogresortwaldo</code></a>, is live and active — the email is just pointing at a dead handle.</p>
 
-    <p><strong>Olathe</strong> — service subdomain links work, but About Us drops customers on a puppy-training page, Testimonials goes to Google Search, and the Instagram icon links to <code>@collarclubolathe</code>, also deleted.</p>
+    <p><strong>Olathe</strong> — service subdomain links work, but About Us drops customers on a puppy-training page, Testimonials goes to Google Search, and the Instagram icon links to <code>@collarclubolathe</code>, also deleted. The real Olathe IG account, <a href="https://www.instagram.com/collarsdogresortolathe/" target="_blank" rel="noopener"><code>@collarsdogresortolathe</code></a>, is live too.</p>
 
-    <p>Five of seven Waldo links dead. About Us misrouted on Olathe. Both Instagram icons dead. Neither send has a real testimonials destination.</p>
+    <p>Five of seven Waldo links dead. About Us misrouted on Olathe. Both Instagram icons point to dead handles even though both locations have live IG accounts under the new brand. Neither send has a real testimonials destination.</p>
 
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
@@ -929,7 +929,7 @@
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
       <p><strong>1. Optional recovery send</strong> if voting is still meaningfully open when this is read. Two paragraphs to Olathe subscribers, working URL as the only CTA. Owning the bug in the open earns more trust than hoping nobody noticed.</p>
-      <p><strong>2. Pre-send link check on every campaign.</strong> Two-minute QA that follows every CTA to its real destination before send. One dead CTA shouldn't take down a multi-nomination vote drive. The reimagined Olathe send wires all four nominations to their real Pitch URLs by default — and each link <strong>deep-links straight to the category Collars is in</strong>, so customers don't have to scroll Pitch's full ballot of 200+ nominations across multiple pages to find the right four. One tap, one vote, done.</p>
+      <p><strong>2. Pre-send link check on every campaign.</strong> Two-minute QA that follows every CTA to its real destination before send. One dead CTA shouldn't take down a multi-nomination vote drive. The reimagined Olathe send wires all four nominations to their real Pitch URLs by default — and each link <strong>deep-links straight to the category Collars is in</strong>, so customers don't have to scan Pitch's full ballot across its many categories to find the right four. One tap, one vote, done.</p>
     </div>
   </article>
 
@@ -940,21 +940,21 @@
       <div class="finding-title">Social handles drift across locations</div>
       <span class="severity medium">Medium</span>
     </div>
-    <p>Three naming systems live at once: legal entity <strong>The Collar Club, LLC</strong>, consumer brand <strong>Collars Dog Resort</strong>, and the legacy "Collar Club KC" handles still wired into the footer:</p>
+    <p>Two naming systems live in the email footers at once: the consumer brand <strong>Collars Dog Resort</strong> and the legacy "Collar Club KC" handles still wired into the icon links. The legal entity (<strong>The Collar Club, LLC</strong>) is the source of the legacy naming.</p>
     <table class="compare-table" style="margin: 8px 0 14px;">
       <thead>
-        <tr><th>Channel</th><th>Olathe email</th><th>Waldo email</th></tr>
+        <tr><th>Channel</th><th>Olathe email links to</th><th>Waldo email links to</th></tr>
       </thead>
       <tbody>
-        <tr><td>Facebook</td><td class="col-new">CollarsDogResortOlathe (new)</td><td class="col-orig">CollarClubKC (old)</td></tr>
+        <tr><td>Facebook</td><td class="col-new">CollarsDogResortOlathe (new)</td><td class="col-orig">CollarClubKC (legacy)</td></tr>
         <tr><td>Instagram</td><td class="col-orig"><strong style="color:#d76a6a;">@collarclubolathe — deleted</strong></td><td class="col-orig"><strong style="color:#d76a6a;">@collarclubkc — deleted</strong></td></tr>
         <tr><td>LinkedIn</td><td class="col-orig">missing from footer</td><td class="col-new">collarsdogresort (new)</td></tr>
       </tbody>
     </table>
-    <p>Both Instagram icons point to deleted accounts. Every IG click is a credibility hit. New customers searching for "Collars Dog Resort" on social won't find the right account.</p>
+    <p>Both Instagram icons in the email footers point to <strong>handles Instagram returns "page not available" for</strong>. The active IG accounts under the new brand exist and are working — <a href="https://www.instagram.com/collarsdogresortolathe/" target="_blank" rel="noopener"><code>@collarsdogresortolathe</code></a> and <a href="https://www.instagram.com/collarsdogresortwaldo/" target="_blank" rel="noopener"><code>@collarsdogresortwaldo</code></a> — they just aren't what the emails link to. Every IG click in either email goes to a dead page instead of the live account that's already there.</p>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
-      <p>Pick one pattern and migrate. <code>@collarsdogresort</code> as the master handle, with location-specific accounts if useful. Add LinkedIn to the Olathe footer.</p>
+      <p>Repoint the Instagram icons in both footers to the live <code>@collarsdogresortolathe</code> and <code>@collarsdogresortwaldo</code> accounts. Migrate the Waldo Facebook off "CollarClubKC" to match the new brand naming. Add LinkedIn to the Olathe footer.</p>
     </div>
   </article>
 
@@ -971,7 +971,7 @@
         <span class="tag">Industry Benchmark</span>
         <span class="source">Litmus State of Email 2026 · Jay Schwedelson, p. 30</span>
       </div>
-      <blockquote>"If one variant has an emoji and one doesn't, and the emoji one gets a 20% higher open rate, the emoji one wins."</blockquote>
+      <blockquote>"I fully believe open rates are extremely important. Directionally, if you send out an email and you A/B test it, and one has an emoji and one doesn't, and the one with the emoji gets a 20% higher open rate, the emoji one wins. Directionally it's important."</blockquote>
       <p class="application">Collars keeps the emoji. The preheader is wasted — the second-most-read line of copy after the subject.</p>
     </div>
     <div class="finding-fix">
@@ -993,8 +993,8 @@
         <span class="tag">Industry Trend</span>
         <span class="source">Litmus State of Email 2026 · p. 6</span>
       </div>
-      <blockquote>"Senders that act like a single human writing to a single subscriber climb out of Promotions; senders that look templated stay there."</blockquote>
-      <p class="application">The templated footer and broadcast tone are exactly what Inbox AI uses to keep email parked in Promotions.</p>
+      <blockquote>"Email management is more intelligent. Gmail users can now see the 'most-relevant' emails in the Promotions tab. Apple Intelligence can write emails, surface priority messages, and summarize emails. Yahoo Mail has a new 'Catch Up' feature with AI email summaries."</blockquote>
+      <p class="application">Inbox AI is now actively re-sorting the Promotions tab. Templated, broadcast-tone sends are the kind that stay parked there. Personalized, single-human-voice sends are the kind that get surfaced.</p>
     </div>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
@@ -1023,12 +1023,12 @@
       <div class="finding-title">The newsletter cadence has thinned</div>
       <span class="severity medium">Medium</span>
     </div>
-    <p>Collars runs two senders against two audiences, and that split is fine — it's intentional:</p>
+    <p>Collars sends from two visible senders, and the format split between them looks intentional:</p>
     <ul>
-      <li><code>contact@collarsdogresort.com</code> — the broader list, multi-section newsletter format. The brand voice.</li>
-      <li><code>collarclubolathe@marketing.gingrapp.com</code> — the Gingr customer database. Single-topic operational promos to people who've already booked.</li>
+      <li><code>contact@collarsdogresort.com</code> — multi-section newsletter format. Where the brand voice lives.</li>
+      <li><code>collarclubolathe@marketing.gingrapp.com</code> — single-topic operational promos. Likely scoped to the Gingr customer database (existing customers).</li>
     </ul>
-    <p>The audience split is the right call. The issue isn't the architecture, it's that the newsletter sender has slowed down. Through 2025 the brand-domain sender ran multi-section newsletters consistently — at least one per month, often two:</p>
+    <p>The split is the right call if the lists are genuinely different audiences. The issue isn't the architecture, it's that the newsletter sender has slowed down. Through 2025 the brand-domain sender ran multi-section newsletters consistently — at least one per month, often two:</p>
     <ul>
       <li><strong>Sep 19, 2025</strong> — "Training Classes Next Week | Dog of the Month | Staff Spotlight: Lily"</li>
       <li><strong>Aug 14, 2025</strong> — "Training Class | Hope 4 La Paws Rescue | Labor Day Boarding"</li>
@@ -1148,7 +1148,7 @@
       <p class="application">B2C newsletter priority is up <strong>12%</strong> from 2025. Pure B2C brands like Collars are the segment where the longer, letter-style format converts hardest.</p>
     </div>
 
-    <p>The length isn't filler. Each section earns its scroll: <strong>suite pricing</strong> answers the most common pre-booking question, <strong>transparency photos</strong> turn "no crates" from a tagline into proof, the <strong>four deep-linked vote buttons</strong> recover the broken CTA from the original AND skip the scroll-hunt — Pitch's ballot has hundreds of nominations spread across multiple categories, and one tap on each button lands the customer on the exact Collars page without browsing — and the <strong>save-the-dates band</strong> gives the holiday push its own real estate instead of being a single line at the top. Cut any of it and the email drops back toward the broadcast format Inbox AI is already deprioritizing.</p>
+    <p>The length isn't filler. Each section earns its scroll: <strong>suite pricing</strong> answers the most common pre-booking question, <strong>transparency photos</strong> turn "no crates" from a tagline into proof, the <strong>four deep-linked vote buttons</strong> recover the broken CTA from the original AND skip the scroll-hunt — Pitch's ballot covers many categories across multiple pages, and one tap on each button lands the customer on the exact Collars page without browsing — and the <strong>save-the-dates band</strong> gives the holiday push its own real estate instead of being a single line at the top. Cut any of it and the email drops back toward the broadcast format Inbox AI is already deprioritizing.</p>
   </article>
 </section>
 

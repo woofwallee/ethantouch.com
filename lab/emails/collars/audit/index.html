@@ -625,8 +625,8 @@
   <h2>Seven issues, none of them complicated.</h2>
   <div class="summary-grid">
     <div class="summary-stat">
-      <div class="num">6</div>
-      <div class="lbl">Waldo footer links broken — 5 service-strip URLs return 404, plus the Instagram icon links to a deleted account</div>
+      <div class="num">2</div>
+      <div class="lbl">Instagram accounts deleted — both Olathe and Waldo IG icons link to non-existent handles</div>
     </div>
     <div class="summary-stat">
       <div class="num">2</div>
@@ -665,8 +665,12 @@
         <span class="label"><strong>About Us misrouted</strong> to a puppy-training page; Testimonials goes to a Google Search</span>
       </div>
       <div class="snapshot-row">
+        <span class="icon bad">✗</span>
+        <span class="label"><strong>Instagram icon links to a deleted account</strong> (collarclubolathe) — clicks land on Instagram's "page not available" error</span>
+      </div>
+      <div class="snapshot-row">
         <span class="icon warn">⚠</span>
-        <span class="label"><strong>Mixed-era social handles</strong> — FB on new brand, IG on transitional, no LinkedIn in footer</span>
+        <span class="label"><strong>Facebook on new brand, no LinkedIn in footer</strong> — channel coverage incomplete vs Waldo</span>
       </div>
       <div class="snapshot-row">
         <span class="icon dash">—</span>
@@ -738,7 +742,7 @@
       <li><strong>Instagram icon → <code>instagram.com/collarclubkc/</code> — account is gone</strong> ("Sorry, this page isn't available")</li>
     </ul>
 
-    <p><strong>Olathe (3 issues, otherwise clean):</strong></p>
+    <p><strong>Olathe (4 issues):</strong></p>
     <ul>
       <li>Daycare → <code>olathe.collarsdogresort.com/dog-day-care-in-olathe/</code> — works ✓</li>
       <li>Boarding → <code>olathe.collarsdogresort.com/dog-boarding-in-olathe/</code> — works ✓</li>
@@ -746,6 +750,7 @@
       <li>Testimonials → Google Search results page (no real testimonials page exists)</li>
       <li>About Us → <code>olathe.collarsdogresort.com/puppy-training-in-olathe/</code> — wrong destination (lands on a training page, not About)</li>
       <li>Directions → Google Maps directions to 12732 S Pflumm Rd — works ✓</li>
+      <li><strong>Instagram icon → <code>instagram.com/collarclubolathe/</code> — account is gone</strong> ("Sorry, this page isn't available")</li>
     </ul>
 
     <p>Same brand, same Gingr template, totally inconsistent execution. Waldo subscribers hit a dead end on five of seven links. Olathe subscribers click "About Us" and learn about puppy training. Neither send has a real testimonials destination.</p>
@@ -790,11 +795,11 @@
       </thead>
       <tbody>
         <tr><td>Facebook</td><td class="col-new">CollarsDogResortOlathe (new brand)</td><td class="col-orig">CollarClubKC (old brand)</td></tr>
-        <tr><td>Instagram</td><td class="col-orig">collarclubolathe (transitional)</td><td class="col-orig"><strong style="color:#d76a6a;">collarclubkc — account no longer exists</strong></td></tr>
+        <tr><td>Instagram</td><td class="col-orig"><strong style="color:#d76a6a;">collarclubolathe — account no longer exists</strong></td><td class="col-orig"><strong style="color:#d76a6a;">collarclubkc — account no longer exists</strong></td></tr>
         <tr><td>LinkedIn</td><td class="col-orig">— (no LinkedIn icon in Olathe footer)</td><td class="col-new">collarsdogresort (new brand)</td></tr>
       </tbody>
     </table>
-    <p>The Waldo Instagram link points to a deleted or renamed account — anyone clicking the IG icon gets Instagram's "Sorry, this page isn't available" page. That's a credibility hit on top of the brand-naming inconsistency. Three of five social handles still carry the legacy "Collar Club" naming. New customers searching for "Collars Dog Resort" on Instagram or Facebook won't land on the right account. Olathe customers don't see a LinkedIn link at all, even though one exists.</p>
+    <p><strong>Both</strong> Instagram links — Olathe's <code>collarclubolathe</code> and Waldo's <code>collarclubkc</code> — point to deleted accounts. Anyone clicking the IG icon on either email gets Instagram's "Sorry, this page isn't available" page. The brand isn't on Instagram at the linked handles at all right now, which means every social-icon click on IG is a credibility hit. Three of five social handles still carry the legacy "Collar Club" naming on top of that. New customers searching for "Collars Dog Resort" on Instagram or Facebook won't land on the right account. Olathe customers don't see a LinkedIn link at all, even though one exists.</p>
     <div class="finding-fix">
       <div class="finding-fix-label">The fix</div>
       <p>Pick one handle pattern and migrate everything. <code>@collarsdogresort</code> as the master handle, with optional <code>@collarsdogresortolathe</code> / <code>@collarsdogresortwaldo</code> if you want location-specific accounts. Add LinkedIn to the Olathe footer template too — it's a missed credibility signal.</p>

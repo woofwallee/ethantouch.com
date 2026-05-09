@@ -140,6 +140,51 @@
   }
 
   // ===========================
+  // GA4 article engagement tracking (posts only)
+  // ===========================
+  function initArticleTracking() {
+    var body = document.querySelector('.journal-post__body');
+    if (!body) return;
+
+    function fireEvent(name, params) {
+      if (typeof gtag !== 'function') return;
+      gtag('event', name, params);
+    }
+
+    // Scroll depth milestones through article body
+    var milestones = { 25: false, 50: false, 75: false, 100: false };
+
+    function checkScrollDepth() {
+      var rect = body.getBoundingClientRect();
+      var bodyHeight = body.offsetHeight;
+      if (!bodyHeight) return;
+      var scrolled = window.innerHeight - rect.top;
+      var pct = Math.round((scrolled / bodyHeight) * 100);
+
+      [25, 50, 75, 100].forEach(function(m) {
+        if (!milestones[m] && pct >= m) {
+          milestones[m] = true;
+          fireEvent('scroll_depth', { depth_threshold: m, content_group: 'Journal Post' });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkScrollDepth, { passive: true });
+
+    // Article complete — fires when footer enters viewport
+    var footer = document.querySelector('.journal-post__footer');
+    if (footer && 'IntersectionObserver' in window) {
+      var readObserver = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting) {
+          fireEvent('article_complete', { content_group: 'Journal Post' });
+          readObserver.disconnect();
+        }
+      }, { threshold: 0.5 });
+      readObserver.observe(footer);
+    }
+  }
+
+  // ===========================
   // Init
   // ===========================
   function init() {
@@ -147,6 +192,7 @@
     initCursor();
     initParallax();
     initReveals();
+    initArticleTracking();
   }
 
   if (document.readyState === 'loading') {

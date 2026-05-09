@@ -70,7 +70,9 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-3FWR3RM6KP');
+    gtag('config', 'G-3FWR3RM6KP', {
+      content_group: '{% if page.layout == "journal-post" %}Journal Post{% else %}Journal Index{% endif %}'
+    });
   </script>
 
   <!-- Fraunces variable serif (display + body, italic + roman, optical size) -->

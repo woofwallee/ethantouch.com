@@ -678,6 +678,13 @@ contactForm.addEventListener('submit', async (e) => {
     });
 
     if (response.ok) {
+      // GA4 conversion event — fired after Formspark accepts the submission
+      if (typeof gtag === 'function') {
+        gtag('event', 'contact_form_submit', {
+          form_id: 'contactForm',
+          form_destination: 'submit-form.com'
+        });
+      }
       contactForm.style.display = 'none';
       formSuccess.style.display = 'block';
       playCelebration();
@@ -691,5 +698,23 @@ contactForm.addEventListener('submit', async (e) => {
     submitBtn.disabled = false;
     submitBtn.textContent = 'Send Message';
     alert('Something went wrong. Please try again or email me directly at hello@ethantouch.com');
+  }
+});
+
+// ── GA4 conversion tracking for outbound CTAs ─────────────────────────
+// Delegated click listener fires named events for the three high-intent
+// outbound clicks that GA4 won't auto-track (mailto) or that we want
+// surfaced as their own named events for the Key events table.
+document.addEventListener('click', function (e) {
+  if (typeof gtag !== 'function') return;
+  var a = e.target.closest && e.target.closest('a[href]');
+  if (!a) return;
+  var href = a.getAttribute('href') || '';
+  if (href.indexOf('mailto:') === 0) {
+    gtag('event', 'email_click', { link_url: href });
+  } else if (/linkedin\.com\/in\//i.test(href)) {
+    gtag('event', 'linkedin_click', { link_url: href });
+  } else if (/calendar\.app\.google|calendly\.com/i.test(href)) {
+    gtag('event', 'calendly_click', { link_url: href });
   }
 });

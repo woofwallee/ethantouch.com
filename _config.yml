@@ -24,6 +24,7 @@ permalink: /journal/:slug/
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 # RSS feed location
 feed:
@@ -49,9 +50,12 @@ exclude:
   - "*.backup.html"
   - "*.backup.css"
   - "*.backup-*"
+  - "*.bak.html"
+  - "*.pre-brand-rebuild.bak.html"
   - "*-mockup.html"
   - cs1-preview.html
   - affiliate-tracker.csv
+  - images/_originals/
   - "Ethan_Touch_-_Brand_Voice_Guide.docx.pdf"
   - "Soft-Organic-Brand-Color-Palette-Guide.pdf"
   - "*.mp3"

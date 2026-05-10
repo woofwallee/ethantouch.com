@@ -5,24 +5,18 @@ date: 2026-05-16 09:00:00 -0500
 description: "On the silence between job applications, the moment discouragement hardens into a verdict, and why staying in it isn't the same as forced positivity."
 ---
 
-You know what the silence sounds like by now.
-
-Not the silence right after you hit send. The other one. The one that shows up around day four or five, when the recruiter who seemed genuinely interested just... stops responding. You've learned to read it. You didn't want to, but here you are.
+You know what the silence sounds like by now. Not the silence right after you hit send. The other one. The one that shows up around day four or five, when the recruiter who seemed genuinely interested just... stops responding. You've learned to read it. You didn't want to, but here you are.
 
 The rejections aren't actually the hard part. A rejection closes a loop. The hard part is the weeks where nothing moves. You've done everything right and the outcome just hasn't arrived yet. The longer that goes, the easier it gets to start rewriting the story of why.
 
 There's a version of the question that sounds humble but isn't: "Maybe I'm aiming at the wrong thing." That one's seductive because it gives you something to act on. You revise the resume again. You start considering roles you'd ruled out, because at least that's movement. Most of the time it's just the wait dressed up as a pivot.
 
-Then the pattern sets in. It starts with honest discouragement -- fair, this is hard -- and drifts into something more dangerous: the belief that the wait is actually a verdict. That the silence means something about what you deserve, or whether you're even reading the situation right. Once that belief gets in, the behavior changes. You send fewer applications and quietly start making peace with less, before anyone told you that was necessary.
+Then something shifts. It starts with honest discouragement (fair, this is hard) and slowly becomes something different: the belief that the wait is actually a verdict. That the silence means something about what you deserve. Once that gets in, the behavior changes. You send fewer applications and quietly start making peace with less, before anyone told you that was necessary.
 
-The thing is, it doesn't feel like giving up when it's happening. It feels like being realistic. Adjusting expectations to match available data. It masquerades as wisdom, which is why it's hard to argue with in the moment.
+It doesn't feel like giving up when it's happening. It feels like being realistic. Adjusting expectations to match available data. It passes as wisdom, which is why it's hard to argue with.
 
-That's the shift worth catching before it settles.
+I kept coming back to this when I was in it: the right thing is still coming. Not as a thing you're supposed to say. As an actual working belief. That when it arrives, it won't be the version you settled for because you got tired. It will fit in a way the others didn't.
 
-Here's what I kept coming back to when I was in it: the right thing is still coming. Not as something you're supposed to say. As an actual working belief. That when it arrives, it won't be the version you settled for because you got tired. It will fit in a way the others didn't, suited to where you're actually going, not just where you've been. When it shows up, there will be a reason this stretch went the way it did.
+Nobody has a date for that. What I know is that discouragement left alone tends to harden. "Not yet" becomes "no," and nobody announces when that shift happens. You just notice one day that you've stopped believing the inbox is capable of changing.
 
-Nobody has a date for that. What I know is that discouragement, left alone, tends to harden. "Not yet" becomes "no," and nobody announces when that shift happens. You just notice one day that you've stopped believing the inbox is capable of changing.
-
-The job right now is to stay in it. Not with manufactured positivity. This is where faith actually does something -- not as a feeling or a guarantee, but as the reason to act despite not knowing the outcome. Just enough to send the next one.
-
-It will fit when it arrives. Hold that.
+The job right now is to stay in it. Not with manufactured positivity. This is where faith does something: not as a feeling, not as a guarantee, just as the reason to act when you don't know the outcome. Enough to send the next one.

@@ -303,7 +303,6 @@ body.journal img {
 /* ===== Panel article header ===== */
 .panel-meta {
   font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-style: italic;
   font-size: 0.825rem;
   color: var(--ink-muted);
   letter-spacing: 0.04em;
@@ -315,7 +314,6 @@ body.journal img {
 
 .panel-title {
   font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-style: italic;
   font-weight: 300;
   font-size: clamp(1.75rem, 5vw, 3rem);
   line-height: 1.05;
@@ -344,7 +342,6 @@ body.journal img {
 
 .panel-inner .journal-post__body > p:first-of-type::first-letter {
   font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-style: italic;
   font-size: 4.5em;
   font-weight: 400;
   float: left;
@@ -355,7 +352,6 @@ body.journal img {
 
 .panel-inner .journal-post__body h2 {
   font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-style: italic;
   font-weight: 400;
   font-size: clamp(1.4rem, 3vw, 1.9rem);
   line-height: 1.1;
@@ -368,7 +364,6 @@ body.journal img {
   border-left: 2px solid var(--accent);
   padding: 0.25rem 0 0.25rem 1.5rem;
   margin: 2.5rem 0;
-  font-style: italic;
   font-size: 1.25rem;
   line-height: 1.5;
   color: var(--ink);
@@ -388,7 +383,7 @@ body.journal img {
 }
 
 .panel-inner .journal-post__body strong { color: var(--ink); font-weight: 600; }
-.panel-inner .journal-post__body em     { font-style: italic; }
+.panel-inner .journal-post__body em     { font-style: normal; }
 
 .panel-inner .journal-post__body ul,
 .panel-inner .journal-post__body ol { padding-left: 1.5rem; }
@@ -411,7 +406,6 @@ body.journal img {
   display: inline-block;
   margin-top: 3rem;
   font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-style: italic;
   font-size: 0.875rem;
   color: var(--accent);
   border-bottom: 1px solid currentColor;
@@ -444,7 +438,6 @@ body.journal img {
   align-items: center;
   gap: 0.5rem;
   font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-style: italic;
   font-size: 0.875rem;
   color: var(--ink);
   border: 1px solid var(--border);
@@ -493,7 +486,6 @@ body.journal img {
 
 .journal-post__meta {
   font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-style: italic;
   font-size: 0.85rem;
   color: var(--ink-muted);
   letter-spacing: 0.04em;
@@ -505,11 +497,10 @@ body.journal img {
 
 .journal-post__sep   { opacity: 0.5; }
 .journal-post__byline,
-.journal-post__readtime { font-style: italic; }
+.journal-post__readtime { font-style: normal; }
 
 .journal-post__title {
   font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-style: italic;
   font-weight: 300;
   font-size: clamp(2.4rem, 7vw, 5.5rem);
   line-height: 0.98;
@@ -520,7 +511,6 @@ body.journal img {
 
 .journal-post__subtitle {
   font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-style: italic;
   font-weight: 300;
   font-size: 1.3rem;
   line-height: 1.4;
@@ -547,7 +537,6 @@ body.journal img {
 
 .journal-post__body > p:first-of-type::first-letter {
   font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-style: italic;
   font-size: 5em;
   font-weight: 400;
   float: left;
@@ -558,7 +547,6 @@ body.journal img {
 
 .journal-post__body h2 {
   font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-style: italic;
   font-weight: 400;
   font-size: clamp(1.8rem, 4vw, 2.4rem);
   line-height: 1.1;
@@ -569,7 +557,6 @@ body.journal img {
 
 .journal-post__body h3 {
   font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-style: italic;
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 1.25;
@@ -582,7 +569,6 @@ body.journal img {
   border-left: 2px solid var(--accent);
   padding: 0.5rem 0 0.5rem 1.75rem;
   margin: 3rem 0;
-  font-style: italic;
   font-size: 1.4rem;
   line-height: 1.5;
   color: var(--ink);
@@ -634,7 +620,7 @@ body.journal img {
 }
 
 .journal-post__body strong { color: var(--ink); font-weight: 600; }
-.journal-post__body em     { font-style: italic; }
+.journal-post__body em     { font-style: normal; }
 
 .journal-post__footer {
   max-width: 640px;
@@ -646,7 +632,6 @@ body.journal img {
 
 .journal-post__back-link {
   font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-style: italic;
   font-size: 1rem;
   color: var(--accent);
   transition: opacity 0.2s;

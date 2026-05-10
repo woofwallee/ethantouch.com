@@ -1,7 +1,7 @@
 ---
 layout: journal-post
 title: "Not Yet Is Not No"
-date: 2026-05-09 21:00:00 -0500
+date: 2026-05-16 09:00:00 -0500
 description: "On the silence between job applications, the moment discouragement hardens into a verdict, and why staying in it isn't the same as forced positivity."
 ---
 

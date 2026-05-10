@@ -1,198 +1,264 @@
 /* ===========================
-   JOURNAL — Cinematic scroll behavior
-   Lenis smooth scroll + custom cursor + parallax + scroll reveals
-   Self-contained. Loaded only on /journal/ pages.
+   JOURNAL — Side-panel reader + scroll reveals + GA4
+   Self-contained. Loaded on all /journal/ pages.
    =========================== */
 
-(function() {
+(function () {
   'use strict';
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+  var isIndexPage = !!document.querySelector('.journal-page');
+  var isPostPage  = !!document.querySelector('.journal-post');
 
   // ===========================
-  // Lenis smooth scroll
-  // ===========================
-  function initLenis() {
-    if (typeof Lenis === 'undefined') return null;
-    if (prefersReducedMotion) return null;
-
-    const lenis = new Lenis({
-      duration: 1.4,
-      easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
-      smoothWheel: true,
-      smoothTouch: false,
-      wheelMultiplier: 1,
-      touchMultiplier: 1.5,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    return lenis;
-  }
-
-  // ===========================
-  // Custom cursor (desktop only)
-  // ===========================
-  function initCursor() {
-    if (isCoarsePointer || prefersReducedMotion) return;
-
-    const cursor = document.querySelector('.journal-cursor');
-    if (!cursor) return;
-
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let cursorX = mouseX;
-    let cursorY = mouseY;
-
-    document.addEventListener('mousemove', function(e) {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    function animateCursor() {
-      cursorX += (mouseX - cursorX) * 0.18;
-      cursorY += (mouseY - cursorY) * 0.18;
-      cursor.style.transform = 'translate(' + cursorX + 'px, ' + cursorY + 'px) translate(-50%, -50%)';
-      requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
-
-    // Cursor grows on interactive elements
-    const hoverables = document.querySelectorAll('a, button, .journal-entry');
-    hoverables.forEach(function(el) {
-      el.addEventListener('mouseenter', function() { cursor.classList.add('is-hover'); });
-      el.addEventListener('mouseleave', function() { cursor.classList.remove('is-hover'); });
-    });
-  }
-
-  // ===========================
-  // Parallax on hero image
-  // ===========================
-  function initParallax() {
-    if (prefersReducedMotion) return;
-
-    const containers = document.querySelectorAll('[data-parallax]');
-    if (!containers.length) return;
-
-    function updateParallax() {
-      containers.forEach(function(container) {
-        const img = container.querySelector('img');
-        if (!img) return;
-
-        const rect = container.getBoundingClientRect();
-        const containerHeight = rect.height;
-        const visibleProgress = (window.innerHeight - rect.top) / (window.innerHeight + containerHeight);
-
-        if (visibleProgress < 0 || visibleProgress > 1) return;
-
-        const offset = (visibleProgress - 0.5) * 80;
-        img.style.transform = 'translate3d(0, ' + offset + 'px, 0)';
-      });
-      requestAnimationFrame(updateParallax);
-    }
-    requestAnimationFrame(updateParallax);
-  }
-
-  // ===========================
-  // Scroll reveals via IntersectionObserver
+  // Scroll reveals
   // ===========================
   function initReveals() {
-    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-      document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('is-visible'); });
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var selectors = isIndexPage
+      ? ['.journal-header', '.year-group', '.journal-entry']
+      : [
+          '.journal-post__header',
+          '.journal-post__body > p',
+          '.journal-post__body > h2',
+          '.journal-post__body > h3',
+          '.journal-post__body > blockquote',
+          '.journal-post__body > ul',
+          '.journal-post__body > ol',
+          '.journal-post__body > hr',
+          '.journal-post__body > img',
+        ];
+
+    var targets = document.querySelectorAll(selectors.join(','));
+
+    if (prefersReduced || !('IntersectionObserver' in window)) {
+      targets.forEach(function (el) { el.classList.add('is-visible'); });
       return;
     }
 
-    // Auto-tag elements that should fade in on scroll
-    const targets = document.querySelectorAll([
-      '.journal-post__header',
-      '.journal-post__body > p',
-      '.journal-post__body > h2',
-      '.journal-post__body > h3',
-      '.journal-post__body > blockquote',
-      '.journal-post__body > ul',
-      '.journal-post__body > ol',
-      '.journal-post__body > img',
-      '.journal-post__body > hr',
-      '.journal-entry',
-      '.journal-index__header'
-    ].join(','));
+    targets.forEach(function (el) { el.classList.add('reveal'); });
 
-    targets.forEach(function(el) { el.classList.add('reveal'); });
-
-    const observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
           observer.unobserve(entry.target);
         }
       });
-    }, {
-      rootMargin: '0px 0px -8% 0px',
-      threshold: 0.05
-    });
+    }, { rootMargin: '0px 0px -5% 0px', threshold: 0.05 });
 
-    targets.forEach(function(el) { observer.observe(el); });
+    targets.forEach(function (el) { observer.observe(el); });
   }
 
   // ===========================
-  // GA4 article engagement tracking (posts only)
+  // Side panel (index only)
+  // ===========================
+  function initPanel() {
+    if (!isIndexPage) return;
+
+    var panel     = document.getElementById('journalPanel');
+    var overlay   = document.getElementById('panelOverlay');
+    var closeBtn  = document.getElementById('panelClose');
+    var panelInner = document.getElementById('panelInner');
+    if (!panel || !overlay || !closeBtn || !panelInner) return;
+
+    var loadId = 0;
+
+    function openPanel(url, titleHint) {
+      var id = ++loadId;
+
+      panel.classList.add('is-open');
+      overlay.classList.add('is-visible');
+      panel.setAttribute('aria-hidden', 'false');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      panel.scrollTop = 0;
+
+      history.pushState({ panelOpen: true, url: url }, titleHint || '', url);
+
+      // Loading state
+      panelInner.innerHTML =
+        '<div class="panel-loading">' +
+          '<span class="panel-loading-dot"></span>' +
+          '<span class="panel-loading-dot"></span>' +
+          '<span class="panel-loading-dot"></span>' +
+        '</div>';
+
+      closeBtn.focus();
+
+      fetch(url)
+        .then(function (res) { return res.text(); })
+        .then(function (html) {
+          if (id !== loadId) return; // stale — another entry was clicked
+
+          var doc   = new DOMParser().parseFromString(html, 'text/html');
+          var meta  = doc.querySelector('.journal-post__meta');
+          var title = doc.querySelector('.journal-post__title');
+          var body  = doc.querySelector('.journal-post__body');
+
+          var frag = document.createDocumentFragment();
+
+          if (meta) {
+            var metaEl = document.createElement('div');
+            metaEl.className = 'panel-meta';
+            metaEl.innerHTML = meta.innerHTML;
+            frag.appendChild(metaEl);
+          }
+
+          if (title) {
+            var titleEl = document.createElement('h1');
+            titleEl.className = 'panel-title';
+            titleEl.textContent = title.textContent.trim();
+            frag.appendChild(titleEl);
+          }
+
+          if (body) {
+            var bodyEl = document.createElement('div');
+            bodyEl.className = 'journal-post__body';
+            bodyEl.innerHTML = body.innerHTML;
+            frag.appendChild(bodyEl);
+          }
+
+          var fullLink = document.createElement('a');
+          fullLink.href = url;
+          fullLink.className = 'panel-full-link';
+          fullLink.textContent = 'Open full page →';
+          frag.appendChild(fullLink);
+
+          panelInner.innerHTML = '';
+          panelInner.appendChild(frag);
+
+          // GA4 panel view
+          if (typeof gtag === 'function') {
+            gtag('event', 'panel_view', {
+              content_group: 'Journal Post',
+              page_location: url
+            });
+          }
+        })
+        .catch(function () {
+          if (id !== loadId) return;
+          panelInner.innerHTML =
+            '<p style="font-style:italic;color:#999;padding:0.5rem 0">' +
+              'Couldn’t load this post. ' +
+              '<a href="' + url + '" style="color:#B84A1F;border-bottom:1px solid currentColor">' +
+                'Open it directly →' +
+              '</a>' +
+            '</p>';
+        });
+    }
+
+    function closePanel(pushHistory) {
+      panel.classList.remove('is-open');
+      overlay.classList.remove('is-visible');
+      panel.setAttribute('aria-hidden', 'true');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      loadId++; // cancel any in-flight fetch
+      if (pushHistory !== false && history.state && history.state.panelOpen) {
+        history.back();
+      }
+    }
+
+    // Entry clicks
+    document.querySelectorAll('.journal-entry').forEach(function (entry) {
+      entry.addEventListener('click', function (e) {
+        e.preventDefault();
+        var url   = entry.getAttribute('href') || entry.dataset.url;
+        var title = entry.dataset.title || '';
+        if (url) openPanel(url, title);
+      });
+    });
+
+    // Close button
+    closeBtn.addEventListener('click', function () { closePanel(true); });
+
+    // Overlay click
+    overlay.addEventListener('click', function () { closePanel(true); });
+
+    // Keyboard — Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && panel.classList.contains('is-open')) {
+        closePanel(true);
+      }
+    });
+
+    // Browser back/forward
+    window.addEventListener('popstate', function (e) {
+      if (panel.classList.contains('is-open')) {
+        closePanel(false); // don't call history.back() — browser already did
+      }
+    });
+  }
+
+  // ===========================
+  // GA4 article engagement
+  // Fires on direct post pages; also fires inside the panel via panel_view above.
   // ===========================
   function initArticleTracking() {
     var body = document.querySelector('.journal-post__body');
     if (!body) return;
 
-    function fireEvent(name, params) {
-      if (typeof gtag !== 'function') return;
-      gtag('event', name, params);
+    function fire(name, params) {
+      if (typeof gtag === 'function') gtag('event', name, params);
     }
 
-    // Scroll depth milestones through article body
     var milestones = { 25: false, 50: false, 75: false, 100: false };
 
-    function checkScrollDepth() {
-      var rect = body.getBoundingClientRect();
-      var bodyHeight = body.offsetHeight;
-      if (!bodyHeight) return;
-      var scrolled = window.innerHeight - rect.top;
-      var pct = Math.round((scrolled / bodyHeight) * 100);
-
-      [25, 50, 75, 100].forEach(function(m) {
+    function checkDepth() {
+      var rect   = body.getBoundingClientRect();
+      var height = body.offsetHeight;
+      if (!height) return;
+      var pct = Math.round(((window.innerHeight - rect.top) / height) * 100);
+      [25, 50, 75, 100].forEach(function (m) {
         if (!milestones[m] && pct >= m) {
           milestones[m] = true;
-          fireEvent('scroll_depth', { depth_threshold: m, content_group: 'Journal Post' });
+          fire('scroll_depth', { depth_threshold: m, content_group: 'Journal Post' });
         }
       });
     }
 
-    window.addEventListener('scroll', checkScrollDepth, { passive: true });
+    window.addEventListener('scroll', checkDepth, { passive: true });
 
-    // Article complete — fires when footer enters viewport
     var footer = document.querySelector('.journal-post__footer');
     if (footer && 'IntersectionObserver' in window) {
-      var readObserver = new IntersectionObserver(function(entries) {
+      var obs = new IntersectionObserver(function (entries) {
         if (entries[0].isIntersecting) {
-          fireEvent('article_complete', { content_group: 'Journal Post' });
-          readObserver.disconnect();
+          fire('article_complete', { content_group: 'Journal Post' });
+          obs.disconnect();
         }
       }, { threshold: 0.5 });
-      readObserver.observe(footer);
+      obs.observe(footer);
     }
+  }
+
+  // ===========================
+  // Lenis smooth scroll (direct post pages only)
+  // ===========================
+  function initLenis() {
+    if (!isPostPage) return;
+    if (typeof Lenis === 'undefined') return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var lenis = new Lenis({
+      duration: 1.4,
+      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      smoothWheel: true,
+      smoothTouch: false,
+    });
+
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
   }
 
   // ===========================
   // Init
   // ===========================
   function init() {
-    initLenis();
-    initCursor();
-    initParallax();
     initReveals();
+    initPanel();
     initArticleTracking();
+    initLenis();
   }
 
   if (document.readyState === 'loading') {
@@ -200,4 +266,5 @@
   } else {
     init();
   }
+
 })();

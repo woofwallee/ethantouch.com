@@ -2,38 +2,58 @@
 layout: journal-base
 ---
 
-<a href="/" class="journal-back" aria-label="Back to ethantouch.com">
-  <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-    <path d="M11 14L6 9L11 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-  <span>ethantouch.com</span>
-</a>
+<div class="journal-page">
 
-<main class="journal-index">
+  <header class="journal-header">
+    <a href="/" class="journal-home-link" aria-label="Back to ethantouch.com">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.25"/>
+      </svg>
+    </a>
 
-  <header class="journal-index__header">
-    <div class="journal-index__label">Journal</div>
-    <h1 class="journal-index__title">{{ page.headline | default: "Whatever you're going through, someone like me probably has too." }}</h1>
-    {% if page.intro %}<p class="journal-index__intro">{{ page.intro }}</p>{% endif %}
+    <div class="journal-identity">
+      <strong class="journal-name">Ethan Touch</strong>
+      <span class="journal-role">Marketing Ops · Trader · Writer</span>
+    </div>
+
+    {% if page.intro %}
+    <p class="journal-bio">{{ page.intro }}</p>
+    {% endif %}
   </header>
 
-  <div class="journal-index__list">
+  <main class="journal-list">
+    {% assign prev_year = "" %}
     {% for post in site.posts %}
-    <a href="{{ post.url }}" class="journal-entry">
-      <div class="journal-entry__meta">
-        <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %-d, %Y" }}</time>
-        <span class="journal-entry__sep">·</span>
-        <span class="journal-entry__readtime">{{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
-      </div>
-      <h2 class="journal-entry__title">{{ post.title }}</h2>
-      {% if post.subtitle %}
-        <p class="journal-entry__excerpt">{{ post.subtitle }}</p>
-      {% else %}
-        <p class="journal-entry__excerpt">{{ post.excerpt | strip_html | truncate: 180 }}</p>
+      {% assign year = post.date | date: "%Y" %}
+      {% if year != prev_year %}
+        {% unless forloop.first %}</section>{% endunless %}
+        <section class="year-group">
+        <h2 class="year-label">{{ year }}</h2>
+        {% assign prev_year = year %}
       {% endif %}
-      <span class="journal-entry__more">Read</span>
-    </a>
+      <a class="journal-entry"
+         href="{{ post.url }}"
+         data-url="{{ post.url }}"
+         data-title="{{ post.title | escape }}">
+        <time class="entry-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%b %-d" }}</time>
+        <span class="entry-title">{{ post.title }}</span>
+        <span class="entry-arrow" aria-hidden="true">→</span>
+      </a>
     {% endfor %}
-  </div>
+    {% if site.posts.size > 0 %}</section>{% endif %}
+  </main>
 
-</main>
+</div>
+
+<div class="panel-overlay" id="panelOverlay" aria-hidden="true"></div>
+
+<aside class="journal-panel" id="journalPanel" aria-hidden="true" tabindex="-1">
+  <div class="panel-toolbar">
+    <button class="panel-close" id="panelClose" type="button" aria-label="Close article">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M2 2L12 12M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+  <div class="panel-inner" id="panelInner"></div>
+</aside>

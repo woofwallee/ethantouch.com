@@ -6,7 +6,7 @@
   <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-  <meta name="theme-color" content="#F5EBD8">
+  <meta name="theme-color" content="#FFFFFF">
 
   <!-- Open Graph -->
   <meta property="og:title" content="{{ page.title | default: site.title }}">
@@ -84,7 +84,7 @@
   <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js" defer></script>
 
   <!-- Journal styles -->
-  <link rel="stylesheet" href="/journal/style.css?v=1">
+  <link rel="stylesheet" href="/journal/style.css?v=2">
 
   {% seo %}
 </head>
@@ -94,6 +94,6 @@
 
   {{ content }}
 
-  <script src="/journal/script.js?v=1" defer></script>
+  <script src="/journal/script.js?v=2" defer></script>
 </body>
 </html>

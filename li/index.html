@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting&hellip;</title>
+  <meta name="robots" content="noindex,nofollow">
+
+  <!-- Owner opt-out: mirrors the pattern on the main site -->
+  <script>
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        if (p.get('et_no_track') === '1') localStorage.setItem('et_disable_ga', '1');
+        if (localStorage.getItem('et_disable_ga') === '1') {
+          window['ga-disable-G-3FWR3RM6KP'] = true;
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FWR3RM6KP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3FWR3RM6KP', { transport_type: 'beacon' });
+  </script>
+
+  <!-- Redirect: 500ms gives GA4 time to fire the pageview beacon -->
+  <script>
+    (function () {
+      var target = 'https://www.linkedin.com/in/ethantouch/';
+      setTimeout(function () { window.location.replace(target); }, 500);
+    })();
+  </script>
+
+  <noscript>
+    <meta http-equiv="refresh" content="1; url=https://www.linkedin.com/in/ethantouch/">
+  </noscript>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      background-color: #0a0a0a;
+      color: #E6E8E7;
+      font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .msg {
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .msg p {
+      font-size: 1rem;
+      color: #9B9D9C;
+      margin-bottom: 0.75rem;
+    }
+    .msg a {
+      color: #FAE1C5;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="msg">
+    <p>Taking you to LinkedIn&hellip;</p>
+    <p><a href="https://www.linkedin.com/in/ethantouch/">Click here if you aren&rsquo;t redirected.</a></p>
+  </div>
+</body>
+</html>

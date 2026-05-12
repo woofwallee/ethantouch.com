@@ -29,7 +29,7 @@ html {
 }
 
 body {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   background-color: #0a0a0a;
   background-image:
     radial-gradient(ellipse at 15% 50%, rgba(25, 20, 15, 0.4) 0%, transparent 50%),
@@ -96,7 +96,7 @@ img {
    T5  Peach #FAE1C5 = markers (labels, tags, dates, accent lines)
    =========================== */
 .section__label {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -108,7 +108,7 @@ img {
 }
 
 .section__title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Titillium Web', serif;
   font-size: clamp(2.4rem, 6vw, 4rem);
   font-weight: 700;
   font-style: italic;
@@ -132,7 +132,7 @@ img {
   padding: 0.75rem 1.5rem;
   background: #FAE1C5;
   color: #0a0a0a;
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   border-radius: 4px;
@@ -167,7 +167,7 @@ img {
 }
 
 .nav__logo {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 1.5rem;
   font-weight: 400;
   color: rgba(183, 201, 195, 0.85);
@@ -187,7 +187,7 @@ img {
 }
 
 .nav__links a {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -280,7 +280,7 @@ img {
 }
 
 .resume-panel__title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
   color: #B7C9C3;
@@ -344,7 +344,7 @@ img {
 }
 
 .resume-entry__date {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -354,7 +354,7 @@ img {
 }
 
 .resume-entry__role {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   color: #FFF7E7;
@@ -363,7 +363,7 @@ img {
 }
 
 .resume-entry__org {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.7rem;
   font-weight: 500;
   color: #B7C9C3;
@@ -372,7 +372,7 @@ img {
 }
 
 .resume-entry__desc {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.7rem;
   font-weight: 400;
   color: #9B9D9C;
@@ -561,7 +561,7 @@ img {
   max-width: 520px;
 }
 .hero__title {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: clamp(0.65rem, 0.9vw, 0.85rem);
   font-weight: 600;
   font-style: normal;
@@ -614,7 +614,7 @@ img {
   transform: scale(1.15);
 }
 .hero__skill-label {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -652,7 +652,7 @@ img {
   transition: border-color 0.3s ease, transform 0.3s ease;
 }
 .hero__corner-label {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -688,7 +688,7 @@ img {
 
 .hero__name-line {
   display: block;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: clamp(4.5rem, 17vw, 22rem);
   font-weight: 400;
   letter-spacing: 0.08em;
@@ -706,7 +706,7 @@ img {
 .btn {
   display: inline-block;
   padding: 0.85rem 2rem;
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -764,7 +764,7 @@ img {
 
 .stat__number {
   display: block;
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   color: #E6E8E7;
@@ -804,7 +804,7 @@ img {
 }
 
 .about__dogs-row .about__dog-name {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -858,7 +858,7 @@ img {
   border-radius: 100px;
   background: #141312;
   text-decoration: none;
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.03em;
@@ -960,7 +960,7 @@ img {
 }
 
 .about__dog-name {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -973,7 +973,7 @@ img {
   align-items: center;
   gap: 0.35rem;
   margin-top: 0.5rem;
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.7rem;
   font-weight: 400;
   color: #7A7C7B;
@@ -999,7 +999,7 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: clamp(12rem, 35vw, 50rem);
   font-weight: 400;
   letter-spacing: 0.15em;
@@ -1062,7 +1062,7 @@ img {
 
 /* Card number */
 .work__card-num {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 1.6rem;
   color: var(--accent);
   letter-spacing: 0.1em;
@@ -1078,7 +1078,7 @@ img {
 }
 
 .work__card-body h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Titillium Web', serif;
   font-size: clamp(1.15rem, 1.6vw, 1.5rem);
   font-weight: 700;
   color: #E6E8E7;
@@ -1093,7 +1093,7 @@ img {
 
 /* Card tag and CTA */
 .work__card-tag {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -1106,7 +1106,7 @@ img {
 .work__card-cta {
   display: inline-block;
   margin-top: 1rem;
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -1285,7 +1285,7 @@ body.modal-open {
   transform: translateY(0) scale(1);
 }
 .cred-modal__title {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -1330,7 +1330,7 @@ body.modal-open {
 }
 
 .cs-header__label {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -1339,14 +1339,14 @@ body.modal-open {
 }
 
 .cs-header__role {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
   color: #7A7C7B;
 }
 
 .cs-header__title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Titillium Web', serif;
   font-size: 2.4rem;
   font-weight: 700;
   color: #B7C9C3;
@@ -1440,7 +1440,7 @@ body.modal-open {
 }
 
 .cs-metric__number {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: #E6E8E7;
@@ -1470,7 +1470,7 @@ body.modal-open {
 }
 
 .cs-section__label {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -1609,7 +1609,7 @@ body.modal-open {
 }
 
 .cs-testimonial__quote {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 1rem;
   font-style: italic;
   color: #E6E8E7;
@@ -1636,7 +1636,7 @@ body.modal-open {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.65rem;
   font-weight: 600;
   color: #B7C9C3;
@@ -1659,14 +1659,14 @@ body.modal-open {
 }
 
 .cs-testimonial__name {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   color: #E6E8E7;
 }
 
 .cs-testimonial__role {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.7rem;
   font-weight: 400;
   color: #7E9790;
@@ -1765,7 +1765,7 @@ body.modal-open {
   border: 1px solid rgba(183, 201, 195, 0.12);
   border-radius: 8px;
   color: #E6E8E7;
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -1810,7 +1810,7 @@ body.modal-open {
 .cs-toc__item {
   position: relative;
   padding: 0.65rem 0 0.65rem 1.6rem;
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -1855,7 +1855,7 @@ body.modal-open {
 
 .cs-fp-header__label {
   display: inline-block;
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -1865,7 +1865,7 @@ body.modal-open {
 }
 
 .cs-fp-header__title {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   color: #B7C9C3;
@@ -1888,7 +1888,7 @@ body.modal-open {
 }
 
 .cs-fp-header__role-label {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -1897,7 +1897,7 @@ body.modal-open {
 }
 
 .cs-fp-header__role-value {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
   color: #E6E8E7;
@@ -1934,7 +1934,7 @@ body.modal-open {
 .cs-fp-summary__block--solution .cs-fp-summary__icon { color: #B7C9C3; }
 
 .cs-fp-summary__label {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -1959,7 +1959,7 @@ body.modal-open {
 }
 
 .cs-fp-skills__label {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -1975,7 +1975,7 @@ body.modal-open {
 }
 
 .cs-fp-skills__tag {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.68rem;
   font-weight: 500;
   padding: 0.3rem 0.75rem;
@@ -2005,7 +2005,7 @@ body.modal-open {
 .cs-fp-metric:last-child { border-right: none; }
 
 .cs-fp-metric__num {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 2rem;
   color: #FFF7E7;
   line-height: 1;
@@ -2014,7 +2014,7 @@ body.modal-open {
 }
 
 .cs-fp-metric__label {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -2043,7 +2043,7 @@ body.modal-open {
 }
 
 .cs-fp-section__label {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -2112,7 +2112,7 @@ body.modal-open {
 .cs-fp-testimonial .cs-fp-section__label { margin-bottom: 1.5rem; }
 
 .cs-fp-testimonial__quote {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 1rem;
   font-style: italic;
   color: #E6E8E7;
@@ -2152,14 +2152,14 @@ body.modal-open {
 }
 
 .cs-fp-testimonial__name {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   color: #E6E8E7;
 }
 
 .cs-fp-testimonial__role {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.7rem;
   font-weight: 400;
   color: #9B9D9C;
@@ -2175,7 +2175,7 @@ body.modal-open {
 }
 
 .cs-fp-tools__label {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -2191,7 +2191,7 @@ body.modal-open {
 }
 
 .cs-fp-tools__item {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
   color: #E6E8E7;
@@ -2291,7 +2291,7 @@ body.modal-open {
 }
 
 .testimonial-card__quote {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.95rem;
   font-style: italic;
   color: #C8CAC9;
@@ -2321,7 +2321,7 @@ body.modal-open {
 }
 
 .testimonial-card__name {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   color: #E6E8E7;
@@ -2329,7 +2329,7 @@ body.modal-open {
 }
 
 .testimonial-card__role {
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.65rem;
   font-weight: 400;
   color: #7E9790;
@@ -2427,7 +2427,7 @@ body.modal-open {
   border: 1px solid rgba(183, 201, 195, 0.1);
   border-radius: 4px;
   color: #E6E8E7;
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.95rem;
   transition: border-color 0.3s ease;
   outline: none;
@@ -2458,7 +2458,7 @@ body.modal-open {
 }
 
 .contact__success h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Titillium Web', serif;
   font-size: 1.8rem;
   color: #B7C9C3;
   margin-bottom: 0.75rem;
@@ -2800,7 +2800,7 @@ button[type="submit"]:focus-visible,
 /* Reset button styles for cs-tag buttons */
 .cs-tag {
   background: none;
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 /* Increased Contrast */

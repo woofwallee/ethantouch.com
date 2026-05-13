@@ -188,7 +188,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   function openResume() {
     resumePanel.classList.add('open');
     resumeOverlay.classList.add('open');
-    resumePanel.setAttribute('aria-hidden', 'false');
+    resumePanel.inert = false;
     resumeClose.focus();
     trapFocus(resumePanel);
     playSwish();
@@ -197,7 +197,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   function closeResume() {
     resumePanel.classList.remove('open');
     resumeOverlay.classList.remove('open');
-    resumePanel.setAttribute('aria-hidden', 'true');
+    resumePanel.inert = true;
     releaseFocusTrap(resumePanel);
     resumeBtn.focus();
     playSwish();

@@ -34,16 +34,9 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         opacity: 1, scale: 1, duration: 0.7, ease: 'power3.out'
       }, 0.4);
 
-      tl.fromTo('#heroHeadline', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4 }, 0.75);
+      tl.fromTo('#heroHeadline', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5 }, 0.75);
 
-      tl.fromTo('#heroSkillsRow', { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.9);
-
-      var skillOrder = ['#skill-tl', '#skill-tr', '#skill-ml', '#skill-mr', '#skill-bl', '#skill-br'];
-      skillOrder.forEach(function(sel, i) {
-        tl.fromTo(sel, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, 0.95 + i * 0.08);
-      });
-
-      tl.fromTo('#heroCorner', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 }, 1.5);
+      tl.fromTo('#heroCorner', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 }, 1.2);
 
     });
   });

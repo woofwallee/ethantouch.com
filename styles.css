@@ -552,23 +552,24 @@ img {
 /* Hero headline — centered tagline below the composition */
 .hero__headline {
   position: absolute;
-  bottom: 17rem;
+  bottom: 9rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 5;
   text-align: center;
-  width: auto;
-  max-width: 520px;
+  width: 92vw;
+  max-width: 760px;
+  padding: 0 1.5rem;
 }
 .hero__title {
   font-family: 'Titillium Web', sans-serif;
-  font-size: clamp(0.65rem, 0.9vw, 0.85rem);
-  font-weight: 600;
-  font-style: normal;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
+  font-size: clamp(1.05rem, 1.7vw, 1.5rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0;
+  text-transform: none;
   color: #FAE1C5;
-  line-height: 1.6;
+  line-height: 1.45;
   margin-bottom: 0;
 }
 .hero__subtitle {
@@ -985,6 +986,50 @@ img {
 
 .about__dogs-ig:hover {
   color: #9B9D9C;
+}
+
+/* ===========================
+   POINT OF VIEW — MISSION & VISION
+   =========================== */
+.pov {
+  padding: 6rem 0 5rem;
+}
+.pov .section__title {
+  margin-bottom: 3rem;
+}
+.pov__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 980px;
+}
+.pov__block {
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 2px solid rgba(183, 201, 195, 0.25);
+}
+.pov__label {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #FAE1C5;
+  margin-bottom: 1rem;
+}
+.pov__text {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #B7C9C3;
+  max-width: 440px;
+}
+@media (max-width: 800px) {
+  .pov { padding: 4rem 0 3rem; }
+  .pov__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .pov .section__title { margin-bottom: 2rem; }
+  .pov__text { font-size: 1rem; }
 }
 
 /* ===========================

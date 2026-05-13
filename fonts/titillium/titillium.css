@@ -1,0 +1,77 @@
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: italic;
+  font-weight: 200;
+  font-display: swap;
+  src: url(/fonts/titillium/NaPFcZTIAOhVxoMyOr9n_E7fdMbewI1zY5abuWI.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts/titillium/NaPFcZTIAOhVxoMyOr9n_E7fdMbepI5zY5abuWI.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/titillium/NaPAcZTIAOhVxoMyOr9n_E7fdMbmDaZRbrw.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/titillium/NaPFcZTIAOhVxoMyOr9n_E7fdMbe0IhzY5abuWI.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/titillium/NaPFcZTIAOhVxoMyOr9n_E7fdMbetIlzY5abuWI.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(/fonts/titillium/NaPDcZTIAOhVxoMyOr9n_E7ffAzHKIl5ZLSZ.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts/titillium/NaPDcZTIAOhVxoMyOr9n_E7ffGjEKIl5ZLSZ.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/titillium/NaPecZTIAOhVxoMyOr9n_E7fRMHsCoRT.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/titillium/NaPDcZTIAOhVxoMyOr9n_E7ffBzCKIl5ZLSZ.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/titillium/NaPDcZTIAOhVxoMyOr9n_E7ffHjDKIl5ZLSZ.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(/fonts/titillium/NaPDcZTIAOhVxoMyOr9n_E7ffEDBKIl5ZLSZ.woff2) format('woff2');
+}

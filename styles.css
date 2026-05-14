@@ -552,7 +552,7 @@ img {
 /* Hero headline — centered tagline below the composition */
 .hero__headline {
   position: absolute;
-  bottom: 9rem;
+  bottom: 12rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 5;

@@ -43,6 +43,7 @@ exclude:
   - .claude/
   - CLAUDE.md
   - README.md
+  - UTM_REFERENCE.md
   - Gemfile
   - Gemfile.lock
   - vendor/

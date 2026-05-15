@@ -707,7 +707,5 @@ document.addEventListener('click', function (e) {
     gtag('event', 'email_click', { link_url: href });
   } else if (/linkedin\.com\/in\//i.test(href)) {
     gtag('event', 'linkedin_click', { link_url: href });
-  } else if (/calendar\.app\.google/i.test(href)) {
-    gtag('event', 'schedule_click', { link_url: href });
   }
 });

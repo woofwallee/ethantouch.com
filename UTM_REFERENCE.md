@@ -46,12 +46,6 @@ https://ethantouch.com/?utm_source=resume&utm_medium=referral&utm_campaign=resum
 https://ethantouch.com/?utm_source=cover-letter&utm_medium=referral&utm_campaign=job-apps
 ```
 
-## GitHub bio (woofwallee profile)
-
-```
-https://ethantouch.com/?utm_source=github&utm_medium=referral&utm_campaign=profile
-```
-
 ## Instagram bio (@findingmyedge)
 
 ```

@@ -52,10 +52,10 @@ https://ethantouch.com/?utm_source=cover-letter&utm_medium=referral&utm_campaign
 https://ethantouch.com/?utm_source=github&utm_medium=referral&utm_campaign=profile
 ```
 
-## Twitter / X bio
+## Instagram bio (@findingmyedge)
 
 ```
-https://ethantouch.com/?utm_source=twitter&utm_medium=social&utm_campaign=profile
+https://ethantouch.com/?utm_source=instagram&utm_medium=social&utm_campaign=profile
 ```
 
 ## Job boards (Indeed, ZipRecruiter, Wellfound, Otta, Built In, etc.)

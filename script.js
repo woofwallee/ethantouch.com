@@ -8,38 +8,59 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 // ===========================
 // HERO ANIMATION — COORDINATED GSAP TIMELINE
 // ===========================
+// Set the final, settled state immediately. The animation below is an
+// entrance flourish; everyone who sees the page must see the final state
+// regardless of whether the tab was backgrounded at load.
 (function () {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  function jumpToFinal() {
+    if (typeof gsap === 'undefined') return;
+    document.body.classList.add('is-ready');
+    gsap.set('#nav, #heroParticles, #heroCorner', { opacity: 1, y: 0, clearProps: 'transform' });
+    gsap.set('#heroName', { opacity: 1 });
+    gsap.set('#heroNameLine1, #heroNameLine2', { opacity: 1, x: 0, clearProps: 'transform' });
+    gsap.set('#portrait', { opacity: 1, scale: 1, clearProps: 'transform' });
+    gsap.set('#heroHeadline', { opacity: 1, y: 0, clearProps: 'transform' });
+  }
 
-  requestAnimationFrame(function() {
+  function runEntrance() {
+    if (typeof gsap === 'undefined') return;
+    document.body.classList.add('is-ready');
+    var tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+    tl.fromTo('#nav', { opacity: 0, y: -8 }, { opacity: 1, y: 0, duration: 0.26 }, 0);
+    tl.fromTo('#heroParticles', { opacity: 0 }, { opacity: 1, duration: 1.2 }, 0);
+    tl.set('#heroName', { opacity: 1 }, 0);
+    tl.fromTo('#heroNameLine1', { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' }, 0.1);
+    tl.fromTo('#heroNameLine2', { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' }, 0.25);
+    tl.fromTo('#portrait', { opacity: 0, scale: 0.88 }, { opacity: 1, scale: 1, duration: 0.7, ease: 'power3.out' }, 0.4);
+    tl.fromTo('#heroHeadline', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5 }, 0.75);
+    tl.fromTo('#heroCorner', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 }, 1.2);
+  }
+
+  function init() {
+    // Reduced motion or backgrounded tab: skip the animation, show final state.
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion || document.hidden) {
+      jumpToFinal();
+      // If the tab was hidden at load, also fix any cached partial state
+      // when the user finally focuses the tab — belt-and-suspenders.
+      document.addEventListener('visibilitychange', function onVis() {
+        if (!document.hidden) {
+          document.removeEventListener('visibilitychange', onVis);
+          jumpToFinal();
+        }
+      });
+      return;
+    }
     requestAnimationFrame(function() {
-      document.body.classList.add('is-ready');
-
-      var tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
-
-      tl.fromTo('#nav', { opacity: 0, y: -8 }, { opacity: 1, y: 0, duration: 0.26 }, 0);
-      tl.fromTo('#heroParticles', { opacity: 0 }, { opacity: 1, duration: 1.2 }, 0);
-
-      // Massive name — slides in from opposite sides
-      tl.set('#heroName', { opacity: 1 }, 0);
-      tl.fromTo('#heroNameLine1', { opacity: 0, x: -50 }, {
-        opacity: 1, x: 0, duration: 0.8, ease: 'power3.out'
-      }, 0.1);
-      tl.fromTo('#heroNameLine2', { opacity: 0, x: 50 }, {
-        opacity: 1, x: 0, duration: 0.8, ease: 'power3.out'
-      }, 0.25);
-
-      // Portrait scales in overlapping the name
-      tl.fromTo('#portrait', { opacity: 0, scale: 0.88 }, {
-        opacity: 1, scale: 1, duration: 0.7, ease: 'power3.out'
-      }, 0.4);
-
-      tl.fromTo('#heroHeadline', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5 }, 0.75);
-
-      tl.fromTo('#heroCorner', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 }, 1.2);
-
+      requestAnimationFrame(runEntrance);
     });
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
 
 // (Horizontal scroll removed — work section now uses static grid layout)

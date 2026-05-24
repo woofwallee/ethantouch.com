@@ -7,7 +7,7 @@ description: "On the gap between thinking plain and talking plain, and why the c
 
 For a long time I thought talking plain meant thinking plain.
 
-I'd be on a video interview, camera on, and somewhere in the back of my head I'd be thinking about the other candidates. People I'd never seen. Whether they came across sharper than me. Whether their answers had more structure, more vocabulary. I'm not somebody who talks in layers. I say what I mean and stop. Used to read that as a gap between me and everybody else.
+I'd be on a video interview, camera on, and somewhere in the back of my head I'd be thinking about the other candidates. People I'd never seen. Whether they came across sharper than me, whether their answers had more structure, more vocabulary. I'm not somebody who talks in layers. I say what I mean and stop. Used to read that as a gap between me and everybody else.
 
 Then I started getting offers.
 

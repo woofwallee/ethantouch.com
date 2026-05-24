@@ -13,7 +13,7 @@ There's a version of the question that sounds humble but isn't: "Maybe I'm aimin
 
 Then something shifts. Starts with honest discouragement (fair, this is hard) and slowly turns into something else: the belief that the wait is actually a verdict. That the silence means something about what you deserve. Once that gets in, the behavior changes. You send fewer applications. Quietly start making peace with less, before anybody told you that was necessary.
 
-Doesn't feel like giving up when it's happening. Feels like being realistic. Adjusting expectations to match available data. It passes as wisdom, which is why it's hard to argue with.
+Doesn't feel like giving up when it's happening. Feels like being realistic. It passes as wisdom, which is why it's hard to argue with.
 
 Here's what I kept coming back to when I was in it: the right thing is still coming. Not as a thing you're supposed to say. As an actual working belief. When it shows up, it won't be the version you settled for because you got tired. It'll fit in a way the others didn't.
 

@@ -17,13 +17,13 @@ Tuesday night in March. Room's dark. Clock on the microwave reads 2:14. You've b
 
 That night isn't the failure. That night is the foundation.
 
-People want the story to start with the win. They want the founding scene to be the moment something clicked, the offer landed, the door opened. The real founding scene is quieter than that. It's the night you decided to keep going when the math said you shouldn't have. And the long stretch of weeks after, where nothing landed and you kept showing up to the desk like it owed you something.
+People want the story to start with the win. They want the founding scene to be the moment something clicked. Or the offer landed. The real founding scene is quieter than that. It's the night you decided to keep going when the math said you shouldn't have. And the long stretch of weeks after, where nothing landed and you kept showing up to the desk like it owed you something.
 
 Faith is the part that's hard to explain to anybody who hasn't needed it yet. From the outside it looks like delusion. From the inside it's a working system. Either you believe the next swing matters or you stop swinging. There's no in-between. The men who keep going aren't naive about the odds. They've just made peace with the fact that forward is the only way out, and forward only shows up when you do.
 
 Then there's the night it nearly breaks you.
 
-Every version of this story has one. Might be the night rent's due in five days and the inbox is empty. Might be the night the loneliness gets specific, gets named, pulls up a chair at the kitchen table and sits with you. Nothing arrives from outside on that night. The turn happens because you make a decision in private that nobody's ever going to know about. You decide to send one more application. You decide to stay.
+Every version of this story has one. Might be the night rent's due in five days and the inbox is empty. Might be the night the loneliness gets specific, gets named, pulls up a chair at the kitchen table and sits with you. Nothing arrives from outside on that night. The turn happens because you make a decision in private that nobody's ever going to know about. You decide to send one more application. To stay.
 
 That decision is the rebirth nobody photographs.
 
@@ -31,6 +31,6 @@ The man who comes out of that isn't the same man who went in. He doesn't perform
 
 So if you're in the middle of it right now, in the debt and the loneliness, in the hours nobody's watching, I'll tell you straight: you're not behind. You're in the part where the foundation gets poured. Most of what you'll be proud of ten years from now is getting assembled tonight, under conditions you don't even recognize as the work.
 
-The next chapter's already being written. Looks like another late night and another application. Looks like nothing from the outside. From the inside it looks like a man building a version of himself nobody can ever take from him.
+The next chapter's already being written. Looks like another late night, another application. From the outside, looks like nothing. From the inside, looks like a man building a version of himself nobody can ever take from him.
 
 Keep going. The day this turns is coming. Always does for the ones who don't quit before it gets there.

@@ -3,8 +3,6 @@ layout: journal-post
 title: "43, Stressed, No Sleep, Hearing Music That Isn't There. Turns Out It Has a Name"
 date: 2026-04-10 23:30:00 -0500
 description: "What hearing music that isn't there feels like, why your brain does it, and the medical name for the experience: Musical Ear Syndrome."
-image: /images/journal-phantom-music.webp
-image_alt: "A 43-year-old man on his sofa, holding a finger to his ear, listening for music that isn't playing, with his golden retriever asleep on the floor."
 ---
 
 A storm rolled through last night. Oliver, my golden retriever, climbed on top of me and spent the whole night whining and panting in my ear. Charlie, my other dog, stayed quiet at the foot of the sofa. He wasn't stressed by the storm. He was stressed by how dramatic Oliver was being about the storm.

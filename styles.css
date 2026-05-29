@@ -913,7 +913,7 @@ img {
 
 .about__headshot {
   width: 100%;
-  max-width: 320px;
+  max-width: 260px;
   height: auto;
   object-fit: contain;
   object-position: top center;

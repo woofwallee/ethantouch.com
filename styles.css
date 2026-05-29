@@ -755,16 +755,15 @@ img {
   grid-template-areas:
     "text image"
     "text creds";
-  grid-template-rows: auto 1fr;
-  gap: 1.5rem 3rem;
+  grid-template-rows: auto auto;
+  gap: 1.75rem 3rem;
   align-items: start;
 }
 .about__text  { grid-area: text; }
 .about__image { grid-area: image; }
-/* Credentials live under the headshot, pushed to the bottom of the
-   right column so their baseline lines up with the dogs/Instagram row
-   that now ends the left column. */
-.about__grid .credentials { grid-area: creds; align-self: end; }
+/* Credentials sit directly beneath the headshot, top-aligned, so the
+   portrait + credentials read as one filled right-hand column. */
+.about__grid .credentials { grid-area: creds; align-self: start; }
 
 .about__text p:not(.section__label) {
   color: #C8CAC9;
@@ -913,7 +912,7 @@ img {
 
 .about__headshot {
   width: 100%;
-  max-width: 260px;
+  max-width: 380px;
   height: auto;
   object-fit: contain;
   object-position: top center;

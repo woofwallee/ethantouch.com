@@ -752,18 +752,9 @@ img {
 .about__grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  grid-template-areas:
-    "text image"
-    "text creds";
-  grid-template-rows: auto auto;
-  gap: 1.75rem 3rem;
+  gap: 3rem;
   align-items: start;
 }
-.about__text  { grid-area: text; }
-.about__image { grid-area: image; }
-/* Credentials sit directly beneath the headshot, top-aligned, so the
-   portrait + credentials read as one filled right-hand column. */
-.about__grid .credentials { grid-area: creds; align-self: start; }
 
 .about__text p:not(.section__label) {
   color: #C8CAC9;
@@ -828,6 +819,9 @@ img {
 
 /* ── Credentials block ── */
 .credentials {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(183, 201, 195, 0.1);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -2679,24 +2673,13 @@ body.modal-open {
 
   .about__grid {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "image"
-      "text"
-      "creds";
-    grid-template-rows: auto auto auto;
-    gap: 2.5rem;
+    gap: 3rem;
   }
 
   .about__image {
+    order: -1;
     max-width: 280px;
     margin: 0 auto;
-  }
-
-  /* Stack credentials at the bottom on mobile with a divider above */
-  .about__grid .credentials {
-    align-self: start;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(183, 201, 195, 0.1);
   }
 
   .work__grid {

@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Deal Stage Lifecycle Sync (D1&ndash;D7)</title><style>
+  :root{--navy:#2e3e50;--topbar:#1d2b3a;--canvas:#f5f8fa;--orange:#ff7a59;--teal:#00a4bd;
+  --text:#33475b;--muted:#7c98b6;--line:#cbd6e2;--green-pill:#d6f0ea;--amber-pill:#fdf3d8;
+  --blue-pill:#d8ecf5;--red-pill:#fde0e0;--card-border:#dfe3eb;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:var(--text);background:var(--canvas);}
+  .topbar{background:var(--topbar);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:54px;font-size:14px;}
+  .topbar .back{color:#c3cfdb;text-decoration:none;display:flex;align-items:center;gap:6px;font-size:13px;}
+  .topbar .title{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;}
+  .topbar .title .pencil{color:#8aa0b6;font-size:13px;}
+  .topbar .right{display:flex;align-items:center;gap:16px;}
+  .topbar .status{color:#c3cfdb;font-size:13px;}
+  .btn-publish{background:var(--orange);color:#fff;border:none;border-radius:4px;padding:9px 16px;font-weight:600;font-size:13px;cursor:pointer;}
+  .subbar{background:#fff;border-bottom:1px solid var(--card-border);display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:48px;font-size:13px;}
+  .subbar .group{display:flex;align-items:center;gap:20px;}
+  .subbar .tool{color:var(--muted);display:flex;align-items:center;gap:5px;}
+  .tabs{display:flex;gap:26px;}
+  .tabs .tab{color:var(--muted);padding:14px 0;cursor:pointer;}
+  .tabs .tab.active{color:var(--text);font-weight:600;border-bottom:3px solid var(--teal);}
+  .subbar .pill-btn{border:1px solid var(--line);border-radius:4px;padding:6px 12px;color:var(--muted);background:#fff;}
+  .canvas{padding:34px 16px 80px;position:relative;overflow-x:auto;}
+  .zoom{position:sticky;top:14px;float:left;margin-left:6px;display:flex;flex-direction:column;align-items:flex-start;font-size:12px;color:var(--muted);z-index:5;}
+  .minimap{font-size:12px;color:var(--text);margin-bottom:14px;cursor:pointer;}
+  .zoom .ctrl{background:#fff;border:1px solid var(--line);width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--text);}
+  .zoom .ctrl.plus{border-radius:4px 4px 0 0;}
+  .zoom .ctrl.minus{border-radius:0 0 4px 4px;border-top:none;}
+  .zoom .pct{margin-top:8px;}
+  .flow{display:flex;flex-direction:column;align-items:center;}
+  .conn{width:2px;height:30px;background:var(--line);}
+  .conn.short{height:14px;}
+  .plus{width:22px;height:22px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1;margin:-11px 0;position:relative;z-index:2;}
+  .conn-wrap{display:flex;flex-direction:column;align-items:center;}
+  .card{background:#fff;border:1px solid var(--card-border);border-radius:6px;box-shadow:0 1px 2px rgba(45,62,80,.08);overflow:hidden;}
+  .trigger .t-head{display:flex;align-items:center;gap:8px;background:#fff;border-bottom:1px solid var(--card-border);padding:10px 14px;font-size:13px;font-weight:600;color:var(--text);}
+  .trigger .t-body{padding:14px 16px;font-size:13px;line-height:1.5;color:var(--text);}
+  .action .a-head{display:flex;align-items:center;justify-content:space-between;background:var(--navy);color:#fff;padding:9px 14px;font-size:13px;font-weight:600;gap:8px;}
+  .action .a-head .actions{color:#aebfd0;font-size:12px;font-weight:400;white-space:nowrap;}
+  .action .a-body{padding:13px 15px;font-size:13px;line-height:1.45;}
+  .a-body .sub{color:var(--muted);font-size:12px;margin-top:4px;}
+  .split{display:flex;flex-direction:column;align-items:center;margin:0 auto;}
+  .split-stem{width:2px;height:24px;background:var(--line);}
+  .split-line{height:2px;background:var(--line);}
+  .branchrow{display:flex;justify-content:center;align-items:flex-start;}
+  .branch{display:flex;flex-direction:column;align-items:center;}
+  .pill{font-size:12px;font-weight:600;border-radius:3px;padding:3px 12px;margin-bottom:4px;text-align:center;}
+  .pill.green{background:var(--green-pill);color:#00765f;}
+  .pill.amber{background:var(--amber-pill);color:#946c00;}
+  .pill.blue{background:var(--blue-pill);color:#176a8a;}
+  .pill.red{background:var(--red-pill);color:#b23;}
+  .endconn{width:2px;height:24px;background:var(--line);}
+  .end{width:54px;height:54px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px;}
+  .footnote{max-width:860px;margin:26px auto 0;font-size:12px;color:var(--muted);text-align:center;line-height:1.6;}
+</style></head><body><div class="topbar"><a href="index.html" class="back">&#8249;&nbsp; Back to workflows</a><div class="title">Deal Stage Lifecycle Sync (D1&ndash;D7) <span class="pencil">&#9998;</span></div><div class="right"><span class="status">Workflow is OFF</span><button class="btn-publish">Review and publish</button></div></div><div class="subbar"><div class="group"><span class="tool">&#9888; Alerts</span><span class="tool">&#128202; Details</span><span class="tool">&#9678; Set goal</span></div><div class="tabs"><span class="tab active">Actions</span><span class="tab">Settings</span><span class="tab">Goals</span><span class="tab">Changes</span></div><div class="group"><span class="pill-btn">&#128101; Enroll</span><span class="pill-btn">&#9883; Test</span><span class="pill-btn">More</span></div></div><div class="canvas"><div class="zoom"><div class="minimap">&#9656; Show minimap</div><div class="ctrl plus">+</div><div class="ctrl minus">&#8722;</div><div class="pct">50%</div></div><div class="flow" style="min-width:550px;"><div class="card trigger" style="width:340px;"><div class="t-head"><span>&#128100;</span> Deal enrollment trigger</div><div class="t-body">Enroll on <b>deal stage change</b> (D1 Discovery &rarr; D7 Closed Lost). One source-of-truth sync across deal, company, and contact records.</div></div><div class="conn-wrap"><div class="conn"></div><div class="plus">+</div><div class="conn"></div></div><div class="card action" style="width:340px;"><div class="a-head"><span>&#9881;&nbsp; 1. Copy deal info</span><span class="actions">Actions &#9662;</span></div><div class="a-body">Sync stage data &rarr; company record (discovery notes, proposal, amount, closed-lost reason)</div></div><div class="conn-wrap"><div class="conn"></div><div class="plus">+</div><div class="conn"></div></div><div class="card action" style="width:340px;"><div class="a-head"><span>&#9881;&nbsp; 2. Update lifecycle</span><span class="actions">Actions &#9662;</span></div><div class="a-body">Lead status + lifecycle per stage (SQL &rarr; Opportunity &rarr; Customer / Lost)</div></div><div class="conn-wrap"><div class="conn"></div><div class="plus">+</div><div class="conn"></div></div><div class="card action" style="width:340px;"><div class="a-head"><span>&#9881;&nbsp; 3. Stamp date</span><span class="actions">Actions &#9662;</span></div><div class="a-body">Set 'Latest Deal Stage Change Date'</div></div><div class="conn-wrap"><div class="conn"></div><div class="plus">+</div><div class="conn"></div></div><div class="card action" style="width:340px;"><div class="a-head"><span>&#8987;&nbsp; 4. Delay</span><span class="actions">Actions &#9662;</span></div><div class="a-body">Stage-specific window (7&ndash;14 days)</div></div><div class="conn-wrap"><div class="conn"></div><div class="plus">+</div><div class="conn"></div></div><div class="card action" style="width:340px;"><div class="a-head"><span>&#9881;&nbsp; 5. If/then branch</span><span class="actions">Actions &#9662;</span></div><div class="a-body">Branch on <b>Last Activity Date</b></div></div><div class="split" style="width:550px;"><div class="split-stem"></div><div class="split-line" style="width:300px;"></div><div class="branchrow" style="gap:50px;"><div class="branch" style="width:250px;"><div class="conn" style="height:12px;"></div><div class="pill red">No activity in window</div><div class="conn-wrap"><div class="conn short"></div><div class="plus">+</div><div class="conn short"></div></div><div class="card action" style="width:250px;"><div class="a-head"><span>&#9745;&nbsp; Create task</span><span class="actions">Actions &#9662;</span></div><div class="a-body">Sales team to follow up</div></div><div class="endconn"></div><div class="end">END</div></div><div class="branch" style="width:250px;"><div class="conn" style="height:12px;"></div><div class="pill green">Recent activity</div><div class="conn-wrap"><div class="conn short"></div><div class="plus">+</div><div class="conn short"></div></div><div class="card action" style="width:250px;"><div class="a-head"><span>&#9881;&nbsp; Re-enroll</span><span class="actions">Actions &#9662;</span></div><div class="a-body">Continue monitoring</div></div><div class="endconn"></div><div class="end">END</div></div></div></div></div><p class="footnote">Collapses the D1&ndash;D7 series into one diagram. Mirrors Ethan's 'Deal Reaches' builds: copy stage data to company, lifecycle/lead-status updates, date stamping, and activity-based follow-up.</p></div></body></html>

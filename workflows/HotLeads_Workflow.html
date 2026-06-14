@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track &amp; Manage Hot Leads — HubSpot Workflow</title>
+<style>
+  :root{
+    --navy:#2e3e50;
+    --navy-dark:#213040;
+    --topbar:#1d2b3a;
+    --canvas:#f5f8fa;
+    --orange:#ff7a59;
+    --teal:#00a4bd;
+    --text:#33475b;
+    --muted:#7c98b6;
+    --line:#cbd6e2;
+    --green:#00bda5;
+    --green-pill:#d6f0ea;
+    --red:#f2545b;
+    --red-pill:#fde0e0;
+    --card-border:#dfe3eb;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    color:var(--text);
+    background:var(--canvas);
+  }
+  /* ---- Top bar ---- */
+  .topbar{
+    background:var(--topbar);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 18px;
+    height:54px;
+    font-size:14px;
+  }
+  .topbar .back{color:#c3cfdb;text-decoration:none;display:flex;align-items:center;gap:6px;font-size:13px;}
+  .topbar .title{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;}
+  .topbar .title .pencil{color:#8aa0b6;font-size:13px;}
+  .topbar .right{display:flex;align-items:center;gap:16px;}
+  .topbar .status{color:#c3cfdb;font-size:13px;}
+  .btn-publish{
+    background:var(--orange);color:#fff;border:none;border-radius:4px;
+    padding:9px 16px;font-weight:600;font-size:13px;cursor:pointer;
+  }
+  /* ---- Sub bar ---- */
+  .subbar{
+    background:#fff;border-bottom:1px solid var(--card-border);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 18px;height:48px;font-size:13px;
+  }
+  .subbar .group{display:flex;align-items:center;gap:20px;}
+  .subbar .tool{color:var(--muted);display:flex;align-items:center;gap:5px;}
+  .tabs{display:flex;gap:26px;}
+  .tabs .tab{color:var(--muted);padding:14px 0;cursor:pointer;}
+  .tabs .tab.active{color:var(--text);font-weight:600;border-bottom:3px solid var(--teal);}
+  .subbar .pill-btn{border:1px solid var(--line);border-radius:4px;padding:6px 12px;color:var(--muted);background:#fff;}
+  /* ---- Canvas ---- */
+  .canvas{padding:34px 16px 80px;position:relative;}
+  .zoom{
+    position:sticky;top:14px;float:left;margin-left:6px;
+    display:flex;flex-direction:column;gap:0;align-items:flex-start;
+    font-size:12px;color:var(--muted);z-index:5;
+  }
+  .minimap{font-size:12px;color:var(--text);margin-bottom:14px;cursor:pointer;}
+  .zoom .ctrl{background:#fff;border:1px solid var(--line);width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--text);}
+  .zoom .ctrl.plus{border-radius:4px 4px 0 0;}
+  .zoom .ctrl.minus{border-radius:0 0 4px 4px;border-top:none;}
+  .zoom .pct{margin-top:8px;}
+
+  .flow{display:flex;flex-direction:column;align-items:center;}
+  /* connectors */
+  .conn{width:2px;height:30px;background:var(--line);position:relative;}
+  .plus{
+    width:22px;height:22px;border-radius:50%;background:#fff;border:1px solid var(--line);
+    color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1;
+    margin:-11px 0;position:relative;z-index:2;
+  }
+  .conn-wrap{display:flex;flex-direction:column;align-items:center;}
+
+  /* cards */
+  .card{width:330px;background:#fff;border:1px solid var(--card-border);border-radius:6px;box-shadow:0 1px 2px rgba(45,62,80,.08);overflow:hidden;}
+  .trigger{border:1px solid #c7d2de;}
+  .trigger .t-head{
+    display:flex;align-items:center;gap:8px;background:#fff;border-bottom:1px solid var(--card-border);
+    padding:10px 14px;font-size:13px;font-weight:600;color:var(--text);
+  }
+  .trigger .t-head .ic{color:var(--muted);}
+  .trigger .t-body{padding:14px 16px;font-size:13px;line-height:1.5;color:var(--text);}
+  .cond{background:#f5f8fa;border:1px solid #e1e8ef;border-radius:4px;padding:10px 12px;margin:8px 0;}
+  .cond b{color:var(--text);}
+  .or{display:flex;align-items:center;justify-content:center;margin:4px 0;}
+  .or span{background:var(--navy);color:#fff;font-size:11px;font-weight:700;letter-spacing:.5px;border-radius:3px;padding:2px 9px;}
+
+  .action .a-head{
+    display:flex;align-items:center;justify-content:space-between;
+    background:var(--navy);color:#fff;padding:9px 14px;font-size:13px;font-weight:600;
+  }
+  .action .a-head .ic{display:flex;align-items:center;gap:8px;}
+  .action .a-head .actions{color:#aebfd0;font-size:12px;font-weight:400;}
+  .action .a-body{padding:14px 16px;font-size:13px;line-height:1.45;}
+  .a-body .link{color:var(--teal);text-decoration:none;font-weight:600;}
+  .a-body .sub{color:var(--muted);font-size:12px;margin-top:4px;}
+  .icon{width:15px;height:15px;display:inline-block;vertical-align:middle;}
+
+  /* branch labels */
+  .split{display:flex;flex-direction:column;align-items:center;width:560px;margin:0 auto;}
+  .split-stem{width:2px;height:24px;background:var(--line);}
+  .split-line{width:330px;height:2px;background:var(--line);}
+  .branchrow{display:flex;gap:100px;justify-content:center;}
+  .branch{display:flex;flex-direction:column;align-items:center;width:230px;}
+  .bcard{width:230px;}
+  .conn.short{height:14px;}
+  .endconn{width:2px;height:24px;background:var(--line);}
+  .pill{font-size:12px;font-weight:600;border-radius:3px;padding:3px 12px;margin-bottom:4px;}
+  .pill.green{background:var(--green-pill);color:#00765f;}
+  .pill.red{background:var(--red-pill);color:#b23;}
+  .end{width:54px;height:54px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px;}
+
+  .footnote{max-width:760px;margin:26px auto 0;font-size:12px;color:var(--muted);text-align:center;line-height:1.6;}
+</style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <a href="index.html" class="back">&#8249;&nbsp; Back to workflows</a>
+    <div class="title">Track &amp; Manage Hot Leads (Paid Media) <span class="pencil">&#9998;</span></div>
+    <div class="right">
+      <span class="status">Workflow is OFF</span>
+      <button class="btn-publish">Review and publish</button>
+    </div>
+  </div>
+
+  <!-- Sub bar -->
+  <div class="subbar">
+    <div class="group">
+      <span class="tool">&#9888; Alerts</span>
+      <span class="tool">&#128202; Details</span>
+      <span class="tool">&#9678; Set goal</span>
+    </div>
+    <div class="tabs">
+      <span class="tab active">Actions</span>
+      <span class="tab">Settings</span>
+      <span class="tab">Goals</span>
+      <span class="tab">Changes</span>
+    </div>
+    <div class="group">
+      <span class="pill-btn">&#128101; Enroll</span>
+      <span class="pill-btn">&#9883; Test</span>
+      <span class="pill-btn">More</span>
+    </div>
+  </div>
+
+  <!-- Canvas -->
+  <div class="canvas">
+    <div class="zoom">
+      <div class="minimap">&#9656; Show minimap</div>
+      <div class="ctrl plus">+</div>
+      <div class="ctrl minus">&#8722;</div>
+      <div class="pct">50%</div>
+    </div>
+
+    <div class="flow">
+
+      <!-- Enrollment trigger -->
+      <div class="card trigger">
+        <div class="t-head"><span class="ic">&#128100;</span> Contact enrollment trigger</div>
+        <div class="t-body">
+          Enroll contacts when <b>any</b> of the following are true:
+          <div class="cond"><b>Lead Score</b> is greater than or equal to <b>Hot threshold</b></div>
+          <div class="or"><span>OR</span></div>
+          <div class="cond">Submitted a <b>High-Intent Content</b> form (demo request, pricing, white-paper)</div>
+          <div class="or"><span>OR</span></div>
+          <div class="cond"><b>UTM Source</b> is any of <b>linkedin-ads, google-ads, paid-social</b></div>
+        </div>
+      </div>
+
+      <div class="conn-wrap"><div class="conn"></div><div class="plus">+</div><div class="conn"></div></div>
+
+      <!-- 1 enrich -->
+      <div class="card action">
+        <div class="a-head"><span class="ic">&#10024; 1. Enrich contact &amp; company</span><span class="actions">Actions &#9662;</span></div>
+        <div class="a-body">
+          Breeze AI enrichment — fill missing <b>company size, industry, job title</b>
+          <div class="sub">Stamp UTM source / medium / campaign to attribution properties</div>
+        </div>
+      </div>
+
+      <div class="conn-wrap"><div class="conn"></div><div class="plus">+</div><div class="conn"></div></div>
+
+      <!-- 2 static list -->
+      <div class="card action">
+        <div class="a-head"><span class="ic">&#9776; 2. Add to static list</span><span class="actions">Actions &#9662;</span></div>
+        <div class="a-body"><a href="#" class="link">Hot Leads &#128293;</a></div>
+      </div>
+
+      <div class="conn-wrap"><div class="conn"></div><div class="plus">+</div><div class="conn"></div></div>
+
+      <!-- 3 set property -->
+      <div class="card action">
+        <div class="a-head"><span class="ic">&#9881; 3. Set property value</span><span class="actions">Actions &#9662;</span></div>
+        <div class="a-body">Lead Status = <b>Hot</b></div>
+      </div>
+
+      <div class="conn-wrap"><div class="conn"></div><div class="plus">+</div><div class="conn"></div></div>
+
+      <!-- 4 send email -->
+      <div class="card action">
+        <div class="a-head"><span class="ic">&#9993; 4. Send email</span><span class="actions">Actions &#9662;</span></div>
+        <div class="a-body"><a href="#" class="link">Hot Lead | Auto-Response | Email 1</a></div>
+      </div>
+
+      <div class="conn-wrap"><div class="conn"></div><div class="plus">+</div><div class="conn"></div></div>
+
+      <!-- 5 notify -->
+      <div class="card action">
+        <div class="a-head"><span class="ic">&#128226; 5. Send internal notification</span><span class="actions">Actions &#9662;</span></div>
+        <div class="a-body">Notify <b>Lead Owner</b> + #sales-hot-leads Slack channel
+          <div class="sub">Includes full engagement history &amp; source attribution</div>
+        </div>
+      </div>
+
+      <div class="conn-wrap"><div class="conn"></div><div class="plus">+</div><div class="conn"></div></div>
+
+      <!-- 6 if/then branch -->
+      <div class="card action">
+        <div class="a-head"><span class="ic">&#9881; 6. If/then branch</span><span class="actions">Actions &#9662;</span></div>
+        <div class="a-body">First, check <b>Sales Accepted</b>
+          <div class="sub">Lead Status was updated by owner within 24 hours</div>
+        </div>
+      </div>
+
+      <!-- branch split -->
+      <div class="split">
+        <div class="split-stem"></div>
+        <div class="split-line"></div>
+        <div class="branchrow">
+          <div class="branch">
+            <div class="conn" style="height:12px;"></div>
+            <div class="pill green">Accepted</div>
+            <div class="conn-wrap"><div class="conn short"></div><div class="plus">+</div><div class="conn short"></div></div>
+            <div class="card action bcard">
+              <div class="a-head"><span class="ic">&#9776; Add to list</span><span class="actions">Actions &#9662;</span></div>
+              <div class="a-body"><a href="#" class="link">Working — Sales Owned</a></div>
+            </div>
+            <div class="endconn"></div>
+            <div class="end">END</div>
+          </div>
+          <div class="branch">
+            <div class="conn" style="height:12px;"></div>
+            <div class="pill red">No action (24h)</div>
+            <div class="conn-wrap"><div class="conn short"></div><div class="plus">+</div><div class="conn short"></div></div>
+            <div class="card action bcard">
+              <div class="a-head"><span class="ic">&#128226; Re-notify + create task</span><span class="actions">Actions &#9662;</span></div>
+              <div class="a-body">Escalate to <b>Sales Manager</b><div class="sub">Create follow-up task</div></div>
+            </div>
+            <div class="endconn"></div>
+            <div class="end">END</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="footnote">
+      Built by Ethan Touch — paid-media lead-management system. Multi-source intake (LinkedIn / Google ads, high-intent forms, lead-score thresholds)
+      unified into one tracked, scored, and routed flow with UTM attribution, Breeze enrichment, and a 24-hour sales-acceptance SLA branch.
+    </p>
+  </div>
+
+</body>
+</html>

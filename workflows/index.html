@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HubSpot Workflow Library</title>
+<style>
+  :root{
+    --navy:#1d2b3a;--canvas:#f5f8fa;--orange:#ff7a59;--teal:#00a4bd;
+    --text:#33475b;--muted:#7c98b6;--line:#cbd6e2;--card-border:#dfe3eb;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:var(--text);background:var(--canvas);}
+  .hero{background:var(--navy);padding:46px 32px 40px;}
+  .hero .eyebrow{color:var(--orange);font-size:13px;font-weight:600;letter-spacing:1px;}
+  .hero h1{color:#fff;font-size:30px;font-weight:600;margin:10px 0 0;}
+  .hero p{color:#aebfd0;font-size:15px;line-height:1.6;margin:12px 0 0;max-width:620px;}
+  .wrap{max-width:1080px;margin:0 auto;padding:26px 32px 70px;}
+  .chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px;}
+  .chip{background:#fff;border:1px solid var(--line);color:var(--muted);font-size:13.5px;padding:8px 16px;border-radius:22px;cursor:pointer;font-family:inherit;transition:all .12s;}
+  .chip:hover{border-color:var(--muted);}
+  .chip.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .chip .n{opacity:.55;margin-left:3px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
+  .wf{background:#fff;border:1px solid var(--card-border);border-radius:10px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:9px;text-decoration:none;color:inherit;transition:transform .12s,box-shadow .12s,border-color .12s;}
+  .wf:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(45,62,80,.12);border-color:var(--teal);}
+  .badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:4px;align-self:flex-start;letter-spacing:.3px;}
+  .b-Sales{background:#ffe8e0;color:#993c1d;}
+  .b-Marketing{background:#d5f0f5;color:#0f6e56;}
+  .b-Service{background:#fbe6ec;color:#993556;}
+  .b-Operations{background:#fdf3d8;color:#946c00;}
+  .wf .title{font-size:15.5px;font-weight:600;color:var(--text);line-height:1.3;}
+  .wf .desc{font-size:13px;color:var(--muted);line-height:1.5;flex:1;}
+  .wf .view{font-size:12.5px;color:var(--teal);font-weight:600;display:flex;align-items:center;gap:5px;margin-top:2px;}
+  .wf .view svg{width:13px;height:13px;}
+  .empty{grid-column:1/-1;color:var(--muted);font-size:14px;padding:30px 0;text-align:center;}
+  footer{border-top:1px solid var(--card-border);padding:22px 32px;text-align:center;color:var(--muted);font-size:12.5px;}
+  footer a{color:var(--teal);text-decoration:none;}
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="eyebrow">HUBSPOT WORKFLOW LIBRARY</div>
+    <h1>Automation ideas for your RevOps team</h1>
+    <p>A library of HubSpot workflows across Sales, Marketing, Service, and Operations — recreated as visual diagrams to spark ideas for what you can automate in your own portal.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="chips" id="chips">
+      <button class="chip active" data-f="all">All <span class="n">27</span></button>
+      <button class="chip" data-f="Sales">Sales <span class="n">14</span></button>
+      <button class="chip" data-f="Marketing">Marketing <span class="n">7</span></button>
+      <button class="chip" data-f="Service">Service <span class="n">4</span></button>
+      <button class="chip" data-f="Operations">Operations <span class="n">2</span></button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <footer>Built by Ethan Touch &middot; <a href="https://ethantouch.com">ethantouch.com</a></footer>
+
+  <script>
+    const data=[
+      ["Track & Manage Hot Leads","Marketing","Paid-media UTM → hot-leads routing","HotLeads_Workflow.html"],
+      ["Marketing Engagement Score","Marketing","Fit / engagement tiering","MarketingEngagementScore_Workflow.html"],
+      ["Virtual Event Workflow","Marketing","RSVP capture + post-event follow-up","VirtualEvent_Workflow.html"],
+      ["Prospect Re-Engagement","Marketing","Cold-lead email sequence","ProspectReEngagement.html"],
+      ["Instant Response","Marketing","Sub-minute new-lead reply","InstantResponse.html"],
+      ["Content Offer Distribution","Marketing","Segment-matched content","ContentOfferDistribution.html"],
+      ["Win-Back Campaigns","Marketing","Reason-based re-engagement","WinBackCampaigns.html"],
+      ["Lead Qualification","Sales","Score-based routing + lifecycle","LeadQualification_Workflow.html"],
+      ["Performance-Based Lead Routing","Sales","Route by engagement strength","PerfBasedLeadRouting.html"],
+      ["Sales Pipeline Progression","Sales","Stage moves on buyer signals","SalesPipelineProgression.html"],
+      ["Pipeline Management","Sales","Stagnant-deal alerts","PipelineManagement.html"],
+      ["Demo No-Shows","Sales","Automated re-booking","DemoNoShows.html"],
+      ["Sales Task Automation","Sales","Behavior-triggered tasks","SalesTaskAutomation.html"],
+      ["Quote Follow-Up","Sales","Reminders + approval routing","QuoteFollowUp.html"],
+      ["Renewal Deal Management","Sales","Renewal pipeline by date","RenewalDealManagement.html"],
+      ["Contract Renewal Reminders","Sales","Tiered renewal nudges","ContractRenewalReminders.html"],
+      ["Upsell / Cross-Sell","Sales","Expansion-signal routing","UpsellCrossSell.html"],
+      ["Deal Stage Lifecycle Sync","Sales","D1–D7 record sync","DealStageLifecycleSync.html"],
+      ["Closed Lost Analysis","Sales","Loss capture + review","ClosedLostAnalysis.html"],
+      ["Territory Setting","Sales","Geographic assignment","TerritorySetting.html"],
+      ["Ideal Tier Assignment","Sales","Auto-tier by headcount","IdealTierAssignment.html"],
+      ["New Customer Onboarding","Service","Onboarding + at-risk split","NewCustomerOnboarding.html"],
+      ["Post-Sale NPS Survey","Service","Promoter / detractor routing","PostSaleNPS.html"],
+      ["Support Ticket Routing","Service","Route tickets by type","SupportTicketRouting.html"],
+      ["Support Satisfaction Surveys","Service","CSAT + recovery routing","SupportSatisfactionSurveys.html"],
+      ["Contract Info Sync","Operations","Company → contact propagation","ContractInfoSync_Workflow.html"],
+      ["Update Google Sheets","Operations","Backup & audit capture","UpdateGoogleSheets_Workflow.html"]
+    ];
+    const grid=document.getElementById('grid');
+    const arrow='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+    function render(f){
+      grid.innerHTML='';
+      const rows=data.filter(d=> f==='all' || d[1]===f);
+      if(!rows.length){grid.innerHTML='<div class="empty">No workflows in this category.</div>';return;}
+      rows.forEach(d=>{
+        const a=document.createElement('a');
+        a.className='wf';a.href=d[3];
+        a.innerHTML='<span class="badge b-'+d[1]+'">'+d[1]+'</span><div class="title">'+d[0]+'</div><div class="desc">'+d[2]+'</div><div class="view">View workflow '+arrow+'</div>';
+        grid.appendChild(a);
+      });
+    }
+    document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+      document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+      c.classList.add('active');render(c.dataset.f);
+    }));
+    render('all');
+  </script>
+</body>
+</html>

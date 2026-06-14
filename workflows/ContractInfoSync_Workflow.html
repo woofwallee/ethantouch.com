@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contract Info Sync — HubSpot</title>
+<style>
+  :root{
+    --navy:#2e3e50;--topbar:#1d2b3a;--canvas:#f5f8fa;--orange:#ff7a59;--teal:#00a4bd;
+    --text:#33475b;--muted:#7c98b6;--line:#cbd6e2;--green-pill:#d6f0ea;--card-border:#dfe3eb;
+    --highlight:#fff3ef;--highlight-border:#ffd0c4;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:var(--text);background:var(--canvas);}
+  .topbar{background:var(--topbar);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:54px;font-size:14px;}
+  .topbar .back{color:#c3cfdb;text-decoration:none;display:flex;align-items:center;gap:6px;font-size:13px;}
+  .topbar .title{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;}
+  .topbar .title .pencil{color:#8aa0b6;font-size:13px;}
+  .topbar .right{display:flex;align-items:center;gap:16px;}
+  .topbar .status{color:#c3cfdb;font-size:13px;}
+  .btn-publish{background:var(--orange);color:#fff;border:none;border-radius:4px;padding:9px 16px;font-weight:600;font-size:13px;cursor:pointer;}
+  .subbar{background:#fff;border-bottom:1px solid var(--card-border);display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:48px;font-size:13px;}
+  .subbar .group{display:flex;align-items:center;gap:20px;}
+  .subbar .tool{color:var(--muted);display:flex;align-items:center;gap:5px;}
+  .tabs{display:flex;gap:26px;}
+  .tabs .tab{color:var(--muted);padding:14px 0;cursor:pointer;}
+  .tabs .tab.active{color:var(--text);font-weight:600;border-bottom:3px solid var(--teal);}
+  .subbar .pill-btn{border:1px solid var(--line);border-radius:4px;padding:6px 12px;color:var(--muted);background:#fff;}
+  .canvas{padding:34px 16px 80px;position:relative;overflow-x:auto;}
+  .zoom{position:sticky;top:14px;float:left;margin-left:6px;display:flex;flex-direction:column;align-items:flex-start;font-size:12px;color:var(--muted);z-index:5;}
+  .minimap{font-size:12px;color:var(--text);margin-bottom:14px;cursor:pointer;}
+  .zoom .ctrl{background:#fff;border:1px solid var(--line);width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--text);}
+  .zoom .ctrl.plus{border-radius:4px 4px 0 0;}
+  .zoom .ctrl.minus{border-radius:0 0 4px 4px;border-top:none;}
+  .zoom .pct{margin-top:8px;}
+  .flow{display:flex;flex-direction:column;align-items:center;}
+  .conn{width:2px;height:30px;background:var(--line);}
+  .plus{width:22px;height:22px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1;margin:-11px 0;position:relative;z-index:2;}
+  .conn-wrap{display:flex;flex-direction:column;align-items:center;}
+  .card{width:360px;background:#fff;border:1px solid var(--card-border);border-radius:6px;box-shadow:0 1px 2px rgba(45,62,80,.08);overflow:hidden;}
+  .trigger .t-head{display:flex;align-items:center;gap:8px;background:#fff;border-bottom:1px solid var(--card-border);padding:10px 14px;font-size:13px;font-weight:600;color:var(--text);}
+  .trigger .t-body{padding:14px 16px;font-size:13px;line-height:1.5;color:var(--text);}
+  .cond{background:#f5f8fa;border:1px solid #e1e8ef;border-radius:4px;padding:10px 12px;margin:8px 0;}
+  .action .a-head{display:flex;align-items:center;justify-content:space-between;background:var(--navy);color:#fff;padding:9px 14px;font-size:13px;font-weight:600;}
+  .action .a-head .actions{color:#aebfd0;font-size:12px;font-weight:400;}
+  .action .a-body{padding:14px 16px;font-size:13px;line-height:1.45;}
+  .a-body .link{color:var(--teal);text-decoration:none;font-weight:600;}
+  .a-body .sub{color:var(--muted);font-size:12px;margin-top:4px;}
+  .card.highlight{border:2px solid var(--highlight-border);}
+  .card.highlight .a-head{background:var(--orange);}
+  .card.highlight .a-body{background:var(--highlight);}
+  .tag{display:inline-block;background:var(--orange);color:#fff;font-size:10px;font-weight:700;letter-spacing:.4px;border-radius:3px;padding:2px 7px;margin-bottom:6px;}
+  .endconn{width:2px;height:24px;background:var(--line);}
+  .end{width:54px;height:54px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px;}
+  .footnote{max-width:820px;margin:26px auto 0;font-size:12px;color:var(--muted);text-align:center;line-height:1.6;}
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <a href="index.html" class="back">&#8249;&nbsp; Back to workflows</a>
+    <div class="title">Contract Info Sync &mdash; Company &#8594; Contact Propagation <span class="pencil">&#9998;</span></div>
+    <div class="right"><span class="status">Workflow is OFF</span><button class="btn-publish">Review and publish</button></div>
+  </div>
+  <div class="subbar">
+    <div class="group"><span class="tool">&#9888; Alerts</span><span class="tool">&#128202; Details</span><span class="tool">&#9678; Set goal</span></div>
+    <div class="tabs"><span class="tab active">Actions</span><span class="tab">Settings</span><span class="tab">Goals</span><span class="tab">Changes</span></div>
+    <div class="group"><span class="pill-btn">&#128101; Enroll</span><span class="pill-btn">&#9883; Test</span><span class="pill-btn">More</span></div>
+  </div>
+  <div class="canvas">
+    <div class="zoom"><div class="minimap">&#9656; Show minimap</div><div class="ctrl plus">+</div><div class="ctrl minus">&#8722;</div><div class="pct">50%</div></div>
+    <div class="flow">
+
+      <div class="card trigger">
+        <div class="t-head"><span>&#127970;</span> Company enrollment trigger</div>
+        <div class="t-body">
+          Enroll <b>companies</b> where Lifecycle Stage = Customer
+          <div class="cond">Company record is the <b>source of truth</b> for contract &amp; lifecycle data</div>
+        </div>
+      </div>
+      <div class="conn-wrap"><div class="conn"></div><div class="plus">+</div><div class="conn"></div></div>
+
+      <div class="card action">
+        <div class="a-head"><span>&#8987; 1. Delay until</span><span class="actions">Actions &#9662;</span></div>
+        <div class="a-body">Contract Status changes</div>
+      </div>
+      <div class="conn-wrap"><div class="conn"></div><div class="plus">+</div><div class="conn"></div></div>
+
+      <div class="card action">
+        <div class="a-head"><span>&#128203; 2. Copy property</span><span class="actions">Actions &#9662;</span></div>
+        <div class="a-body">Copy <b>Contract Status</b> &#8594; primary contact record</div>
+      </div>
+      <div class="conn-wrap"><div class="conn"></div><div class="plus">+</div><div class="conn"></div></div>
+
+      <div class="card action">
+        <div class="a-head"><span>&#128203; 3. Copy property</span><span class="actions">Actions &#9662;</span></div>
+        <div class="a-body">Copy <b>Contract Terms</b> &#8594; primary company record</div>
+      </div>
+      <div class="conn-wrap"><div class="conn"></div><div class="plus">+</div><div class="conn"></div></div>
+
+      <div class="card action highlight">
+        <div class="a-head"><span>&#128260; 4. Propagate to all contacts</span><span class="actions">Actions &#9662;</span></div>
+        <div class="a-body">
+          <span class="tag">THE FIX</span><br>
+          Copy company lifecycle stage + status to <b>every associated contact</b>
+          <div class="sub">Prevents orphaned SQLs when one contact is disqualified but associates stay stale</div>
+        </div>
+      </div>
+      <div class="conn-wrap"><div class="conn"></div><div class="plus">+</div><div class="conn"></div></div>
+
+      <div class="card action">
+        <div class="a-head"><span>&#128226; 5. Notify teams</span><span class="actions">Actions &#9662;</span></div>
+        <div class="a-body">Notify Sales, CS, and Finance of status change</div>
+      </div>
+
+      <div class="endconn"></div><div class="end">END</div>
+
+    </div>
+    <p class="footnote">Built by Ethan Touch — company-record lifecycle propagation fix. Sales pipeline showed inflated SQL counts because disqualifying one contact left associated contacts stale. Rebuilt so the company record drives lifecycle/status and auto-propagates to all associated contacts &mdash; SQL counts matched reality and reps stopped re-pitching declined companies.</p>
+  </div>
+</body>
+</html>

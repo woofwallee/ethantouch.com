@@ -1,22 +1,32 @@
 ---
 layout: journal-post
-title: "Not Yet Is Not No"
+title: "Not Yet Isn't No"
 date: 2026-05-16 09:00:00 -0500
-description: "On the silence between job applications, the moment discouragement hardens into a verdict, and why staying in it isn't the same as forced positivity."
+description: "Dealing with the silence between job applications, the moment discouragement starts feeling like a final answer, and why keeping going isn't about forced positivity."
 ---
 
-You know what the silence sounds like by now. Not the silence right after you hit send. The other one. The one that shows up around day four or five, when the recruiter who seemed genuinely interested just... stops responding. You've learned to read it. You didn't want to, but here you are.
+By now, you know what the silence sounds like. I don't mean the quiet right after you hit send. I mean the silence that hits around day four or five, when a recruiter who seemed excited suddenly stops responding.
 
-Rejections aren't the hard part. A rejection closes a loop. The hard part is the weeks where nothing moves. You've done everything right and the outcome just hasn't shown up yet. Longer that goes, the easier it gets to start rewriting the story of why.
+You've learned to read into it. You didn't want to learn that skill, but here you are.
 
-There's a version of the question that sounds humble but isn't: "Maybe I'm aiming at the wrong thing." That one's seductive because it gives you something to act on. You revise the resume again. Start looking at roles you'd ruled out, because at least that's movement. Most of the time it's just the wait dressed up as a pivot.
+Rejections aren't even the hardest part. At least a rejection gives you an answer. The real struggle is the weeks when absolutely nothing happens. You did everything right, but you still have nothing to show for it.
 
-Then something shifts. Starts with honest discouragement (fair, this is hard) and slowly turns into something else: the belief that the wait is actually a verdict. That the silence means something about what you deserve. Once that gets in, the behavior changes. You send fewer applications. Quietly start making peace with less, before anybody told you that was necessary.
+The longer that drag lasts, the easier it is to start making up stories about why. You might start asking yourself a question that sounds humble but really isn't: "Maybe I'm aiming too high." That thought is dangerous because it gives you something to do.
 
-Doesn't feel like giving up when it's happening. Feels like being realistic. It passes as wisdom, which is why it's hard to argue with.
+You rebuild your resume again. You look at jobs you already ruled out, just to feel some momentum. Usually, you're just trying to look busy while you wait.
 
-Here's what I kept coming back to when I was in it: the right thing is still coming. Not as a thing you're supposed to say. As an actual working belief. When it shows up, it won't be the version you settled for because you got tired. It'll fit in a way the others didn't.
+Then something shifts. It starts as normal disappointment - which makes sense, because this is hard. But slowly, it turns into something worse. You start believing the wait is a final verdict, as if the silence proves you aren't good enough.
 
-Nobody has a date for that. What I know is that discouragement left alone tends to harden. "Not yet" becomes "no," and nobody announces when that shift happens. You just notice one day that you've stopped believing the inbox is capable of changing anymore.
+Once you buy into that, your behavior changes. You send out fewer applications. You start settling for less before anyone even asked you to.
 
-Job right now is to stay in it. Not with manufactured positivity. This is where faith does something: not as a feeling, not as a guarantee. Just as the reason to act when you don't know the outcome. Enough to send the next one.
+It doesn't feel like giving up while you're doing it. It just feels like you're being realistic. It sounds like wisdom, which makes it incredibly hard to fight.
+
+When I was going through this, I kept reminding myself of one thing. The right job is still out there. I don't mean that as some empty phrase. You have to really believe it.
+
+When it finally shows up, it won't be some compromise you made because you got tired. It will fit.
+
+Nobody can tell you when that will happen. But I know that if you let disappointment sit, it starts to harden. "Not yet" slowly becomes "no," and no one warns you when that shift happens.
+
+You just wake up one day and realize you've stopped expecting any good news. Your only job right now is to stay in the game. You don't need forced positivity.
+
+This is where belief comes in. It isn't a warm feeling or a guarantee. It's just the drive to act when you don't know the outcome - enough to send that next application.

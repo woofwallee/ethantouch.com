@@ -11,7 +11,6 @@ lang: en
 timezone: America/Chicago
 
 # Build settings
-future: true   # build posts dated ahead of the build clock (Saturday-scheduled cadence)
 markdown: kramdown
 kramdown:
   input: GFM

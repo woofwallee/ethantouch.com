@@ -1,7 +1,7 @@
 ---
 layout: journal-post
 title: "Never Trade Dignity for a Cheap Laugh"
-date: 2026-06-27 09:00:00 -0500
+date: 2026-06-20 12:00:00 -0500
 description: "On a comedian's question, a public joke that deflated a newly engaged woman, and why you never trade your partner's dignity for a quick laugh."
 ---
 

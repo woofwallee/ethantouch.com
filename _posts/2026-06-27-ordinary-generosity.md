@@ -1,7 +1,7 @@
 ---
 layout: journal-post
 title: "Ordinary Generosity"
-date: 2026-06-27 09:00:00 -0500
+date: 2026-06-27 08:00:00 -0500
 description: "On European World Cup tourists landing in middle America, the strangers who drove them to games and fed them for free, and why everyday kindness is the real thing."
 ---
 

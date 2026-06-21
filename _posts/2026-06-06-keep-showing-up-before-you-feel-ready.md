@@ -7,58 +7,50 @@ description: "On the part of job searching nobody dresses up: sitting with rejec
 
 Job searching can mess with your head.
 
-You revise the resume. Adjust the cover letter. Fill out the same information you already uploaded. Then prepare for the interview like this one might finally be the one.
+You revise the resume and adjust the cover letter. You fill out the same information you already uploaded. Then you prepare for the interview like this one might finally be the one.
 
-Then you get rejected.
+Then you get rejected. Or ghosted. Or told they went with another candidate.
 
-Or ghosted.
+It does not matter that you know it happens to everybody. It still feels personal. You replay your answers and wonder if you said too much or not enough.
 
-Or told they went with another candidate.
+That part is hard. Not every rejection has to be dressed up as a lesson. Sometimes rejection just feels like rejection.
 
-Doesn't matter that you know it happens to everybody. Still feels personal. You replay your answers and wonder if you said too much, not enough, or somehow managed to do both in the same sentence.
+You sit with it and get quiet. You question yourself a little, then act like you are fine. What else are you supposed to do.
 
-That part is hard.
+But it is not wasted. Every application is practice. Every interview is a rep. Even the awkward ones. Especially the awkward ones.
 
-Not every rejection has to be dressed up as a lesson. Sometimes rejection just feels like rejection.
+Most people are not naturally great at interviews. Plenty of folks are introverts. You can do the work and think deeply. You can solve hard problems and care about getting things right.
 
-You sit with it. Get quiet. Question yourself a little, then act like you're fine, because what else are you supposed to do.
+Then somebody says, "Tell me about yourself." Suddenly your brain decides to leave the room.
 
-But it's not wasted.
+You get nervous. You ramble. You forget the example you meant to use. You think of the perfect answer on the drive home.
 
-Every application's practice. Every interview's a rep. Even the awkward ones. Especially the awkward ones.
+That does not mean the interview was a failure. It means you learned something. You see which questions throw you off and where your story gets messy.
 
-Most people aren't naturally great at interviews. Plenty of folks are introverts. You can do the work. Think deeply. Solve hard problems. Care about getting things right.
+You learn which examples actually land out loud. You see where you have been underselling yourself.
 
-Then somebody says, "Tell me about yourself," and suddenly your brain decides to leave the room.
-
-You get nervous. You ramble. You forget the example you meant to use. Think of the perfect answer later, when it's completely useless.
-
-Naturally.
-
-That doesn't mean the interview was a failure. It means you learned something. Which questions throw you off. Where your story gets messy. Which examples actually land out loud. Where you've been underselling yourself.
-
-That's how confidence actually gets built. Not by waiting until you feel ready. Not by avoiding the uncomfortable part. Not by needing every interview to go perfectly.
+That is how confidence actually gets built. It does not come by waiting until you feel ready. It does not come by avoiding the uncomfortable part. It does not require every interview to go perfectly.
 
 Confidence comes from showing up nervous, doing it anyway, and realizing afterward you survived.
 
-That may not sound glamorous. It's still real.
+That may not sound glamorous. It is still real.
 
-Life doesn't hand you confidence. You build it by doing the thing before you feel ready. You build it when your voice shakes a little and you keep talking. When you get rejected and apply again anyway. When you stop treating every "no" like proof that you're not enough.
+Life does not hand you confidence. You build it by doing the thing before you feel ready.
 
-So don't stop applying because a few doors didn't open.
+You build it when your voice shakes a little and you keep talking. You build it when you get rejected and apply again anyway. You build it when you stop treating every "no" like proof that you are not enough.
 
-Sometimes it's timing. Sometimes it's fit. Sometimes it's budget. Sometimes they already had somebody in mind and made everybody else audition for no good reason.
+So do not stop applying because a few doors did not open.
 
-Very corporate. Very annoying.
+Sometimes it is timing. Sometimes it is fit. Sometimes it is budget.
 
-But the rep is still yours.
+Sometimes they already had somebody in mind. They made everybody else audition for no good reason.
 
-You showed up. Answered under pressure. Saw what needs work. Get to adjust before the next one.
+It is very corporate and very annoying. But the rep is still yours.
 
-That matters.
+You showed up and answered under pressure. You saw what needs work. You get to adjust before the next one.
 
-Every application sharpens your focus. Every interview makes your story clearer. [Every rejection that doesn't stop you](/journal/not-yet-is-not-no/) builds endurance.
+That matters. Every application sharpens your focus. Every interview makes your story clearer. Every rejection that does not stop you builds endurance.
 
-The goal isn't to be perfect. The goal is to keep getting better.
+The goal is not to be perfect. The goal is to keep getting better.
 
 Confidence comes from showing up before you feel ready.
